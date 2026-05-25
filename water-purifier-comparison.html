@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 台櫥下淨水器完整比較｜該不該換掉現有的千山 PF-207？</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1116;
+    --ink-2: #2A2F38;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --line-soft: #F0EFEB;
+    --bg: #FAFAF7;
+    --paper: #FFFFFF;
+
+    --you:    #14B8A6;  --you-soft:    #CCFBF1;  --you-ink:    #0F766E;
+    --amway:  #0EA5E9;  --amway-soft:  #E0F2FE;  --amway-ink:  #0369A1;
+    --coway:  #8B5CF6;  --coway-soft:  #EDE9FE;  --coway-ink:  #6D28D9;
+    --m3:     #DC2626;  --m3-soft:     #FEE2E2;  --m3-ink:     #991B1B;
+
+    --win:    #059669;
+    --warn:   #D97706;
+    --danger: #DC2626;
+
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 22px;
+
+    --shadow-1: 0 1px 2px rgba(15,17,22,.04), 0 2px 8px rgba(15,17,22,.04);
+    --shadow-2: 0 12px 32px -12px rgba(15,17,22,.18);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 56px 28px 96px; }
+
+  /* HEADER */
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 4.2vw, 42px);
+    line-height: 1.2; letter-spacing: -0.01em;
+    margin: 0 0 14px;
+  }
+  .lede {
+    font-size: 17px; color: var(--ink-2); max-width: 780px; margin: 0 0 12px;
+  }
+
+  /* KEY INSIGHT BANNER */
+  .insight-banner {
+    background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+    color: white;
+    padding: 24px 28px;
+    border-radius: var(--r-lg);
+    margin: 32px 0 48px;
+    display: flex; align-items: center; gap: 20px;
+    box-shadow: 0 12px 24px -10px rgba(20, 184, 166, .35);
+  }
+  .insight-banner .icon {
+    font-size: 36px; line-height: 1; flex-shrink: 0;
+  }
+  .insight-banner .text { flex: 1; }
+  .insight-banner h3 {
+    margin: 0 0 6px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px; font-weight: 800;
+    color: white;
+  }
+  .insight-banner p {
+    margin: 0; font-size: 14.5px;
+    color: rgba(255,255,255,.92);
+    line-height: 1.55;
+  }
+  .insight-banner strong {
+    color: #FEF3C7;
+    font-weight: 700;
+  }
+
+  /* PRODUCT CARDS */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 56px;
+  }
+  .product-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 22px 20px 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    transition: transform .2s ease;
+  }
+  .product-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); }
+  .product-card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+  }
+  .product-card.you::before    { background: var(--you); height: 6px; }
+  .product-card.amway::before  { background: var(--amway); }
+  .product-card.coway::before  { background: var(--coway); }
+  .product-card.m3::before     { background: var(--m3); }
+
+  .product-card.you {
+    border: 2px solid var(--you);
+    box-shadow: 0 8px 24px -8px rgba(20, 184, 166, .25);
+  }
+
+  .you-tag {
+    position: absolute; top: 14px; right: -28px;
+    background: var(--you);
+    color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    padding: 4px 32px; transform: rotate(45deg);
+    box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  }
+
+  .brand-tag {
+    display: inline-flex; align-items: center;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 4px 9px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .you    .brand-tag { background: var(--you-soft);    color: var(--you-ink); }
+  .amway  .brand-tag { background: var(--amway-soft);  color: var(--amway-ink); }
+  .coway  .brand-tag { background: var(--coway-soft);  color: var(--coway-ink); }
+  .m3     .brand-tag { background: var(--m3-soft);     color: var(--m3-ink); }
+
+  .product-card h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 800;
+    font-size: 19px; line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  .product-card .model {
+    font-size: 12px; color: var(--muted); margin-bottom: 14px;
+  }
+  .price { margin: 10px 0 14px; }
+  .price .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; font-weight: 700; letter-spacing: -0.02em; display: block;
+  }
+  .price .unit { font-size: 11px; color: var(--muted); }
+
+  .spec-mini { list-style: none; padding: 0; margin: 0; }
+  .spec-mini li {
+    display: flex; justify-content: space-between; gap: 8px;
+    padding: 6px 0; border-bottom: 1px dashed var(--line-soft);
+    font-size: 12.5px;
+  }
+  .spec-mini li:last-child { border-bottom: none; }
+  .spec-mini .k { color: var(--muted); }
+  .spec-mini .v { font-weight: 600; color: var(--ink); text-align: right; }
+
+  .badge-row { display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0 4px; }
+  .badge {
+    display: inline-block;
+    font-size: 10px; padding: 2px 7px; border-radius: 4px;
+    font-weight: 600; letter-spacing: 0.02em;
+    background: #F3F4F6; color: var(--ink-2);
+  }
+  .badge.gold { background: #FEF3C7; color: #92400E; }
+  .badge.green { background: #D1FAE5; color: #065F46; }
+  .badge.teal { background: var(--you-soft); color: var(--you-ink); }
+
+  /* SECTIONS */
+  section { margin: 56px 0; }
+  h2.section-title {
+    font-family: 'Noto Serif TC', serif; font-weight: 800;
+    font-size: 26px; margin: 0 0 8px; letter-spacing: -0.005em;
+  }
+  .section-sub { color: var(--muted); font-size: 14.5px; margin: 0 0 28px; }
+
+  /* TECH EXPLAINER */
+  .tech-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px; margin-top: 8px;
+  }
+  .tech-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--r-md); padding: 20px;
+  }
+  .tech-card h4 {
+    margin: 0 0 8px; font-size: 15px;
+    font-family: 'Noto Serif TC', serif; font-weight: 700;
+  }
+  .tech-card p { margin: 0 0 8px; font-size: 13.5px; color: var(--ink-2); }
+  .tech-card .pro, .tech-card .con {
+    display: block; font-size: 12.5px; padding: 4px 0;
+  }
+  .tech-card .pro::before { content: "✓ "; color: var(--win); font-weight: 700; }
+  .tech-card .con::before { content: "✗ "; color: var(--danger); font-weight: 700; }
+
+  /* BIG COMPARISON TABLE */
+  .compare-table {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+  }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1.3fr repeat(4, 1.2fr);
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row > div {
+    padding: 14px 14px;
+    font-size: 13.5px;
+    border-right: 1px solid var(--line);
+  }
+  .compare-row > div:last-child { border-right: none; }
+  .compare-row .label {
+    background: #FAFAF7;
+    font-weight: 600;
+    color: var(--ink-2);
+    font-size: 13px;
+  }
+  .compare-row.head {
+    background: var(--ink);
+    color: white;
+    position: sticky; top: 0; z-index: 2;
+  }
+  .compare-row.head > div {
+    font-weight: 700; font-size: 12px; letter-spacing: 0.04em;
+    text-align: center; border-right-color: rgba(255,255,255,.15);
+  }
+  .compare-row.head .label {
+    background: var(--ink); color: rgba(255,255,255,.7); text-align: left;
+  }
+  .compare-row.head .brand-mini {
+    display: block; font-size: 10px; letter-spacing: 0.12em;
+    color: rgba(255,255,255,.55); margin-top: 2px; font-weight: 500;
+  }
+  .compare-row.head .you-col {
+    background: var(--you); color: white;
+  }
+  .compare-row.head .you-col .brand-mini { color: rgba(255,255,255,.85); }
+
+  .check, .x, .tilde {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 16px; height: 16px; border-radius: 50%;
+    font-size: 10px; font-weight: 700; margin-right: 4px;
+    color: white;
+  }
+  .check { background: var(--win); }
+  .x     { background: var(--danger); }
+  .tilde { background: var(--warn); }
+
+  .cell-best { background: #ECFDF5; position: relative; }
+  .cell-best::after {
+    content: "★"; position: absolute; top: 4px; right: 4px;
+    font-size: 10px; color: var(--win);
+  }
+  .you-col-cell {
+    background: rgba(20, 184, 166, .04);
+  }
+
+  /* COST CARD */
+  .cost-card {
+    background: linear-gradient(135deg, #0E1116 0%, #1F2937 100%);
+    color: white; border-radius: var(--r-lg);
+    padding: 32px;
+  }
+  .cost-card h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px; margin: 0 0 18px; color: white;
+  }
+  .cost-grid {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,.12);
+  }
+  .cost-grid > div {
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-right: 1px solid rgba(255,255,255,.04);
+    font-size: 13.5px; color: rgba(255,255,255,.8);
+  }
+  .cost-grid > div:last-child { border-right: none; }
+  .cost-grid .label-row { color: rgba(255,255,255,.55); }
+  .cost-grid .v {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600; color: white; text-align: right;
+  }
+  .cost-grid .total {
+    background: rgba(255,255,255,.04); font-size: 14px;
+  }
+  .cost-grid .total .v {
+    font-size: 17px; color: #5EEAD4;
+  }
+  .cost-grid .winner-cost .v {
+    color: #6EE7B7; position: relative;
+  }
+  .cost-grid .winner-cost .v::after {
+    content: "👑"; position: absolute; top: -16px; right: 4px; font-size: 14px;
+  }
+  .cost-grid .you-col-h {
+    background: rgba(20, 184, 166, .15);
+    color: rgba(255,255,255,.95);
+  }
+
+  /* SWITCH ANALYSIS */
+  .switch-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px; margin-top: 8px;
+  }
+  .switch-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--r-md); padding: 20px;
+    position: relative;
+  }
+  .switch-card.keep {
+    border: 2px solid var(--you);
+    background: linear-gradient(180deg, #F0FDFA 0%, #FFFFFF 60%);
+  }
+  .switch-card .ribbon {
+    position: absolute; top: -10px; left: 16px;
+    background: var(--you); color: white;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    padding: 4px 10px; border-radius: 4px;
+  }
+  .switch-card h4 {
+    margin: 8px 0 4px; font-size: 16px;
+    font-family: 'Noto Serif TC', serif; font-weight: 700;
+  }
+  .switch-card .cost-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; font-weight: 700;
+    margin: 8px 0;
+    color: var(--ink);
+  }
+  .switch-card .delta {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 600;
+    padding: 3px 10px; border-radius: 6px;
+    background: #FEE2E2; color: #991B1B;
+    margin-bottom: 10px;
+  }
+  .switch-card.keep .delta {
+    background: #D1FAE5; color: #065F46;
+  }
+  .switch-card .delta.zero {
+    background: #DBEAFE; color: #1E40AF;
+  }
+  .switch-card .reasoning {
+    font-size: 13px; color: var(--ink-2); line-height: 1.55;
+  }
+  .switch-card .reasoning strong { color: var(--ink); }
+
+  /* DECISION CARDS */
+  .decision {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 14px;
+  }
+  .decision-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--r-md); padding: 20px;
+  }
+  .decision-card .need {
+    font-size: 14px; color: var(--ink-2);
+    margin-bottom: 12px; line-height: 1.55;
+  }
+  .decision-card .pick {
+    display: inline-block;
+    padding: 6px 12px; border-radius: 999px;
+    font-size: 12.5px; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .pick.you    { background: var(--you-soft);    color: var(--you-ink); }
+  .pick.amway  { background: var(--amway-soft);  color: var(--amway-ink); }
+  .pick.coway  { background: var(--coway-soft);  color: var(--coway-ink); }
+  .pick.m3     { background: var(--m3-soft);     color: var(--m3-ink); }
+  .decision-card .why {
+    font-size: 12.5px; color: var(--muted); line-height: 1.55;
+  }
+
+  /* CAVEAT */
+  .caveats {
+    background: #FFFBEB; border: 1px solid #FCD34D;
+    border-radius: var(--r-md); padding: 22px 24px;
+  }
+  .caveats h3 {
+    margin: 0 0 12px; font-size: 15px; color: #92400E;
+  }
+  .caveats ol { margin: 0; padding-left: 18px; color: #78350F; font-size: 14px; line-height: 1.75; }
+  .caveats li { margin-bottom: 6px; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted); line-height: 1.7;
+  }
+  footer strong { color: var(--ink-2); }
+
+  /* RESPONSIVE */
+  @media (max-width: 920px) {
+    .products { grid-template-columns: repeat(2, 1fr); }
+    .compare-row { grid-template-columns: 1fr; }
+    .compare-row > div { border-right: none !important; border-bottom: 1px solid var(--line); }
+    .compare-row > div:last-child { border-bottom: none; }
+    .compare-row .label {
+      background: #F3F4F6;
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 10px 14px;
+    }
+    .compare-row.head { display: none; }
+    .cost-grid { grid-template-columns: 1.5fr 1fr 1fr; font-size: 12px; }
+    .cost-grid > div:nth-child(5n+1) { grid-column: 1 / -1; background: rgba(255,255,255,.06); }
+    .insight-banner { flex-direction: column; text-align: center; gap: 12px; }
+  }
+  @media (max-width: 540px) {
+    .container { padding: 32px 16px 64px; }
+    .products { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: white; }
+    .container { padding: 20px; max-width: 100%; }
+    .product-card, .compare-table, .switch-card, .decision-card, .tech-card { box-shadow: none; break-inside: avoid; }
+    section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="eyebrow">櫥下淨水器深度比較 · 2026</div>
+    <h1>該不該換掉你現有的千山 PF-207？<br>4 機完整對照分析</h1>
+    <p class="lede">把現有的 PF-207、Amway eSpring Pro、Coway P-150N 單機、3M S301 放在同一個天秤上，看你 2023 年買的這台到底還夠不夠用。</p>
+  </header>
+
+  <!-- KEY INSIGHT BANNER -->
+  <div class="insight-banner">
+    <div class="icon">💡</div>
+    <div class="text">
+      <h3>核心結論：你的 PF-207 其實是隱藏 CP 之王</h3>
+      <p>當年 $5,790 入手 + 每年 $2,790 換濾芯 = <strong>5 年總成本只要 NT$19,740</strong>，是四台機型最低。除非有「殺菌、軟水、過濾藥物殘留 / PFOA」等明確需求，否則繼續用最划算。</p>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARDS -->
+  <div class="products">
+    <article class="product-card you">
+      <div class="you-tag">YOUR MACHINE</div>
+      <span class="brand-tag">CHANSON · 台灣</span>
+      <h2>千山 PF-207</h2>
+      <div class="model">全效能淨水器（單管式）· 2023 入手</div>
+      <div class="price"><span class="num">NT$5,790</span><span class="unit">2023 購入價</span></div>
+      <div class="badge-row">
+        <span class="badge teal">你現在的機種</span>
+        <span class="badge green">SGS 生飲</span>
+        <span class="badge">濾芯 NSF</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">過濾</span><span class="v">P7000 複合濾芯</span></li>
+        <li><span class="k">流量</span><span class="v">大流量（未公開）</span></li>
+        <li><span class="k">年濾芯費</span><span class="v">NT$2,790</span></li>
+        <li><span class="k">總濾水量</span><span class="v">8,000 L / 年</span></li>
+        <li><span class="k">保固</span><span class="v">1 年</span></li>
+        <li><span class="k">需要電源</span><span class="v">否</span></li>
+      </ul>
+    </article>
+
+    <article class="product-card amway">
+      <span class="brand-tag">AMWAY · 美國</span>
+      <h2>eSpring Pro</h2>
+      <div class="model">益之源淨水器 Pro · 鵝頸組</div>
+      <div class="price"><span class="num">NT$36,800</span><span class="unit">含到府安裝</span></div>
+      <div class="badge-row">
+        <span class="badge gold">NSF 42/53/55/401 全機</span>
+        <span class="badge green">UV-C LED 殺菌</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">過濾</span><span class="v">活性碳 + UV-C</span></li>
+        <li><span class="k">最小粒徑</span><span class="v">0.2 μm</span></li>
+        <li><span class="k">年濾芯費</span><span class="v">NT$4,860</span></li>
+        <li><span class="k">總濾水量</span><span class="v">5,000 L/年</span></li>
+        <li><span class="k">保固</span><span class="v">5 年</span></li>
+        <li><span class="k">需要電源</span><span class="v">是（9W 待機）</span></li>
+      </ul>
+    </article>
+
+    <article class="product-card coway">
+      <span class="brand-tag">COWAY · 韓國</span>
+      <h2>P-150N（單機）</h2>
+      <div class="model">奈米超淨化櫥下淨水器</div>
+      <div class="price"><span class="num">NT$9,900</span><span class="unit">原價 15,900</span></div>
+      <div class="badge-row">
+        <span class="badge gold">全濾芯 NSF</span>
+        <span class="badge green">SGS 生飲</span>
+        <span class="badge">免電</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">過濾</span><span class="v">5 道奈米抗菌</span></li>
+        <li><span class="k">流量</span><span class="v">1.89 LPM</span></li>
+        <li><span class="k">年濾芯費</span><span class="v">≈ NT$3,600</span></li>
+        <li><span class="k">總濾水量</span><span class="v">1,920 L</span></li>
+        <li><span class="k">保固</span><span class="v">1 年</span></li>
+        <li><span class="k">需要電源</span><span class="v">否</span></li>
+      </ul>
+    </article>
+
+    <article class="product-card m3">
+      <span class="brand-tag">3M · 美國</span>
+      <h2>S301</h2>
+      <div class="model">櫥下型三道式淨水器（鵝頸款）</div>
+      <div class="price"><span class="num">NT$9,999</span><span class="unit">含安裝、一年份濾芯</span></div>
+      <div class="badge-row">
+        <span class="badge gold">活性碳 NSF 42/53</span>
+        <span class="badge green">含軟水樹脂</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">過濾</span><span class="v">3 道（PP+樹脂+活性碳）</span></li>
+        <li><span class="k">最小粒徑</span><span class="v">0.5 μm</span></li>
+        <li><span class="k">流量</span><span class="v">1.8 LPM</span></li>
+        <li><span class="k">年濾芯費</span><span class="v">≈ NT$8,690</span></li>
+        <li><span class="k">總濾水量</span><span class="v">7,571 L</span></li>
+        <li><span class="k">保固</span><span class="v">1 年</span></li>
+      </ul>
+    </article>
+  </div>
+
+  <!-- TECH EXPLAINER -->
+  <section>
+    <h2 class="section-title">🧪 四種技術路線的本質差異</h2>
+    <p class="section-sub">在看規格表前，先搞懂這四台機器在做的「根本不是同一件事」。</p>
+
+    <div class="tech-grid">
+      <div class="tech-card" style="border-left: 4px solid var(--you);">
+        <h4>💧 複合濾芯（千山 PF-207）</h4>
+        <p>單支 P7000 整合中空絲膜 + 活性碳，物理攔截 + 化學吸附二合一。</p>
+        <span class="pro">耗材費最低（一年只換一支 $2,790）</span>
+        <span class="pro">免插電、不排廢水、SGS 生飲</span>
+        <span class="pro">過濾量大（8,000 L/年）</span>
+        <span class="con">無 UV 殺菌、無軟水</span>
+        <span class="con">NSF 細項未公開（哪一號標準？）</span>
+      </div>
+
+      <div class="tech-card" style="border-left: 4px solid var(--amway);">
+        <h4>🦠 活性碳 + UV-C LED（eSpring Pro）</h4>
+        <p>用高密度活性碳吸附化學汙染，UV-C LED 紫外光當場殺菌、滅活病毒。</p>
+        <span class="pro">能殺活的細菌病毒（其他三台都做不到）</span>
+        <span class="pro">可濾 PFOA/PFOS、藥物、農藥等新興汙染物</span>
+        <span class="pro">UV-C LED 壽命 10 年免換</span>
+        <span class="con">最貴；需要電；UV 只殺菌不軟水</span>
+      </div>
+
+      <div class="tech-card" style="border-left: 4px solid var(--coway);">
+        <h4>🌐 奈米過濾（Coway P-150N）</h4>
+        <p>用奈米孔徑抗菌濾材，物理性攔截細菌病毒和懸浮微粒。</p>
+        <span class="pro">免插電、無耗電</span>
+        <span class="pro">5 道過濾，含奈米抗菌</span>
+        <span class="pro">流量最大（1.89 LPM）</span>
+        <span class="con">總濾水量只 1,920 L（最少）</span>
+        <span class="con">「全濾芯 NSF」未說明標準</span>
+      </div>
+
+      <div class="tech-card" style="border-left: 4px solid var(--m3);">
+        <h4>🧂 多道式 + 軟水（3M S301）</h4>
+        <p>PP 沉澱 + 樹脂軟水（去水垢）+ 活性碳，分工明確。</p>
+        <span class="pro">唯一處理「水垢」問題（樹脂軟水）</span>
+        <span class="pro">活性碳濾芯效期長（7,571 L / 12 個月）</span>
+        <span class="pro">F004 活性碳通過 NSF 42/53</span>
+        <span class="con">PP 與樹脂濾芯換得勤、年成本最高</span>
+        <span class="con">不殺菌（無 UV）</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG COMPARISON TABLE -->
+  <section>
+    <h2 class="section-title">📊 完整規格對照</h2>
+    <p class="section-sub">11 項關鍵維度，逐項對照。★ 表示該項表現最佳。</p>
+
+    <div class="compare-table">
+      <div class="compare-row head">
+        <div class="label">比較項目</div>
+        <div class="you-col">千山 PF-207<span class="brand-mini">你的機種</span></div>
+        <div>eSpring Pro<span class="brand-mini">AMWAY</span></div>
+        <div>P-150N<span class="brand-mini">COWAY</span></div>
+        <div>S301<span class="brand-mini">3M</span></div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">價格（機器）</div>
+        <div class="you-col-cell cell-best">NT$5,790</div>
+        <div>NT$36,800</div>
+        <div>NT$9,900</div>
+        <div>NT$9,999</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">過濾技術</div>
+        <div class="you-col-cell">P7000 複合濾芯</div>
+        <div class="cell-best">活性碳 + UV-C LED</div>
+        <div>5 道奈米抗菌</div>
+        <div>3 道（PP+樹脂+活性碳）</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">NSF 認證範圍</div>
+        <div class="you-col-cell"><span class="tilde">!</span>濾芯 NSF（標準未明確）</div>
+        <div class="cell-best"><span class="check">✓</span><strong>全機</strong> 42/53/55/401</div>
+        <div><span class="check">✓</span>全濾芯（標準未明確）</div>
+        <div><span class="tilde">!</span>僅活性碳 NSF 42/53</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">SGS 生飲標準</div>
+        <div class="you-col-cell"><span class="check">✓</span>有檢驗報告</div>
+        <div><span class="check">✓</span>更嚴格 NSF</div>
+        <div><span class="check">✓</span>SGS 生飲</div>
+        <div><span class="check">✓</span>SGS 驗證</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">能濾除 PFOA/PFOS、藥物</div>
+        <div class="you-col-cell"><span class="x">×</span>未證實</div>
+        <div class="cell-best"><span class="check">✓</span>NSF 401 認證</div>
+        <div><span class="x">×</span>未證實</div>
+        <div><span class="x">×</span>未證實</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">殺菌能力</div>
+        <div class="you-col-cell"><span class="tilde">!</span>物理攔截胞囊</div>
+        <div class="cell-best"><span class="check">✓</span>UV-C LED 99.99%</div>
+        <div><span class="check">✓</span>奈米抗菌（物理）</div>
+        <div><span class="x">×</span>無殺菌功能</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">處理水垢（軟水）</div>
+        <div class="you-col-cell"><span class="x">×</span>需加購 PF-203</div>
+        <div><span class="x">×</span>無</div>
+        <div><span class="x">×</span>無</div>
+        <div class="cell-best"><span class="check">✓</span>樹脂軟水濾芯</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">流量（每分鐘）</div>
+        <div class="you-col-cell">大流量（未公開）</div>
+        <div>未公開</div>
+        <div class="cell-best">1.89 LPM</div>
+        <div>1.8 LPM</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">總濾水量（年）</div>
+        <div class="you-col-cell cell-best">8,000 L</div>
+        <div>5,000 L</div>
+        <div>1,920 L</div>
+        <div class="cell-best">7,571 L</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">需要電源</div>
+        <div class="you-col-cell cell-best"><span class="check">✓</span>免插電</div>
+        <div><span class="x">×</span>9 W 待機</div>
+        <div class="cell-best"><span class="check">✓</span>免插電</div>
+        <div class="cell-best"><span class="check">✓</span>免插電</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">保留礦物質</div>
+        <div class="you-col-cell"><span class="check">✓</span>保留鈣鎂</div>
+        <div><span class="check">✓</span>保留鈣鎂</div>
+        <div><span class="check">✓</span>保留</div>
+        <div><span class="check">✓</span>保留</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">保固</div>
+        <div class="you-col-cell">1 年（已過保固）</div>
+        <div class="cell-best">5 年</div>
+        <div>1 年</div>
+        <div>1 年</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">售後 / 額外保障</div>
+        <div class="you-col-cell">2,000 萬產品責任險</div>
+        <div class="cell-best">2 年滿意保證退貨 + 到府</div>
+        <div>到府安裝（基本）</div>
+        <div>到府安裝（含）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COST -->
+  <section>
+    <h2 class="section-title">💰 5 年總持有成本對照</h2>
+    <p class="section-sub">這才是真實的數字。機器只是入門票，濾芯才是長期支出。</p>
+
+    <div class="cost-card">
+      <h3>5 年濾水器持有成本拆解</h3>
+      <div class="cost-grid">
+        <div class="label-row"><strong>項目</strong></div>
+        <div class="v you-col-h">千山 PF-207</div>
+        <div class="v" style="color:rgba(255,255,255,.7);">eSpring Pro</div>
+        <div class="v" style="color:rgba(255,255,255,.7);">P-150N</div>
+        <div class="v" style="color:rgba(255,255,255,.7);">3M S301</div>
+
+        <div class="label-row">機器</div>
+        <div class="v you-col-h">$5,790</div>
+        <div class="v">$36,800</div>
+        <div class="v">$9,900</div>
+        <div class="v">$9,999</div>
+
+        <div class="label-row">年耗材費</div>
+        <div class="v you-col-h">$2,790</div>
+        <div class="v">$4,860</div>
+        <div class="v">$3,600</div>
+        <div class="v">$8,690</div>
+
+        <div class="label-row">5 年耗材總計</div>
+        <div class="v you-col-h">$13,950</div>
+        <div class="v">$24,300</div>
+        <div class="v">$18,000</div>
+        <div class="v">$43,450</div>
+
+        <div class="label-row total"><strong style="color:white;">5 年總持有成本</strong></div>
+        <div class="v total winner-cost">$19,740</div>
+        <div class="v total">$61,100</div>
+        <div class="v total">$27,900</div>
+        <div class="v total">$53,449</div>
+      </div>
+      <p style="margin-top:18px; font-size:13.5px; color:rgba(255,255,255,.75);">
+        🥇 <strong style="color:#6EE7B7;">最便宜：你的千山 PF-207</strong> — 比次低的 Coway P-150N 還省 NT$8,160，比最貴的 eSpring Pro 省下 <strong>NT$41,360</strong>。<br>
+        ⚠️ <strong>3M S301 看似機器便宜，但耗材費爆炸</strong>，5 年耗材費竟比機器貴 4 倍。<br>
+        💡 PF-207 8,000 L/年的長效濾芯設計是真正的隱藏優勢，比 Coway P-150N 多了 4 倍過濾量。
+      </p>
+    </div>
+  </section>
+
+  <!-- SWITCH ANALYSIS -->
+  <section>
+    <h2 class="section-title">🤔 該不該換機？「續用 PF-207」vs「升級」</h2>
+    <p class="section-sub">你已經買了 PF-207，所以真正的問題不是「該買哪台」，而是「接下來 5 年該怎麼做」。</p>
+
+    <div class="switch-grid">
+      <div class="switch-card keep">
+        <div class="ribbon">★ 推薦</div>
+        <h4>續用 PF-207</h4>
+        <div class="cost-line">NT$13,950</div>
+        <div class="delta zero">基準</div>
+        <p class="reasoning">
+          未來 5 年只要持續換 P7000 濾芯（一年 $2,790），<strong>5 年僅花 $13,950</strong>。機器已過保固但結構簡單，故障率低。如果現在喝得安心、沒水垢困擾、家中無嬰幼兒過敏體質，續用是最理性的選擇。
+        </p>
+      </div>
+
+      <div class="switch-card">
+        <h4>換 Coway P-150N 單機</h4>
+        <div class="cost-line">NT$27,900</div>
+        <div class="delta">多花 $13,950</div>
+        <p class="reasoning">
+          多花 $13,950 換來：<strong>多 1 道前處理、奈米抗菌濾芯、品牌信任度</strong>。但你會犧牲：PF-207 的長效濾芯（8,000 L → 1,920 L）。<br>
+          <strong>不建議換</strong>，因為實質提升有限。
+        </p>
+      </div>
+
+      <div class="switch-card">
+        <h4>換 3M S301</h4>
+        <div class="cost-line">NT$53,449</div>
+        <div class="delta">多花 $39,499</div>
+        <p class="reasoning">
+          多花 $39,499 換來：<strong>軟水樹脂處理水垢</strong>。<br>
+          只有住「中南部、井水、老舊水管」、泡茶煮飯出現明顯白垢時才划算。否則純粹增加耗材負擔。
+        </p>
+      </div>
+
+      <div class="switch-card">
+        <h4>換 Amway eSpring Pro</h4>
+        <div class="cost-line">NT$61,100</div>
+        <div class="delta">多花 $47,150</div>
+        <p class="reasoning">
+          多花 $47,150 換來：<strong>NSF 全機 4 項認證 + UV 殺菌 + 可濾 PFOA/PFOS、藥物殘留</strong>。<br>
+          值得換的情境：家有嬰幼兒/孕婦、過敏體質、住老舊水管社區、追求最頂規飲水品質。一般家庭 CP 值偏低。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DECISION MATRIX -->
+  <section>
+    <h2 class="section-title">🧭 換機觸發條件</h2>
+    <p class="section-sub">出現以下情況才該考慮升級，否則繼續用 PF-207。</p>
+
+    <div class="decision">
+      <div class="decision-card">
+        <div class="need">📍 家中泡茶、煮水後有<strong>明顯白色水垢</strong>，水壺底部結垢嚴重</div>
+        <div class="pick m3">→ 換 3M S301</div>
+        <div class="why">或加買千山 PF-203 軟水濾芯（$1,650）並聯使用 — 比換整台便宜。</div>
+      </div>
+
+      <div class="decision-card">
+        <div class="need">📍 家中有<strong>嬰幼兒、孕婦、嚴重過敏者</strong>，追求最高等級認證</div>
+        <div class="pick amway">→ 換 Amway eSpring Pro</div>
+        <div class="why">唯一通過 NSF 全機 42/53/55/401；UV 殺活病毒；可濾藥物殘留。其他三台都做不到。</div>
+      </div>
+
+      <div class="decision-card">
+        <div class="need">📍 PF-207 機體<strong>漏水、龍頭壞掉、出水變慢</strong>且清洗無效</div>
+        <div class="pick coway">→ 換 Coway P-150N</div>
+        <div class="why">同價位升級，多了奈米抗菌；雖然耗材壽命短一些，但品牌服務較完整。</div>
+      </div>
+
+      <div class="decision-card">
+        <div class="need">📍 純粹覺得「該換新機了，已經用 3 年」</div>
+        <div class="pick you">→ 不用換，繼續用</div>
+        <div class="why">PF-207 結構簡單、無馬達無加熱、無故障風險。<strong>濾水器主機沒有「老化」的概念</strong>，只有「濾芯該換」。</div>
+      </div>
+
+      <div class="decision-card">
+        <div class="need">📍 想要「殺菌」但不想花 $47k</div>
+        <div class="pick you">→ 加裝 UV 殺菌燈（市售 $2,000–5,000）</div>
+        <div class="why">在 PF-207 出水口加裝獨立 UV 殺菌模組，比換 eSpring Pro 省 9 成預算。</div>
+      </div>
+
+      <div class="decision-card">
+        <div class="need">📍 想要「RO 純水（無礦物質）」泡奶、煮咖啡</div>
+        <div class="pick coway">→ 直接買 RO 機（非比較內的任何一台）</div>
+        <div class="why">PF-207、eSpring、P-150N、S301 <strong>四台都不是 RO 機</strong>，都保留礦物質。RO 是另一個品類。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAVEATS -->
+  <section>
+    <h2 class="section-title">⚠️ 續用 PF-207 的注意事項</h2>
+    <p class="section-sub">既然決定續用，這些事情要做好。</p>
+
+    <div class="caveats">
+      <h3>PF-207 長期使用檢核清單</h3>
+      <ol>
+        <li><strong>濾芯一年一換不要省</strong>：P7000 標示 8,000 L 或 12 個月（先到者為準）。延遲更換會讓胞囊菌穿透。<a href="https://www.cswater.com.tw/product-pf207" target="_blank" style="color:#1E40AF;">官網單支 NT$2,790</a>。</li>
+        <li><strong>注意更換週期，不要相信「沒事」</strong>：PF-207 沒有電子提醒，需自己記錄。建議手機行事曆設年提醒。</li>
+        <li><strong>觀察出水量變化</strong>：若出水明顯變慢，代表濾芯堵塞，即使未滿 12 個月也該換。</li>
+        <li><strong>機器本身結構穩定</strong>：千山 PF 系列無電子件、無馬達，可用 5–10 年沒問題，重點是濾芯品質。</li>
+        <li><strong>水源出水口</strong>：定期清潔 304 不鏽鋼龍頭出水口，避免外部污染回流。</li>
+        <li><strong>水質有疑慮可送 SGS 自費檢測</strong>：約 NT$3,000 可驗 PM2.5、餘氯、重金屬等，比換機便宜。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>資料來源：</strong>千山淨水官網 cswater.com.tw（PF-207 規格、P7000 濾芯資訊）、Amway 官網與電商頁、Coway 台灣經銷頁、3M 官方商城與經銷商頁、科技狗 eSpring Pro 評測。</p>
+    <p><strong>備註：</strong>年耗材費為估算值，實際因水質、用量、地區水源差異而不同。PF-207 以 2023 年購入價 $5,790 計算，現官網促銷價 $6,290。3M S301 樹脂濾芯成本以市售品 $1,200/支、年用 4 支估算；Coway P-150N 前濾芯 $1,200/年、奈米抗菌濾芯 $2,400/年估算；eSpring Pro 為原廠濾芯 $4,860/年。價格擷取自 2026 年 5 月公開資訊。</p>
+    <p style="margin-top:14px;">最後更新：2026/05/25 · 整理：個人購買決策參考用</p>
+  </footer>
+
+</div>
+</body>
+</html>

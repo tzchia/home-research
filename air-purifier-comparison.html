@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POIEMA 新氣几 P50 vs Amway ATMOSPHERE SKY｜第三方報告完整對照</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1116;
+    --ink-2: #2A2F38;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --line-soft: #F0EFEB;
+    --bg: #FAFAF7;
+    --paper: #FFFFFF;
+
+    --poiema: #14B8A6;     /* teal */
+    --poiema-soft: #CCFBF1;
+    --poiema-ink: #0F766E;
+
+    --amway: #0369A1;      /* deep sky */
+    --amway-soft: #DBEAFE;
+    --amway-ink: #075985;
+
+    --win: #059669;        /* emerald */
+    --warn: #D97706;       /* amber */
+    --danger: #DC2626;     /* red */
+
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 22px;
+
+    --shadow-1: 0 1px 2px rgba(15,17,22,.04), 0 2px 8px rgba(15,17,22,.04);
+    --shadow-2: 0 12px 32px -12px rgba(15,17,22,.18);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 56px 28px 96px;
+  }
+
+  /* ─── HEADER ─────────────────────────────── */
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', 'Inter', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 4.5vw, 44px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .lede {
+    font-size: 17px;
+    color: var(--ink-2);
+    max-width: 720px;
+    margin: 0 0 36px;
+  }
+
+  /* ─── PRODUCT CARDS HERO ─────────────────── */
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 18px;
+    align-items: stretch;
+    margin: 40px 0 56px;
+  }
+  .vs-divider {
+    align-self: center;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--muted);
+    padding: 0 4px;
+  }
+  .product-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+  }
+  .product-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+  }
+  .product-card.poiema::before { background: var(--poiema); }
+  .product-card.amway::before  { background: var(--amway); }
+
+  .brand-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 5px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .poiema .brand-tag { background: var(--poiema-soft); color: var(--poiema-ink); }
+  .amway  .brand-tag { background: var(--amway-soft);  color: var(--amway-ink); }
+
+  .product-card h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  .product-card .model {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 10px 0 20px;
+  }
+  .price .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .price .unit { font-size: 13px; color: var(--muted); }
+
+  .spec-mini { list-style: none; padding: 0; margin: 0; }
+  .spec-mini li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line-soft);
+    font-size: 13.5px;
+  }
+  .spec-mini li:last-child { border-bottom: none; }
+  .spec-mini .k { color: var(--muted); }
+  .spec-mini .v { font-weight: 600; color: var(--ink); }
+
+  /* ─── SECTIONS ───────────────────────────── */
+  section { margin: 56px 0; }
+  h2.section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 800;
+    font-size: 26px;
+    margin: 0 0 8px;
+    letter-spacing: -0.005em;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 14.5px;
+    margin: 0 0 28px;
+  }
+
+  /* ─── SCOREBOARD ─────────────────────────── */
+  .scoreboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .score-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 18px 18px 16px;
+    position: relative;
+  }
+  .score-card .dim {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .score-card .winner {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .score-card .delta { font-size: 13px; color: var(--ink-2); }
+  .winner-poiema { color: var(--poiema-ink); }
+  .winner-amway  { color: var(--amway-ink); }
+  .winner-tie    { color: var(--muted); }
+
+  /* ─── BIG COMPARISON TABLE ───────────────── */
+  .compare-table {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+  }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.4fr 1.4fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row > div { padding: 16px 18px; font-size: 14.5px; }
+  .compare-row .label {
+    background: #FAFAF7;
+    font-weight: 600;
+    color: var(--ink-2);
+    border-right: 1px solid var(--line);
+  }
+  .compare-row .col-p { border-right: 1px solid var(--line); }
+  .compare-row.head {
+    background: var(--ink);
+    color: white;
+  }
+  .compare-row.head > div {
+    font-weight: 700;
+    padding: 14px 18px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .compare-row.head .label { background: var(--ink); border-right-color: rgba(255,255,255,.15); color: rgba(255,255,255,.7); }
+  .compare-row.head .col-p { border-right-color: rgba(255,255,255,.15); }
+
+  .compare-row .col-p strong, .compare-row .col-a strong {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .compare-row.win-p .col-p { background: #F0FDFA; }
+  .compare-row.win-a .col-a { background: #F0F9FF; }
+
+  .check, .x, .tilde {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 6px;
+    color: white;
+    flex-shrink: 0;
+  }
+  .check { background: var(--win); }
+  .x     { background: var(--danger); }
+  .tilde { background: var(--warn); }
+
+  /* ─── DECISION MATRIX ────────────────────── */
+  .decision {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .decision-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 22px;
+    position: relative;
+  }
+  .decision-card .need {
+    font-size: 14px;
+    color: var(--ink-2);
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+  .decision-card .pick {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .pick.poiema { background: var(--poiema-soft); color: var(--poiema-ink); }
+  .pick.amway  { background: var(--amway-soft);  color: var(--amway-ink); }
+  .pick.both   { background: #FEF3C7; color: #92400E; }
+  .decision-card .why {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ─── COST CALLOUT ───────────────────────── */
+  .cost-card {
+    background: linear-gradient(135deg, #0E1116 0%, #1F2937 100%);
+    color: white;
+    border-radius: var(--r-lg);
+    padding: 32px;
+    margin-top: 24px;
+  }
+  .cost-card h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    margin: 0 0 18px;
+    color: white;
+  }
+  .cost-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,.12);
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+  .cost-grid > div {
+    padding: 14px 0;
+    border-right: 1px solid rgba(255,255,255,.08);
+    font-size: 14px;
+    color: rgba(255,255,255,.75);
+  }
+  .cost-grid > div:last-child { border-right: none; }
+  .cost-grid .label { color: rgba(255,255,255,.55); padding-right: 16px; }
+  .cost-grid .v {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: white;
+    text-align: right;
+    padding-right: 18px;
+  }
+  .cost-grid .total .v {
+    font-size: 20px;
+    color: var(--poiema);
+  }
+  .cost-grid .total.amway .v {
+    color: #F87171;
+  }
+  .cost-foot {
+    margin-top: 16px;
+    font-size: 13.5px;
+    color: rgba(255,255,255,.7);
+  }
+  .cost-foot strong { color: var(--poiema); font-weight: 700; }
+
+  /* ─── CAVEAT BOX ─────────────────────────── */
+  .caveats {
+    background: #FFFBEB;
+    border: 1px solid #FCD34D;
+    border-radius: var(--r-md);
+    padding: 22px 24px;
+  }
+  .caveats h3 {
+    margin: 0 0 12px;
+    font-size: 15px;
+    color: #92400E;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .caveats ol {
+    margin: 0;
+    padding-left: 18px;
+    color: #78350F;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .caveats li { margin-bottom: 6px; }
+  .caveats li:last-child { margin-bottom: 0; }
+
+  /* ─── VERDICT ────────────────────────────── */
+  .verdict {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 32px;
+    text-align: center;
+    box-shadow: var(--shadow-2);
+  }
+  .verdict .stat {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0 24px;
+  }
+  .verdict .stat .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .verdict .poiema-num { color: var(--poiema-ink); }
+  .verdict .amway-num  { color: var(--amway-ink); }
+  .verdict .stat .lbl { font-size: 12px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ─── FOOTER ─────────────────────────────── */
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  footer strong { color: var(--ink-2); }
+
+  /* ─── RESPONSIVE ─────────────────────────── */
+  @media (max-width: 760px) {
+    .container { padding: 36px 18px 64px; }
+    .vs-grid { grid-template-columns: 1fr; }
+    .vs-divider { display: none; }
+    .compare-row { grid-template-columns: 1fr; }
+    .compare-row > div { border-right: none !important; border-bottom: 1px solid var(--line); }
+    .compare-row > div:last-child { border-bottom: none; }
+    .compare-row .label {
+      background: #F3F4F6;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 10px 18px;
+    }
+    .compare-row.head { display: none; }
+    .cost-grid { grid-template-columns: 1fr 1fr; font-size: 13px; }
+    .cost-grid > div { padding: 10px 8px; }
+    .verdict .stat { margin: 8px 12px; }
+  }
+
+  @media print {
+    body { background: white; }
+    .container { padding: 20px; max-width: 100%; }
+    .product-card, .compare-table, .verdict, .decision-card { box-shadow: none; break-inside: avoid; }
+    section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="eyebrow">第三方報告完整對照 · 2026</div>
+      <h1>零耗材 vs 醫療級認證<br>POIEMA 新氣几 P50 對戰 Amway ATMOSPHERE SKY</h1>
+      <p class="lede">兩種完全不同的技術路線：靜電集塵的「不換濾網」 vs HEPA 三重濾網的「國際認證齊全」。把廠商廣告丟一邊，只看第三方檢測機構的真實數據。</p>
+    </header>
+
+    <!-- VS HERO -->
+    <div class="vs-grid">
+      <article class="product-card poiema">
+        <span class="brand-tag">POIEMA · 新加坡</span>
+        <h2>新氣几 P50</h2>
+        <div class="model">TWKJ300FP50B · 第四代零耗材機種</div>
+        <div class="price">
+          <span class="num">NT$12,990</span>
+          <span class="unit">募資超早鳥 / 一般 NT$17,990</span>
+        </div>
+        <ul class="spec-mini">
+          <li><span class="k">CADR（自標）</span><span class="v">300 m³/h</span></li>
+          <li><span class="k">適用坪數</span><span class="v">15 坪</span></li>
+          <li><span class="k">噪音範圍</span><span class="v">21 – 66 dB</span></li>
+          <li><span class="k">重量</span><span class="v">8 kg</span></li>
+          <li><span class="k">保固</span><span class="v">1 年</span></li>
+        </ul>
+      </article>
+
+      <div class="vs-divider">VS</div>
+
+      <article class="product-card amway">
+        <span class="brand-tag">AMWAY · 美國</span>
+        <h2>ATMOSPHERE SKY</h2>
+        <div class="model">逸新空氣清淨機 · 全球第一空清品牌</div>
+        <div class="price">
+          <span class="num">NT$41,000</span>
+          <span class="unit">定價</span>
+        </div>
+        <ul class="spec-mini">
+          <li><span class="k">CADR（AHAM 認證）</span><span class="v">510 m³/h</span></li>
+          <li><span class="k">適用坪數</span><span class="v">13 坪</span></li>
+          <li><span class="k">噪音範圍</span><span class="v">26 – 53 dB</span></li>
+          <li><span class="k">重量</span><span class="v">12.6 kg</span></li>
+          <li><span class="k">保固</span><span class="v">5 年</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- SCOREBOARD -->
+    <section>
+      <h2 class="section-title">📊 各維度勝負一覽</h2>
+      <p class="section-sub">10 個關鍵維度的對戰結果，把「廣告話術」剝離後的純粹比較。</p>
+
+      <div class="scoreboard">
+        <div class="score-card">
+          <div class="dim">CADR 第三方驗證</div>
+          <div class="winner winner-amway">Amway SKY</div>
+          <div class="delta">AHAM 認證 vs 廠商自標</div>
+        </div>
+        <div class="score-card">
+          <div class="dim">過敏原認證</div>
+          <div class="winner winner-amway">Amway SKY</div>
+          <div class="delta">Allergy UK + ECARF vs 無</div>
+        </div>
+        <div class="score-card">
+          <div class="dim">能效認證</div>
+          <div class="winner winner-amway">Amway SKY</div>
+          <div class="delta">台灣一級 + EPA Energy Star</div>
+        </div>
+        <div class="score-card">
+          <div class="dim">第三方實測淨化速度</div>
+          <div class="winner winner-amway">Amway SKY</div>
+          <div class="delta">約 1.8 倍下降速度</div>
+        </div>
+        <div class="score-card">
+          <div class="dim">臭氧安全性</div>
+          <div class="winner winner-tie">平手</div>
+          <div class="delta">HEPA 無此問題 / POIEMA 過 SGS+TÜV</div>
+        </div>
+        <div class="score-card">
+          <div class="dim">耗材成本（3 年）</div>
+          <div class="winner winner-poiema">POIEMA P50</div>
+          <div class="delta">省約 NT$14,000 耗材費</div>
+        </div>
+        <div class="score-card">
+          <div class="dim">總持有成本（3 年）</div>
+          <div class="winner winner-poiema">POIEMA P50</div>
+          <div class="delta">差距約 NT$37,000</div>
+        </div>
+        <div class="score-card">
+          <div class="dim">保固與售後</div>
+          <div class="winner winner-amway">Amway SKY</div>
+          <div class="delta">5 年 + 90 天退費 + 到府服務</div>
+        </div>
+        <div class="score-card">
+          <div class="dim">設計美感</div>
+          <div class="winner winner-poiema">POIEMA P50</div>
+          <div class="delta">家具感 / 頂蓋承重 15 kg</div>
+        </div>
+        <div class="score-card">
+          <div class="dim">智能 / APP</div>
+          <div class="winner winner-tie">平手</div>
+          <div class="delta">兩者皆有，Sky 偵測更密</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VERDICT -->
+    <section>
+      <div class="verdict">
+        <div class="stat"><span class="num poiema-num">3</span><span class="lbl">POIEMA 勝出</span></div>
+        <div class="stat"><span class="num">2</span><span class="lbl">平手</span></div>
+        <div class="stat"><span class="num amway-num">5</span><span class="lbl">SKY 勝出</span></div>
+      </div>
+    </section>
+
+    <!-- BIG COMPARISON TABLE -->
+    <section>
+      <h2 class="section-title">🔬 第三方認證明細</h2>
+      <p class="section-sub">公開資料來源：Allergy UK、ECARF Institute、AHAM、SGS、台灣 BSMI、電小二實測。</p>
+
+      <div class="compare-table">
+        <div class="compare-row head">
+          <div class="label">認證項目</div>
+          <div class="col-p">POIEMA 新氣几 P50</div>
+          <div class="col-a">Amway SKY</div>
+        </div>
+
+        <div class="compare-row win-a">
+          <div class="label">CADR 認證</div>
+          <div class="col-p"><span class="x">×</span>廠商自標 300 m³/h</div>
+          <div class="col-a"><span class="check">✓</span><strong>AHAM Verifide</strong>（ANSI/AHAM AC-1）510 m³/h / 300 cfm</div>
+        </div>
+
+        <div class="compare-row win-a">
+          <div class="label">過敏原認證</div>
+          <div class="col-p"><span class="x">×</span>無國際認證；官方泛稱「第三方檢測」未公開明細</div>
+          <div class="col-a"><span class="check">✓</span><strong>Allergy UK</strong> 22 大類觸發、102 種過敏原 +<br><span class="check">✓</span><strong>ECARF</strong>（2017/10/31 證書 #8314）</div>
+        </div>
+
+        <div class="compare-row win-a">
+          <div class="label">能效認證</div>
+          <div class="col-p"><span class="tilde">!</span>台灣能效核准 AR-115-0016（同系列 Evo 為 3 級）</div>
+          <div class="col-a"><span class="check">✓</span>台灣<strong>一級能效</strong>+<br><span class="check">✓</span><strong>EPA Energy Star</strong></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="label">台灣 BSMI 安規</div>
+          <div class="col-p"><span class="check">✓</span>R3B997 / CI3B5069970133</div>
+          <div class="col-a"><span class="check">✓</span>已通過</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="label">臭氧檢測</div>
+          <div class="col-p"><span class="check">✓</span>SGS + 德國 TÜV，顯著低於台灣安規（≤0.05 ppm）<br><small style="color:var(--muted)">⚠️ P50 機型專屬報告需向客服索取</small></div>
+          <div class="col-a"><span class="check">✓</span>HEPA 機型不產生臭氧</div>
+        </div>
+
+        <div class="compare-row win-a">
+          <div class="label">第三方實測（電小二）</div>
+          <div class="col-p"><span class="tilde">!</span>前代 SGT450S（CADR 370）<br>下降速度 <strong>15,000 / 10 分鐘</strong><br><small style="color:var(--muted)">P50 尚未實測，推估約 10–14k</small></div>
+          <div class="col-a"><span class="check">✓</span>實測下降速度 <strong>26,000 / 10 分鐘</strong><br>名列 CADR 500 級距前段</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="label">過濾最小粒徑</div>
+          <div class="col-p"><span class="check">✓</span><strong>PM 0.003 μm</strong>（3 奈米）</div>
+          <div class="col-a"><span class="check">✓</span><strong>PM 0.0024 μm</strong>（2.4 奈米）達 99.99%</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="label">過濾污染物種數</div>
+          <div class="col-p">未明確公布總數</div>
+          <div class="col-a"><strong>327 種</strong>（病毒、細菌、化學物、過敏原等）</div>
+        </div>
+
+        <div class="compare-row win-p">
+          <div class="label">耗材成本（年）</div>
+          <div class="col-p"><span class="check">✓</span><strong>NT$0</strong>（濾網水洗反覆使用）</div>
+          <div class="col-a"><span class="x">×</span>HEPA 約 NT$5,000/3年 + 活性碳 NT$3,000/年</div>
+        </div>
+
+        <div class="compare-row win-a">
+          <div class="label">保固期</div>
+          <div class="col-p"><span class="x">×</span>1 年</div>
+          <div class="col-a"><span class="check">✓</span><strong>5 年</strong>+ 90 天滿意全額退費</div>
+        </div>
+
+        <div class="compare-row win-a">
+          <div class="label">售後服務</div>
+          <div class="col-p"><span class="x">×</span>7 天猶豫期（非試用期）<br>flyingV 募資預購、分梯次出貨</div>
+          <div class="col-a"><span class="check">✓</span>到府安裝 + 到府保養 + 到府維修</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COST -->
+    <section>
+      <h2 class="section-title">💰 三年總持有成本</h2>
+      <p class="section-sub">機器 + 濾網（依官方建議更換週期估算），不含電費。</p>
+
+      <div class="cost-card">
+        <h3>長期持有成本對照</h3>
+        <div class="cost-grid">
+          <div class="label">項目</div>
+          <div class="v" style="color:rgba(255,255,255,.8); text-align:right;">POIEMA P50</div>
+          <div class="v" style="color:rgba(255,255,255,.8); text-align:right;">Amway SKY</div>
+
+          <div class="label">機器</div>
+          <div class="v">NT$17,990</div>
+          <div class="v">NT$41,000</div>
+
+          <div class="label">濾網（3 年）</div>
+          <div class="v">NT$0</div>
+          <div class="v">≈ NT$14,000</div>
+
+          <div class="label total"><strong style="color:white;">三年合計</strong></div>
+          <div class="v total"><strong>NT$17,990</strong></div>
+          <div class="v total amway"><strong>NT$55,000</strong></div>
+        </div>
+        <p class="cost-foot">兩者 3 年成本差距約 <strong>NT$37,000</strong>，幾乎可以再買兩台 POIEMA。</p>
+      </div>
+    </section>
+
+    <!-- DECISION MATRIX -->
+    <section>
+      <h2 class="section-title">🧭 該怎麼選？</h2>
+      <p class="section-sub">依優先順序找到屬於你的答案。</p>
+
+      <div class="decision">
+        <div class="decision-card">
+          <div class="need">家有過敏兒、氣喘、嬰幼兒，追求醫療級認證可信度</div>
+          <div class="pick amway">→ Amway SKY</div>
+          <div class="why">唯一一台 Allergy UK 全項通過 + AHAM CADR + ECARF 三方認證的機種。</div>
+        </div>
+
+        <div class="decision-card">
+          <div class="need">不在乎國際認證，討厭一直花錢換濾網，重視外觀</div>
+          <div class="pick poiema">→ POIEMA 新氣几 P50</div>
+          <div class="why">零耗材是真心省錢，但效能等級會比 SKY 差一截，適合中小坪數使用。</div>
+        </div>
+
+        <div class="decision-card">
+          <div class="need">想要「最強過濾 + 不換濾網」</div>
+          <div class="pick both">→ 考慮 POIEMA Ultra</div>
+          <div class="why">CADR 800、適用 23–30 坪，定價 NT$36,900 對到 SKY 等級，是更公平的對戰組合。</div>
+        </div>
+
+        <div class="decision-card">
+          <div class="need">空間超過 15 坪、預算充足</div>
+          <div class="pick amway">→ Amway SKY</div>
+          <div class="why">P50 標 15 坪偏吃緊；SKY 雖標 13 坪但 CADR 510 實際表現更穩定。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAVEATS -->
+    <section>
+      <h2 class="section-title">⚠️ 下手前要做的三件事</h2>
+      <p class="section-sub">買之前的最後一道防線，避免事後反悔。</p>
+
+      <div class="caveats">
+        <h3>三項自我檢核</h3>
+        <ol>
+          <li><strong>跟 POIEMA 客服要 P50 機型的 SGS 臭氧檢測報告</strong>。舊機型 SGT450S 的報告不能用來代表 P50（TPA 2.0 改用電漿離子層，原理不同）。</li>
+          <li><strong>確認能效報告 AR-115-0016 的實際等級</strong>。新氣几產品標示應有「能源效率等級」字樣，可拍照存證。</li>
+          <li><strong>POIEMA 是 flyingV 募資預購</strong>，7 天猶豫期非試用期；Amway 是 90 天滿意退費 — 售後安全網落差很大，務必看清楚條款再下單。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p><strong>資料來源：</strong>Amway 官網（hk/my/global）、Allergy UK 官方頁、ECARF Institute、AHAM Verifide 數據、SGS 安心資訊平台、台灣經濟部能源署、家電 KOL「電小二」（applianceinsight.com.tw）橫向實測、POIEMA 官方產品規格頁、flyingV 募資頁。</p>
+      <p><strong>免責聲明：</strong>本比較整理自公開資訊，價格、規格與認證以原廠最新公告為準。耗材與成本估算為粗略推算，實際因用量、換購週期、優惠方案而異。</p>
+      <p style="margin-top:14px;">最後更新：2026/05/25 · 整理：個人購買決策參考用</p>
+    </footer>
+
+  </div>
+</body>
+</html>

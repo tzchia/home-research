@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家居研究 · Home Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1116;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --bg: #FAFAF7;
+    --paper: #FFFFFF;
+    --accent: #14B8A6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+    color: var(--ink); background: var(--bg);
+    line-height: 1.6; font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 920px; margin: 0 auto; padding: 80px 28px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.15; letter-spacing: -0.02em;
+    margin: 0 0 18px;
+  }
+  .lede {
+    font-size: 18px; color: #2A2F38;
+    max-width: 640px; margin: 0 0 48px;
+  }
+  .doc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .doc-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-card::before {
+    content: ""; position: absolute; inset: 0 auto 0 0; width: 4px;
+    background: var(--accent); opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .doc-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 32px -12px rgba(20,184,166,.25);
+  }
+  .doc-card:hover::before { opacity: 1; }
+  .doc-icon {
+    font-size: 44px; line-height: 1; flex-shrink: 0;
+  }
+  .doc-body { flex: 1; }
+  .doc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 800; font-size: 19px;
+    margin: 0 0 6px;
+  }
+  .doc-desc {
+    font-size: 14px; color: var(--muted);
+    margin: 0;
+  }
+  .doc-meta {
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-top: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .arrow {
+    color: var(--muted); font-size: 18px;
+    transition: transform .2s ease, color .2s ease;
+  }
+  .doc-card:hover .arrow {
+    transform: translateX(4px); color: var(--accent);
+  }
+  footer {
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted);
+  }
+  footer a { color: var(--muted); }
+  @media (max-width: 540px) {
+    .container { padding: 48px 20px; }
+    .doc-card { padding: 22px; gap: 14px; }
+    .doc-icon { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="eyebrow">Personal Home Research · 2026</div>
+  <h1>家居研究筆記</h1>
+  <p class="lede">買房 / 裝修 / 家電採購的決策資料庫。每份文件都是對市場主流選項的完整對照，附第三方認證數據、5 年總持有成本與使用情境決策樹。</p>
+
+  <div class="doc-grid">
+    <a class="doc-card" href="./air-purifier-comparison.html">
+      <div class="doc-icon">🌬️</div>
+      <div class="doc-body">
+        <h2 class="doc-title">空氣清淨機比較</h2>
+        <p class="doc-desc">POIEMA 新氣几 P50 vs Amway ATMOSPHERE SKY · 零耗材 vs 醫療級認證對戰</p>
+        <div class="doc-meta">2 機型 · NSF / AHAM / Allergy UK · 3 年成本對照</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a class="doc-card" href="./water-purifier-comparison.html">
+      <div class="doc-icon">💧</div>
+      <div class="doc-body">
+        <h2 class="doc-title">櫥下淨水器比較</h2>
+        <p class="doc-desc">千山 PF-207（現有）vs Amway eSpring Pro vs Coway P-150N vs 3M S301 · 該不該換機分析</p>
+        <div class="doc-meta">4 機型 · NSF 全機認證 · 5 年總持有成本</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a class="doc-card" href="./window-screen-comparison.html">
+      <div class="doc-icon">🪟</div>
+      <div class="doc-body">
+        <h2 class="doc-title">防霾紗窗比較</h2>
+        <p class="doc-desc">SMOG · Poll-tex 普特絲 · Usii 優系 · 綠綠好日 · HOSOI 禾工宅 · 含透視度分析</p>
+        <div class="doc-meta">5 品牌 · 4 種技術路線 · 整戶 30 坪費用對照</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+
+  <footer>
+    Source · <a href="https://github.com/tzchia/home-research">github.com/tzchia/home-research</a><br>
+    這些文件以「採購決策參考」為目的，整理自公開資料來源。價格、規格、認證等以原廠最新公告為準。
+  </footer>
+</div>
+</body>
+</html>
