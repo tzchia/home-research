@@ -1,0 +1,35 @@
+name: ✏️ 補充 / 修正
+description: 既有比較文件有錯誤、漏資料、想補充
+title: "[補充] "
+labels: ["fix", "needs-update"]
+body:
+  - type: dropdown
+    id: doc
+    attributes:
+      label: 哪份文件？
+      options:
+        - "🌬️ 空氣清淨機"
+        - "💧 櫥下淨水器"
+        - "🪟 防霾紗窗"
+        - "🌀 無線吸塵器"
+        - "🤖 掃拖機器人"
+        - "🏠 首頁 / index"
+        - "其他"
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: 問題 / 補充內容
+      placeholder: |
+        例：
+        - 「Coway P-150N 套組價格寫錯了，最新優惠是 $13,800 不是 $14,800」
+        - 「想加入 Roborock S8 MaxV 進掃拖機器人比較」
+        - 「紗窗那份漏掉了『良展』這個品牌」
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: 資料來源（選填）
+      placeholder: "官網連結、發票、實測截圖等"

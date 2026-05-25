@@ -1,0 +1,49 @@
+name: 💡 比較主題建議
+description: 想到一個還沒比較過的家電 / 採購主題
+title: "[比較主題] "
+labels: ["topic-request", "needs-research"]
+body:
+  - type: input
+    id: products
+    attributes:
+      label: 想比較的產品 / 機型
+      description: 列出 2–5 台，用逗號分隔
+      placeholder: "例：iRobot Roomba j9+, Ecovacs DEEBOT X2, Roborock S8 MaxV"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: 為什麼想比？ / 採購背景
+      description: 你的家庭狀況、預算範圍、最在意的維度（吸力？續航？認證？）
+      placeholder: |
+        - 預算：3–4 萬
+        - 家中有寵物
+        - 客廳 + 兩臥室約 25 坪
+        - 最在意：拖布是否會弄濕地毯
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先程度
+      options:
+        - "🔥 很急（一週內要決定）"
+        - "⏱️ 普通（一個月內）"
+        - "💭 隨時，先想著"
+      default: 1
+    validations:
+      required: true
+  - type: input
+    id: budget
+    attributes:
+      label: 預算上限（選填）
+      placeholder: "例：NT$40,000"
+  - type: textarea
+    id: refs
+    attributes:
+      label: 參考連結（選填）
+      description: 廠商頁、評測、PTT/Mobile01 討論串等
+      placeholder: |
+        https://...
+        https://...

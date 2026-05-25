@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>掃拖機器人比較｜Roomba Combo j7+ vs DEEBOT X2 OMNI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1116;
+    --ink-2: #2A2F38;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --line-soft: #F0EFEB;
+    --bg: #FAFAF7;
+    --paper: #FFFFFF;
+    --irobot: #0EA5E9;     --irobot-soft: #E0F2FE;  --irobot-ink: #0369A1;
+    --ecovacs: #16A34A;    --ecovacs-soft: #DCFCE7; --ecovacs-ink: #15803D;
+    --win: #059669;        --warn: #D97706;         --danger: #DC2626;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+    color: var(--ink); background: var(--bg);
+    line-height: 1.6; font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 56px 28px 96px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', serif; font-weight: 900;
+    font-size: clamp(28px, 4.5vw, 44px);
+    line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 14px;
+  }
+  .lede { font-size: 17px; color: var(--ink-2); max-width: 720px; margin: 0 0 36px; }
+
+  .vs-grid {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    gap: 18px; align-items: stretch; margin: 40px 0 56px;
+  }
+  .vs-divider {
+    align-self: center; font-family: 'Noto Serif TC', serif;
+    font-weight: 900; font-size: 28px; color: var(--muted);
+  }
+  .product-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 22px; padding: 28px; position: relative; overflow: hidden;
+    box-shadow: 0 1px 2px rgba(15,17,22,.04), 0 2px 8px rgba(15,17,22,.04);
+  }
+  .product-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; }
+  .product-card.irobot::before { background: var(--irobot); }
+  .product-card.ecovacs::before { background: var(--ecovacs); }
+  .brand-tag {
+    display: inline-flex; align-items: center;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 5px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .irobot .brand-tag { background: var(--irobot-soft); color: var(--irobot-ink); }
+  .ecovacs .brand-tag { background: var(--ecovacs-soft); color: var(--ecovacs-ink); }
+  .product-card h2 {
+    font-family: 'Noto Serif TC', serif; font-weight: 800;
+    font-size: 22px; line-height: 1.3; margin: 0 0 4px;
+  }
+  .product-card .model { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+  .price { display: flex; align-items: baseline; gap: 8px; margin: 10px 0 20px; }
+  .price .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px; font-weight: 700; letter-spacing: -0.02em;
+  }
+  .price .unit { font-size: 13px; color: var(--muted); }
+  .spec-mini { list-style: none; padding: 0; margin: 0; }
+  .spec-mini li {
+    display: flex; justify-content: space-between;
+    padding: 8px 0; border-bottom: 1px dashed var(--line-soft);
+    font-size: 13.5px;
+  }
+  .spec-mini li:last-child { border-bottom: none; }
+  .spec-mini .k { color: var(--muted); }
+  .spec-mini .v { font-weight: 600; color: var(--ink); }
+
+  section { margin: 56px 0; }
+  h2.section-title {
+    font-family: 'Noto Serif TC', serif; font-weight: 800;
+    font-size: 26px; margin: 0 0 8px; letter-spacing: -0.005em;
+  }
+  .section-sub { color: var(--muted); font-size: 14.5px; margin: 0 0 28px; }
+
+  .compare-table {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 22px; overflow: hidden;
+    box-shadow: 0 1px 2px rgba(15,17,22,.04);
+  }
+  .compare-row {
+    display: grid; grid-template-columns: 1.1fr 1.4fr 1.4fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row > div { padding: 16px 18px; font-size: 14.5px; }
+  .compare-row .label {
+    background: #FAFAF7; font-weight: 600; color: var(--ink-2);
+    border-right: 1px solid var(--line);
+  }
+  .compare-row .col-i { border-right: 1px solid var(--line); }
+  .compare-row.head { background: var(--ink); color: white; }
+  .compare-row.head > div {
+    font-weight: 700; padding: 14px 18px; font-size: 13px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .compare-row.head .label { background: var(--ink); border-right-color: rgba(255,255,255,.15); color: rgba(255,255,255,.7); }
+  .compare-row.head .col-i { border-right-color: rgba(255,255,255,.15); }
+  .compare-row.win-i .col-i { background: #F0F9FF; }
+  .compare-row.win-e .col-e { background: #F0FDF4; }
+  .check, .x, .tilde {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; border-radius: 50%;
+    font-size: 11px; font-weight: 700; margin-right: 6px;
+    color: white; flex-shrink: 0;
+  }
+  .check { background: var(--win); }
+  .x { background: var(--danger); }
+  .tilde { background: var(--warn); }
+
+  .verdict-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;
+  }
+  .verdict-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px;
+  }
+  .verdict-card .need { font-size: 14px; color: var(--ink-2); margin-bottom: 12px; line-height: 1.55; }
+  .verdict-card .pick {
+    display: inline-block; padding: 6px 12px; border-radius: 999px;
+    font-size: 13px; font-weight: 700; margin-bottom: 8px;
+  }
+  .pick.irobot { background: var(--irobot-soft); color: var(--irobot-ink); }
+  .pick.ecovacs { background: var(--ecovacs-soft); color: var(--ecovacs-ink); }
+  .pick.both { background: #FEF3C7; color: #92400E; }
+  .verdict-card .why { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  .caveats {
+    background: #FFFBEB; border: 1px solid #FCD34D;
+    border-radius: 14px; padding: 22px 24px;
+  }
+  .caveats h3 { margin: 0 0 12px; font-size: 15px; color: #92400E; }
+  .caveats ol { margin: 0; padding-left: 18px; color: #78350F; font-size: 14px; line-height: 1.7; }
+  .caveats li { margin-bottom: 6px; }
+
+  footer {
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted); line-height: 1.7;
+  }
+  footer strong { color: var(--ink-2); }
+
+  @media (max-width: 760px) {
+    .container { padding: 36px 18px 64px; }
+    .vs-grid { grid-template-columns: 1fr; }
+    .vs-divider { display: none; }
+    .compare-row { grid-template-columns: 1fr; }
+    .compare-row > div { border-right: none !important; border-bottom: 1px solid var(--line); }
+    .compare-row > div:last-child { border-bottom: none; }
+    .compare-row .label {
+      background: #F3F4F6; font-size: 12px;
+      letter-spacing: 0.05em; text-transform: uppercase; padding: 10px 18px;
+    }
+    .compare-row.head { display: none; }
+  }
+  @media print {
+    body { background: white; }
+    .product-card, .compare-table, .verdict-card { box-shadow: none; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">掃拖機器人深度比較 · 2026</div>
+    <h1>iRobot Roomba Combo j7+<br>vs DEEBOT X2 OMNI</h1>
+    <p class="lede">兩種完全不同的設計哲學：iRobot 走「簡單可靠 + AI 避障」、Ecovacs 走「方形機身 + 全自動洗烘拖布」。價差 $10,000，誰才是你家需要的？</p>
+  </header>
+
+  <div class="vs-grid">
+    <article class="product-card irobot">
+      <span class="brand-tag">IROBOT · 美國</span>
+      <h2>Roomba Combo j7+</h2>
+      <div class="model">AI 避障 + 自動集塵 + 升降拖布</div>
+      <div class="price">
+        <span class="num">NT$36,999</span>
+        <span class="unit">建議售價 / PChome 限時優惠</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">機身尺寸</span><span class="v">直徑 34 × 高 8.7 cm</span></li>
+        <li><span class="k">機身重量</span><span class="v">3.4 kg</span></li>
+        <li><span class="k">水箱容量</span><span class="v">210 ml</span></li>
+        <li><span class="k">集塵袋容量</span><span class="v">12,000 ml（約 60 天）</span></li>
+        <li><span class="k">續航</span><span class="v">1–2 小時</span></li>
+        <li><span class="k">保固</span><span class="v">1+1 年</span></li>
+      </ul>
+    </article>
+
+    <div class="vs-divider">VS</div>
+
+    <article class="product-card ecovacs">
+      <span class="brand-tag">ECOVACS · 中國</span>
+      <h2>DEEBOT X2 OMNI</h2>
+      <div class="model">方形機身 + 全自動洗烘 + 8000Pa</div>
+      <div class="price">
+        <span class="num">NT$26,800</span>
+        <span class="unit">原廠價 / 比 j7+ 便宜 $10,199</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">機身尺寸</span><span class="v">32 × 35.3 × 9.5 cm（方形）</span></li>
+        <li><span class="k">機身重量</span><span class="v">≈ 4.5 kg</span></li>
+        <li><span class="k">水箱容量</span><span class="v">180 ml + 基站補水</span></li>
+        <li><span class="k">吸力</span><span class="v"><strong>8,000 Pa</strong></span></li>
+        <li><span class="k">續航</span><span class="v">186 分鐘</span></li>
+        <li><span class="k">電池</span><span class="v">6,400 mAh</span></li>
+      </ul>
+    </article>
+  </div>
+
+  <section>
+    <h2 class="section-title">📊 完整規格對照</h2>
+    <p class="section-sub">同樣是「掃拖合一 + 自動集塵」，但設計取向天差地遠。</p>
+
+    <div class="compare-table">
+      <div class="compare-row head">
+        <div class="label">比較項目</div>
+        <div class="col-i">Roomba Combo j7+</div>
+        <div class="col-e">DEEBOT X2 OMNI</div>
+      </div>
+
+      <div class="compare-row win-e">
+        <div class="label">價格</div>
+        <div class="col-i">NT$36,999</div>
+        <div class="col-e"><strong>NT$26,800</strong>（省 $10,199）</div>
+      </div>
+
+      <div class="compare-row win-e">
+        <div class="label">機身形狀</div>
+        <div class="col-i">圓形（角落會漏掃）</div>
+        <div class="col-e"><strong>方形</strong>（角落清潔較強）</div>
+      </div>
+
+      <div class="compare-row win-i">
+        <div class="label">機身高度</div>
+        <div class="col-i"><strong>8.7 cm</strong>（沙發底好鑽）</div>
+        <div class="col-e">9.5 cm</div>
+      </div>
+
+      <div class="compare-row win-e">
+        <div class="label">吸力</div>
+        <div class="col-i">未公開明確 Pa 數</div>
+        <div class="col-e"><strong>8,000 Pa</strong></div>
+      </div>
+
+      <div class="compare-row win-e">
+        <div class="label">拖布處理</div>
+        <div class="col-i">升降式拖布（避開地毯）<br><small style="color:var(--muted)">拖布需手動洗</small></div>
+        <div class="col-e"><strong>全自動洗 + 烘乾</strong><br><small style="color:var(--muted)">熱水洗 + 銀離子除菌</small></div>
+      </div>
+
+      <div class="compare-row win-i">
+        <div class="label">地毯處理</div>
+        <div class="col-i"><strong>D.R.I. 拖布全自動抬升至機頂</strong><br><small style="color:var(--muted)">完全不會弄濕地毯</small></div>
+        <div class="col-e">偵測到地毯抬升拖布<br><small style="color:var(--muted)">但拖布仍在底部</small></div>
+      </div>
+
+      <div class="compare-row win-i">
+        <div class="label">避障技術</div>
+        <div class="col-i"><strong>AI 智能避障鏡頭</strong><br><small style="color:var(--muted)">寵物便便/電線都能避</small></div>
+        <div class="col-e">Semi Solid State LiDAR + AIVI 3D<br><small style="color:var(--muted)">技術更新但情境覆蓋少</small></div>
+      </div>
+
+      <div class="compare-row win-e">
+        <div class="label">基站功能</div>
+        <div class="col-i">僅自動集塵</div>
+        <div class="col-e"><strong>集塵 + 洗拖布 + 熱風烘乾 + 自動補水</strong></div>
+      </div>
+
+      <div class="compare-row win-i">
+        <div class="label">集塵座高度</div>
+        <div class="col-i"><strong>33.8 cm</strong>（業界最矮）</div>
+        <div class="col-e">57.8 cm（較高）</div>
+      </div>
+
+      <div class="compare-row win-e">
+        <div class="label">續航</div>
+        <div class="col-i">1–2 小時（自標模糊）</div>
+        <div class="col-e"><strong>186 分鐘明確</strong>（6,400 mAh）</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">語音助手</div>
+        <div class="col-i">iRobot OS（無內建語音）</div>
+        <div class="col-e"><strong>YIKO 語音 + Alexa/Google</strong></div>
+      </div>
+
+      <div class="compare-row win-i">
+        <div class="label">品牌成熟度</div>
+        <div class="col-i"><strong>iRobot</strong>（掃地機器人鼻祖、30+ 年）</div>
+        <div class="col-e">Ecovacs（中國品牌、近年快速崛起）</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">售後</div>
+        <div class="col-i">總代理來思比保固 1+1 年</div>
+        <div class="col-e">原廠 1 年</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">🧭 該怎麼選？</h2>
+    <p class="section-sub">依據你的居家條件給出對應建議。</p>
+
+    <div class="verdict-grid">
+      <div class="verdict-card">
+        <div class="need">家中有<strong>寵物（特別是會大便）</strong>、需要 AI 避障</div>
+        <div class="pick irobot">→ Roomba Combo j7+</div>
+        <div class="why">iRobot AI 避障是業界公認最強，連寵物便便都能識別繞開。Ecovacs 在這方面還在追趕。</div>
+      </div>
+
+      <div class="verdict-card">
+        <div class="need">家中<strong>地毯多</strong>、不想拖布弄濕地毯</div>
+        <div class="pick irobot">→ Roomba Combo j7+</div>
+        <div class="why">獨家 D.R.I. 拖布升降至機頂（不只抬升）。X2 拖布還在底部，過地毯時邊緣可能還是會碰到。</div>
+      </div>
+
+      <div class="verdict-card">
+        <div class="need">追求<strong>最強自動化</strong>、不想手動洗拖布</div>
+        <div class="pick ecovacs">→ DEEBOT X2 OMNI</div>
+        <div class="why">基站全自動洗拖布 + 熱風烘乾 + 銀離子除菌，週末不用拆拖布手洗。這在 j7+ 上必須升級到 Combo j9+ 或 j10+ 才有，價差更大。</div>
+      </div>
+
+      <div class="verdict-card">
+        <div class="need">家中坪數大（30 坪+）、預算敏感</div>
+        <div class="pick ecovacs">→ DEEBOT X2 OMNI</div>
+        <div class="why">省 $10,199、續航 186 分鐘明確、方形機身角落清潔較好。整體 CP 值較高。</div>
+      </div>
+
+      <div class="verdict-card">
+        <div class="need">家具底部很低（沙發、床、櫃子底）</div>
+        <div class="pick irobot">→ Roomba Combo j7+</div>
+        <div class="why">機身僅 8.7 cm，是市售機器人最矮之一。X2 OMNI 高度 9.5 cm，差不多但 j7+ 略勝。</div>
+      </div>
+
+      <div class="verdict-card">
+        <div class="need">想要<strong>語音控制 + 智能家居整合</strong></div>
+        <div class="pick ecovacs">→ DEEBOT X2 OMNI</div>
+        <div class="why">內建 YIKO 語音助手 + 支援 Alexa/Google Home。iRobot OS 沒有內建語音助手。</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">⚠️ 下手前要做的 3 件事</h2>
+    <p class="section-sub">廠商不會告訴你的細節。</p>
+
+    <div class="caveats">
+      <h3>採購自我檢核清單</h3>
+      <ol>
+        <li><strong>實際丈量家具底部高度</strong>。j7+ 8.7 cm、X2 9.5 cm，但很多沙發底其實只有 9.0 cm — 直接卡住。買前用尺量過所有「希望被掃」的家具底部，避免買回家發現掃不進去。</li>
+        <li><strong>「自動洗拖布」≠ 「不用維護」</strong>。X2 OMNI 基站要定期清理污水盒（每週）、拖布還是會發霉（每 2–3 個月手洗一次）、洗滌劑要持續補。看似省事但隱藏維護成本不低。</li>
+        <li><strong>確認家中網路訊號</strong>。兩台都重度依賴 App + WiFi，地下室或頂樓訊號弱會頻繁失聯。可在預定要放基站的位置先測試手機訊號 — 若手機都收不太到，掃地機器人更慘。</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>資料來源：</strong>iRobot 官網與 T客邦評測、Ecovacs 台灣官網、PChome / momo / Costco 商品頁、家電 KOL 開箱實測。</p>
+    <p><strong>備註：</strong>價格擷取自 2026 年 5 月公開電商通路，會隨檔期波動。實際體驗依個人居家動線、寵物狀況、地板材質而異。</p>
+    <p style="margin-top:14px;">最後更新：2026/05/25 · 整理：個人購買決策參考用（home-research · skill 實戰首作）</p>
+  </footer>
+
+</div>
+</body>
+</html>
