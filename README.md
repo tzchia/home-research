@@ -11,6 +11,7 @@
 | 🌬️ 空氣清淨機 | POIEMA 新氣几 P50 vs Amway ATMOSPHERE SKY | [air-purifier-comparison.html](./air-purifier-comparison.html) |
 | 💧 櫥下淨水器 | 千山 PF-207、Amway eSpring Pro、Coway P-150N、3M S301 | [water-purifier-comparison.html](./water-purifier-comparison.html) |
 | 🪟 防霾紗窗 | SMOG、Poll-tex 普特絲、Usii、綠綠好日、HOSOI | [window-screen-comparison.html](./window-screen-comparison.html) |
+| 🌀 無線吸塵器 | Yates CV-X1（台灣製）、Dyson V15、LG A9K、小米 G11、Tineco S15 | [vacuum-cleaner-comparison.html](./vacuum-cleaner-comparison.html) |
 
 ## 撰寫原則
 

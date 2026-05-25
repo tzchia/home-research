@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 台無線吸塵器完整比較｜Yates CV-X1 vs Dyson V15 vs LG A9K vs 小米 G11 vs Tineco S15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1116;
+    --ink-2: #2A2F38;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --line-soft: #F0EFEB;
+    --bg: #FAFAF7;
+    --paper: #FFFFFF;
+
+    --yates:  #0EA5E9;  --yates-soft:  #E0F2FE;  --yates-ink:  #0369A1;
+    --dyson:  #6D28D9;  --dyson-soft:  #EDE9FE;  --dyson-ink:  #5B21B6;
+    --lg:     #EF4444;  --lg-soft:     #FEE2E2;  --lg-ink:     #B91C1C;
+    --xiaomi: #F59E0B;  --xiaomi-soft: #FEF3C7;  --xiaomi-ink: #B45309;
+    --tineco: #16A34A;  --tineco-soft: #DCFCE7;  --tineco-ink: #15803D;
+
+    --win:    #059669;
+    --warn:   #D97706;
+    --danger: #DC2626;
+
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 22px;
+
+    --shadow-1: 0 1px 2px rgba(15,17,22,.04), 0 2px 8px rgba(15,17,22,.04);
+    --shadow-2: 0 12px 32px -12px rgba(15,17,22,.18);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .container { max-width: 1240px; margin: 0 auto; padding: 56px 28px 96px; }
+
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 4.2vw, 42px);
+    line-height: 1.2; letter-spacing: -0.01em;
+    margin: 0 0 14px;
+  }
+  .lede {
+    font-size: 17px; color: var(--ink-2); max-width: 820px; margin: 0 0 12px;
+  }
+
+  /* INSIGHT BANNER */
+  .insight-banner {
+    background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+    color: white;
+    padding: 24px 28px;
+    border-radius: var(--r-lg);
+    margin: 32px 0 48px;
+    box-shadow: var(--shadow-2);
+  }
+  .insight-banner h3 {
+    margin: 0 0 12px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px; font-weight: 800; color: white;
+  }
+  .insight-banner .insights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .insight-banner .insight-item {
+    padding: 12px 14px;
+    background: rgba(255,255,255,.05);
+    border-radius: var(--r-sm);
+    border-left: 3px solid #FBBF24;
+  }
+  .insight-banner .insight-item strong {
+    display: block; font-size: 13px;
+    color: #FBBF24; font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .insight-banner .insight-item span {
+    font-size: 13px; color: rgba(255,255,255,.85);
+    line-height: 1.5;
+  }
+
+  /* PRODUCT CARDS - 5 across */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+  .product-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 18px 16px 18px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    transition: transform .2s ease;
+  }
+  .product-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); }
+  .product-card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+  }
+  .product-card.yates::before  { background: var(--yates); }
+  .product-card.dyson::before  { background: var(--dyson); }
+  .product-card.lg::before     { background: var(--lg); }
+  .product-card.xiaomi::before { background: var(--xiaomi); }
+  .product-card.tineco::before { background: var(--tineco); }
+
+  .product-card.hero {
+    border: 2px solid var(--yates);
+    box-shadow: 0 8px 24px -8px rgba(14,165,233,.3);
+  }
+  .product-card.hero::after {
+    content: "主角"; position: absolute; top: 12px; right: 12px;
+    background: var(--yates); color: white;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+    padding: 3px 8px; border-radius: 4px;
+  }
+
+  .brand-tag {
+    display: inline-flex; align-items: center;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+    padding: 3px 8px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .yates  .brand-tag { background: var(--yates-soft);  color: var(--yates-ink); }
+  .dyson  .brand-tag { background: var(--dyson-soft);  color: var(--dyson-ink); }
+  .lg     .brand-tag { background: var(--lg-soft);     color: var(--lg-ink); }
+  .xiaomi .brand-tag { background: var(--xiaomi-soft); color: var(--xiaomi-ink); }
+  .tineco .brand-tag { background: var(--tineco-soft); color: var(--tineco-ink); }
+
+  .product-card h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 800;
+    font-size: 17px; line-height: 1.3;
+    margin: 0 0 4px;
+  }
+  .product-card .model {
+    font-size: 11.5px; color: var(--muted); margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .price { margin: 8px 0 12px; }
+  .price .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 19px; font-weight: 700; letter-spacing: -0.02em; display: block;
+  }
+  .price .unit { font-size: 10px; color: var(--muted); }
+
+  .spec-mini { list-style: none; padding: 0; margin: 0; }
+  .spec-mini li {
+    display: flex; justify-content: space-between; gap: 6px;
+    padding: 5px 0; border-bottom: 1px dashed var(--line-soft);
+    font-size: 11.5px;
+  }
+  .spec-mini li:last-child { border-bottom: none; }
+  .spec-mini .k { color: var(--muted); flex-shrink: 0; }
+  .spec-mini .v { font-weight: 600; color: var(--ink); text-align: right; }
+
+  .badge-row { display: flex; flex-wrap: wrap; gap: 3px; margin: 8px 0 4px; }
+  .badge {
+    display: inline-block;
+    font-size: 9.5px; padding: 2px 6px; border-radius: 3px;
+    font-weight: 600; letter-spacing: 0.02em;
+    background: #F3F4F6; color: var(--ink-2);
+  }
+  .badge.gold { background: #FEF3C7; color: #92400E; }
+  .badge.green { background: #D1FAE5; color: #065F46; }
+  .badge.tw { background: #DBEAFE; color: #1E40AF; }
+
+  /* SECTIONS */
+  section { margin: 56px 0; }
+  h2.section-title {
+    font-family: 'Noto Serif TC', serif; font-weight: 800;
+    font-size: 26px; margin: 0 0 8px; letter-spacing: -0.005em;
+  }
+  .section-sub { color: var(--muted); font-size: 14.5px; margin: 0 0 28px; }
+
+  /* BIG TABLE */
+  .compare-table {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    font-size: 13px;
+  }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1.1fr repeat(5, 1.1fr);
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row > div {
+    padding: 12px 12px;
+    border-right: 1px solid var(--line);
+  }
+  .compare-row > div:last-child { border-right: none; }
+  .compare-row .label {
+    background: #FAFAF7;
+    font-weight: 600;
+    color: var(--ink-2);
+    font-size: 12.5px;
+  }
+  .compare-row.head {
+    background: var(--ink);
+    color: white;
+    position: sticky; top: 0; z-index: 2;
+  }
+  .compare-row.head > div {
+    font-weight: 700; font-size: 12px; letter-spacing: 0.04em;
+    text-align: center; border-right-color: rgba(255,255,255,.15);
+    padding: 12px 8px;
+  }
+  .compare-row.head .label {
+    background: var(--ink); color: rgba(255,255,255,.7); text-align: left;
+  }
+  .compare-row.head .brand-mini {
+    display: block; font-size: 9.5px; letter-spacing: 0.1em;
+    color: rgba(255,255,255,.55); margin-top: 2px; font-weight: 500;
+  }
+
+  .check, .x, .tilde {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 16px; height: 16px; border-radius: 50%;
+    font-size: 10px; font-weight: 700; margin-right: 4px;
+    color: white;
+  }
+  .check { background: var(--win); }
+  .x     { background: var(--danger); }
+  .tilde { background: var(--warn); }
+
+  .cell-best { background: #ECFDF5; position: relative; }
+  .cell-best::after {
+    content: "★"; position: absolute; top: 3px; right: 4px;
+    font-size: 9px; color: var(--win);
+  }
+  .cell-cheap { background: #DBEAFE; position: relative; }
+  .cell-cheap::after {
+    content: "💰"; position: absolute; top: 3px; right: 3px;
+    font-size: 9px;
+  }
+
+  /* BAR CHART for suction / weight */
+  .bar-chart {
+    background: linear-gradient(135deg, #0E1116 0%, #1F2937 100%);
+    color: white;
+    border-radius: var(--r-lg);
+    padding: 28px 32px;
+    margin-top: 16px;
+  }
+  .bar-chart h3 {
+    margin: 0 0 16px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px; color: white;
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 90px;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .bar-row .brand-label {
+    font-weight: 700; font-size: 13px;
+    color: rgba(255,255,255,.9);
+  }
+  .bar-row .brand-label small {
+    display: block; font-size: 10.5px; color: rgba(255,255,255,.55);
+    font-weight: 500; margin-top: 2px;
+  }
+  .bar-track {
+    height: 26px;
+    background: rgba(255,255,255,.05);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex; align-items: center;
+    padding: 0 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 700;
+    color: white;
+  }
+  .bar-fill.yates  { background: linear-gradient(90deg, var(--yates), #0369A1); }
+  .bar-fill.dyson  { background: linear-gradient(90deg, var(--dyson), #5B21B6); }
+  .bar-fill.lg     { background: linear-gradient(90deg, var(--lg), #B91C1C); }
+  .bar-fill.xiaomi { background: linear-gradient(90deg, var(--xiaomi), #B45309); }
+  .bar-fill.tineco { background: linear-gradient(90deg, var(--tineco), #15803D); }
+  .bar-row .total {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 700;
+    color: white;
+    text-align: right;
+  }
+  .bar-chart .legend {
+    margin-top: 16px; padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,.1);
+    font-size: 12px; color: rgba(255,255,255,.65);
+    line-height: 1.6;
+  }
+
+  /* SCENARIOS */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+  .scenario-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--r-md); padding: 20px;
+    position: relative;
+  }
+  .scenario-card .need {
+    font-size: 14px; color: var(--ink-2);
+    margin-bottom: 12px; line-height: 1.5;
+  }
+  .scenario-card .pick {
+    display: inline-block;
+    padding: 5px 11px; border-radius: 999px;
+    font-size: 12px; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .pick.yates  { background: var(--yates-soft);  color: var(--yates-ink); }
+  .pick.dyson  { background: var(--dyson-soft);  color: var(--dyson-ink); }
+  .pick.lg     { background: var(--lg-soft);     color: var(--lg-ink); }
+  .pick.xiaomi { background: var(--xiaomi-soft); color: var(--xiaomi-ink); }
+  .pick.tineco { background: var(--tineco-soft); color: var(--tineco-ink); }
+  .scenario-card .why {
+    font-size: 12.5px; color: var(--muted); line-height: 1.55;
+  }
+
+  /* TRUTH BOX */
+  .truth-box {
+    background: #FEF3C7;
+    border: 1px solid #FBBF24;
+    border-radius: var(--r-md);
+    padding: 22px 24px;
+  }
+  .truth-box h3 {
+    margin: 0 0 12px;
+    font-size: 15px; color: #92400E;
+  }
+  .truth-box .truth-item {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(146, 64, 14, .2);
+    font-size: 13.5px; color: #78350F;
+    line-height: 1.6;
+  }
+  .truth-box .truth-item:last-child { border-bottom: none; }
+  .truth-box .truth-item strong { color: #92400E; }
+
+  footer {
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted); line-height: 1.7;
+  }
+  footer strong { color: var(--ink-2); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .products { grid-template-columns: repeat(3, 1fr); }
+    .compare-row { grid-template-columns: 1fr; }
+    .compare-row > div { border-right: none !important; border-bottom: 1px solid var(--line); }
+    .compare-row > div:last-child { border-bottom: none; }
+    .compare-row .label {
+      background: #F3F4F6;
+      font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 10px 14px;
+    }
+    .compare-row.head { display: none; }
+    .bar-row { grid-template-columns: 130px 1fr 80px; gap: 10px; }
+  }
+  @media (max-width: 720px) {
+    .products { grid-template-columns: repeat(2, 1fr); }
+    .bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .bar-row .total { text-align: left; }
+  }
+  @media (max-width: 480px) {
+    .container { padding: 32px 16px 64px; }
+    .products { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: white; }
+    .container { padding: 20px; max-width: 100%; }
+    .product-card, .compare-table, .scenario-card { box-shadow: none; break-inside: avoid; }
+    section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="eyebrow">無線吸塵器市場深度比較 · 2026</div>
+    <h1>Yates CV-X1 對戰主流品牌<br>5 台無線手持吸塵器完整對照</h1>
+    <p class="lede">台灣製 Yates CV-X1 主打「最輕 0.98kg + 恆壓專利」，但面對 Dyson 230AW 強吸力、LG 雙電池 120 分鐘續航、小米 NT$6,500 殺手價、Tineco 智慧 iLoop 感應—這台台灣製吸塵器到底有沒有競爭力？</p>
+  </header>
+
+  <!-- INSIGHT BANNER -->
+  <div class="insight-banner">
+    <h3>💡 5 個你買無線吸塵器前必須知道的真相</h3>
+    <div class="insights">
+      <div class="insight-item">
+        <strong>真相 1：Pa vs AW 不能直接比</strong>
+        <span>Yates 標 16,000 Pa、Dyson 標 230 AW、LG 標 200 W — 三個單位，廠商各標各的。AW 為 IEC 標準，比較公正。</span>
+      </div>
+      <div class="insight-item">
+        <strong>真相 2：重量比吸力更重要</strong>
+        <span>每天 10–20 分鐘的清潔，2.76kg vs 0.98kg 體感差很多。Yates 0.98kg 是市面最輕之一。</span>
+      </div>
+      <div class="insight-item">
+        <strong>真相 3：HEPA 不等於「全機密封 HEPA」</strong>
+        <span>Dyson V15 是全機密封 HEPA（鎖住 PM0.1 99.99%），其他 4 台都是後置 HEPA，過敏家庭差別很大。</span>
+      </div>
+      <div class="insight-item">
+        <strong>真相 4：濕拖功能很實用但很重</strong>
+        <span>LG A9K 含濕拖一機搞定，但機身 2.6kg + 水箱會更重。沒有寵物 / 小孩亂跑可考慮純吸機。</span>
+      </div>
+      <div class="insight-item">
+        <strong>真相 5：續航廣告值都是「節能模式 / 無吸頭」</strong>
+        <span>實際使用搭配電動吸頭，續航砍半很正常。Dyson 60min ≈ 真實 30min、LG 120min ≈ 真實 60min。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARDS -->
+  <div class="products">
+    <article class="product-card yates hero">
+      <span class="brand-tag">YATES 亞堤斯 · 台灣</span>
+      <h2>CV-X1（標準版）</h2>
+      <div class="model">台灣製 · 恆壓專利</div>
+      <div class="price"><span class="num">NT$10,111</span><span class="unit">PChome / 全配 $13,999</span></div>
+      <div class="badge-row">
+        <span class="badge tw">台灣製造</span>
+        <span class="badge green">Nidec 馬達</span>
+        <span class="badge gold">2 年保固</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">吸力</span><span class="v">16 kPa</span></li>
+        <li><span class="k">馬達轉速</span><span class="v">110,000 rpm</span></li>
+        <li><span class="k">重量</span><span class="v"><strong style="color:#0369A1;">0.98 kg</strong></span></li>
+        <li><span class="k">續航</span><span class="v">40 min（節能）</span></li>
+        <li><span class="k">電池</span><span class="v">21700 × 4 / 可拆</span></li>
+        <li><span class="k">過濾</span><span class="v">5 道 + HEPA</span></li>
+      </ul>
+    </article>
+
+    <article class="product-card dyson">
+      <span class="brand-tag">DYSON · 英國</span>
+      <h2>V15 Detect Fluffy</h2>
+      <div class="model">SV47 · 雷射偵測 + LCD</div>
+      <div class="price"><span class="num">NT$17,900</span><span class="unit">官網 / 原價 $24,900</span></div>
+      <div class="badge-row">
+        <span class="badge gold">全機密封 HEPA</span>
+        <span class="badge green">230 AW 吸力</span>
+        <span class="badge">2 年保固</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">吸力</span><span class="v"><strong>230 AW</strong></span></li>
+        <li><span class="k">馬達轉速</span><span class="v">125,000 rpm</span></li>
+        <li><span class="k">重量</span><span class="v">2.76 kg</span></li>
+        <li><span class="k">續航</span><span class="v">60 min（節能）</span></li>
+        <li><span class="k">特色</span><span class="v">雷射 + LCD</span></li>
+        <li><span class="k">過濾</span><span class="v">全機密封 HEPA</span></li>
+      </ul>
+    </article>
+
+    <article class="product-card lg">
+      <span class="brand-tag">LG 樂金 · 韓國</span>
+      <h2>A9K-MAX2</h2>
+      <div class="model">濕拖無線吸塵器</div>
+      <div class="price"><span class="num">NT$19,900</span><span class="unit">老王 / 官網 $26,900</span></div>
+      <div class="badge-row">
+        <span class="badge gold">含濕拖</span>
+        <span class="badge green">變頻馬達 10 年</span>
+        <span class="badge">ThinQ APP</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">吸力</span><span class="v">200 W</span></li>
+        <li><span class="k">馬達轉速</span><span class="v">未公開</span></li>
+        <li><span class="k">重量</span><span class="v">2.6 kg</span></li>
+        <li><span class="k">續航</span><span class="v"><strong>120 min（雙電池）</strong></span></li>
+        <li><span class="k">電池</span><span class="v">雙電池可換</span></li>
+        <li><span class="k">過濾</span><span class="v">5 道 + HEPA</span></li>
+      </ul>
+    </article>
+
+    <article class="product-card xiaomi">
+      <span class="brand-tag">XIAOMI 小米 · 中國</span>
+      <h2>無線吸塵器 G11</h2>
+      <div class="model">紅外塵感 + 防纏繞</div>
+      <div class="price"><span class="num">NT$6,500</span><span class="unit">官方旗艦店</span></div>
+      <div class="badge-row">
+        <span class="badge gold">CP 值之王</span>
+        <span class="badge green">紅外塵感</span>
+        <span class="badge">1 年保固</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">吸力</span><span class="v">185 AW</span></li>
+        <li><span class="k">馬達轉速</span><span class="v">未公開</span></li>
+        <li><span class="k">重量</span><span class="v">1.6 kg</span></li>
+        <li><span class="k">續航</span><span class="v">60 min（節能）</span></li>
+        <li><span class="k">電池</span><span class="v">可拆（電池另購）</span></li>
+        <li><span class="k">過濾</span><span class="v">5 級 99.5%</span></li>
+      </ul>
+    </article>
+
+    <article class="product-card tineco">
+      <span class="brand-tag">TINECO 添可 · 中國</span>
+      <h2>PURE ONE S15 Pro</h2>
+      <div class="model">iLoop 智能感應 + LCD</div>
+      <div class="price"><span class="num">≈NT$13,000</span><span class="unit">台灣官方主推洗地機</span></div>
+      <div class="badge-row">
+        <span class="badge gold">iLoop 智能</span>
+        <span class="badge green">彩色 LCD</span>
+        <span class="badge">5 級過濾</span>
+      </div>
+      <ul class="spec-mini">
+        <li><span class="k">吸力</span><span class="v">自動調整</span></li>
+        <li><span class="k">馬達轉速</span><span class="v">未公開</span></li>
+        <li><span class="k">重量</span><span class="v">3.1 kg</span></li>
+        <li><span class="k">續航</span><span class="v">40 min</span></li>
+        <li><span class="k">電池</span><span class="v">2500 mAh 可拆</span></li>
+        <li><span class="k">過濾</span><span class="v">5 級 + HEPA</span></li>
+      </ul>
+    </article>
+  </div>
+
+  <!-- WEIGHT BAR CHART -->
+  <section>
+    <h2 class="section-title">⚖️ 機身重量對照（手持機最關鍵）</h2>
+    <p class="section-sub">每天用 10–20 分鐘的清潔，重量差 1 kg 體感極大。Yates 0.98 kg 是 5 台裡唯一進入 1 kg 以下的。</p>
+
+    <div class="bar-chart">
+      <h3>機身重量 · 越輕越好</h3>
+
+      <div class="bar-row">
+        <div class="brand-label">Yates CV-X1<small>台灣製 · 0.98 kg ★</small></div>
+        <div class="bar-track"><div class="bar-fill yates" style="width: 32%;">0.98 kg</div></div>
+        <div class="total">最輕 👑</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="brand-label">小米 G11<small>1.6 kg</small></div>
+        <div class="bar-track"><div class="bar-fill xiaomi" style="width: 52%;">1.6 kg</div></div>
+        <div class="total">1.6 kg</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="brand-label">LG A9K-MAX2<small>2.6 kg（含濕拖系統）</small></div>
+        <div class="bar-track"><div class="bar-fill lg" style="width: 84%;">2.6 kg</div></div>
+        <div class="total">2.6 kg</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="brand-label">Dyson V15 Detect<small>2.76 kg</small></div>
+        <div class="bar-track"><div class="bar-fill dyson" style="width: 89%;">2.76 kg</div></div>
+        <div class="total">2.76 kg</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="brand-label">Tineco S15 Pro<small>3.1 kg（最重）</small></div>
+        <div class="bar-track"><div class="bar-fill tineco" style="width: 100%;">3.1 kg</div></div>
+        <div class="total">3.1 kg</div>
+      </div>
+
+      <p class="legend">
+        💡 <strong>Yates 是 Dyson 的 1/3 重量</strong>，舉手清潔窗框 / 天花板 / 沙發底時差距巨大。<br>
+        💡 LG 與 Dyson 雖然重，但靠地板吸頭時不會直接扛在手上 — 主要差別在「手持模式」（吸沙發、車內、高處）。<br>
+        💡 Tineco 配備 LCD 螢幕 + 智慧感應器，是最重的代價。
+      </p>
+    </div>
+  </section>
+
+  <!-- BIG TABLE -->
+  <section>
+    <h2 class="section-title">📊 5 台完整規格對照</h2>
+    <p class="section-sub">★ 表示該項表現最佳，💰 表示最便宜。</p>
+
+    <div class="compare-table">
+      <div class="compare-row head">
+        <div class="label">比較項目</div>
+        <div>Yates CV-X1<span class="brand-mini">亞堤斯 · 台</span></div>
+        <div>V15 Detect<span class="brand-mini">Dyson · 英</span></div>
+        <div>A9K-MAX2<span class="brand-mini">LG · 韓</span></div>
+        <div>G11<span class="brand-mini">小米 · 中</span></div>
+        <div>S15 Pro<span class="brand-mini">Tineco · 中</span></div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">價格（機器）</div>
+        <div>NT$10,111</div>
+        <div>NT$17,900</div>
+        <div>NT$19,900</div>
+        <div class="cell-cheap">NT$6,500</div>
+        <div>≈NT$13,000</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">吸力</div>
+        <div>16,000 Pa</div>
+        <div class="cell-best">230 AW（≈25 kPa）</div>
+        <div>200 W</div>
+        <div>185 AW</div>
+        <div>iLoop 自動調整</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">馬達轉速 (rpm)</div>
+        <div>110,000<br><small style="color:var(--muted);">日本 Nidec</small></div>
+        <div class="cell-best">125,000<br><small style="color:var(--muted);">Hyperdymium</small></div>
+        <div>未公開（變頻馬達）</div>
+        <div>未公開</div>
+        <div>未公開</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">重量（機身）</div>
+        <div class="cell-best">0.98 kg</div>
+        <div>2.76 kg</div>
+        <div>2.6 kg</div>
+        <div>1.6 kg</div>
+        <div>3.1 kg</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">續航（節能 / 強效）</div>
+        <div>40 / 12 min</div>
+        <div>60 / 5 min</div>
+        <div class="cell-best">120 / 30 min<br><small style="color:var(--muted);">雙電池</small></div>
+        <div>60 / 10 min</div>
+        <div>40 min</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">充電時間</div>
+        <div>2.5 hr<br><small style="color:var(--muted);">支援 Type-C 快充</small></div>
+        <div>4.5 hr</div>
+        <div class="cell-best">4 hr（每顆）</div>
+        <div>未明確公布</div>
+        <div>未明確公布</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">電池可拆 / 可換</div>
+        <div class="cell-best"><span class="check">✓</span>21700 動力鋰電池</div>
+        <div><span class="check">✓</span>七芯電池</div>
+        <div class="cell-best"><span class="check">✓</span>雙電池可拆</div>
+        <div><span class="check">✓</span>另購備電</div>
+        <div><span class="check">✓</span>可拆</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">過濾系統</div>
+        <div>5 道 + 可洗 HEPA</div>
+        <div class="cell-best"><strong>全機密封 HEPA</strong><br><small style="color:var(--muted);">PM0.1 99.99%</small></div>
+        <div>5 道 + HEPA</div>
+        <div>5 級 + 99.5%</div>
+        <div>5 級 + HEPA</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">集塵筒容量</div>
+        <div>未明確公布</div>
+        <div>0.54 L</div>
+        <div>0.44 L（壓縮 1.054 L）</div>
+        <div>0.3 L</div>
+        <div>0.47 L</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">智能感應</div>
+        <div><span class="x">×</span>無</div>
+        <div class="cell-best"><span class="check">✓</span>雷射 + 聲學感應 + LCD</div>
+        <div><span class="check">✓</span>ThinQ APP</div>
+        <div><span class="check">✓</span>紅外塵感</div>
+        <div class="cell-best"><span class="check">✓</span>iLoop 智能 + LCD</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">濕拖功能</div>
+        <div><span class="x">×</span>無</div>
+        <div><span class="x">×</span>無</div>
+        <div class="cell-best"><span class="check">✓</span>含濕拖</div>
+        <div><span class="x">×</span>無</div>
+        <div><span class="x">×</span>無</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">保固</div>
+        <div class="cell-best"><strong>2 年機身</strong><br>18 月電池</div>
+        <div>2 年</div>
+        <div class="cell-best">變頻馬達 10 年<br>機身/電池 2 年</div>
+        <div>1 年</div>
+        <div>2 年</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">產地</div>
+        <div class="cell-best"><strong>台灣製造</strong></div>
+        <div>菲律賓</div>
+        <div>韓國</div>
+        <div>中國</div>
+        <div>中國</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="label">特色</div>
+        <div>恆壓專利（不衰減）<br>直通氣旋專利</div>
+        <div>雷射顯灰塵<br>LCD 顯示塵粒數</div>
+        <div>吸塵 + 濕拖一機<br>集塵壓縮 2.4 倍</div>
+        <div>價格最低<br>防纏繞滾刷</div>
+        <div>iLoop 自動調吸力<br>APP 連線</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENARIOS -->
+  <section>
+    <h2 class="section-title">🧭 該怎麼選？</h2>
+    <p class="section-sub">沒有「絕對最好」，只有「適合你」的吸塵器。</p>
+
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <div class="need">📍 你<strong>重視輕量</strong>、每天清潔局部、家裡有長輩或女性主清潔者</div>
+        <div class="pick yates">→ Yates CV-X1</div>
+        <div class="why">0.98 kg 是 5 台裡唯一進入 1 kg 以下的，舉手吸天花板、沙發底完全不費力。台灣製 + 2 年保固 + Nidec 馬達，CP 值極高。</div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="need">📍 家中有<strong>過敏兒、氣喘、寵物毛掉滿地</strong>，追求最強過濾</div>
+        <div class="pick dyson">→ Dyson V15 Detect</div>
+        <div class="why">唯一「全機密封 HEPA」設計，鎖住 PM0.1 99.99%。雷射綠光顯灰塵 + LCD 顯示塵粒數，是視覺化清潔回饋的天花板。</div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="need">📍 你<strong>厭倦拖把</strong>、想吸塵濕拖一機搞定</div>
+        <div class="pick lg">→ LG A9K-MAX2</div>
+        <div class="why">5 台裡唯一含濕拖功能，地板可直接濕拖、不用換工具。雙電池 120 分鐘、變頻馬達 10 年保固業界最長。但機身偏重（2.6 kg）。</div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="need">📍 <strong>預算有限、租屋、剛畢業</strong>第一次買無線吸塵器</div>
+        <div class="pick xiaomi">→ 小米 G11</div>
+        <div class="why">官網 NT$6,500，是 5 台裡最低 — 但 185 AW 吸力與 60 分鐘續航完全夠用，紅外塵感是這個價位的隱藏優勢。電池另購是缺點。</div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="need">📍 你<strong>愛科技感</strong>、想要 LCD 看清潔過程、希望機器自動調吸力</div>
+        <div class="pick tineco">→ Tineco S15 Pro</div>
+        <div class="why">iLoop 智慧偵測 + 彩色 LCD，灰塵多時自動加大吸力、變藍代表乾淨。但 3.1 kg 是 5 台最重，台灣這款不易買到（Tineco 在台主推洗地機）。</div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="need">📍 想要「<strong>支持台灣製造</strong>」+「售後服務在地」</div>
+        <div class="pick yates">→ Yates CV-X1</div>
+        <div class="why">5 台裡唯一台灣製，售後維修最快速、零件在地生產。BSMI 認證 R3F474。亞堤斯品牌深耕 8 年，PChome 評價 5 顆星。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUTH BOX -->
+  <section>
+    <h2 class="section-title">⚠️ 5 個下手前必須知道的真相</h2>
+    <p class="section-sub">廠商不會告訴你的細節。</p>
+
+    <div class="truth-box">
+      <h3>採購自我檢核清單</h3>
+      <div class="truth-item">
+        <strong>1. Pa / AW / W 三種吸力單位不能直接比較</strong><br>
+        Yates 標 16,000 Pa（壓力差）、Dyson 標 230 AW（IEC 標準的空氣功率）、LG 標 200 W（機器功率）。<strong>AW（Air Watts）是國際 IEC 62885 的吸塵器標準</strong>，最公正。Pa 與 W 都是廠商可以包裝的數字。
+      </div>
+      <div class="truth-item">
+        <strong>2. 廣告續航都是「節能模式 + 無電動吸頭」</strong><br>
+        Dyson V15 廣告 60 分鐘，實際用標準地板吸頭只有 30 分鐘、強力模式 5 分鐘。<strong>真的會清潔的時間 ≈ 廣告值的一半</strong>。買前看清楚「節能 / 中段 / 強力」三個數字。
+      </div>
+      <div class="truth-item">
+        <strong>3. 重量比吸力更影響日常使用</strong><br>
+        每天清潔 10–20 分鐘，2.76 kg vs 0.98 kg 的差距會反映在「你會不會懶得拿出來用」。<strong>選最強吸力但太重 → 用一個月後丟著積灰</strong>是常見悲劇。先試拿再買。
+      </div>
+      <div class="truth-item">
+        <strong>4. HEPA 不等於全機密封 HEPA</strong><br>
+        所有 5 台都號稱「HEPA 過濾」，但只有 Dyson V15 是「<strong>全機密封</strong> HEPA」 — 灰塵不會從機身縫隙漏出。<strong>過敏兒家庭差別在此</strong>，其他 4 台都是「後置 HEPA」，吸進去的灰塵有機會從機身接縫漏出。
+      </div>
+      <div class="truth-item">
+        <strong>5. 電池才是隱藏成本</strong><br>
+        Yates / Dyson / LG 都是 2 年保固，但<strong>電池保固通常只有 18 個月</strong>。3–5 年後電池衰退要換 — 原廠電池一顆約 NT$2,000–4,000。<strong>買前查「電池更換成本」與「副廠電池可用性」</strong>。Yates 的台製 21700 電池在台灣最容易找到替換品。
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>資料來源：</strong>Yates 亞堤斯官網 yatesvacuum.com、Dyson 台灣官方 dyson.tw、LG 樂金 TW 官網、小米 米家 mi.com/tw、Tineco 國際官網、PChome 24h 商品頁、BigGo 比價網、Mobile01 / PTT 評測。</p>
+    <p><strong>備註：</strong>Pa 與 AW 為不同物理量（Pa 為壓力差，AW 為空氣瓦特 = 風量 × 壓力）。本表呈現廠商標示原始單位，避免換算誤差。Tineco S15 Pro 在台灣未正式主推手持機（主力為洗地機），價格為英國定價換算估算。</p>
+    <p style="margin-top:14px;">最後更新：2026/05/25 · 整理：個人購買決策參考用</p>
+  </footer>
+
+</div>
+</body>
+</html>
