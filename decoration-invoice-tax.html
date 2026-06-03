@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>裝潢發票 & 設計費索取憑證決策｜2,090 萬蘆洲新成屋場景</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1116;
+    --ink-2: #2A2F38;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --line-soft: #F0EFEB;
+    --bg: #FAFAF7;
+    --paper: #FFFFFF;
+
+    --primary: #1D4ED8;
+    --primary-soft: #DBEAFE;
+    --primary-ink: #1E3A8A;
+
+    --win: #059669;
+    --warn: #D97706;
+    --danger: #DC2626;
+    --neutral: #64748B;
+
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 22px;
+
+    --shadow-1: 0 1px 2px rgba(15,17,22,.04), 0 2px 8px rgba(15,17,22,.04);
+    --shadow-2: 0 12px 32px -12px rgba(15,17,22,.18);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.2;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  .lede {
+    font-size: 17px;
+    color: var(--ink-2);
+    max-width: 760px;
+    margin: 0 0 36px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(22px, 3.2vw, 28px);
+    font-weight: 900;
+    margin: 64px 0 8px;
+    color: var(--ink);
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 14.5px;
+    margin: 0 0 24px;
+  }
+
+  /* HERO CONCLUSION (黃色警示風) */
+  .hero {
+    background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+    border-radius: var(--r-lg);
+    padding: 32px;
+    margin: 28px 0 48px;
+    box-shadow: var(--shadow-1);
+    border-left: 6px solid var(--warn);
+  }
+  .hero h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    margin: 0 0 12px;
+    color: #78350F;
+  }
+  .hero p {
+    margin: 0 0 12px;
+    font-size: 15.5px;
+    color: #78350F;
+    line-height: 1.75;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero strong { color: #92400E; }
+  .hero ul {
+    margin: 8px 0 0;
+    padding-left: 22px;
+    color: #78350F;
+    font-size: 15px;
+  }
+  .hero ul li { margin-bottom: 4px; }
+
+  /* PILL / TAG */
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .pill.win    { background: #DCFCE7; color: #166534; }
+  .pill.warn   { background: #FEF3C7; color: #92400E; }
+  .pill.danger { background: #FEE2E2; color: #991B1B; }
+  .pill.info   { background: #DBEAFE; color: #1E3A8A; }
+  .pill.neutral{ background: #F1F5F9; color: #475569; }
+
+  /* SCENARIO MATRIX (3 卡片) */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .scenario {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 22px;
+  }
+  .scenario.now    { border-top: 4px solid var(--danger); }
+  .scenario.mid    { border-top: 4px solid var(--warn); }
+  .scenario.long   { border-top: 4px solid var(--win); }
+  .scenario h4 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 4px 0 8px;
+    font-size: 17px;
+  }
+  .scenario .verdict {
+    font-weight: 800;
+    font-size: 14px;
+    margin: 0 0 12px;
+  }
+  .scenario.now    .verdict { color: var(--danger); }
+  .scenario.mid    .verdict { color: var(--warn); }
+  .scenario.long   .verdict { color: var(--win); }
+  .scenario p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+
+  /* VERIFY TABLE — 設計師說法逐條判定 */
+  table.verify {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: var(--paper);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    margin-bottom: 14px;
+  }
+  table.verify th, table.verify td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.verify thead th {
+    background: #FAFAF7;
+    font-weight: 700;
+    color: var(--ink-2);
+  }
+  table.verify tr:last-child td { border-bottom: none; }
+  table.verify td.judgement {
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  table.verify td.source {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    width: 200px;
+  }
+
+  /* DECISION TREE (發票該不該索取) */
+  table.decision {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--paper);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+  }
+  table.decision th, table.decision td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+  }
+  table.decision thead th {
+    background: #FAFAF7;
+    font-weight: 700;
+    color: var(--ink-2);
+    text-align: center;
+  }
+  table.decision thead th:first-child { text-align: left; }
+  table.decision td.center { text-align: center; }
+  table.decision tr:last-child td { border-bottom: none; }
+  .row-must  { background: #FEF2F2; }
+  .row-strong{ background: #FFFBEB; }
+  .row-recommend { background: #F0FDF4; }
+
+  /* COST TABLE — 5 年節稅試算 */
+  table.cost {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: var(--paper);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+  }
+  table.cost th, table.cost td {
+    padding: 12px 14px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+  table.cost th:first-child, table.cost td:first-child { text-align: left; }
+  table.cost thead th {
+    background: #FAFAF7;
+    font-weight: 700;
+    color: var(--ink-2);
+  }
+  table.cost tr:last-child td { border-bottom: none; }
+  table.cost .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+  table.cost .num.bad  { color: var(--danger); }
+  table.cost .num.good { color: var(--win); }
+  table.cost .num.neutral { color: var(--neutral); }
+
+  /* HAND-CALC 召回使用者原文試算 */
+  .calc-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 24px;
+    box-shadow: var(--shadow-1);
+    margin: 16px 0 28px;
+  }
+  .calc-card h4 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 0 0 14px;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .calc-card .calc-line {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 14px;
+  }
+  .calc-card .calc-line:last-child {
+    border-bottom: none;
+    border-top: 2px solid var(--ink);
+    padding-top: 12px;
+    margin-top: 4px;
+    font-weight: 700;
+  }
+  .calc-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+  .calc-card .label-muted { color: var(--muted); }
+
+  /* CALLOUT (浮窗強調 / 警示) */
+  .callout {
+    background: var(--paper);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--r-sm);
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    box-shadow: var(--shadow-1);
+  }
+  .callout.warn   { border-left-color: var(--warn);   background: #FFFBEB; }
+  .callout.danger { border-left-color: var(--danger); background: #FEF2F2; }
+  .callout.win    { border-left-color: var(--win);    background: #F0FDF4; }
+  .callout strong { color: var(--ink); }
+
+  /* TEMPLATE BLOCK — 給設計師的話 */
+  .template-box {
+    background: var(--paper);
+    border: 1.5px solid var(--primary);
+    border-radius: var(--r-md);
+    padding: 24px 26px;
+    margin: 16px 0 28px;
+    box-shadow: var(--shadow-1);
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.85;
+    font-size: 15px;
+    color: var(--ink-2);
+    position: relative;
+  }
+  .template-box::before {
+    content: "👇 複製貼上";
+    position: absolute;
+    top: -12px;
+    left: 22px;
+    background: var(--primary);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  /* CHECKLIST */
+  ul.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 28px;
+  }
+  ul.checklist li {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--r-sm);
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+  }
+  ul.checklist li strong { color: var(--ink); }
+
+  /* SOURCE FOOTER */
+  .sources {
+    margin-top: 64px;
+    padding: 24px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .sources h4 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--ink);
+    margin: 0 0 12px;
+    font-size: 15px;
+  }
+  .sources ol {
+    margin: 0;
+    padding-left: 22px;
+  }
+  .sources ol li {
+    margin-bottom: 6px;
+    line-height: 1.55;
+  }
+  .sources code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: #F1F5F9;
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--ink-2);
+  }
+  .footer-meta {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .footer-meta a { color: var(--primary); text-decoration: none; }
+
+  @media print {
+    .container { padding: 24px; }
+    .hero, .scenario, table, .calc-card, .callout, .template-box, ul.checklist li, .sources {
+      box-shadow: none !important;
+      border-color: #888 !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <p class="eyebrow">家庭研究 · 稅務文件決策</p>
+  <h1>裝潢發票 & 設計費索取憑證決策</h1>
+  <p class="lede">
+    設計師說「沒要賣或抵稅，住的人很少開發票」— 這是業界現象，不是稅務建議。
+    本份文件用財政部現行法令（所得稅法 §14-4、§4-5、§17，加值營業稅法 §32）逐條查核常見說法，
+    把「該不該要發票」拆成「現在綜所稅、未來房地合一稅、保固爭議」三個獨立決策，
+    給 2,090 萬蘆洲新成屋這個具體場景下的明確答案與回覆模板。
+  </p>
+
+  <!-- ============================================ -->
+  <!-- HERO — 結論先講 -->
+  <!-- ============================================ -->
+  <section class="hero">
+    <h3>結論：要拿，但理由不是抵今年的綜所稅</h3>
+    <p>
+      <strong>今年（114 年度）綜所稅</strong>：裝潢發票<strong>不能抵</strong>。所得稅法 §17 沒有把
+      「裝修費」列為列舉扣除項目。你手上的試算表會變動是因為房貸利息上限 30 萬，不是裝潢費。
+    </p>
+    <p>
+      <strong>未來房地合一稅</strong>：發票（或合法收據）是<strong>列報裝修成本的必要前提</strong>。
+      就算未來「自住 400 萬以下免稅」的優惠成立，<strong>持有 6 年內換屋、賣價 > 2,490 萬</strong>
+      就會踩到 10% 課稅；持有 2-5 年是 35%、2 年內是 45%。發票價值 = 裝潢金額 × 適用稅率，
+      最低 10%、最高 45%，<strong>都大於含稅多付的 5%</strong>。
+    </p>
+    <p>
+      <strong>保固/爭議/付款證明</strong>：與稅無關但同等重要。一張「載明收款人統編 + 金額 + 日期 + 服務內容」
+      的合法收據（不一定要統一發票）就能用一輩子。
+    </p>
+    <p>
+      <strong>👉 行動：</strong>正式設計費 + 工程款（水電、防水、泥作、木作、廚衛、固定櫃體、門窗）<strong>全部要發票或合法收據</strong>；
+      活動家具、家電、軟裝可放寬到「至少合法收據」。對方說「開發票加 5%」可接受，但<strong>必須寫進合約</strong>。
+    </p>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 場景：使用者的 2,090 萬蘆洲案 -->
+  <!-- ============================================ -->
+  <h2 class="section-title">場景前提</h2>
+  <p class="section-sub">本案的關鍵參數，後續所有試算都以此為基準。</p>
+
+  <div class="calc-card">
+    <h4>114 年度綜所稅估算表（使用者手上資料）</h4>
+    <div class="calc-line"><span class="label-muted">綜合所得總額</span><span class="num">約 NT$ 1,650,000</span></div>
+    <div class="calc-line"><span class="label-muted">目前採用一般扣除額</span><span class="num">262,000</span></div>
+    <div class="calc-line"><span class="label-muted">既有列舉扣除額明細</span><span class="num">147,131</span></div>
+    <div class="calc-line"><span class="label-muted">儲蓄投資特別扣除額</span><span class="num">36,586</span></div>
+    <div class="calc-line"><span class="label-muted">自用住宅購屋借款利息</span><span class="num">0（房子尚未報入）</span></div>
+    <div class="calc-line"><span class="label-muted">家庭年所得（粗估）</span><span class="num">NT$ 1,900,000</span></div>
+  </div>
+
+  <div class="calc-card">
+    <h4>蘆洲新成屋（裝潢決策標的）</h4>
+    <div class="calc-line"><span class="label-muted">總價</span><span class="num">NT$ 20,900,000</span></div>
+    <div class="calc-line"><span class="label-muted">貸款金額</span><span class="num">16,720,000</span></div>
+    <div class="calc-line"><span class="label-muted">預設房貸利率（試算用）</span><span class="num">2.2% / 年</span></div>
+    <div class="calc-line"><span class="label-muted">預估第 1 年房貸利息</span><span class="num">368,000</span></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 設計師說法逐條查證 -->
+  <!-- ============================================ -->
+  <h2 class="section-title">查證 1：設計師說法逐條檢驗</h2>
+  <p class="section-sub">把對話裡出現的每個論點對照現行法令，避免「業界現象」被誤讀為「稅務建議」。</p>
+
+  <table class="verify">
+    <thead>
+      <tr>
+        <th>說法</th>
+        <th class="judgement">判定</th>
+        <th>法源 / 解釋</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>「如果沒有要轉賣或抵稅，基本上住的很少開發票」</strong></td>
+        <td class="judgement"><span class="pill warn">部分對</span></td>
+        <td>是<strong>業界現象</strong>但<strong>不是稅法依據</strong>。對營業人而言，銷售貨物或勞務本應依《加值營業稅法》§32 開立統一發票（小規模 / 特殊性質除外）。「不開」是慣例方便，不是法規允許。</td>
+      </tr>
+      <tr>
+        <td><strong>「裝潢發票可以拿來抵今年綜所稅」</strong></td>
+        <td class="judgement"><span class="pill danger">錯</span></td>
+        <td>所得稅法 §17 列舉扣除額共 5 項：捐贈、保險費、醫藥及生育費、災害損失、購屋借款利息。<strong>沒有裝修費</strong>。今年所得稅試算的變動只會來自房貸利息上限 30 萬，不是裝潢發票。</td>
+      </tr>
+      <tr>
+        <td><strong>「房貸利息可以列舉扣除」</strong></td>
+        <td class="judgement"><span class="pill win">對</span></td>
+        <td>所得稅法 §17 列舉扣除額第 5 款：每一申報戶每年 <strong>上限 30 萬</strong>，但需減除儲蓄投資特別扣除額；<strong>一戶限一屋</strong>。</td>
+      </tr>
+      <tr>
+        <td><strong>「未來賣房要繳房地合一稅時，裝修費可以列為成本」</strong></td>
+        <td class="judgement"><span class="pill win">對</span></td>
+        <td>所得稅法 §14-4：「<strong>因取得、改良及移轉而支付之費用</strong>」可從成交價額中減除。實務上國稅局要求檢附合約、明細、付款證明、修繕前後照片、合法憑證等資料（無單一函釋，散見各地區國稅局新聞稿與懶人包）。</td>
+      </tr>
+      <tr>
+        <td><strong>「合法憑證除了統一發票，還有免用統一發票收據」</strong></td>
+        <td class="judgement"><span class="pill win">對</span></td>
+        <td>加值營業稅法 §32 但書：「<strong>營業性質特殊之營業人及小規模營業人，得掣發普通收據，免用統一發票</strong>」。個人接案或小規模工程行屬此範疇，但收據仍需載明收款人資料、金額、日期、服務內容。</td>
+      </tr>
+      <tr>
+        <td><strong>「自住房地有 400 萬免稅」</strong></td>
+        <td class="judgement"><span class="pill win">對，但有 4 項硬條件</span></td>
+        <td>所得稅法 §4-5 + §14-4：須同時符合 (1) 本人/配偶/未成年子女<strong>設籍 + 持有 + 居住連續滿 6 年</strong>；(2) 6 年內未出租 / 營業 / 執行業務使用；(3) 6 年內未曾適用此優惠；(4) 超過 400 萬部分仍課 <strong>10%</strong>。</td>
+      </tr>
+      <tr>
+        <td><strong>「開發票要加 5%」</strong></td>
+        <td class="judgement"><span class="pill neutral">可接受</span></td>
+        <td>不違法，<strong>但必須在合約寫清楚</strong>。最怕的是「收你含稅價、卻不開發票」— 那等於對方收了營業稅但沒繳，未來你無憑證可主張裝修成本。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>關鍵風險：</strong>若未來真的賣屋時想用裝潢費降低房地合一稅，但又拿不出發票/合法收據，國稅局可能<strong>剔除你列報的成本</strong>，補稅 + 罰鍰；如雙方共謀開立不實發票，工程行也會被查處。所以發票要拿「真的」、配合「真的施工事實」。</div>
+
+  <!-- ============================================ -->
+  <!-- 查證 2：今年綜所稅試算召回 -->
+  <!-- ============================================ -->
+  <h2 class="section-title">查證 2：今年綜所稅試算召回（自己再算一次）</h2>
+  <p class="section-sub">使用者原文試算我重算了一遍，數字與邏輯都對得上。重點是確認「裝潢發票完全不在這條算式裡」。</p>
+
+  <div class="calc-card">
+    <h4>明年（115 年度）若把房貸利息報進去</h4>
+    <div class="calc-line"><span>第 1 年房貸利息 = 16,720,000 × 2.2%</span><span class="num">368,000</span></div>
+    <div class="calc-line"><span>扣除儲蓄投資特別扣除額（§17 規定要先扣）</span><span class="num">− 36,586</span></div>
+    <div class="calc-line"><span>計算後本可扣除</span><span class="num">331,414</span></div>
+    <div class="calc-line"><span>但 §17 限上限</span><span class="num">取 300,000</span></div>
+    <div class="calc-line"><span>+ 既有列舉扣除（捐贈 / 保險 / 醫藥等）</span><span class="num">+ 147,131</span></div>
+    <div class="calc-line"><span>新列舉扣除合計</span><span class="num">447,131</span></div>
+    <div class="calc-line"><span>vs 一般扣除額 262,000，多扣</span><span class="num">+ 185,131</span></div>
+    <div class="calc-line"><span>以家庭年收 190 萬粗估邊際稅率約 12%，預期節稅</span><span class="num">≈ 22,000</span></div>
+  </div>
+
+  <div class="callout">
+    <strong>修正使用者原文一個小數：</strong>原文寫「節稅大約 1.9 萬」是估邊際稅率 ≈ 10%；以 190 萬家庭年收實際適用 12% 邊際稅率，會更接近 <strong>2.2 萬</strong>。差距不大，但這筆全來自<strong>房貸利息</strong>，<strong>跟裝潢發票無關</strong>。
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 查證 3：未來房地合一稅試算 -->
+  <!-- ============================================ -->
+  <h2 class="section-title">查證 3：未來房地合一稅期望節稅試算</h2>
+  <p class="section-sub">假設裝潢金額屬於「能列入成本」的固定裝修（水電、防水、泥作、木作、廚衛、固定櫃體），且已備齊發票或合法收據。</p>
+
+  <table class="cost">
+    <thead>
+      <tr>
+        <th>裝潢金額</th>
+        <th>含稅多付 5%</th>
+        <th>自住優惠＜400萬<br>（無稅可省）</th>
+        <th>自住優惠超過免稅額<br>10%</th>
+        <th>持有 5–10 年<br>非自住 20%</th>
+        <th>持有 2–5 年<br>非自住 35%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>100 萬</td>
+        <td class="num bad">+5 萬</td>
+        <td class="num neutral">0</td>
+        <td class="num good">−10 萬</td>
+        <td class="num good">−20 萬</td>
+        <td class="num good">−35 萬</td>
+      </tr>
+      <tr>
+        <td>200 萬</td>
+        <td class="num bad">+10 萬</td>
+        <td class="num neutral">0</td>
+        <td class="num good">−20 萬</td>
+        <td class="num good">−40 萬</td>
+        <td class="num good">−70 萬</td>
+      </tr>
+      <tr>
+        <td>300 萬</td>
+        <td class="num bad">+15 萬</td>
+        <td class="num neutral">0</td>
+        <td class="num good">−30 萬</td>
+        <td class="num good">−60 萬</td>
+        <td class="num good">−105 萬</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout win">
+    <strong>邊際值就在你身上：</strong>只要未來房地合一稅有要繳，就算只在最寬鬆的「自住 10%」級距下，裝潢憑證的稅務價值都<strong>恰好等於成本的 2 倍</strong>（10% vs 5%）；持有 5 年以下換屋更可達 7 倍。賣價愈高、持有期愈短，發票價值倍數愈大。
+  </div>
+
+  <h3 style="font-family:'Noto Serif TC',serif;margin:32px 0 8px;font-size:19px;">什麼情境下裝潢發票「不會」幫你省稅？</h3>
+  <p class="section-sub">不是每個賣屋都會繳房地合一稅。判斷你會不會踩到的最簡公式：</p>
+
+  <div class="calc-card">
+    <h4>自住優惠下不繳稅的條件</h4>
+    <div class="calc-line"><span>未來賣價 − 取得成本（2,090 萬）− 裝潢成本 − 仲介費等</span><span class="num">≤ 4,000,000</span></div>
+    <div class="calc-line"><span>且符合 §4-5：設籍滿 6 年 + 6 年內未出租/營業/再用過此優惠</span><span class="num">同時成立</span></div>
+    <div class="calc-line"><span>同時成立 = 100% 免稅，發票省不到稅（但仍是保固證明）</span><span class="num">→ 免稅</span></div>
+  </div>
+
+  <table class="cost">
+    <thead>
+      <tr>
+        <th>裝潢成本</th>
+        <th>自住優惠下，賣價漲到多少才開始課稅</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>100 萬</td><td class="num">約 2,590 萬以上</td></tr>
+      <tr><td>200 萬</td><td class="num">約 2,690 萬以上</td></tr>
+      <tr><td>300 萬</td><td class="num">約 2,790 萬以上</td></tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:14px;color:var(--ink-2);margin:14px 0 0;">
+    換言之：<strong>如果你預期住到設籍滿 6 年才賣、且賣價不超過買價 + 裝潢 + 400 萬</strong>，
+    裝潢發票在稅務上「省不到稅」，但仍有保固、付款證明、爭議仲裁等價值。
+  </p>
+
+  <!-- ============================================ -->
+  <!-- 該不該要發票決策表 -->
+  <!-- ============================================ -->
+  <h2 class="section-title">逐項決策：哪些一定要、哪些可放寬</h2>
+  <p class="section-sub">紅色 = 強烈建議統一發票或正式合法收據；黃色 = 至少合法收據；綠色 = 收據或匯款證明即可。</p>
+
+  <table class="decision">
+    <thead>
+      <tr>
+        <th>項目</th>
+        <th>建議</th>
+        <th>未來房地合一可列為成本</th>
+        <th>主要理由</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-must">
+        <td><strong>設計費（圖面 / 監工）</strong></td>
+        <td class="center"><span class="pill danger">統一發票</span></td>
+        <td class="center">⚠️ 部分可</td>
+        <td>正式服務收入；設計師若有營業登記原本就應開立。</td>
+      </tr>
+      <tr class="row-must">
+        <td><strong>統包工程款</strong></td>
+        <td class="center"><span class="pill danger">統一發票</span></td>
+        <td class="center">✅</td>
+        <td>金額最大、最容易被國稅局抽查的項目。</td>
+      </tr>
+      <tr class="row-must">
+        <td><strong>水電 / 防水 / 隔間 / 泥作</strong></td>
+        <td class="center"><span class="pill danger">統一發票 + 明細</span></td>
+        <td class="center">✅✅</td>
+        <td>典型「增加房屋效能、非 2 年內耗竭」的固定裝修，最容易被認列為房地合一成本。</td>
+      </tr>
+      <tr class="row-must">
+        <td><strong>木作 / 系統櫃 / 固定櫃體</strong></td>
+        <td class="center"><span class="pill danger">統一發票 + 明細</span></td>
+        <td class="center">✅✅</td>
+        <td>同上。木作通常單價高，沒發票將來最痛。</td>
+      </tr>
+      <tr class="row-must">
+        <td><strong>廚具 / 衛浴 / 門窗 / 冷氣管線</strong></td>
+        <td class="center"><span class="pill danger">統一發票 + 明細</span></td>
+        <td class="center">✅✅</td>
+        <td>固定於房屋的設備，認列空間最大。</td>
+      </tr>
+      <tr class="row-strong">
+        <td><strong>窗簾 / 燈具（固定式）</strong></td>
+        <td class="center"><span class="pill warn">合法收據</span></td>
+        <td class="center">⚠️ 視固定程度</td>
+        <td>固定窗簾盒 / 嵌入式燈具可能算成本；活動式燈具則不一定。</td>
+      </tr>
+      <tr class="row-recommend">
+        <td><strong>家電（冷氣以外）</strong></td>
+        <td class="center"><span class="pill info">原廠發票</span></td>
+        <td class="center">✗ 大多不可</td>
+        <td>非固定設備 + 短期耗竭，房地合一通常不認。但保固、節能退稅、消費爭議需要。</td>
+      </tr>
+      <tr class="row-recommend">
+        <td><strong>活動家具 / 沙發 / 床 / 軟裝</strong></td>
+        <td class="center"><span class="pill info">收據</span></td>
+        <td class="center">✗</td>
+        <td>純消費財，不入房地合一成本；收據主要用於保固/退換。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ============================================ -->
+  <!-- 場景化建議：3 種裝潢預算下的策略 -->
+  <!-- ============================================ -->
+  <h2 class="section-title">場景化建議：依你的裝潢預算選策略</h2>
+  <p class="section-sub">不是「金額多少才需要發票」有法定門檻，而是金額決定了「文件成本」是否值得花心力處理。</p>
+
+  <div class="scenario-grid">
+    <div class="scenario now">
+      <h4>裝潢預算 &lt; 30 萬</h4>
+      <p class="verdict">⚠ 至少要合法收據</p>
+      <p>金額小，但仍建議拿「載有收款人統編 + 金額 + 日期 + 服務內容」的收據。匯款付款，留下流水帳。發票價值還在保固與爭議，稅務節省微乎其微。</p>
+    </div>
+    <div class="scenario mid">
+      <h4>裝潢預算 30–100 萬</h4>
+      <p class="verdict">▲ 要求完整合法憑證</p>
+      <p>所有設計費 + 固定裝修要發票或合法收據；估價單、合約、付款紀錄、施工前後照片一併留存。對方提「+5% 開發票」可接受，但寫進合約。</p>
+    </div>
+    <div class="scenario long">
+      <h4>裝潢預算 &gt; 100 萬</h4>
+      <p class="verdict">● 務必發票 + 全套文件</p>
+      <p>全程統一發票（小規模項目用免用統一發票收據），合約明列項目單價、追加減項單。出售房屋時光憑這套資料就能讓國稅局快速認列成本，節稅效果通常數十萬起跳。</p>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 給設計師的回覆模板 -->
+  <!-- ============================================ -->
+  <h2 class="section-title">給設計師的回覆（複製貼上）</h2>
+  <p class="section-sub">不要只問「可以開發票嗎」— 而是把所有需求一次講清楚，留下談判空間給「含稅 / 未稅 / 哪些可用收據」這幾個選項。</p>
+
+  <div class="template-box">
+    您好，因為這間房子總價較高，未來可能涉及房地合一稅的成本認列，
+    也需要完整的保固、付款紀錄，所以正式設計費與工程款我都希望以<strong>含稅方式報價並開立統一發票</strong>。
+    <br><br>
+    如果有些項目依法可以免用統一發票（例如小規模工程行或個人承包），請改以
+    <strong>合法收據</strong>提供，內容需包含收款人姓名 / 商號、統一編號或身分證字號、收款日期、收款金額、服務或工程項目。
+    <br><br>
+    另外也請報價時直接列出<strong>含稅價</strong>與<strong>未稅價</strong>兩欄，並提供：
+    <ul style="margin:6px 0 0;padding-left:22px;">
+      <li>正式合約（含工期、付款期程、保固條款）</li>
+      <li>估價明細（按項目分列）</li>
+      <li>施工前 / 中 / 後照片</li>
+      <li>追加減項單（如有）</li>
+    </ul>
+    <br>
+    付款方式希望全部以<strong>匯款</strong>處理，便於日後對帳。麻煩您了，謝謝。
+  </div>
+
+  <!-- ============================================ -->
+  <!-- Self-check 採購自我檢核 -->
+  <!-- ============================================ -->
+  <h2 class="section-title">採購自我檢核（廠商不會主動提的）</h2>
+  <ul class="checklist">
+    <li><strong>「+5% 開發票」要寫進合約：</strong>不能只口頭談妥，否則對方收了含稅價卻不開發票，你毫無證據。</li>
+    <li><strong>分期付款 = 分次開發票：</strong>加值營業稅法 §32 規定承包工程「每期應收價款時開立」。如果一次預付，要主動要求按進度分次出據。</li>
+    <li><strong>收據必備 5 欄：</strong>收款人姓名/商號、統編或身分證字號、金額、日期、服務內容。少一欄將來都可能被剔除。</li>
+    <li><strong>修繕前後照片：</strong>未來主張裝修成本時國稅局常要求這份。手機拍照保留 6 年（自住免稅門檻）以上。</li>
+    <li><strong>合約 + 追加減項單：</strong>裝潢實際金額常比初版報價高 10–20%。每次追加都要紙本簽，否則只能算到初版價。</li>
+    <li><strong>不開不實發票：</strong>就算對方主動提議幫你開「高於實際金額」的發票（讓你將來抵更多稅）也不要簽。財政部已公開警告：列報不實裝修費會被剔除、補稅、裁罰，雙方都受影響。</li>
+    <li><strong>家電仍拿原廠發票：</strong>就算不算房地合一成本，節能家電貨物稅退稅、5 年延長保固、消費爭議都需要。</li>
+  </ul>
+
+  <!-- ============================================ -->
+  <!-- 法源 -->
+  <!-- ============================================ -->
+  <div class="sources">
+    <h4>📚 法源與參考（已逐條核對）</h4>
+    <ol>
+      <li><strong>所得稅法 §17（列舉扣除額 / 購屋借款利息 30 萬上限 + 儲蓄投資特別扣除額 27 萬）</strong> · <code>law.moj.gov.tw G0340003 §17</code></li>
+      <li><strong>所得稅法 §14-4（房地合一稅率 45/35/20/15 / 自住 400 萬以上 10%）</strong> · <code>law.moj.gov.tw G0340003 §14-4</code></li>
+      <li><strong>所得稅法 §4-5（自住免稅 6 年 4 項條件 / 400 萬免稅額計算）</strong> · <code>law.moj.gov.tw G0340003 §4-5</code></li>
+      <li><strong>加值營業稅法 §32（營業人開立統一發票義務 / 小規模可免用）</strong> · <code>law.moj.gov.tw G0340080 §32</code></li>
+      <li><strong>財政部各地區國稅局公告：</strong>裝修費列報房地合一成本需檢附合約、明細、付款證明、修繕前後照片、合法憑證等資料；以不實裝修費列報成本將被剔除、補稅及裁罰。（散見北區 / 北市 / 中區 / 南區國稅局新聞稿，無單一函釋）</li>
+    </ol>
+  </div>
+
+  <p class="footer-meta">
+    撰寫日期：2026-06-03 · 場景：2,090 萬蘆洲新成屋裝潢決策<br>
+    本份文件為資訊整理，非稅務代理意見。重大稅務決策請依個案諮詢國稅局或合格記帳士。<br>
+    <a href="./index.html">← 回家庭研究首頁</a>
+  </p>
+</div>
+</body>
+</html>
