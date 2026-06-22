@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>驗屋作戰計畫｜蘆洲皇家名門 32 年中古屋 · 重大風險排雷</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1116;
+    --ink-2: #2A2F38;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --line-soft: #F0EFEB;
+    --bg: #F7F8FA;
+    --paper: #FFFFFF;
+
+    /* Blueprint 藍圖配色 — 與其他文件區隔 */
+    --primary: #1E3A5F;
+    --primary-soft: #DBE4F0;
+    --primary-ink: #14283F;
+
+    --win: #059669;
+    --warn: #D97706;
+    --danger: #DC2626;
+    --neutral: #64748B;
+
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 22px;
+
+    --shadow-1: 0 1px 2px rgba(15,17,22,.04), 0 2px 8px rgba(15,17,22,.04);
+    --shadow-2: 0 12px 32px -12px rgba(15,17,22,.18);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 4.6vw, 44px);
+    line-height: 1.2;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  .lede {
+    font-size: 17px;
+    color: var(--ink-2);
+    max-width: 780px;
+    margin: 0 0 36px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(22px, 3.2vw, 28px);
+    font-weight: 900;
+    margin: 64px 0 8px;
+    color: var(--ink);
+    scroll-margin-top: 20px;
+  }
+  .section-title .num-badge {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 38px; height: 38px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    margin-right: 12px;
+    vertical-align: middle;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 14.5px;
+    margin: 0 0 24px;
+  }
+
+  /* HERO 結論卡 — 藍圖風 */
+  .hero {
+    background: linear-gradient(135deg, #1E3A5F, #2C5282);
+    border-radius: var(--r-lg);
+    padding: 34px;
+    margin: 28px 0 16px;
+    box-shadow: var(--shadow-2);
+    color: #EAF1FA;
+  }
+  .hero h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 23px;
+    margin: 0 0 14px;
+    color: #fff;
+  }
+  .hero p {
+    margin: 0 0 12px;
+    font-size: 15.5px;
+    color: #D6E2F0;
+    line-height: 1.8;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero strong { color: #fff; }
+  .hero .tag-row { margin: 4px 0 16px; }
+  .hero .htag {
+    display: inline-block;
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.22);
+    color: #EAF1FA;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin: 0 6px 8px 0;
+  }
+
+  /* PILL */
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+  .pill.win    { background: #DCFCE7; color: #166534; }
+  .pill.warn   { background: #FEF3C7; color: #92400E; }
+  .pill.danger { background: #FEE2E2; color: #991B1B; }
+  .pill.info   { background: var(--primary-soft); color: var(--primary-ink); }
+  .pill.neutral{ background: #F1F5F9; color: #475569; }
+
+  /* 社區風險卡 grid */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 20px 0 8px;
+  }
+  .risk-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--primary);
+    border-radius: var(--r-md);
+    padding: 22px;
+    box-shadow: var(--shadow-1);
+  }
+  .risk-card .rk-no {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  .risk-card h4 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 6px 0 10px;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .risk-card p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+
+  /* 社區資料卡 */
+  .calc-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 24px;
+    box-shadow: var(--shadow-1);
+    margin: 16px 0 28px;
+  }
+  .calc-card h4 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 0 0 14px;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .calc-card .calc-line {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 14px;
+  }
+  .calc-card .calc-line:last-child { border-bottom: none; }
+  .calc-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+  .calc-card .label-muted { color: var(--muted); }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--paper);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--r-sm);
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    box-shadow: var(--shadow-1);
+  }
+  .callout.warn   { border-left-color: var(--warn);   background: #FFFBEB; }
+  .callout.danger { border-left-color: var(--danger); background: #FEF2F2; }
+  .callout.win    { border-left-color: var(--win);    background: #F0FDF4; }
+  .callout strong { color: var(--ink); }
+
+  /* TEMPLATE BOX 話術 */
+  .template-box {
+    background: var(--paper);
+    border: 1.5px solid var(--primary);
+    border-radius: var(--r-md);
+    padding: 26px 26px 22px;
+    margin: 24px 0 28px;
+    box-shadow: var(--shadow-1);
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.9;
+    font-size: 15px;
+    color: var(--ink-2);
+    position: relative;
+  }
+  .template-box::before {
+    content: "👇 對仲介/賣方這樣說";
+    position: absolute;
+    top: -12px;
+    left: 22px;
+    background: var(--primary);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: 12px;
+  }
+  .template-box.short::before { content: "👇 複製貼上"; }
+
+  /* 工具清單 grid */
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 20px 0 12px;
+  }
+  .tool {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 16px 14px;
+    text-align: center;
+    box-shadow: var(--shadow-1);
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .tool:hover { transform: translateY(-2px); border-color: var(--primary); }
+  .tool .ic { font-size: 30px; line-height: 1; }
+  .tool .nm { font-size: 13.5px; font-weight: 700; margin: 8px 0 3px; color: var(--ink); }
+  .tool .desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+  .tool.star { border-color: var(--warn); background: #FFFBEB; }
+  .tool.star .nm::after { content: " ★"; color: var(--warn); }
+
+  /* 驗屋流程逐區 */
+  .zone {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 0;
+    margin: 16px 0;
+    box-shadow: var(--shadow-1);
+    overflow: hidden;
+  }
+  .zone-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 22px;
+    background: linear-gradient(90deg, var(--primary-soft), transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .zone-head .zic {
+    font-size: 26px; line-height: 1;
+    width: 46px; height: 46px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--paper);
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+    flex-shrink: 0;
+  }
+  .zone-head h4 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 0;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .zone-head .zsub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .zone-body { padding: 20px 22px; }
+  .zone-body p.intro { margin: 0 0 12px; font-size: 14px; color: var(--ink-2); }
+  ul.check {
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 0;
+  }
+  ul.check li {
+    position: relative;
+    padding: 7px 0 7px 28px;
+    font-size: 14px;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  ul.check li:last-child { border-bottom: none; }
+  ul.check li::before {
+    content: "☐";
+    position: absolute; left: 2px; top: 6px;
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 700;
+  }
+  ul.check li strong { color: var(--ink); }
+  .ask-block {
+    margin-top: 14px;
+    background: #F8FAFC;
+    border: 1px dashed var(--primary);
+    border-radius: var(--r-sm);
+    padding: 14px 16px;
+  }
+  .ask-block .ask-title {
+    font-size: 12px; font-weight: 700; letter-spacing: .08em;
+    color: var(--primary); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .ask-block ul { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2); }
+  .ask-block ul li { margin-bottom: 3px; }
+
+  /* 紅旗清單 */
+  .redflag-box {
+    background: linear-gradient(135deg, #FEF2F2, #FEE2E2);
+    border: 1px solid #FCA5A5;
+    border-left: 6px solid var(--danger);
+    border-radius: var(--r-md);
+    padding: 24px 26px;
+    margin: 20px 0;
+  }
+  .redflag-box h4 {
+    font-family: 'Noto Serif TC', serif;
+    color: #991B1B;
+    margin: 0 0 14px;
+    font-size: 18px;
+  }
+  ul.redflags { list-style: none; margin: 0; padding: 0; }
+  ul.redflags li {
+    position: relative;
+    padding: 8px 0 8px 30px;
+    font-size: 14.5px;
+    color: #7F1D1D;
+    border-bottom: 1px solid rgba(220,38,38,.15);
+  }
+  ul.redflags li:last-child { border-bottom: none; }
+  ul.redflags li::before {
+    content: "🚩";
+    position: absolute; left: 0; top: 7px;
+    font-size: 15px;
+  }
+
+  /* 議價/保留款表 */
+  table.cost {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: var(--paper);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    margin: 8px 0 16px;
+  }
+  table.cost th, table.cost td {
+    padding: 13px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.cost thead th {
+    background: #FAFAF7;
+    font-weight: 700;
+    color: var(--ink-2);
+  }
+  table.cost tr:last-child td { border-bottom: none; }
+  table.cost .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .row-low  { background: #F0FDF4; }
+  .row-mid  { background: #FFFBEB; }
+  .row-high { background: #FEF2F2; }
+
+  /* TIMELINE 晚間時間軸 */
+  .timeline {
+    position: relative;
+    margin: 28px 0 16px;
+    padding-left: 8px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 70px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--primary-soft);
+  }
+  .tl-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 62px 1fr;
+    gap: 24px;
+    margin-bottom: 18px;
+  }
+  .tl-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: right;
+    padding-top: 14px;
+    white-space: nowrap;
+  }
+  .tl-card {
+    position: relative;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 14px 18px;
+    box-shadow: var(--shadow-1);
+  }
+  .tl-card::before {
+    content: "";
+    position: absolute;
+    left: -27px; top: 18px;
+    width: 12px; height: 12px;
+    background: var(--primary);
+    border: 3px solid var(--paper);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--primary-soft);
+  }
+  .tl-card h5 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-family: 'Noto Serif TC', serif;
+    color: var(--ink);
+  }
+  .tl-card p { margin: 0; font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+  /* CHECKLIST 一般 */
+  ul.checklist { list-style: none; padding: 0; margin: 16px 0 28px; }
+  ul.checklist li {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--r-sm);
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+  }
+  ul.checklist li strong { color: var(--ink); }
+
+  /* 策略結論卡 */
+  .goal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .goal {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 20px;
+    box-shadow: var(--shadow-1);
+  }
+  .goal .gn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; font-weight: 700;
+    color: var(--primary);
+  }
+  .goal p { margin: 8px 0 0; font-size: 14px; color: var(--ink-2); }
+
+  /* SOURCES */
+  .sources {
+    margin-top: 64px;
+    padding: 24px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .sources h4 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--ink);
+    margin: 0 0 12px;
+    font-size: 15px;
+  }
+  .sources ol { margin: 0; padding-left: 22px; }
+  .sources ol li { margin-bottom: 7px; line-height: 1.55; }
+  .sources a { color: var(--primary); }
+  .sources code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: #F1F5F9;
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--ink-2);
+  }
+  .footer-meta {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .footer-meta a { color: var(--primary); text-decoration: none; }
+  .disclaimer {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--muted);
+    background: #F8FAFC;
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    padding: 14px 16px;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 36px 18px 64px; }
+    .timeline::before { left: 58px; }
+    .tl-item { grid-template-columns: 52px 1fr; gap: 18px; }
+    .section-title .num-badge { width: 32px; height: 32px; font-size: 15px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .container { padding: 24px; max-width: 100%; }
+    .hero { background: #1E3A5F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .zone, .risk-card, .calc-card, .callout, .template-box, .tool,
+    ul.checklist li, .sources, .tl-card, .redflag-box, table.cost {
+      box-shadow: none !important;
+      border-color: #999 !important;
+    }
+    .section-title { page-break-after: avoid; }
+    .zone, .tl-item { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <p class="eyebrow">家庭研究 · 中古屋驗屋作戰計畫</p>
+  <h1>驗屋作戰計畫：蘆洲皇家名門 32 年中古屋</h1>
+  <p class="lede">
+    把這次驗屋定位成「<strong>重大風險排雷</strong>」，不是預售屋那種看油漆、磁磚漂不漂亮。
+    2,090 萬高總價中古屋，真正讓你多花錢的是：結構、漏水壁癌、海砂/氯離子、管線老化、電路容量、違建外推、社區公共設施與管理財務。
+    本頁把客製社區風險、工具清單、八區檢查流程、紅旗清單、議價保留款策略、晚間時間軸全部整理成一份可現場照著走的圖文計畫。
+  </p>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <h3>策略定位：晚上驗屋＝第一輪重大瑕疵排雷，不是唯一驗屋</h3>
+    <div class="tag-row">
+      <span class="htag">🏚 屋齡約 30–32 年</span>
+      <span class="htag">🏢 7 層華廈 / B2 / RC / 約 28 戶</span>
+      <span class="htag">💰 總價 2,090 萬</span>
+      <span class="htag">🕖 週三晚間驗屋 2.5–3 小時</span>
+    </div>
+    <p>
+      中古屋驗屋的法律意義是「<strong>評估現況瑕疵</strong>」，作為議價與要求賣方修繕的依據。
+      重點不在裝潢，而在抓出<strong>漏水、管線、電路、海砂、結構、違建、社區大修</strong>這幾類隱藏性、會燒大錢的瑕疵。
+    </p>
+    <p>
+      晚上光線不足，<strong>外牆裂縫、窗框滲水痕、陽台排水坡度、採光面壁癌、地下室水痕</strong>很容易漏看。
+      所以今晚只做第一輪，並當場跟仲介講明：<strong>保留白天 / 雨後 / 專業複驗的權利，不簽任何「完全接受現況、放棄瑕疵主張」的文件。</strong>
+    </p>
+    <p>
+      👉 <strong>最保守做法：</strong>今晚先驗，若沒重大紅旗，再安排白天複驗或請專業驗屋 / 水電 / 結構技師針對疑點加看。2,090 萬的房子，花幾萬把重大風險排除，非常值得。
+    </p>
+  </section>
+  <p class="section-sub" style="margin-top:14px">
+    ⚖️ 法律後盾：民法 §354 規定，物之出賣人應擔保標的物於危險移轉時「無滅失或減少其價值、通常效用或契約預定效用之瑕疵」。
+    「現況交屋」不等於賣方可以隱瞞重大瑕疵；發現瑕疵後買方應從速檢查、通知，依個案可主張減少價金或解除契約。
+  </p>
+
+  <!-- ============ 一、社區風險 ============ -->
+  <h2 class="section-title"><span class="num-badge">一</span>先抓「蘆洲皇家名門」社區風險</h2>
+  <p class="section-sub">公開房仲與實價資料的社區概況 — 屋齡務必以建物謄本 / 使用執照 / 權狀為準。</p>
+
+  <div class="calc-card">
+    <h4>社區基本資料（公開資料，待現場文件核對）</h4>
+    <div class="calc-line"><span class="label-muted">位置</span><span class="num">新北市蘆洲區中興街一帶</span></div>
+    <div class="calc-line"><span class="label-muted">規模</span><span class="num">約 28 戶</span></div>
+    <div class="calc-line"><span class="label-muted">樓層 / 結構</span><span class="num">地上 7 層 · 地下 2 層 · RC</span></div>
+    <div class="calc-line"><span class="label-muted">完工時間（公開資料）</span><span class="num">約 1995 年 8 月</span></div>
+    <div class="calc-line"><span class="label-muted">公開屋齡 / 你方認知</span><span class="num">約 30 年 / 32 年 → 以謄本為準</span></div>
+    <div class="calc-line"><span class="label-muted">同社區歷史成交備註</span><span class="num">曾出現「陽台外推」字樣 ⚠</span></div>
+  </div>
+
+  <p class="section-sub" style="margin-top:8px">這類 7 樓老華廈，特別要看五件事：</p>
+  <div class="risk-grid">
+    <div class="risk-card">
+      <span class="rk-no">RISK 01</span>
+      <h4>🚰 地下室 B1/B2 防排水</h4>
+      <p>有沒有滲水、白華、抽水馬達、排水溝異味、停車位漏水。地下室狀況往往比屋內更能反映社區的防水、排水與管委會維護能力。</p>
+    </div>
+    <div class="risk-card">
+      <span class="rk-no">RISK 02</span>
+      <h4>🛗 電梯維護與大修費</h4>
+      <p>32 年華廈電梯可能進入大修或汰換週期。問管委會：近三年保養紀錄、是否常故障、有無汰換計畫、修繕基金夠不夠。</p>
+    </div>
+    <div class="risk-card">
+      <span class="rk-no">RISK 03</span>
+      <h4>🧱 外牆磁磚 / 窗框 / 外推</h4>
+      <p>同社區成交曾備註「陽台外推」。你方這戶務必對照建物測量成果圖，確認陽台、廚房、窗台、雨遮是否為原始合法範圍。</p>
+    </div>
+    <div class="risk-card">
+      <span class="rk-no">RISK 04</span>
+      <h4>🧂 海砂屋 / 高氯離子</h4>
+      <p>新北市有高氯離子鋼筋混凝土建築物查詢系統，但官方提醒它主要是「既有報備案件清冊」，查無資料 ≠ 100% 安全，是否為海砂屋仍宜洽專業鑑定。</p>
+    </div>
+    <div class="risk-card">
+      <span class="rk-no">RISK 05</span>
+      <h4>🏗 耐震與結構</h4>
+      <p>1990 年代中期建物不等於不能買，但若現場見到樑柱裂縫、鋼筋外露、混凝土剝落，應請結構或土木技師加看，別只靠一般驗屋。</p>
+    </div>
+  </div>
+
+  <!-- ============ 二、晚上驗屋的限制 ============ -->
+  <h2 class="section-title"><span class="num-badge">二</span>週三晚上最大限制：光線不夠</h2>
+  <p class="section-sub">晚上可以驗，但不能當成唯一驗屋。要先講清楚、保留複驗權利。</p>
+
+  <div class="callout warn">
+    晚上最容易漏掉：<strong>外牆裂縫、窗框滲水痕、陽台排水坡度、採光面壁癌、地下室水痕</strong>與公共區域細節。
+    今晚定位為「第一輪重大瑕疵檢查」，現場就向仲介把話講明。
+  </div>
+
+  <div class="template-box">
+    今天晚上因為光線不足，我們會先做室內與重大瑕疵檢查；外牆、窗框、陽台、公共區域、地下室與漏水疑慮，<strong>需要保留白天或雨後複驗的權利</strong>。今晚不會簽任何表示「完全接受現況、放棄瑕疵主張」的文件。
+  </div>
+
+  <div class="callout">
+    中古屋常見話術是「現況交屋本來就這樣」，但<strong>現況交屋不代表賣方可以隱瞞重大瑕疵</strong>。
+    依民法，出賣人對物的瑕疵負擔保責任；買受人發現瑕疵後應從速檢查並通知，否則可能被視為承認受領。
+    若有瑕疵，買方依法可能主張減少價金或解除契約，視瑕疵程度與個案而定。
+  </div>
+
+  <!-- ============ 三、工具清單 ============ -->
+  <h2 class="section-title"><span class="num-badge">三</span>今晚要帶的工具</h2>
+  <p class="section-sub">手冊建議的標準配備 — 32 年中古屋，★ 標記的比看油漆重要得多。</p>
+
+  <div class="tool-grid">
+    <div class="tool star"><div class="ic">🔦</div><div class="nm">強光手電筒 ×2</div><div class="desc">可側光照牆面那種，手機不夠</div></div>
+    <div class="tool star"><div class="ic">🪙</div><div class="nm">十元硬幣</div><div class="desc">多帶幾個，敲磁磚聽空鼓</div></div>
+    <div class="tool"><div class="ic">⚪</div><div class="nm">彈珠 / 小球</div><div class="desc">測地坪傾斜</div></div>
+    <div class="tool star"><div class="ic">🔌</div><div class="nm">插座測試器</div><div class="desc">五金行 / 網購百元級</div></div>
+    <div class="tool"><div class="ic">💡</div><div class="nm">小夜燈 / 延長線</div><div class="desc">測每個插座是否有電</div></div>
+    <div class="tool"><div class="ic">🪣</div><div class="nm">水桶 / 水瓢</div><div class="desc">測排水坡度與速度</div></div>
+    <div class="tool"><div class="ic">🧻</div><div class="nm">衛生紙 / 乾紙巾</div><div class="desc">擦窗框、管線、櫃底看潮濕</div></div>
+    <div class="tool"><div class="ic">🏷</div><div class="nm">膠帶 / 便利貼 / 奇異筆</div><div class="desc">直接貼在瑕疵位置</div></div>
+    <div class="tool"><div class="ic">📏</div><div class="nm">捲尺 / 雷射測距</div><div class="desc">對照格局與尺寸</div></div>
+    <div class="tool"><div class="ic">🔋</div><div class="nm">行動電源</div><div class="desc">驗屋會拍很多影片</div></div>
+    <div class="tool"><div class="ic">😷</div><div class="nm">口罩 / 手套</div><div class="desc">地下室、管道間、櫃底很髒</div></div>
+    <div class="tool star"><div class="ic">💧</div><div class="nm">水分計（若能借到）</div><div class="desc">32 年屋，比看油漆重要很多</div></div>
+    <div class="tool"><div class="ic">📷</div><div class="nm">相機 / 手機</div><div class="desc">全程錄影、拍照存證</div></div>
+    <div class="tool"><div class="ic">📄</div><div class="nm">三份文件</div><div class="desc">謄本 / 測量成果圖 / 現況說明書</div></div>
+  </div>
+
+  <!-- ============ 四、驗屋流程 ============ -->
+  <h2 class="section-title"><span class="num-badge">四</span>驗屋流程：照這個順序走</h2>
+  <p class="section-sub">先公共後室內，先結構後裝修。八個檢查區，每區都有「現場檢查」＋「要問賣方」。</p>
+
+  <div class="zone">
+    <div class="zone-head">
+      <div class="zic">🏢</div>
+      <div><h4>1 · 先驗公共區域</h4><div class="zsub">不要一進門就只看屋內 — 整棟有沒有老化失修</div></div>
+    </div>
+    <div class="zone-body">
+      <p class="intro">抵達後先從一樓門廳、梯廳、樓梯間、電梯、地下室開始拍影片。</p>
+      <ul class="check">
+        <li>地下室牆面有沒有<strong>白華、壁癌、水痕</strong></li>
+        <li>地下室地面有沒有長期潮濕、積水痕跡</li>
+        <li>停車位上方有沒有<strong>滴水盤、補漏痕跡</strong></li>
+        <li>樓梯間牆壁是否裂、滲水、油漆膨起</li>
+        <li>消防設備是否有檢修標籤</li>
+        <li>電梯是否異音、抖動、停層不準</li>
+        <li>公共電箱、管道間是否雜亂、潮濕</li>
+      </ul>
+      <div class="ask-block">
+        <div class="ask-title">問管理員 / 管委會</div>
+        <ul>
+          <li>近三年有沒有外牆修繕、漏水修繕、電梯大修？</li>
+          <li>目前修繕基金餘額多少？有沒有欠繳戶？</li>
+          <li>社區有沒有討論都更、危老、海砂、耐震補強或外牆拉皮？</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="zone">
+    <div class="zone-head">
+      <div class="zic">🎥</div>
+      <div><h4>2 · 進屋先拍全屋連續影片</h4><div class="zsub">一鏡到底，為日後爭議留證</div></div>
+    </div>
+    <div class="zone-body">
+      <p class="intro">從大門開始一鏡到底拍客廳、房間、廚房、浴室、陽台、窗邊、天花板、地板、電箱。</p>
+      <ul class="check">
+        <li>影片要口述<strong>時間、地址、樓層、在場人</strong></li>
+        <li>目的不是好看，是證明「驗屋當下的狀況」</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="zone">
+    <div class="zone-head">
+      <div class="zic">🏗</div>
+      <div><h4>3 · 結構與牆面（優先級最高）</h4><div class="zsub">32 年中古屋，這段不能妥協</div></div>
+    </div>
+    <div class="zone-body">
+      <p class="intro">用強光手電筒貼近牆面斜照，裂縫、補土、波浪面會很明顯。</p>
+      <ul class="check">
+        <li>樑、柱、剪力牆有沒有裂縫</li>
+        <li>窗戶四角有沒有 <strong>45 度斜裂縫</strong></li>
+        <li>門框上方、樑柱交接處有沒有裂</li>
+        <li>天花板有沒有長裂、黃斑、水痕</li>
+        <li>牆面有沒有油漆膨起、白華、壁癌</li>
+        <li>混凝土有沒有剝落、露筋、鋼筋鏽蝕</li>
+      </ul>
+      <div class="callout danger" style="margin:14px 0 0">
+        髮絲紋通常還可觀察；但若是<strong>斜裂、貫穿裂、樑柱裂、裂縫旁有水痕、裂縫持續延伸、混凝土剝落露筋</strong>，就不要只當裝修問題 — 請結構技師加看。
+      </div>
+    </div>
+  </div>
+
+  <div class="zone">
+    <div class="zone-head">
+      <div class="zic">💦</div>
+      <div><h4>4 · 漏水與壁癌（最容易燒錢）</h4><div class="zsub">分六區檢查</div></div>
+    </div>
+    <div class="zone-body">
+      <ul class="check">
+        <li><strong>窗框</strong>：窗邊四周、窗台下方、兩側牆角看黃斑/膨漆/補土色差，用紙巾擦窗框下緣看潮</li>
+        <li><strong>浴室</strong>：天花板、管道間、馬桶後方、洗手台櫃底、浴缸/淋浴牆角 — 老屋防水層常已老化</li>
+        <li><strong>廚房</strong>：水槽下櫃一定要打開聞味道、摸底板、看是否發霉或板材膨脹</li>
+        <li><strong>陽台</strong>：潑水看水往哪流，應往排水孔、不該往室內門檻倒流</li>
+        <li><strong>冷氣孔</strong>：排水孔、管線穿牆處有沒有水痕</li>
+        <li><strong>天花板</strong>：特別看浴室、廚房、窗邊上方與房間角落</li>
+      </ul>
+      <div class="callout warn" style="margin:14px 0 8px">
+        晚上沒下雨時窗框滲水驗不出來。要求把這句寫進補充協議或驗屋紀錄 👇
+      </div>
+      <div class="template-box" style="margin-top:18px">
+        窗框、外牆、陽台、浴室防水疑慮，<strong>保留雨後或白天複驗</strong>；若交屋後一定期間內發現同一區域既有滲漏，賣方不得以「現況交屋」排除責任。
+      </div>
+    </div>
+  </div>
+
+  <div class="zone">
+    <div class="zone-head">
+      <div class="zic">🚿</div>
+      <div><h4>5 · 水管與排水</h4><div class="zsub">32 年屋很容易遇到老管線</div></div>
+    </div>
+    <div class="zone-body">
+      <ul class="check">
+        <li>所有水龍頭打開，看<strong>水壓是否明顯不足</strong></li>
+        <li>廚房、浴室、陽台排水孔大量放水，看會不會慢、冒泡、回臭</li>
+        <li>馬桶連沖 2–3 次，看水箱補水、排水力、底部有無滲水</li>
+        <li><strong>全部關水後看水表是否還在轉</strong> — 還在動要懷疑暗管 / 馬桶水箱漏水</li>
+        <li>打開洗手台、廚房水槽下方，看三角凡而、軟管、排水管是否鏽蝕/滲水/發霉</li>
+      </ul>
+      <div class="ask-block">
+        <div class="ask-title">問賣方</div>
+        <ul>
+          <li>冷熱水管有沒有全室更新過？</li>
+          <li>排水管有沒有通管或更換過？</li>
+          <li>樓上樓下有沒有曾經反映漏水？</li>
+          <li>浴室是否曾打除重做防水？哪一年做的？</li>
+        </ul>
+      </div>
+      <div class="callout" style="margin-top:14px">
+        若沒全室更新水電管線，<strong>未來裝修預算要先抓進去</strong>。很多中古屋是「表面裝潢新、裡面管線老」。
+      </div>
+    </div>
+  </div>
+
+  <div class="zone">
+    <div class="zone-head">
+      <div class="zic">⚡</div>
+      <div><h4>6 · 電路</h4><div class="zsub">裝潢漂亮也可能電容量不夠用</div></div>
+    </div>
+    <div class="zone-body">
+      <p class="intro">檢查電箱：</p>
+      <ul class="check">
+        <li>是否有總開關、<strong>漏電斷路器</strong></li>
+        <li>迴路是否清楚標示</li>
+        <li>冷氣、廚房、浴室、熱水器是否有<strong>獨立迴路</strong></li>
+        <li>電線是否看起來老舊、雜亂、焦黑</li>
+        <li>有無接地線</li>
+      </ul>
+      <p class="intro" style="margin-top:10px">每個插座用插座測試器測：有電 / 火線中性線沒反接 / 有接地 / 沒有鬆動、焦味、發熱。</p>
+      <div class="ask-block">
+        <div class="ask-title">特別問</div>
+        <ul>
+          <li>全室電線是否重拉？何時重拉？</li>
+          <li>冷氣是否可裝分離式多台？電容量是否足夠？</li>
+          <li>廚房是否能承載烤箱、洗碗機、IH 爐？</li>
+        </ul>
+      </div>
+      <div class="callout" style="margin-top:14px">
+        32 年屋若未重拉電線，未來裝修建議認真考慮重拉 — 尤其要放很多冷氣、除濕機、烘衣機、廚房電器時。
+      </div>
+    </div>
+  </div>
+
+  <div class="zone">
+    <div class="zone-head">
+      <div class="zic">🧂</div>
+      <div><h4>7 · 海砂屋 / 氯離子初判</h4><div class="zsub">肉眼初篩，不是保證書</div></div>
+    </div>
+    <div class="zone-body">
+      <ul class="check">
+        <li>樑柱、天花板、浴室附近是否有混凝土剝落</li>
+        <li>剝落處是否露出鏽蝕鋼筋</li>
+        <li>磁磚是否大片自然脫落</li>
+        <li>裂縫是否伴隨鏽水痕</li>
+        <li>同棟公共區域是否也有爆裂、露筋、補強痕跡</li>
+      </ul>
+      <div class="callout danger" style="margin:14px 0 0">
+        只要看到「<strong>混凝土爆裂＋鋼筋鏽蝕＋多處發生</strong>」，就不要用一般驗屋結論帶過 — 請專業做氯離子檢測或結構技師評估。
+        新北市高氯離子查詢系統可用完整門牌查，但<strong>查無資料 ≠ 保證安全</strong>，仍宜洽專業鑑定。
+      </div>
+    </div>
+  </div>
+
+  <div class="zone">
+    <div class="zone-head">
+      <div class="zic">📐</div>
+      <div><h4>8 · 違建、外推、格局變更</h4><div class="zsub">影響貸款、保險、轉售、鄰損責任</div></div>
+    </div>
+    <div class="zone-body">
+      <p class="intro">一定要拿這三份來對：<strong>建物謄本 · 建物測量成果圖 · 買賣契約與不動產現況說明書</strong>。</p>
+      <ul class="check">
+        <li>陽台是否外推成室內</li>
+        <li>廚房是否外推</li>
+        <li>後陽台是否封起來</li>
+        <li>浴室、廚房位置是否改過</li>
+        <li>有沒有夾層、增建、頂樓加蓋、雨遮變室內</li>
+        <li>管道間是否被封死</li>
+      </ul>
+      <div class="callout warn" style="margin:14px 0 0">
+        違建或外推不一定馬上出事，但會影響<strong>貸款、保險、日後轉售、鄰損與漏水責任、未來修繕</strong>。
+        公開資料顯示同社區曾有「陽台外推」成交備註，這戶要特別確認，別事後才發現。
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 五、紅旗 ============ -->
+  <h2 class="section-title"><span class="num-badge">五</span>重大紅旗：看到這些不要急著成交</h2>
+  <p class="section-sub">以下任何一項，都建議暫停進度、請專業複驗，或要求大幅保留款 / 減價。</p>
+
+  <div class="redflag-box">
+    <h4>🚩 紅旗清單</h4>
+    <ul class="redflags">
+      <li>樑柱裂縫、露筋、混凝土剝落</li>
+      <li>多處壁癌，尤其窗邊、浴室外牆、天花板角落</li>
+      <li>地下室長期滲水或停車位上方漏水</li>
+      <li>水表在全屋關水後仍轉動</li>
+      <li>電箱老舊、沒有漏電斷路器、沒有接地、插座多處異常</li>
+      <li>浴室或廚房排水慢、回臭、冒泡</li>
+      <li>大門、房門、窗戶明顯變形，可能有沉陷或結構變形</li>
+      <li>陽台外推、廚房外推但賣方未揭露</li>
+      <li>管委會修繕基金不足，且近期有電梯、外牆、防水大修需求</li>
+      <li>鄰居或管理員提到「這戶以前漏過水」「樓上樓下有糾紛」「地下室常淹」</li>
+    </ul>
+  </div>
+
+  <!-- ============ 六、議價 ============ -->
+  <h2 class="section-title"><span class="num-badge">六</span>驗屋後怎麼談：不能只靠口頭承諾</h2>
+  <p class="section-sub">驗完別只在 Line 說「這些要修」。做成書面表格，並用保留款綁住賣方。</p>
+
+  <p style="font-size:14.5px;color:var(--ink-2);margin:0 0 6px"><strong>驗屋紀錄表建議欄位：</strong></p>
+  <ul class="checklist">
+    <li>編號 · 位置 · 問題描述 · 照片編號</li>
+    <li><strong>嚴重程度</strong>：重大 / 中等 / 輕微</li>
+    <li><strong>賣方處理方式</strong>：修繕 / 減價 / 保留款 / 現況接受但明確折價</li>
+    <li>完成期限 · 複驗方式</li>
+    <li><strong>賣方、買方、仲介三方簽名</strong></li>
+  </ul>
+
+  <div class="callout">
+    中古屋不直接套用預售屋法定 5% 保留款，但可在買賣補充協議約定「<strong>尾款部分保留於履約保證專戶</strong>」或「交屋款保留一定金額，待修繕完成或複驗通過再撥付」。
+  </div>
+
+  <p class="section-sub" style="margin-top:18px">保留款抓多少？（總價 2,090 萬參考級距）</p>
+  <table class="cost">
+    <thead>
+      <tr><th>瑕疵程度</th><th>典型項目</th><th>建議保留款</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-low">
+        <td><span class="pill win">輕微</span></td>
+        <td>表面修補、五金、零星瑕疵</td>
+        <td class="num">20 – 50 萬</td>
+      </tr>
+      <tr class="row-mid">
+        <td><span class="pill warn">中等</span></td>
+        <td>漏水、全室水電、窗框、浴室防水、違建疑慮</td>
+        <td class="num">80 – 150 萬</td>
+      </tr>
+      <tr class="row-high">
+        <td><span class="pill danger">重大</span></td>
+        <td>結構、海砂、重大漏水</td>
+        <td class="num">非保留款問題 → 重新評估是否繼續買</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="template-box short">
+    今日驗屋發現項目詳如附件。因本屋為 32 年中古屋，且部分項目涉及漏水、管線、電路與公共設施狀況，請賣方於簽約／交屋前以書面確認：<br>
+    一、已知瑕疵完整揭露；<br>
+    二、指定項目由賣方修繕或折價；<br>
+    三、修繕完成前保留新臺幣 ＿＿ 萬元於履約保證專戶；<br>
+    四、未完成或複驗未通過時，買方得自保留款中扣除修繕費或重新議價。
+  </div>
+
+  <!-- ============ 七、時間軸 ============ -->
+  <h2 class="section-title"><span class="num-badge">七</span>週三晚上時間表</h2>
+  <p class="section-sub">建議至少抓 2.5 – 3 小時。</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-time">18:50<br>19:10</div>
+      <div class="tl-card"><h5>🏢 公共區域與地下室</h5><p>先看地下室、電梯、樓梯間、管委會公告、消防設備。</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">19:10<br>19:30</div>
+      <div class="tl-card"><h5>🎥 全屋錄影與格局核對</h5><p>拿平面圖對照現況，看外推、隔間、陽台、管道間。</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">19:30<br>20:10</div>
+      <div class="tl-card"><h5>🏗 結構、牆面、天花板、窗框</h5><p>用強光側照，找裂縫、補土、水痕、壁癌。</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">20:10<br>20:50</div>
+      <div class="tl-card"><h5>🚿 水管、排水、浴室、廚房、陽台</h5><p>全開水、測排水、看水表、摸櫃底、看管線。</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">20:50<br>21:20</div>
+      <div class="tl-card"><h5>⚡ 電箱、插座、冷氣、熱水器、瓦斯</h5><p>插座測試器逐一測，拍電箱，問電線是否重拉。</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">21:20<br>21:50</div>
+      <div class="tl-card"><h5>📐 地板、磁磚、門窗、收邊、設備</h5><p>硬幣敲磁磚，測門窗開關，檢查櫃體與五金。</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">21:50<br>22:10</div>
+      <div class="tl-card"><h5>📝 整理問題並要求簽名</h5><p>不要簽「完全無瑕疵」或「確認現況無誤」。只簽「驗屋紀錄表」或「待確認事項」。</p></div>
+    </div>
+  </div>
+
+  <!-- ============ 八、策略結論 ============ -->
+  <h2 class="section-title"><span class="num-badge">八</span>策略結論</h2>
+  <p class="section-sub">這間是 32 年中古華廈 — 驗屋時不要把注意力放在裝潢漂不漂亮。</p>
+
+  <div class="callout danger">
+    真正會讓你們多花錢的是：<strong>漏水、管線、電路、海砂、結構、違建、社區大修</strong>。
+  </div>
+
+  <div class="goal-grid">
+    <div class="goal"><div class="gn">01</div><p>確認有沒有「<strong>不該買</strong>」的重大瑕疵</p></div>
+    <div class="goal"><div class="gn">02</div><p>確認有哪些「<strong>可買但要折價或保留款</strong>」的項目</p></div>
+    <div class="goal"><div class="gn">03</div><p>保留<strong>白天、雨後、專業複驗</strong>的權利</p></div>
+    <div class="goal"><div class="gn">04</div><p>把賣方<strong>口頭承諾全部寫進補充協議</strong></p></div>
+  </div>
+
+  <div class="callout win">
+    最保守做法：<strong>週三晚上先驗，若沒重大紅旗，再安排白天複驗或請專業驗屋／水電師傅／結構技師針對疑點加看。</strong>
+    2,090 萬的房子，花幾萬把重大風險排除，非常值得。
+  </div>
+
+  <!-- ============ 法源 ============ -->
+  <div class="sources">
+    <h4>📚 資料來源與法源</h4>
+    <ol>
+      <li>皇家名門社區概況（位置 / 戶數 / 樓層 / 完工年 / 同社區成交備註）— 永慶房仲網社區頁：
+        <a href="https://community.yungching.com.tw/building/98246">community.yungching.com.tw/building/98246</a></li>
+      <li>新北市高氯離子鋼筋混凝土建築物（海砂屋）查詢系統 — 新北市政府工務局：
+        <a href="https://building-apply.publicwork.ntpc.gov.tw/ntnoo">building-apply.publicwork.ntpc.gov.tw/ntnoo</a>（官方提醒：主為既有報備案件清冊，仍宜洽專業鑑定）</li>
+      <li>建築物耐震設計規範及解說（含既有建築物耐震能力評估與補強）— 內政部主管法規共用系統：
+        <a href="https://glrs.moi.gov.tw/LawContent.aspx?id=GL000180">glrs.moi.gov.tw/LawContent.aspx?id=GL000180</a></li>
+      <li>民法 <code>§354</code> 物之瑕疵擔保責任 — 全國法規資料庫：
+        <a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&flno=354">law.moj.gov.tw · 民法 §354</a>
+        （「物之出賣人對於買受人，應擔保其物於危險移轉時無滅失或減少其價值、通常效用或契約預定效用之瑕疵」）</li>
+    </ol>
+    <div class="disclaimer">
+      ⚠️ 本頁整理自驗屋手冊與公開資料，作為「採購決策與現場檢查」參考，<strong>非法律意見、非結構鑑定報告</strong>。
+      屋齡、社區資料以建物謄本／使用執照／權狀為準；海砂、結構、重大漏水疑慮請洽結構技師、土木技師或專業驗屋公司。
+      民法瑕疵擔保之主張權利與期限，依個案情形與專業法律意見為準。
+    </div>
+  </div>
+
+  <div class="footer-meta">
+    家居研究筆記 · <a href="./index.html">回首頁</a> · Source <a href="https://github.com/tzchia/home-research">github.com/tzchia/home-research</a><br>
+    驗屋作戰計畫 · 蘆洲皇家名門 32 年中古屋 · 重大風險排雷
+  </div>
+
+</div>
+</body>
+</html>
