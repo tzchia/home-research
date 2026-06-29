@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>後陽台洗烘設備比較｜洗脫烘一體機 vs 獨立洗衣機 + 熱泵乾衣機（5 年總成本）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1116;
+    --ink-2: #2A2F38;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --line-soft: #F0EFEB;
+    --bg: #FAFAF7;
+    --paper: #FFFFFF;
+
+    /* 兩條路線色 */
+    --combo:  #D97706;  --combo-soft:  #FEF3C7;  --combo-ink:  #B45309;   /* 一體機 = 暖橘 */
+    --split:  #0D9488;  --split-soft:  #CCFBF1;  --split-ink:  #0F766E;   /* 獨立組合 = 灰綠青 */
+
+    --win:    #059669;
+    --warn:   #D97706;
+    --danger: #DC2626;
+
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 22px;
+
+    --shadow-1: 0 1px 2px rgba(15,17,22,.04), 0 2px 8px rgba(15,17,22,.04);
+    --shadow-2: 0 12px 32px -12px rgba(15,17,22,.18);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 52px 24px 90px; }
+  a { color: var(--split-ink); }
+
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(26px, 4vw, 40px);
+    line-height: 1.22; letter-spacing: -0.01em;
+    margin: 0 0 14px;
+  }
+  .lede { font-size: 17px; color: var(--ink-2); max-width: 820px; margin: 0 0 8px; }
+  .backlink { font-size: 13px; margin-bottom: 28px; }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
+  .htag {
+    font-size: 12.5px; font-weight: 600; padding: 5px 12px;
+    border-radius: 999px; background: #EEF2F1; color: var(--ink-2);
+  }
+
+  /* INSIGHT BANNER */
+  .insight-banner {
+    background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+    color: white; padding: 26px 30px; border-radius: var(--r-lg);
+    margin: 34px 0 48px; box-shadow: var(--shadow-2);
+  }
+  .insight-banner h3 {
+    margin: 0 0 14px; font-family: 'Noto Serif TC', serif;
+    font-size: 21px; font-weight: 800; color: white;
+  }
+  .insight-banner p { margin: 0 0 14px; color: rgba(255,255,255,.9); font-size: 15px; }
+  .insight-banner .insights {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px;
+  }
+  .insight-item {
+    padding: 14px 16px; background: rgba(255,255,255,.05);
+    border-radius: var(--r-sm); border-left: 3px solid #FBBF24;
+  }
+  .insight-item strong { display: block; font-size: 13px; color: #FBBF24; font-weight: 700; margin-bottom: 5px; }
+  .insight-item span { font-size: 13.5px; color: rgba(255,255,255,.85); line-height: 1.55; }
+
+  /* SECTIONS */
+  section { margin: 52px 0; }
+  h2.section-title {
+    font-family: 'Noto Serif TC', serif; font-weight: 800;
+    font-size: 25px; margin: 0 0 8px; letter-spacing: -0.005em;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .num-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 9px;
+    background: var(--ink); color: white; font-size: 16px; font-weight: 800;
+    font-family: 'JetBrains Mono', monospace; flex-shrink: 0;
+  }
+  .section-sub { color: var(--muted); font-size: 14.5px; margin: 0 0 26px; }
+
+  /* TWO ROUTE CARDS */
+  .routes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .route {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--r-lg); padding: 24px; position: relative;
+    overflow: hidden; box-shadow: var(--shadow-1);
+  }
+  .route::before { content:""; position:absolute; inset:0 0 auto 0; height:5px; }
+  .route.combo::before { background: var(--combo); }
+  .route.split::before { background: var(--split); }
+  .route .rtag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em;
+    padding: 4px 10px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .route.combo .rtag { background: var(--combo-soft); color: var(--combo-ink); }
+  .route.split .rtag { background: var(--split-soft); color: var(--split-ink); }
+  .route h3 { font-family: 'Noto Serif TC', serif; font-size: 20px; margin: 0 0 4px; }
+  .route .sub { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
+  .route ul { list-style: none; padding: 0; margin: 0; }
+  .route li { font-size: 13.5px; padding: 6px 0 6px 22px; position: relative; border-bottom: 1px dashed var(--line-soft); }
+  .route li:last-child { border-bottom: none; }
+  .route li.plus::before { content:"＋"; position:absolute; left:0; color: var(--win); font-weight:700; }
+  .route li.minus::before { content:"－"; position:absolute; left:0; color: var(--danger); font-weight:700; }
+
+  /* TABLES */
+  table.grid {
+    width: 100%; border-collapse: collapse; background: var(--paper);
+    border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden;
+    box-shadow: var(--shadow-1); font-size: 13.5px;
+  }
+  table.grid th, table.grid td {
+    padding: 11px 13px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top;
+  }
+  table.grid thead th { background: var(--ink); color: white; font-weight: 700; font-size: 12.5px; letter-spacing: .03em; }
+  table.grid tbody tr:last-child td { border-bottom: none; }
+  table.grid td.num, table.grid th.num { font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
+  table.grid tr.win-row td { background: #ECFDF5; }
+  table.grid tr.warn-row td { background: #FFFBEB; }
+  .star { color: var(--win); font-weight: 700; }
+
+  .pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+  .pill.win { background: #D1FAE5; color: #065F46; }
+  .pill.warn { background: #FEF3C7; color: #92400E; }
+  .pill.danger { background: #FEE2E2; color: #991B1B; }
+  .pill.neutral { background: #F3F4F6; color: #374151; }
+  .pill.combo { background: var(--combo-soft); color: var(--combo-ink); }
+  .pill.split { background: var(--split-soft); color: var(--split-ink); }
+
+  /* COST CARD (dark) */
+  .cost-card {
+    background: linear-gradient(135deg, #0E1116 0%, #1F2937 100%);
+    color: white; border-radius: var(--r-lg); padding: 28px 30px; margin-top: 18px;
+  }
+  .cost-card h3 { margin: 0 0 6px; font-family: 'Noto Serif TC', serif; font-size: 19px; color: white; }
+  .cost-card .note { font-size: 12.5px; color: rgba(255,255,255,.6); margin: 0 0 20px; }
+  .cost-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .cost-box { background: rgba(255,255,255,.06); border-radius: var(--r-md); padding: 16px 18px; border-left: 3px solid #6B7280; }
+  .cost-box.hl { border-left-color: #FBBF24; }
+  .cost-box .lbl { font-size: 12px; color: rgba(255,255,255,.7); margin-bottom: 6px; }
+  .cost-box .big { font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; letter-spacing: -.02em; }
+  .cost-box .small { font-size: 11.5px; color: rgba(255,255,255,.55); margin-top: 4px; }
+
+  /* CALLOUTS */
+  .callout {
+    border-radius: var(--r-md); padding: 16px 18px; margin: 20px 0;
+    font-size: 14px; line-height: 1.6; background: #F8FAFC; border: 1px solid var(--line);
+    border-left: 4px solid var(--muted);
+  }
+  .callout.win { background: #ECFDF5; border-left-color: var(--win); }
+  .callout.warn { background: #FFFBEB; border-left-color: var(--warn); }
+  .callout.danger { background: #FEF2F2; border-left-color: var(--danger); }
+  .callout.combo { background: var(--combo-soft); border-left-color: var(--combo); }
+  .callout.split { background: var(--split-soft); border-left-color: var(--split); }
+
+  /* DECISION TREE */
+  .decision { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .dec-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 22px; box-shadow: var(--shadow-1); }
+  .dec-card .q { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .dec-card .a { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+  .dec-card.combo .a { color: var(--combo-ink); }
+  .dec-card.split .a { color: var(--split-ink); }
+  .dec-card p { font-size: 13.5px; color: var(--ink-2); margin: 0; }
+
+  /* CHECKLIST */
+  ul.check { list-style: none; padding: 0; margin: 0; }
+  ul.check li { position: relative; padding: 9px 0 9px 30px; border-bottom: 1px solid var(--line-soft); font-size: 14px; }
+  ul.check li:last-child { border-bottom: none; }
+  ul.check li::before {
+    content: "☐"; position: absolute; left: 4px; top: 7px; font-size: 16px; color: var(--split-ink);
+  }
+
+  /* SOURCES */
+  .sources { font-size: 12.5px; color: var(--muted); }
+  .sources li { margin-bottom: 7px; word-break: break-all; }
+
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
+
+  @media (max-width: 760px) {
+    .routes, .decision { grid-template-columns: 1fr; }
+    .container { padding: 36px 16px 70px; }
+    table.grid { font-size: 12px; }
+    table.grid th, table.grid td { padding: 8px 8px; }
+  }
+  @media print {
+    body { background: white; font-size: 12px; }
+    .insight-banner, .cost-card { box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .route, .dec-card, table.grid { box-shadow: none; break-inside: avoid; }
+    section { margin: 28px 0; }
+    .backlink { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="eyebrow">HOME RESEARCH · 後陽台家電決策</div>
+  <h1>洗脫烘一體機 vs 獨立洗衣機 + 熱泵乾衣機</h1>
+  <p class="lede">後陽台空間有限、家裡要再添一個寶寶 → 洗衣量會爆增。這份比較幫你在「省空間 / 省購置」與「容量 / 連續作業 / 護衣 / 省電」之間，用 <strong>5 年總成本</strong> 做決定。</p>
+  <p class="backlink">← 回到 <a href="./home-renovation-plan.html">新家裝潢規劃頁</a> ｜ <a href="./index.html">home-research 首頁</a></p>
+
+  <div class="tag-row">
+    <span class="htag">夫妻 + 1 寶（再生一個）</span>
+    <span class="htag">後陽台空間有限</span>
+    <span class="htag">一週洗烘 4–5 次</span>
+    <span class="htag">重視 5 年總成本</span>
+    <span class="htag">價格：2026/06 momo 實查</span>
+  </div>
+
+  <!-- HERO 結論 -->
+  <div class="insight-banner">
+    <h3>先講結論</h3>
+    <p>純比「省電」是<strong>陷阱</strong>：熱泵 5 年只省約 <strong>$9,000</strong> 電費，但設備貴 <strong>$2–3.5 萬</strong>，5 年內回不了本。真正該為什麼付錢，是<strong>容量、連續作業、護衣</strong>這三點 —— 對「要再生一個」的育兒家庭，這三點的價值遠大於電費差。</p>
+    <div class="insights">
+      <div class="insight-item">
+        <strong>最省錢（買+用）</strong>
+        <span>冷凝式洗脫烘一體機，5 年約 $43,000。但烘衣只有洗衣的一半、易皺、不能邊洗邊烘。</span>
+      </div>
+      <div class="insight-item">
+        <strong>空間真的只夠一台</strong>
+        <span>選「熱泵式」一體機（Panasonic 15/10kg ≈ $54k），別選冷凝 —— 省電、護衣、烘 10kg 夠用。</span>
+      </div>
+      <div class="insight-item">
+        <strong>後陽台塞得下疊放（推薦）</strong>
+        <span>獨立「滾筒洗 + 熱泵烘」（≈ $55–63k）：容量足、能邊洗邊烘、一台壞另一台還能用。育兒家庭最實用。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. 兩條路線 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">1</span>兩條路線，本質差在哪</h2>
+    <p class="section-sub">不是「貴 vs 便宜」，是「一台多工 vs 兩台各司其職」的取捨。</p>
+    <div class="routes">
+      <div class="route combo">
+        <span class="rtag">路線 A · 洗脫烘一體機</span>
+        <h3>一台搞定洗 + 烘</h3>
+        <p class="sub">滾筒洗衣機內建烘乾，洗完不用搬桶。</p>
+        <ul>
+          <li class="plus">只佔 <strong>一台</strong>位置（後陽台空間有限的解）</li>
+          <li class="plus">購置最低（冷凝款 $1.6 萬起）</li>
+          <li class="plus">不用搬衣服、一鍵洗到乾</li>
+          <li class="minus"><strong>烘衣容量只有洗衣的一半</strong>（15kg 洗只能烘 8–10kg）</li>
+          <li class="minus">不能邊洗邊烘（同一桶）</li>
+          <li class="minus">冷凝烘較高溫 → 易皺、縮水；冷凝耗水</li>
+          <li class="minus">一機壞 = 洗烘全停</li>
+        </ul>
+      </div>
+      <div class="route split">
+        <span class="rtag">路線 B · 獨立洗 + 熱泵烘</span>
+        <h3>滾筒洗衣機 + 熱泵乾衣機</h3>
+        <p class="sub">兩台分工，通常上下疊放。</p>
+        <ul>
+          <li class="plus"><strong>滿容量烘</strong>（洗 12–15kg、烘 10kg，一次到位）</li>
+          <li class="plus"><strong>邊洗邊烘</strong>：洗完換桶，洗下一批同時烘上一批</li>
+          <li class="plus">熱泵低溫（~50–60°C）→ 柔軟、低縮水、護衣</li>
+          <li class="plus">最省電（每烘約 $6–10）、免排氣孔</li>
+          <li class="plus">壞一台另一台還能用、二手好轉售</li>
+          <li class="minus">需 <strong>兩台位置</strong>（疊放需堆疊套件）</li>
+          <li class="minus">購置最高（$5.5–7 萬）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 一體機機種實價 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">2</span>洗脫烘一體機 · 機種實價</h2>
+    <p class="section-sub">2026/06 momo 當下標價（多為活動折後）。<strong>注意「烘衣 kg」欄</strong> —— 別只看「15 公斤」那個洗衣數字。</p>
+    <table class="grid">
+      <thead><tr><th>機種</th><th class="num">洗 / 烘 kg</th><th>烘乾方式</th><th class="num">售價 NT$</th><th>定位</th></tr></thead>
+      <tbody>
+        <tr><td>SANLUX 台灣三洋 AWD-1270MD</td><td class="num">12 / 7</td><td>冷凝 / 熱風</td><td class="num">$15,900</td><td><span class="pill neutral">入門變頻</span></td></tr>
+        <tr><td>LG WD-S15TBD（蒸洗脫烘）</td><td class="num">15 / ~8*</td><td>冷凝 / 熱風</td><td class="num">$28,618</td><td><span class="pill neutral">中階</span></td></tr>
+        <tr><td>Electrolux 伊萊克斯 EWW1143R7WC</td><td class="num">11 / 7</td><td>冷凝</td><td class="num">$29,900</td><td><span class="pill neutral">中階進口</span></td></tr>
+        <tr class="win-row"><td>Panasonic 國際牌 NA-V150RPH <span class="pill combo">熱泵款</span></td><td class="num">15 / 10</td><td><span class="star">熱泵除濕式 ★</span></td><td class="num">$53,910</td><td><span class="pill win">空間只夠一台時首選</span></td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn">
+      <strong>⚠️ 「烘衣只有一半」是一體機的硬傷。</strong>三洋 12kg 洗只能烘 7kg、伊萊克斯 11kg 洗烘 7kg。對「再生一個、常洗大量寶寶衣物 + 寢具」的你家，意思是<strong>每次烘都得先拿出一半衣物</strong>，否則烘不乾又超皺。唯一例外是 Panasonic 熱泵款（15/10kg，烘到 2/3），但價格已逼近獨立組合。
+    </div>
+  </section>
+
+  <!-- 3. 獨立組合機種實價 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">3</span>獨立組合 · 洗衣機 + 熱泵乾衣機實價</h2>
+    <p class="section-sub">滾筒洗衣機（洗脫，不含烘）＋ 熱泵式乾衣機，2026/06 momo 實查。</p>
+
+    <h3 style="font-family:'Noto Serif TC',serif;font-size:16px;margin:0 0 8px;">滾筒洗衣機</h3>
+    <table class="grid">
+      <thead><tr><th>機種</th><th class="num">洗衣 kg</th><th class="num">售價 NT$</th></tr></thead>
+      <tbody>
+        <tr><td>Panasonic NA-V120HW-G（洗脫變頻）</td><td class="num">12</td><td class="num">$18,810</td></tr>
+        <tr><td>LG WD-S 系列滾筒</td><td class="num">15</td><td class="num">~$28,600</td></tr>
+        <tr><td>Electrolux 900 系列滾筒</td><td class="num">12</td><td class="num">~$28,900</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:'Noto Serif TC',serif;font-size:16px;margin:24px 0 8px;">熱泵式乾衣機（低溫除濕烘乾）</h3>
+    <table class="grid">
+      <thead><tr><th>機種</th><th class="num">烘衣 kg</th><th>方式</th><th class="num">售價 NT$</th></tr></thead>
+      <tbody>
+        <tr><td>TATUNG 大同 TAW-D100HP</td><td class="num">10</td><td>熱泵</td><td class="num">$24,700</td></tr>
+        <tr><td>SANLUX 台灣三洋 ASD-100UA</td><td class="num">10</td><td>熱泵</td><td class="num">$25,900</td></tr>
+        <tr class="win-row"><td>LG WR-100VW（免曬衣）</td><td class="num">10</td><td><span class="star">熱泵 ★</span></td><td class="num">$29,618</td></tr>
+        <tr><td>SHARP 夏普 KD-FKH10DT</td><td class="num">10</td><td>熱泵</td><td class="num">$29,900</td></tr>
+        <tr><td>Panasonic NH-VS100HP-B</td><td class="num">10</td><td>熱泵</td><td class="num">$35,900</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:'Noto Serif TC',serif;font-size:16px;margin:24px 0 8px;">「洗 + 烘」搭配總價</h3>
+    <table class="grid">
+      <thead><tr><th>組合</th><th>洗衣機</th><th>熱泵乾衣機</th><th class="num">合計 NT$</th></tr></thead>
+      <tbody>
+        <tr class="win-row"><td><span class="pill split">CP 值</span> Panasonic 全套</td><td>NA-V120HW 12kg</td><td>NH-VS100HP 10kg</td><td class="num">~$54,710</td></tr>
+        <tr><td>LG 全套</td><td>WD-S 15kg</td><td>WR-100VW 10kg</td><td class="num">~$58,236</td></tr>
+        <tr><td>Panasonic 原廠堆疊整組</td><td colspan="2">NA-VS120RW + NH-VS100HP（含疊放）</td><td class="num">~$62,800</td></tr>
+      </tbody>
+    </table>
+    <div class="callout split">
+      <strong>💡 熱泵乾衣機比傳統電熱 / 瓦斯乾衣機（$8,000–15,000）貴約 $12,000–25,000</strong>，但耗電只有 1/3–1/2、免瓦斯、免排風管、護衣，長期電費攤得回價差。獨立組合就選熱泵，別選傳統電熱式。
+    </div>
+  </section>
+
+  <!-- 4. 5年總成本 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">4</span>5 年總成本試算（購置 + 烘衣電費）</h2>
+    <p class="section-sub">前提：一週烘 4–5 次 → 一年約 220 次 → 5 年 1,100 次；電價以累進約 NT$4/度估。</p>
+
+    <table class="grid">
+      <thead><tr><th>烘乾方式</th><th class="num">每烘耗電</th><th class="num">每烘電費</th><th>耗水</th></tr></thead>
+      <tbody>
+        <tr class="win-row"><td>熱泵式乾衣機 <span class="pill split">最省</span></td><td class="num">~1.5–2.5 度</td><td class="num">$6–10</td><td>0（無冷卻水）</td></tr>
+        <tr><td>一體機 · 熱風排氣烘</td><td class="num">~3–4 度</td><td class="num">$12–16</td><td>0</td></tr>
+        <tr class="warn-row"><td>一體機 · 冷凝烘 <span class="pill warn">最耗</span></td><td class="num">~3.5–5 度</td><td class="num">$14–20</td><td>30–60 L / 次</td></tr>
+      </tbody>
+    </table>
+
+    <div class="cost-card">
+      <h3>5 年總持有成本（購置 + 烘衣電費，取中位估）</h3>
+      <p class="note">購置為 2026/06 實查中位；電費 = 1,100 次 × 每次中位；冷凝另計冷卻水約 $550。機器壽命 / 維修未計入。</p>
+      <div class="cost-grid">
+        <div class="cost-box">
+          <div class="lbl">冷凝洗脫烘一體機</div>
+          <div class="big">≈ $43,000</div>
+          <div class="small">機 ~$25k + 電 ~$17.6k + 水 ~$0.6k｜最省錢，但烘半套、易皺、不能連續</div>
+        </div>
+        <div class="cost-box hl">
+          <div class="lbl">熱泵洗脫烘一體機（Panasonic）</div>
+          <div class="big">≈ $62,700</div>
+          <div class="small">機 ~$53.9k + 電 ~$8.8k｜省空間 + 省電 + 護衣，但一機壞全停</div>
+        </div>
+        <div class="cost-box hl">
+          <div class="lbl">獨立洗 + 熱泵烘（Panasonic 套）</div>
+          <div class="big">≈ $63,500</div>
+          <div class="small">機 ~$54.7k + 電 ~$8.8k｜容量足、可連續、護衣、壞一台不全停</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>怎麼讀這張表：</strong>冷凝一體機 5 年最省（$43k），但省的是錢、賠的是<strong>容量 / 效率 / 衣物品質</strong>。熱泵一體機和獨立組合 5 年總成本<strong>幾乎一樣（差不到 $1,000）</strong> —— 所以真正的選擇是：<strong>「省那一台的空間」 vs 「換來滿容量 + 連續作業 + 壞一台不全停」</strong>。錢不是重點，空間和使用模式才是。
+    </div>
+  </section>
+
+  <!-- 5. 優劣對照 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">5</span>逐項對照</h2>
+    <table class="grid">
+      <thead><tr><th>比較項</th><th>洗脫烘一體機</th><th>獨立洗 + 熱泵烘</th></tr></thead>
+      <tbody>
+        <tr><td>省空間</td><td><span class="star">★★★★★ 一台</span></td><td>★★★ 需疊放 / 並排</td></tr>
+        <tr><td>烘衣容量</td><td>僅洗衣一半（需分批）</td><td><span class="star">★ 滿容量一次烘</span></td></tr>
+        <tr><td>連續作業（邊洗邊烘）</td><td>✗ 同機不行</td><td><span class="star">✓ 可</span></td></tr>
+        <tr><td>烘衣品質 / 護衣</td><td>冷凝高溫易皺縮</td><td><span class="star">熱泵低溫柔軟</span></td></tr>
+        <tr><td>5 年烘衣電費</td><td>冷凝最高 / 熱泵款低</td><td><span class="star">最低</span></td></tr>
+        <tr><td>購置成本</td><td><span class="star">低（冷凝 $1.6 萬起）</span></td><td>高（$5.5–7 萬）</td></tr>
+        <tr><td>故障風險</td><td>一機壞洗烘全停</td><td><span class="star">壞一台另一台可用</span></td></tr>
+        <tr><td>安裝需求</td><td>進排水；冷凝免排氣</td><td>洗需進排水；熱泵免排氣</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 6. 空間與安裝 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">6</span>後陽台空間與水電預留</h2>
+    <p class="section-sub">這頁的重點 —— 不管最後買哪種，<strong>水電預留現在就要做對</strong>，之後免打牆。</p>
+    <table class="grid">
+      <thead><tr><th>項目</th><th>一體機</th><th>獨立組合</th></tr></thead>
+      <tbody>
+        <tr><td>佔地</td><td>1 台（約 W60×D60×H85–100cm）</td><td>疊放同寬 W60；並排需 ~W120</td></tr>
+        <tr><td>疊放套件</td><td>不需</td><td>需堆疊套件 / 層架（~$1,500–3,000），先確認牆面承重</td></tr>
+        <tr><td>電源</td><td>多為 110V</td><td>兩台多 110V（建議兩個獨立插座）</td></tr>
+        <tr><td>進排水</td><td>進水 + 地排</td><td>洗衣需進排水；熱泵烘只需排冷凝水 / 倒水盒</td></tr>
+        <tr><td>排氣孔</td><td>冷凝式免</td><td>熱泵式免（後陽台不必打洞）</td></tr>
+      </tbody>
+    </table>
+    <div class="callout danger">
+      <strong>🔧 裝潢階段先做這 4 件（呼應裝潢頁第 9 區）：</strong>① 進水 + 地排到位；② 預留 <strong>220V 專迴 ×1</strong>（部分大容量 / 未來彈性）+ 至少 2 個 110V 防潮插座；③ 若打算疊放，<strong>量好上下總高</strong>（洗+烘疊起來約 170–180cm，確認不卡窗 / 曬衣桿）；④ 後陽台保留通風（熱泵雖免排氣，但機體仍散熱、潮氣需流通）。
+    </div>
+  </section>
+
+  <!-- 7. 給你家的建議 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">7</span>給你家的建議</h2>
+    <div class="decision">
+      <div class="dec-card split">
+        <div class="q">後陽台塞得下「上下疊放」嗎？</div>
+        <div class="a">→ 獨立洗 + 熱泵烘（推薦）</div>
+        <p>選 Panasonic 套（~$54.7k）或原廠堆疊整組（~$62.8k）。對「要再生一個」的你家，滿容量 + 邊洗邊烘 + 護衣 + 壞一台不全停，這些價值遠大於那台的空間。5 年總成本跟熱泵一體機幾乎一樣。</p>
+      </div>
+      <div class="dec-card combo">
+        <div class="q">後陽台真的只塞得下一台？</div>
+        <div class="a">→ 熱泵式一體機</div>
+        <p>選 Panasonic NA-V150RPH（15/10kg 熱泵，~$53.9k），<strong>別選冷凝款</strong>。省電、護衣、烘 10kg 對小家庭夠用。雖然一機壞全停，但比冷凝機的烘衣品質與電費好太多。</p>
+      </div>
+    </div>
+    <div class="callout win">
+      <strong>我的一句話建議：</strong>優先<strong>路線 B（獨立洗 + 熱泵烘）</strong> —— 你家「會再生一個」是關鍵變數，洗衣量會破 10kg，一體機「烘半套 + 不能連續」會天天卡住。只有在後陽台量過真的疊放 / 並排都放不下時，才退而選 <strong>熱泵一體機</strong>。<strong>無論哪個，冷凝式一體機都不建議</strong>（省的錢用烘衣品質和電費賠回去）。
+    </div>
+  </section>
+
+  <!-- 8. 採購自我檢核 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">8</span>採購自我檢核（廠商不會主動講）</h2>
+    <ul class="check">
+      <li>量過後陽台<strong>實際可用寬 / 深 / 高</strong>了嗎？（疊放總高約 170–180cm，會不會卡窗 / 曬衣桿 / 熱水器？）</li>
+      <li>看的是<strong>「烘衣 kg」</strong>還是被「洗衣 kg」誤導？一體機烘只有一半。</li>
+      <li>乾衣機確認是<strong>「熱泵」</strong>不是「傳統電熱 / 冷凝」？（電費差一倍、護衣差很多）</li>
+      <li>進排水位置、<strong>專迴 / 插座</strong>在裝潢階段就請水電預留了嗎？</li>
+      <li>有問<strong>實際耗電（kWh / 次）與保固</strong>嗎？（熱泵壓縮機過保更換約 $8,000–15,000，問清保固年限）</li>
+      <li>價格是否<strong>多家比過</strong>？（momo / PChome / 全國電子 / 燦坤常有差，含安裝 / 舊機回收 / 搬運上樓費）</li>
+      <li>大樓<strong>電梯 / 樓梯</strong>搬得上去嗎？滾筒機很重（60–80kg），確認搬運與安裝服務。</li>
+    </ul>
+  </section>
+
+  <!-- 9. 來源 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">9</span>價格來源（2026/06 實查）</h2>
+    <ul class="sources">
+      <li>Panasonic NA-V150RPH（洗脫烘一體 15/10kg 熱泵，$53,910）— momo i_code=13352946</li>
+      <li>LG WD-S15TBD（蒸洗脫烘 15kg，$28,618）— momo i_code=9716421</li>
+      <li>Electrolux EWW1143R7WC（洗脫烘 11/7kg 冷凝，$29,900）— momo i_code=13860431</li>
+      <li>SANLUX AWD-1270MD（洗脫烘 12/7kg，$15,900）— momo i_code=7299075</li>
+      <li>Panasonic NA-V120HW-G（滾筒洗衣 12kg，$18,810）— momo i_code=9566809</li>
+      <li>LG WR-100VW（熱泵乾衣 10kg，$29,618）— momo i_code=11764771</li>
+      <li>Panasonic NH-VS100HP-B（熱泵乾衣 10kg，$35,900）— momo i_code=14975093</li>
+      <li>其他熱泵乾衣機：SHARP KD-FKH10DT $29,900、SANLUX ASD-100UA $25,900、TATUNG TAW-D100HP $24,700（momo 現售）</li>
+      <li>電費 / 耗電為依台電累進電價（~$4/度）與機種型錄推算之估算值，非廠商廣告數字；簽約前請以官網即時報價與能源局能效標示為準。</li>
+    </ul>
+  </section>
+
+  <footer>
+    Source · <a href="https://github.com/tzchia/home-research">github.com/tzchia/home-research</a><br>
+    本文件為個人採購研究筆記。價格為 2026/06 momo 購物網實查當下標價（多含活動折扣，會變動）；電費為估算。實際選購以現場報價、機種規格頁與能源局標示為準。
+  </footer>
+
+</div>
+</body>
+</html>
