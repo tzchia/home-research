@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新家裝潢規劃｜7 樓華廈第 6 樓 · 不打牆 3 房 2 廳雙衛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1714;
+    --ink-2: #3A332C;
+    --muted: #8A7F72;
+    --line: #E8E1D6;
+    --line-soft: #F2ECE2;
+    --bg: #FAF6F0;
+    --paper: #FFFFFF;
+
+    /* 暖木 + 灰綠 居家配色 — 與其他文件區隔 */
+    --primary: #5B6B4E;          /* 灰綠 sage */
+    --primary-soft: #E4EAD9;
+    --primary-ink: #3A4632;
+    --wood: #B07D4F;             /* 暖木 accent */
+    --wood-soft: #F4E6D5;
+
+    --win: #4D7C4D;
+    --warn: #C77D2E;
+    --danger: #C2453B;
+    --neutral: #8A7F72;
+
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 22px;
+
+    --shadow-1: 0 1px 2px rgba(26,23,20,.04), 0 2px 8px rgba(26,23,20,.05);
+    --shadow-2: 0 12px 32px -12px rgba(26,23,20,.22);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 4.6vw, 44px);
+    line-height: 1.2;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  .lede {
+    font-size: 17px;
+    color: var(--ink-2);
+    max-width: 800px;
+    margin: 0 0 36px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(22px, 3.2vw, 28px);
+    font-weight: 900;
+    margin: 64px 0 8px;
+    color: var(--ink);
+    scroll-margin-top: 20px;
+  }
+  .section-title .num-badge {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 38px; height: 38px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    margin-right: 12px;
+    vertical-align: middle;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 14.5px;
+    margin: 0 0 24px;
+  }
+
+  /* HERO 結論卡 */
+  .hero {
+    background: linear-gradient(135deg, #5B6B4E, #74866020);
+    background: linear-gradient(135deg, #56654B, #3F4A37);
+    border-radius: var(--r-lg);
+    padding: 34px;
+    margin: 28px 0 16px;
+    box-shadow: var(--shadow-2);
+    color: #EDF0E6;
+  }
+  .hero h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 23px;
+    margin: 0 0 14px;
+    color: #fff;
+  }
+  .hero p {
+    margin: 0 0 12px;
+    font-size: 15.5px;
+    color: #DCE2D2;
+    line-height: 1.8;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero strong { color: #fff; }
+  .hero .tag-row { margin: 4px 0 16px; }
+  .hero .htag {
+    display: inline-block;
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.24);
+    color: #EDF0E6;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin: 0 6px 8px 0;
+  }
+
+  /* PILL */
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+  .pill.win    { background: #DDEBD6; color: #2F5530; }
+  .pill.warn   { background: #FBEAD2; color: #8A5316; }
+  .pill.danger { background: #F7DAD7; color: #8E2E26; }
+  .pill.info   { background: var(--primary-soft); color: var(--primary-ink); }
+  .pill.wood   { background: var(--wood-soft); color: #7A5026; }
+  .pill.neutral{ background: #F0ECE4; color: #6B6155; }
+
+  /* 平面圖 */
+  .floorplan {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 22px;
+    margin: 24px 0 12px;
+    box-shadow: var(--shadow-1);
+    text-align: center;
+  }
+  .floorplan img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--r-md);
+    border: 1px solid var(--line-soft);
+  }
+  .floorplan figcaption {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* 基本資料卡 */
+  .calc-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 24px;
+    box-shadow: var(--shadow-1);
+    margin: 16px 0 28px;
+  }
+  .calc-card h4 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 0 0 14px;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .calc-card .calc-line {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: baseline;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 14.5px;
+  }
+  .calc-card .calc-line:last-child { border-bottom: none; }
+  .calc-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--primary-ink);
+  }
+  .calc-card .label-muted { color: var(--muted); }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--paper);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--r-sm);
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    box-shadow: var(--shadow-1);
+  }
+  .callout.warn   { border-left-color: var(--warn);   background: #FFF9EF; }
+  .callout.danger { border-left-color: var(--danger); background: #FDF3F1; }
+  .callout.win    { border-left-color: var(--win);    background: #F2F8EE; }
+  .callout.wood   { border-left-color: var(--wood);   background: #FBF4EA; }
+  .callout strong { color: var(--ink); }
+
+  /* 房間分配卡 grid */
+  .room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px 0 8px;
+  }
+  .room-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--primary);
+    border-radius: var(--r-md);
+    padding: 22px;
+    box-shadow: var(--shadow-1);
+  }
+  .room-card.wood-top { border-top-color: var(--wood); }
+  .room-card .rk-no {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .room-card h4 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 6px 0 6px;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .room-card .dim {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--wood);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .room-card p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    margin: 24px 0 8px;
+    padding-left: 30px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 9px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: var(--line);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 22px;
+  }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -29px; top: 4px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--primary);
+  }
+  .tl-item.future::before { background: var(--wood); box-shadow: 0 0 0 2px var(--wood); }
+  .tl-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 16px 20px;
+    box-shadow: var(--shadow-1);
+  }
+  .tl-card .tl-when {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .tl-card h4 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 4px 0 6px;
+    font-size: 16px;
+  }
+  .tl-card p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+
+  /* 表格 */
+  table.grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 12px;
+    font-size: 14px;
+    background: var(--paper);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+  }
+  table.grid th, table.grid td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.grid th {
+    background: var(--primary-soft);
+    color: var(--primary-ink);
+    font-weight: 700;
+    font-size: 13px;
+  }
+  table.grid tr:last-child td { border-bottom: none; }
+  table.grid .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* 設計策略卡 */
+  .strat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin: 20px 0 8px;
+  }
+  .strat {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 20px;
+    box-shadow: var(--shadow-1);
+  }
+  .strat .ic { font-size: 28px; line-height: 1; }
+  .strat h4 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 10px 0 6px;
+    font-size: 16px;
+  }
+  .strat p { margin: 0; font-size: 13px; color: var(--ink-2); line-height: 1.65; }
+
+  /* CHECKLIST */
+  .check {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+  }
+  .check li {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-1);
+    font-size: 14.5px;
+    color: var(--ink-2);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .check li::before {
+    content: "☐";
+    color: var(--wood);
+    font-size: 18px;
+    line-height: 1.3;
+    flex-shrink: 0;
+  }
+  .check li strong { color: var(--ink); }
+
+  footer {
+    margin-top: 72px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted);
+  }
+  footer a { color: var(--muted); }
+  .updated {
+    font-size: 12px; color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 36px 18px 64px; }
+    .hero { padding: 24px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .hero { box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .room-card, .calc-card, .strat, .tl-card, .floorplan, .check li, table.grid { box-shadow: none; }
+    .section-title { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="eyebrow">Home Renovation Plan · 2026</div>
+  <h1>新家裝潢規劃</h1>
+  <p class="updated">7 樓華廈 · 第 6 樓單層一戶　|　更新：2026-06-29</p>
+  <p class="lede">以「<strong>不打牆</strong>」為前提，把現有 3 房 2 廳雙衛的格局，對應到「夫妻 + 兩個寶寶（未來可能 + 岳父）」的人口結構，做機能定位與設計策略。重點在用櫃體、軟裝、燈光分區，而非動隔間 — 省錢、零結構風險、工期短。</p>
+
+  <!-- HERO 結論 -->
+  <div class="hero">
+    <h3>一句話結論</h3>
+    <div class="tag-row">
+      <span class="htag">3 房 2 廳 · 雙衛</span>
+      <span class="htag">室內 28 坪</span>
+      <span class="htag">天花 2.7m / 樑下 2.3m</span>
+      <span class="htag">不打牆</span>
+      <span class="htag">6F / 7F 單層一戶</span>
+    </div>
+    <p>現況格局<strong>本來就很好用</strong> — 三房剛好對上「夫妻 + 兩寶」，又是<strong>雙衛浴</strong>（一套貼主臥、一套公共），早上不搶廁所。決定不打牆是聰明的：省下拆除/清運/泥作復原費、零結構風險、不必煩惱哪道是剪力牆。</p>
+    <p>裝潢重心因此轉到 <strong>3 件事</strong>：① 用櫃體與軟裝把每個區的個性做出來；② 保住 2.7m 淨高的爽度、只「化掉」那幾支樑；③ 房間分配預留人口成長彈性，但<strong>不為「5 年後可能」現在就硬花錢</strong>。</p>
+  </div>
+
+  <!-- 1. 現況基本資料 -->
+  <h2 class="section-title"><span class="num-badge">1</span>現況基本資料</h2>
+  <p class="section-sub">規劃的所有判斷都以這組數字為基準。</p>
+
+  <div class="calc-card">
+    <h4>房屋條件</h4>
+    <div class="calc-line"><span>樓層</span><span class="num">7 樓華廈 · 第 6 樓 · 單層一戶</span></div>
+    <div class="calc-line"><span>格局</span><span class="num">3 房 2 廳 · 雙衛浴</span></div>
+    <div class="calc-line"><span>權狀（主建物 + 陽台，牆心計算）</span><span class="num">32.41 坪</span></div>
+    <div class="calc-line"><span>室內實際淨面積（設計師丈量）</span><span class="num">≈ 28 坪</span></div>
+    <div class="calc-line"><span>天花板淨高（無樑區）</span><span class="num">2.7 m</span></div>
+    <div class="calc-line"><span>樑下淨高</span><span class="num">2.3 m（樑深 ≈ 40cm）</span></div>
+    <div class="calc-line"><span>施工前提</span><span class="num">盡量不打牆</span></div>
+  </div>
+
+  <div class="callout wood">
+    <strong>💡 32.41 vs 28 坪的差異是正常的</strong>，不是誰算錯。權狀的「主+陽 32.41 坪」用<strong>牆心計算</strong>（牆中心線到牆中心線，牆體厚度有一半被算進你家），陽台用投影面積計入；設計師量的「28 坪」是<strong>室內淨面積</strong>（牆內緣到內緣、真正能用的空間）。差的約 4.4 坪就是牆厚 + 陽台計算方式吃掉的，華廈差 12～14% 很常見。
+  </div>
+
+  <!-- 2. 現況平面圖 -->
+  <h2 class="section-title"><span class="num-badge">2</span>現況平面圖</h2>
+  <p class="section-sub">官方「現況平面圖」— 左側公共/採光帶，右側機能/服務帶。</p>
+
+  <figure class="floorplan">
+    <img src="./assets/floorplan-current.jpg" alt="新家現況平面圖：左側次臥×2/餐廳/客廳/前陽台，右側後陽台/廚房/雙衛/主臥">
+    <figcaption>現況平面圖 · 左行（上→下）：次臥 × 2 → 餐廳 → 客廳（含大門）→ 前陽台　|　右行（上→下）：後陽台 → 廚房 → 浴室 × 2 → 主臥</figcaption>
+  </figure>
+
+  <table class="grid">
+    <thead><tr><th>分區</th><th>由上而下</th><th>特性</th></tr></thead>
+    <tbody>
+      <tr><td><strong>左側（採光帶）</strong></td><td>次臥 → 次臥 → 餐廳 → 客廳（大門）→ 前陽台</td><td>主要採光面、家庭公共活動軸</td></tr>
+      <tr><td><strong>右側（服務帶）</strong></td><td>後陽台 → 廚房 → 浴室 → 浴室 → 主臥</td><td>用水、收納、私領域集中</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 3. 樑位與淨高策略 -->
+  <h2 class="section-title"><span class="num-badge">3</span>淨高策略：保高，只「化掉」樑</h2>
+  <p class="section-sub">2.7m 淨高其實比一般公寓（2.4～2.6m）寬敞，是這間房子的隱形優勢 — 不要為了藏樑把它砍掉。</p>
+
+  <div class="callout win">
+    <strong>核心原則：不要為了藏樑把整片天花拉平到 2.3m。</strong>那等於把 40cm 的高度優勢全砍掉、整屋變壓迫。正確做法是「<strong>保高 + 只處理樑</strong>」。
+  </div>
+
+  <div class="strat-grid">
+    <div class="strat">
+      <div class="ic">🪟</div>
+      <h4>天花留高</h4>
+      <p>客餐廳走極淺天花或裸天花，留住 2.7m 的開闊感；別整片包平。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">💡</div>
+      <h4>樑側間照</h4>
+      <p>樑兩側做間接燈帶或圓弧導角，把樑「化掉」而非「包掉」。樑是 RC 沒法埋嵌燈，要在樑旁配光。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">🔆</div>
+      <h4>薄型燈具</h4>
+      <p>選軌道燈 / 吸頂薄燈，避免吊燈再吃高度。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">🗄️</div>
+      <h4>高櫃避樑</h4>
+      <p>衣櫃 / 高櫃到頂可做 ≈ 2.6m 收納拉滿，但櫃體與上掀床要先對齊樑位，別卡一支樑在櫃子中間。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">❄️</div>
+      <h4>冷氣走樑下</h4>
+      <p>冷媒管 / 排水走樑下時先算好洩水坡度，出風口別被樑擋。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">🚪</div>
+      <h4>樑下=走道</h4>
+      <p>樑下 2.3m 拿來當走道、過門完全沒問題（門高才 2.0～2.1m），把矮的地方放在不影響體感的位置。</p>
+    </div>
+  </div>
+
+  <!-- 4. 人口推演 -->
+  <h2 class="section-title"><span class="num-badge">4</span>人口推演 → 房間怎麼分配</h2>
+  <p class="section-sub">人口會變多，但牆不能動 → 房間分配就是成敗重點。原則：現在為「夫妻 + 兩寶」做滿，岳父的事「不預先花錢、但留一手」。</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-when">NOW · 現在</div>
+        <h4>夫妻 + 1 歲寶寶</h4>
+        <p>主臥放雙人床 + 嬰兒床（旁邊就有衛浴，半夜顧娃方便）。次臥①當大寶房，次臥②先當遊戲 / 彈性間。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-when">+1~2 年</div>
+        <h4>+ 第二寶</h4>
+        <p>兩間次臥分別給兩個小孩；或先共用一間（嬰兒床 + 大寶床），另一間留彈性。兩間次臥都放得下單人床。</p>
+      </div>
+    </div>
+    <div class="tl-item future">
+      <div class="tl-card">
+        <div class="tl-when">+5 年 · 未定</div>
+        <h4>可能 + 岳父</h4>
+        <p>那時孩子已大、可同房 → 兩寶併一間、空出一間給長輩。<strong>現在完全不用為此施工</strong>，到那天再評估即可。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>「留一手」但不花冤枉錢：</strong>客餐廳保留沙發床 / 和室彈性區的<em>可能性</em>（管線、插座先別封死），但<strong>絕不為了「5 年後可能」現在就硬隔一間空房閒置</strong>。這符合你「未來再說、不為不確定的需求超支」的原則。
+  </div>
+
+  <!-- 5. 房間分配 -->
+  <h2 class="section-title"><span class="num-badge">5</span>不打牆下的房間分配</h2>
+  <p class="section-sub">尺寸取自手繪丈量稿，僅供配置參考（手繪比例不完全精確，實作以現場放樣為準）。</p>
+
+  <div class="room-grid">
+    <div class="room-card wood-top">
+      <div class="rk-no">右下 · 最大房</div>
+      <h4>主臥</h4>
+      <div class="dim">夫妻 + 嬰兒床</div>
+      <p>緊鄰一套衛浴 → 近乎主衛，半夜顧娃、起夜都方便。雙人床 + 衣櫃 + 嬰兒床配置綽綽有餘。</p>
+    </div>
+    <div class="room-card">
+      <div class="rk-no">左上 ①</div>
+      <h4>次臥①</h4>
+      <div class="dim">大寶房</div>
+      <p>採光帶上的房間，給大寶當臥室 / 書房。到頂衣櫃避開樑位收納拉滿。</p>
+    </div>
+    <div class="room-card">
+      <div class="rk-no">左上 ②</div>
+      <h4>次臥②</h4>
+      <div class="dim">二寶房 / 彈性間</div>
+      <p>現在先當遊戲 + 彈性間，老二大了轉臥室。寬度足以排兩張床或上下舖（兩寶日後共用 → 空一間給岳父）。</p>
+    </div>
+    <div class="room-card">
+      <div class="rk-no">左側中下</div>
+      <h4>客廳 + 餐廳</h4>
+      <div class="dim">全家公共區</div>
+      <p>採光最好的一帶，孩子放電空間。餐廳接廚房動線短。彈性區（沙發床 / 和室）預留可能性。</p>
+    </div>
+    <div class="room-card">
+      <div class="rk-no">右側中段 ×2</div>
+      <h4>雙衛浴</h4>
+      <div class="dim">主臥側 + 公共</div>
+      <p>一套服務主臥、一套服務公共與小孩 → 早上尖峰不搶廁所，是這戶對你家結構的最大加分。</p>
+    </div>
+    <div class="room-card">
+      <div class="rk-no">右上 + 前後陽台</div>
+      <h4>廚房 + 前 / 後陽台</h4>
+      <div class="dim">服務帶</div>
+      <p>廚房接後陽台（曬衣 / 雜物 / 熱水器）。前陽台在客廳側，採光 / 綠化 / 收納皆可。</p>
+    </div>
+  </div>
+
+  <!-- 6. 不打牆的分區手法 -->
+  <h2 class="section-title"><span class="num-badge">6</span>不打牆，怎麼把空間做出個性？</h2>
+  <p class="section-sub">隔間被現有牆鎖死 → 用「非結構」手法分區，一樣能做出層次。</p>
+
+  <div class="strat-grid">
+    <div class="strat">
+      <div class="ic">🗄️</div>
+      <h4>櫃體當隔牆</h4>
+      <p>用矮櫃 / 半高櫃 / 開放層架界定客廳與餐廳，不砌牆也有分區感，還換來收納。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">🟫</div>
+      <h4>地坪換材</h4>
+      <p>玄關落塵區、和室架高、廚房耐磨地 — 用地坪材質 / 高低差暗示空間轉換。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">💡</div>
+      <h4>燈光分區</h4>
+      <p>不同區用不同色溫 / 照度 / 燈具，晚上一開燈，空間個性自然出來。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">🎨</div>
+      <h4>跳色與主牆</h4>
+      <p>一道重點牆刷色 / 貼材，比動隔間便宜太多就能定調房間氣質。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">🪟</div>
+      <h4>軟裝界定</h4>
+      <p>地毯、窗簾、屏風、層架，可隨人口階段重排，零施工換格局。</p>
+    </div>
+    <div class="strat">
+      <div class="ic">🚪</div>
+      <h4>門片 / 拉門</h4>
+      <p>若要彈性開放，現有開口換玻璃拉門 / 折門，比打牆便宜又可逆。</p>
+    </div>
+  </div>
+
+  <!-- 7. 計價提醒 -->
+  <h2 class="section-title"><span class="num-badge">7</span>採購自我檢核：別被坪數灌水</h2>
+
+  <div class="callout danger">
+    <strong>裝潢報價務必問清楚：設計師是用「室內 28 坪」還是「權狀 32.41 坪」抓單價？</strong> 有些報價故意用大坪數 × 單價，總價就膨脹。你家天花 / 地板 / 油漆的實際施作面積是跟<strong>室內淨坪</strong>走的 — 用 32.41 報價等於多算你 4 坪的錢。要求對方<strong>明列計價基準</strong>。
+  </div>
+
+  <table class="grid">
+    <thead><tr><th>檢核項目</th><th>為什麼重要</th></tr></thead>
+    <tbody>
+      <tr><td>計價基準是室內坪還是權狀坪？</td><td>差 4.4 坪，用大的報價直接膨脹總價。</td></tr>
+      <tr><td>哪幾道是剪力牆 / 結構牆？</td><td>就算不打牆也要知道 — 釘櫃、開孔、走管都受限。請設計師標在圖上。</td></tr>
+      <tr><td>樑位有沒有疊到平面配置圖上？</td><td>高櫃 / 上掀床 / 冷氣出風口都要避樑，沒標清楚會現場踢鐵板。</td></tr>
+      <tr><td>系統櫃 vs 木作的比例與報價？</td><td>同收納量價差很大，要分項看，不要包成一筆。</td></tr>
+      <tr><td>5 年總持有成本（含家電耗材 / 保固）</td><td>裝潢只是入門票，後續維護才是長期支出 — 一貫要看 5 年。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 8. 待補資訊 -->
+  <h2 class="section-title"><span class="num-badge">8</span>還缺這些，就能出完整方案</h2>
+  <p class="section-sub">給齊以下三項，下一步可產出 2～3 個具體格局方案（含傢俱配置 + 預算級距 + 5 年總持有成本）。</p>
+
+  <ul class="check">
+    <li><span><strong>預算範圍</strong> — 抓多少？含不含家具家電？（決定建材等級、系統櫃 vs 木作）</span></li>
+    <li><span><strong>風格偏好</strong> — 無印簡約 / 北歐 / 木質溫潤 / 現代…？</span></li>
+    <li><span><strong>不可動的牆</strong> — 設計師有指出哪道是剪力牆 / 結構牆不可拆嗎？（華廈通常 1～2 道）</span></li>
+    <li><span><strong>（可選）比例正確的格局圖</strong> — 用丈量尺寸 + 樑位畫一張，後續討論傢俱擺放更精準。</span></li>
+  </ul>
+
+  <footer>
+    Source · <a href="https://github.com/tzchia/home-research">github.com/tzchia/home-research</a><br>
+    本文件為個人裝潢規劃筆記，整理自現況平面圖與現場丈量。尺寸以現場放樣為準；結構牆 / 樑位判定以建築結構圖與專業技師確認為準。
+  </footer>
+
+</div>
+</body>
+</html>
