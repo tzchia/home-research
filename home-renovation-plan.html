@@ -483,6 +483,110 @@
     </tbody>
   </table>
 
+  <h3 style="font-family:'Noto Serif TC',serif;font-size:19px;margin:38px 0 4px;color:var(--ink);">比例格局示意圖（疊樑位）</h3>
+  <p class="section-sub">依現場丈量尺寸繪製的<strong>示意圖</strong>，橘色虛線為大樑位置。比例接近但非施工圖 — 傢俱放樣、樑柱結構以建築師 / 結構技師現場確認為準。</p>
+
+  <div class="floorplan">
+    <svg viewBox="0 0 860 1080" width="100%" style="max-width:620px;height:auto;font-family:'Noto Sans TC',sans-serif;" role="img" aria-label="比例格局示意圖，疊加大樑位置">
+      <defs>
+        <pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="0" y2="8" stroke="#C77D2E" stroke-width="6" opacity="0.18"/>
+        </pattern>
+      </defs>
+
+      <!-- 房間填色 -->
+      <g>
+        <rect x="60" y="50" width="195" height="290" fill="#F2F6EA"/>
+        <rect x="255" y="50" width="225" height="290" fill="#F2F6EA"/>
+        <rect x="60" y="340" width="420" height="260" fill="#FBF4EA"/>
+        <rect x="60" y="600" width="420" height="340" fill="#FBF4EA"/>
+        <rect x="480" y="50" width="280" height="110" fill="#EFEFE9"/>
+        <rect x="480" y="160" width="280" height="180" fill="#F2F6EA"/>
+        <rect x="480" y="340" width="280" height="100" fill="#E9EEF2"/>
+        <rect x="480" y="440" width="280" height="120" fill="#E9EEF2"/>
+        <rect x="480" y="560" width="280" height="380" fill="#F2F6EA"/>
+        <rect x="180" y="940" width="380" height="60" fill="#EFEFE9"/>
+      </g>
+
+      <!-- 樑位（橘色虛線帶） -->
+      <g stroke="#C77D2E" stroke-width="2.5" stroke-dasharray="10 6" opacity="0.85">
+        <line x1="60" y1="600" x2="760" y2="600"/>
+        <line x1="60" y1="760" x2="480" y2="760"/>
+        <line x1="480" y1="50" x2="480" y2="940"/>
+      </g>
+      <g fill="#9A5A1E" font-size="13" font-family="'JetBrains Mono',monospace" font-weight="600">
+        <text x="250" y="592">▲ 樑（樑下 2.3m）</text>
+        <text x="250" y="752">▲ 樑（樑下 2.3m）</text>
+      </g>
+
+      <!-- 內牆 -->
+      <g stroke="#3A332C" stroke-width="3" fill="none">
+        <line x1="255" y1="50" x2="255" y2="340"/>
+        <line x1="60" y1="340" x2="480" y2="340"/>
+        <line x1="60" y1="600" x2="480" y2="600"/>
+        <line x1="480" y1="160" x2="760" y2="160"/>
+        <line x1="480" y1="340" x2="760" y2="340"/>
+        <line x1="480" y1="440" x2="760" y2="440"/>
+        <line x1="480" y1="560" x2="760" y2="560"/>
+        <line x1="480" y1="50" x2="480" y2="940"/>
+      </g>
+
+      <!-- 外牆 -->
+      <g stroke="#1A1714" stroke-width="6" fill="none">
+        <rect x="60" y="50" width="700" height="890"/>
+        <rect x="180" y="940" width="380" height="60"/>
+      </g>
+
+      <!-- 門開口（淺綠弧） -->
+      <g stroke="#5B6B4E" stroke-width="2" fill="none" opacity="0.9">
+        <path d="M150 340 A40 40 0 0 1 110 380"/>
+        <path d="M360 340 A40 40 0 0 1 320 380"/>
+        <path d="M110 940 A40 40 0 0 0 110 900"/>
+        <path d="M540 700 A40 40 0 0 0 500 660"/>
+        <path d="M520 440 A34 34 0 0 1 520 374"/>
+        <path d="M560 160 A36 36 0 0 1 524 196"/>
+      </g>
+
+      <!-- 窗（外牆短雙線） -->
+      <g stroke="#5B6B4E" stroke-width="3">
+        <line x1="110" y1="50" x2="200" y2="50"/>
+        <line x1="320" y1="50" x2="430" y2="50"/>
+        <line x1="760" y1="620" x2="760" y2="760"/>
+        <line x1="760" y1="200" x2="760" y2="300"/>
+        <line x1="280" y1="1000" x2="460" y2="1000"/>
+      </g>
+
+      <!-- 房間標籤 -->
+      <g fill="#1A1714" font-family="'Noto Serif TC',serif" font-weight="800" text-anchor="middle">
+        <text x="157" y="190" font-size="20">次臥①</text>
+        <text x="367" y="190" font-size="20">次臥②</text>
+        <text x="270" y="470" font-size="22">餐廳</text>
+        <text x="270" y="820" font-size="24">客廳</text>
+        <text x="620" y="110" font-size="15">後陽台</text>
+        <text x="620" y="255" font-size="20">廚房</text>
+        <text x="620" y="396" font-size="16">浴室</text>
+        <text x="620" y="506" font-size="16">浴室</text>
+        <text x="620" y="755" font-size="24">主臥</text>
+        <text x="370" y="977" font-size="15">前陽台</text>
+      </g>
+
+      <!-- 尺寸標註 -->
+      <g fill="#9A5A1E" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600" text-anchor="middle">
+        <text x="157" y="212">2.35 × 3.56m</text>
+        <text x="367" y="212">3.4 × 2.45m</text>
+        <text x="270" y="842">≈ 3 × 3.7m</text>
+        <text x="620" y="775">≈ 3 × 4.2m</text>
+        <text x="620" y="418">1.9m（高2.3m）</text>
+      </g>
+
+      <!-- 大門標記 -->
+      <g>
+        <text x="98" y="892" fill="#5B6B4E" font-size="13" font-weight="700" font-family="'Noto Sans TC',sans-serif">大門</text>
+      </g>
+    </svg>
+    <figcaption>比例格局示意圖 · 橘虛線＝大樑（樑下 2.3m）· 綠弧＝門 · 綠粗線＝窗 · 尺寸取自現場丈量稿（示意，非施工圖）</figcaption>
+  </div>
+
   <!-- 3. 樑位與淨高策略 -->
   <h2 class="section-title"><span class="num-badge">3</span>淨高策略：保高，只「化掉」樑</h2>
   <p class="section-sub">2.7m 淨高其實比一般公寓（2.4～2.6m）寬敞，是這間房子的隱形優勢 — 不要為了藏樑把它砍掉。</p>
