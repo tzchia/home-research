@@ -198,6 +198,20 @@
   .sources { font-size: 12.5px; color: var(--muted); }
   .sources li { margin-bottom: 7px; word-break: break-all; }
 
+  /* VOICE CARDS (Threads 網友心得) */
+  .voices { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-top: 8px; }
+  .voice { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px 18px; box-shadow: var(--shadow-1); position: relative; }
+  .voice.pro { border-left: 4px solid var(--combo); }
+  .voice.con { border-left: 4px solid var(--split); }
+  .voice .who { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .voice .handle { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); }
+  .voice .stance { font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 999px; margin-left: auto; }
+  .voice.pro .stance { background: var(--combo-soft); color: var(--combo-ink); }
+  .voice.con .stance { background: var(--split-soft); color: var(--split-ink); }
+  .voice .machine { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .voice p { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.6; }
+  .voice .quote { color: var(--muted); font-size: 12.5px; font-style: italic; margin-top: 6px; }
+
   footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
 
   @media (max-width: 760px) {
@@ -405,9 +419,61 @@
     </table>
   </section>
 
-  <!-- 6. 空間與安裝 -->
+  <!-- 6. 網友實戰心得 (Threads) -->
   <section>
-    <h2 class="section-title"><span class="num-badge">6</span>後陽台空間與水電預留</h2>
+    <h2 class="section-title"><span class="num-badge">6</span>網友實戰心得（Threads 討論串）</h2>
+    <p class="section-sub">整理自 <a href="https://www.threads.com/@cosy.home.easy/post/DBGo9giz9OZ" target="_blank">@cosy.home.easy 分享的討論串</a>（原問題 @do__wu68「推薦好用、省電又烘得乾的洗脫烘」，2024/10）。原 PO 標題寫「正反方都有」—— 重點是：<strong>真實用過的人，幾乎一面倒推「熱泵式」，但對「一體機 vs 兩台分開」仍有分歧。</strong></p>
+
+    <div class="callout sage">
+      <strong>這串的三個共識（跟本頁分析一致）：</strong>① <strong>要選「熱泵式」</strong>烘乾 —— 省電、護衣、不縮水，幾乎每個滿意的人都點名熱泵；② <strong>烘衣容量「寫得保守」</strong> —— 有人說 6kg 標示卻能烘乾整條雙人毯；③ <strong>潮濕天 / 晾不乾</strong>是入手最大動機，「擺脫晾衣人生」是最高頻心得。
+    </div>
+
+    <div class="voices">
+      <div class="voice pro">
+        <div class="who"><span class="handle">@cosy.home.easy</span><span class="stance">原PO · 力推</span></div>
+        <div class="machine">Panasonic 日本製 熱泵洗脫烘</div>
+        <p>「貴，但後悔太晚買的電器，買了從此擺脫晾衣人生。」</p>
+      </div>
+      <div class="voice pro">
+        <div class="who"><span class="handle">@my.ntsua7</span><span class="stance">用1年+ · 驚艷</span></div>
+        <div class="machine">國際牌日本原裝 LX-128（12/6kg）</div>
+        <p>用一年多非常滿意。<strong>標示烘 6kg，但放雙人毯下去一樣烘到全乾、超蓬鬆柔軟</strong>，感覺實力不只 6kg。熱泵烘很友善衣料，至今沒遇過縮水。</p>
+      </div>
+      <div class="voice con">
+        <div class="who"><span class="handle">@weimeigaria</span><span class="stance">反方 · 主張分開</span></div>
+        <div class="machine">建議洗脫 + 烘「兩台分開買」</div>
+        <p>不要一體機，<strong>洗脫一台、烘一台分開買</strong>。（呼應本頁路線 B：容量足、可邊洗邊烘、壞一台不全停。）</p>
+      </div>
+      <div class="voice pro">
+        <div class="who"><span class="handle">@ya_27727</span><span class="stance">用好幾年</span></div>
+        <div class="machine">Panasonic NA-V120HDH（12kg 變頻）</div>
+        <p>潮濕天晾不乾就用它，省時方便、<strong>不太耗電</strong>，烘完不會有潮濕臭味。</p>
+      </div>
+      <div class="voice pro">
+        <div class="who"><span class="handle">@abc12c3d520</span><span class="stance">推薦</span></div>
+        <div class="machine">國際牌 LX128BR/BL（12kg 日本製）</div>
+        <p>同款 LX-128 再被點名一次 —— 這串裡 <strong>Panasonic LX 系列出現最多次</strong>。</p>
+      </div>
+      <div class="voice con">
+        <div class="who"><span class="handle">@sellhouse12345</span><span class="stance">反「品牌迷思」</span></div>
+        <div class="machine">惠而浦 Whirlpool WWEB10701BW（10.5kg）</div>
+        <p>「<strong>沒有品牌迷思的話我推惠而浦</strong>，CP 值真的很高，國際牌 / LG 都超貴。」依容量需求挑大小。</p>
+      </div>
+      <div class="voice pro">
+        <div class="who"><span class="handle">@frank_tu · @_jia.c_ 等</span><span class="stance">LG 派</span></div>
+        <div class="machine">LG 蒸洗脫烘（WD-S18VBD 等）</div>
+        <p>大推 LG 一級節能、<strong>多了蒸氣功能</strong>，烘得乾、CP 值高。（另有網友提惠而浦瓦斯烘衣也很棒。）</p>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <strong>⚠️ 怎麼看這些心得（別照單全收）：</strong>① 多數推薦文附蝦皮連結，<strong>部分可能是分潤推廣</strong>，看「使用心得細節」比看「推薦」本身可信；② 大家都說「省電」，但<strong>沒人列實際度數</strong> —— 仍以本頁第 4 區的台電級距試算為準；③ 「烘 6kg 卻烘乾雙人毯」是<strong>熱泵低溫慢烘</strong>的特性（蓬鬆但時間長），不代表可超載塞滿；④ 這串是 <strong>2024/10</strong> 的討論，型號 / 價格會更新，本頁第 2、3 區的 2026 實查價較新。
+    </div>
+  </section>
+
+  <!-- 7. 空間與安裝 -->
+  <section>
+    <h2 class="section-title"><span class="num-badge">7</span>後陽台空間與水電預留</h2>
     <p class="section-sub">這頁的重點 —— 不管最後買哪種，<strong>水電預留現在就要做對</strong>，之後免打牆。</p>
     <table class="grid">
       <thead><tr><th>項目</th><th>一體機</th><th>獨立組合</th></tr></thead>
@@ -424,9 +490,9 @@
     </div>
   </section>
 
-  <!-- 7. 給你家的建議 -->
+  <!-- 8. 給你家的建議 -->
   <section>
-    <h2 class="section-title"><span class="num-badge">7</span>給你家的建議</h2>
+    <h2 class="section-title"><span class="num-badge">8</span>給你家的建議</h2>
     <div class="decision">
       <div class="dec-card split">
         <div class="q">後陽台塞得下「上下疊放」嗎？</div>
@@ -444,9 +510,9 @@
     </div>
   </section>
 
-  <!-- 8. 採購自我檢核 -->
+  <!-- 9. 採購自我檢核 -->
   <section>
-    <h2 class="section-title"><span class="num-badge">8</span>採購自我檢核（廠商不會主動講）</h2>
+    <h2 class="section-title"><span class="num-badge">9</span>採購自我檢核（廠商不會主動講）</h2>
     <ul class="check">
       <li>量過後陽台<strong>實際可用寬 / 深 / 高</strong>了嗎？（疊放總高約 170–180cm，會不會卡窗 / 曬衣桿 / 熱水器？）</li>
       <li>看的是<strong>「烘衣 kg」</strong>還是被「洗衣 kg」誤導？一體機烘只有一半。</li>
@@ -458,9 +524,9 @@
     </ul>
   </section>
 
-  <!-- 9. 來源 -->
+  <!-- 10. 來源 -->
   <section>
-    <h2 class="section-title"><span class="num-badge">9</span>價格來源（2026/06 實查）</h2>
+    <h2 class="section-title"><span class="num-badge">10</span>價格來源（2026/06 實查）</h2>
     <ul class="sources">
       <li>Panasonic NA-V150RPH（洗脫烘一體 15/10kg 熱泵，$53,910）— momo i_code=13352946</li>
       <li>LG WD-S15TBD（蒸洗脫烘 15kg，$28,618）— momo i_code=9716421</li>
@@ -471,6 +537,7 @@
       <li>Panasonic NH-VS100HP-B（熱泵乾衣 10kg，$35,900）— momo i_code=14975093</li>
       <li>其他熱泵乾衣機：SHARP KD-FKH10DT $29,900、SANLUX ASD-100UA $25,900、TATUNG TAW-D100HP $24,700（momo 現售）</li>
       <li>電費 / 耗電為依台電累進電價（~$4/度）與機種型錄推算之估算值，非廠商廣告數字；簽約前請以官網即時報價與能源局能效標示為準。</li>
+      <li>網友心得來源：Threads @cosy.home.easy 分享串 https://www.threads.com/@cosy.home.easy/post/DBGo9giz9OZ （原問題 @do__wu68，2024/10）。網友意見為個人經驗、部分含蝦皮分潤連結，僅供參考。</li>
     </ul>
   </section>
 
