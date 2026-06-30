@@ -275,6 +275,14 @@
           <text x="180" y="672" font-size="11" fill="#1F5B75" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700">弱電箱/主Router</text>
         </g>
 
+        <!-- 總電源 / 配電箱（強電）— 紅標處：左外牆、餐廳客廳交界 -->
+        <g>
+          <rect x="46" y="556" width="36" height="34" rx="6" fill="#C2453B"/>
+          <text x="64" y="579" font-size="18" fill="white" text-anchor="middle" font-weight="700">⚡</text>
+          <text x="92" y="571" font-size="12.5" fill="#C2453B" text-anchor="start" font-family="'JetBrains Mono',monospace" font-weight="700">總電源</text>
+          <text x="92" y="587" font-size="10.5" fill="#C2453B" text-anchor="start" font-family="'JetBrains Mono',monospace" font-weight="700">配電箱·強電</text>
+        </g>
+
         <!-- WiFi Mesh AP（次臥側，有線回程涵蓋北半部） -->
         <g>
           <circle cx="380" cy="278" r="14" fill="#1F5B75" opacity="0.9"/>
@@ -292,6 +300,8 @@
       <span><span class="dot net"></span> 網＝網路孔(Cat6)</span>
       <span><span class="dot circ"></span> 迴＝220V 專迴</span>
       <span><span class="dot wp"></span> 防＝防潑水插座</span>
+      <span><span class="dot" style="background:#C2453B;"></span> ⚡方框＝總電源(配電箱·強電)</span>
+      <span><span class="dot" style="background:#1F5B75;border-radius:50%;"></span> ⌂圓框＝弱電箱(網路·訊號)</span>
     </div>
   </section>
 
@@ -350,6 +360,14 @@
         <tr><td><span class="num net">AP</span> Mesh AP ×1（次臥側）</td><td>28 坪長型格局，客廳主機涵蓋不到北端（次臥 / 後陽台會弱）→ 在次臥側放 1 台 Mesh AP，<strong>插次臥網孔當有線回程</strong>（比無線回程穩一倍）。日後訊號不夠再加，但牆孔先留</td></tr>
       </tbody>
     </table>
+
+    <div class="callout warn">
+      <strong>⚠ 弱電箱位置待現場確認。</strong>圖上圓框「弱電箱」是<strong>規劃位置</strong>（依「客廳＝對外光纖/電話進線端」推定），驗屋當天<strong>沒實際看到既有弱電箱</strong>。請現場確認三件事：①社區對外線（光纖/電話/第四台）從哪面牆進屋 → 弱電箱要設在進線端附近才不繞線；②原本有沒有預埋弱電箱體（很多舊屋只有一個淺鐵盒、甚至沒有）；③若要新做，箱體深度要夠塞 ONU + Router + 交換器 + 集線，建議 ≥ 內嵌式 6 路以上。
+    </div>
+
+    <div class="callout danger">
+      <strong>⚡ 強電 ≠ 弱電，兩箱務必分開。</strong>圖上<strong>紅色方框 ⚡＝總電源（配電箱／分電盤）</strong>，走 110V/220V 市電，內含總開關＋各迴路 NFB；<strong>藍色圓框 ⌂＝弱電箱</strong>，走網路/電話/訊號的低壓線。兩者依規範要<strong>分箱、分管、不可共槽</strong>，且建議相隔 ≥ 30cm — 強電的電磁干擾會劣化網路訊號品質。口訣：<strong>強電會電到人（電力），弱電電不到人（訊號）</strong>。
+    </div>
   </section>
 
   <!-- E. 4 條總原則 -->
