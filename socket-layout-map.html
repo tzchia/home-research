@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>插座 / 弱電 配置圖｜一眼看每區要幾個</title>
+<title>插座 / 開關 / 弱電 完整規劃｜配置圖 + 你的家具版 + 逐房間走查清單</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -126,15 +126,84 @@
     section { margin: 22px 0; }
     .backlink { display: none; }
   }
+
+  /* ===== 併入自走查清單（逐房間/高度/開關/常忘） ===== */
+  --neutral: #8A7F72;
+/* HOW-TO BANNER */
+  .howto {
+    background: linear-gradient(135deg, #3A4632 0%, #5B6B4E 100%);
+    color: white; padding: 26px 30px; border-radius: var(--r-lg);
+    margin: 32px 0 46px; box-shadow: var(--shadow-2);
+  }
+  .howto h3 { margin: 0 0 14px; font-family: 'Noto Serif TC', serif; font-size: 20px; color: white; }
+  .howto ol { margin: 0; padding-left: 20px; }
+  .howto li { font-size: 14.5px; color: rgba(255,255,255,.92); margin-bottom: 8px; line-height: 1.55; }
+  .howto strong { color: #F4E6D5; }
+
+  .fill { display: inline-block; min-width: 46px; border-bottom: 1.5px solid var(--wood); height: 18px; }
+  .chk { font-size: 17px; color: var(--primary); }
+
+  /* ROOM CARD wrapper */
+  .room { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 4px 0 0; margin-bottom: 22px; box-shadow: var(--shadow-1); overflow: hidden; }
+  .room-head { display: flex; align-items: baseline; gap: 12px; padding: 18px 22px 10px; border-bottom: 2px solid var(--primary-soft); }
+  .room-head .rno { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--wood); font-size: 14px; }
+  .room-head h3 { font-family: 'Noto Serif TC', serif; font-size: 20px; margin: 0; }
+  .room-head .use { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+  .room table.grid { border: none; border-radius: 0; box-shadow: none; }
+  .room table.grid thead th { background: var(--primary-ink); }
+
+  /* HEIGHT QUICK-REF visual */
+  .heights { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 22px 24px; box-shadow: var(--shadow-1); }
+  .hrow { display: grid; grid-template-columns: 200px 70px 1fr; gap: 14px; align-items: center; padding: 9px 0; border-bottom: 1px dashed var(--line-soft); font-size: 13.5px; }
+  .hrow:last-child { border-bottom: none; }
+  .hrow .hname { font-weight: 600; }
+  .hrow .hcm { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--wood); text-align: right; }
+  .hrow .hbar { height: 10px; background: var(--primary-soft); border-radius: 5px; position: relative; }
+  .hrow .hbar span { position: absolute; left: 0; top: 0; height: 100%; background: var(--primary); border-radius: 5px; }
+
+  /* REDFLAG box */
+  .redflag-box { background: #FBECEA; border: 1px solid #EBC9C4; border-radius: var(--r-lg); padding: 22px 26px; }
+  .redflag-box h3 { margin: 0 0 14px; font-family: 'Noto Serif TC', serif; font-size: 18px; color: var(--danger); }
+  .redflag-box ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 30px; }
+  .redflag-box li { font-size: 13.5px; margin-bottom: 8px; break-inside: avoid; }
+
+    /* pill (room tables) */
+  .pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 999px; }
+  .pill.p220 { background: #FBECEA; color: #99291F; }
+  .pill.net { background: var(--primary-soft); color: var(--primary-ink); }
+  .pill.wp { background: #E0EEF5; color: #1F5B75; }
+
+  
+
+  /* anchor nav */
+  .anchornav { display:flex; flex-wrap:wrap; gap:7px; margin:18px 0 30px; }
+  .anchornav a { font-size:12.5px; font-weight:600; padding:5px 11px; border-radius:999px;
+    background:var(--paper); border:1px solid var(--line); color:var(--primary-ink); text-decoration:none; }
+  .anchornav a:hover { background:var(--primary-soft); border-color:var(--primary); }
+  @media print { .anchornav { display:none; } }
 </style>
 </head>
 <body>
 <div class="container">
 
   <div class="eyebrow">HOME RESEARCH · 水電走查工具</div>
-  <h1>插座 / 開關 / 弱電 配置圖</h1>
-  <p class="lede">把走查清單的「建議數量」<strong>標到平面圖上</strong> —— 一眼看出每個房間要幾個插座、哪裡走 220V 專迴、網路怎麼回拉。這是<strong>需求定位的鳥瞰版</strong>，細項逐格填寫請搭配走查清單。</p>
-  <p class="backlink">→ 搭配 <a href="./socket-plan-checklist.html">逐房間走查清單</a>（逐格勾填版）｜ <a href="./home-renovation-plan.html">新家裝潢規劃頁</a>｜ <a href="./index.html">home-research 首頁</a></p>
+  <h1>插座 / 開關 / 弱電 完整規劃</h1>
+  <p class="lede">一份搞定：<strong>配置圖（看分布）</strong> + <strong>你的真實家具版</strong> + <strong>逐房間走查清單（填細節）</strong>。這是你（客戶）的「需求定位」—— 列印帶著走一遍房子，勾填完連同家具圖交設計師 / 水電；配電 / 迴路圖是他們的責任。</p>
+  <p class="backlink">→ <a href="./home-renovation-plan.html">新家裝潢規劃頁</a>｜ <a href="./index.html">home-research 首頁</a></p>
+
+  <nav class="anchornav">
+    <a href="#dim">A 實測尺寸</a>
+    <a href="#myplan">B 你的家具版</a>
+    <a href="#schematic">C 配置示意</a>
+    <a href="#totals">D 逐區總表</a>
+    <a href="#circuits">E 專迴/弱電</a>
+    <a href="#heights">F 高度速查</a>
+    <a href="#switches">G 開關原則</a>
+    <a href="#rooms">H 逐房間清單</a>
+    <a href="#forgot">I 常忘10處</a>
+    <a href="#principles">J 總原則</a>
+    <a href="#howto">K 交給水電</a>
+  </nav>
 
   <div class="tag-row">
     <span class="htag">3 房 2 廳雙衛 · 28 坪</span>
@@ -144,7 +213,7 @@
   </div>
 
   <!-- A. 實測尺寸 -->
-  <section>
+  <section id="dim">
     <h2 class="section-title"><span class="num-badge">A</span>現場實測尺寸（手繪圖）</h2>
     <p class="section-sub">這是你現場丈量的手稿，下面的配置示意圖與數量規劃都以這些尺寸為基準。</p>
     <figure class="floorplan">
@@ -153,9 +222,204 @@
     </figure>
   </section>
 
+  <!-- B. 你的家具版配置圖 -->
+  <section id="myplan">
+    <h2 class="section-title"><span class="num-badge">B</span>你的家具版配置圖</h2>
+    <p class="section-sub">依你手繪的<strong>實際家具擺設</strong>把插座 / 開關 / 網路 / 專迴標上去。<strong>實心圓 = 牆面</strong>插座（嵌在牆線上）；<strong>橘色虛線方框 = 地板插座</strong>（家具離牆、必須走地插，例如餐桌邊、客廳茶几）。</p>
+    <div class="mapcard fig-box">
+      <svg viewBox="0 0 860 1120" role="img" aria-label="家具版插座配置圖" font-family="'Noto Sans TC',sans-serif" xmlns="http://www.w3.org/2000/svg">
+<defs><pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="8" stroke="#B07D4F" stroke-width="6" opacity="0.30"/></pattern><pattern id="wardrobe" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M0 14 Q7 0 14 14" fill="none" stroke="#7A5A36" stroke-width="1.4" opacity="0.6"/></pattern></defs>
+<g>
+<rect x="60" y="50" width="195" height="290" fill="#F2F6EA"/>
+<rect x="255" y="50" width="225" height="290" fill="#F2F6EA"/>
+<rect x="60" y="340" width="420" height="260" fill="#FBF4EA"/>
+<rect x="60" y="600" width="420" height="340" fill="#FBF4EA"/>
+<rect x="480" y="50" width="280" height="110" fill="#E9EEF2"/>
+<rect x="480" y="160" width="280" height="180" fill="#FBF4EA"/>
+<rect x="480" y="340" width="280" height="100" fill="#E9EEF2"/>
+<rect x="480" y="440" width="280" height="120" fill="#E9EEF2"/>
+<rect x="480" y="560" width="280" height="380" fill="#F2F6EA"/>
+<rect x="180" y="940" width="380" height="60" fill="#EFEFE9"/>
+</g>
+<g stroke="#C77D2E" stroke-width="2.5" stroke-dasharray="10 6" opacity="0.7"><line x1="60" y1="600" x2="760" y2="600"/><line x1="60" y1="760" x2="480" y2="760"/></g>
+<g>
+<rect x="78" y="66" width="150" height="46" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="153" y="94" font-size="13" fill="#7A5A36" text-anchor="middle" font-weight="600">單人床</text>
+<rect x="72" y="180" width="92" height="70" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="118" y="219" font-size="12" fill="#7A5A36" text-anchor="middle" font-weight="600">工作桌</text>
+<rect x="395" y="66" width="72" height="150" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="431" y="129" font-size="12" fill="#7A5A36" text-anchor="middle" font-weight="600">裝</text>
+<text x="431" y="141" font-size="12" fill="#7A5A36" text-anchor="middle" font-weight="600">備</text>
+<text x="431" y="153" font-size="12" fill="#7A5A36" text-anchor="middle" font-weight="600">櫃</text>
+<rect x="150" y="348" width="260" height="26" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="280" y="365" font-size="12" fill="#7A5A36" text-anchor="middle" font-weight="600">櫥櫃（電視）</text>
+<rect x="150" y="420" width="180" height="92" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="240" y="471" font-size="14" fill="#7A5A36" text-anchor="middle" font-weight="600">餐桌</text>
+<rect x="408" y="468" width="58" height="88" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="437" y="516" font-size="12" fill="#7A5A36" text-anchor="middle" font-weight="600">冰箱</text>
+<line x1="408" y1="468" x2="466" y2="556" stroke="#B07D4F" stroke-width="1"/><line x1="466" y1="468" x2="408" y2="556" stroke="#B07D4F" stroke-width="1"/>
+<rect x="64" y="656" width="16" height="168" rx="4" fill="#EDE4D6" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="72" y="724" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">投</text>
+<text x="72" y="734" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">影</text>
+<text x="72" y="746" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">布</text>
+<text x="72" y="756" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">幕</text>
+<rect x="180" y="690" width="86" height="182" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="223" y="774" font-size="13" fill="#7A5A36" text-anchor="middle" font-weight="600">桌</text>
+<text x="223" y="788" font-size="13" fill="#7A5A36" text-anchor="middle" font-weight="600">子</text>
+<rect x="300" y="686" width="72" height="190" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="336" y="786" font-size="13" fill="#7A5A36" text-anchor="middle" font-weight="600">沙發</text>
+<rect x="96" y="878" width="84" height="40" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="138" y="902" font-size="10" fill="#7A5A36" text-anchor="middle" font-weight="600">鞋櫃·全身鏡</text>
+<rect x="446" y="646" width="30" height="176" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="461" y="706" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">書</text>
+<text x="461" y="718" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">櫃</text>
+<text x="461" y="728" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">(</text>
+<text x="461" y="740" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">置</text>
+<text x="461" y="750" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">物</text>
+<text x="461" y="762" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">)</text>
+<rect x="560" y="574" width="180" height="34" rx="4" fill="url(#wardrobe)" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="650" y="595" font-size="12" fill="#7A5A36" text-anchor="middle" font-weight="600">衣櫃</text>
+<rect x="560" y="646" width="170" height="174" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="645" y="738" font-size="14" fill="#7A5A36" text-anchor="middle" font-weight="600">雙人床</text>
+<rect x="566" y="856" width="96" height="62" rx="4" fill="#F6ECDD" stroke="#B07D4F" stroke-width="1.6"/>
+<text x="614" y="891" font-size="11" fill="#7A5A36" text-anchor="middle" font-weight="600">工作桌</text>
+</g>
+<g stroke="#3A332C" stroke-width="3" fill="none"><line x1="255" y1="50" x2="255" y2="340"/><line x1="60" y1="340" x2="480" y2="340"/><line x1="60" y1="600" x2="480" y2="600"/><line x1="480" y1="160" x2="760" y2="160"/><line x1="480" y1="340" x2="760" y2="340"/><line x1="480" y1="440" x2="760" y2="440"/><line x1="480" y1="560" x2="760" y2="560"/><line x1="480" y1="50" x2="480" y2="940"/></g>
+<g stroke="#1A1714" stroke-width="6" fill="none"><rect x="60" y="50" width="700" height="890"/><rect x="180" y="940" width="380" height="60"/></g>
+<g stroke="#5B6B4E" stroke-width="2" fill="none" opacity="0.9"><path d="M150 340 A40 40 0 0 1 110 380"/><path d="M360 340 A40 40 0 0 1 320 380"/><path d="M110 940 A40 40 0 0 0 110 900"/><path d="M540 700 A40 40 0 0 0 500 660"/><path d="M520 440 A34 34 0 0 1 520 374"/><path d="M560 160 A36 36 0 0 1 524 196"/></g>
+<g stroke="#5B6B4E" stroke-width="3"><line x1="110" y1="50" x2="200" y2="50"/><line x1="320" y1="50" x2="430" y2="50"/><line x1="760" y1="620" x2="760" y2="760"/><line x1="760" y1="200" x2="760" y2="300"/><line x1="280" y1="1000" x2="460" y2="1000"/></g>
+<g fill="#1A1714" font-family="'Noto Serif TC',serif" font-weight="800" text-anchor="middle">
+<text x="157" y="300" font-size="16">次臥①</text>
+<text x="367" y="300" font-size="16">次臥②/遊戲室</text>
+<text x="300" y="560" font-size="18">餐廳</text>
+<text x="240" y="640" font-size="20">客廳</text>
+<text x="620" y="100" font-size="14">後陽台</text>
+<text x="620" y="250" font-size="16">廚房</text>
+<text x="620" y="395" font-size="13">浴室①</text>
+<text x="620" y="505" font-size="13">浴室②</text>
+<text x="650" y="720" font-size="20">主臥</text>
+</g>
+<g>
+<circle cx="60" cy="95" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="60" cy="95" r="13" fill="#3A4632"/>
+<text x="60" y="100" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="60" cy="120" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="60" cy="120" r="13" fill="#1F5B75"/>
+<text x="60" y="125" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">網</text>
+<circle cx="60" cy="200" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="60" cy="200" r="13" fill="#3A4632"/>
+<text x="60" y="205" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="60" cy="225" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="60" cy="225" r="13" fill="#1F5B75"/>
+<text x="60" y="230" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">網</text>
+<circle cx="210" cy="50" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="210" cy="50" r="13" fill="#99291F"/>
+<text x="210" y="55" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">迴</text>
+<circle cx="240" cy="340" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="240" cy="340" r="13" fill="#8A6A2E"/>
+<text x="240" y="345" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">開</text>
+<circle cx="467" cy="95" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="467" cy="95" r="13" fill="#3A4632"/>
+<text x="467" y="100" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="467" cy="150" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="467" cy="150" r="13" fill="#3A4632"/>
+<text x="467" y="155" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="300" cy="50" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="300" cy="50" r="13" fill="#99291F"/>
+<text x="300" y="55" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">迴</text>
+<circle cx="340" cy="340" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="340" cy="340" r="13" fill="#8A6A2E"/>
+<text x="340" y="345" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">開</text>
+<circle cx="200" cy="358" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="200" cy="358" r="13" fill="#3A4632"/>
+<text x="200" y="363" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="245" cy="358" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="245" cy="358" r="13" fill="#1F5B75"/>
+<text x="245" y="363" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">網</text>
+<circle cx="290" cy="358" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="290" cy="358" r="13" fill="#444444"/>
+<text x="290" y="362" font-size="11" fill="#fff" text-anchor="middle" font-weight="700">TV</text>
+<circle cx="480" cy="500" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="480" cy="500" r="13" fill="#99291F"/>
+<text x="480" y="505" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">迴</text>
+<circle cx="60" cy="690" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="60" cy="690" r="13" fill="#3A4632"/>
+<text x="60" y="695" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="60" cy="720" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="60" cy="720" r="13" fill="#444444"/>
+<text x="60" y="724" font-size="11" fill="#fff" text-anchor="middle" font-weight="700">TV</text>
+<circle cx="60" cy="820" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="60" cy="820" r="13" fill="#3A4632"/>
+<text x="60" y="825" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="446" cy="700" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="446" cy="700" r="13" fill="#3A4632"/>
+<text x="446" y="705" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="446" cy="740" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="446" cy="740" r="13" fill="#5A4682"/>
+<text x="446" y="745" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">U</text>
+<circle cx="60" cy="900" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="60" cy="900" r="13" fill="#3A4632"/>
+<text x="60" y="905" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="200" cy="940" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="200" cy="940" r="13" fill="#8A6A2E"/>
+<text x="200" y="945" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">開</text>
+<circle cx="560" cy="660" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="560" cy="660" r="13" fill="#3A4632"/>
+<text x="560" y="665" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="560" cy="690" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="560" cy="690" r="13" fill="#5A4682"/>
+<text x="560" y="695" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">U</text>
+<circle cx="760" cy="660" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="760" cy="660" r="13" fill="#3A4632"/>
+<text x="760" y="665" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="760" cy="690" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="760" cy="690" r="13" fill="#1F5B75"/>
+<text x="760" y="695" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">網</text>
+<circle cx="700" cy="560" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="700" cy="560" r="13" fill="#99291F"/>
+<text x="700" y="565" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">迴</text>
+<circle cx="760" cy="880" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="760" cy="880" r="13" fill="#3A4632"/>
+<text x="760" y="885" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">插</text>
+<circle cx="760" cy="905" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="760" cy="905" r="13" fill="#1F5B75"/>
+<text x="760" y="910" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">網</text>
+<circle cx="560" cy="920" r="15" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="560" cy="920" r="13" fill="#8A6A2E"/>
+<text x="560" y="925" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">開</text>
+<rect x="293" y="478" width="34" height="34" rx="4" fill="#FFF3E0" stroke="#3A4632" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="310" y="500" font-size="14" fill="#3A4632" text-anchor="middle" font-weight="700">插</text>
+<rect x="371" y="783" width="34" height="34" rx="4" fill="#FFF3E0" stroke="#3A4632" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="388" y="805" font-size="14" fill="#3A4632" text-anchor="middle" font-weight="700">插</text>
+<rect x="323" y="823" width="34" height="34" rx="4" fill="#FFF3E0" stroke="#5A4682" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="340" y="845" font-size="13" fill="#5A4682" text-anchor="middle" font-weight="700">U</text>
+</g>
+<g><circle cx="150" cy="630" r="13" fill="#1F5B75" opacity="0.92"/><text x="150" y="635" font-size="12" fill="#fff" text-anchor="middle" font-weight="700">⌂</text><text x="150" y="658" font-size="10" fill="#1F5B75" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700">弱電箱</text></g>
+<g><rect x="64" y="600" width="30" height="28" rx="5" fill="#C2453B"/><text x="79" y="620" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">⚡</text><text x="79" y="592" font-size="10" fill="#C2453B" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700">總電源</text></g>
+<text x="60" y="1060" font-size="11" fill="#8A7F72" font-family="'JetBrains Mono',monospace">左＝採光帶（次臥/餐廳/客廳）　右＝服務帶（廚房/雙衛/主臥）　家具為你手繪實際配置</text>
+</svg>
+    </div>
+    <div class="legend">
+      <span><span class="dot sock"></span> 插＝一般插座</span>
+      <span><span class="dot sw"></span> 開＝開關</span>
+      <span><span class="dot net"></span> 網＝網路孔</span>
+      <span><span class="dot circ"></span> 迴＝220V專迴</span>
+      <span><span class="dot" style="background:#5A4682;"></span> U＝USB充電</span>
+      <span><span class="dot" style="background:#444;"></span> TV＝訊號管(投影·電視)</span>
+      <span><span class="dot" style="background:#FFF3E0;border:2px dashed #3A4632;"></span> 虛線方框＝地板插座</span>
+    </div>
+    <div class="callout warn">
+      <strong>⚠ 浮在房間中間的插座 = 地板插座（地插）。</strong>你問得對 —— 插座一定要有依附（牆/地/天花），不會憑空懸在半空。圖上<strong>實心圓都貼在牆線上</strong>；只有<strong>橘色虛線方框</strong>是地插，用在「家具離牆、拉牆面線會橫過地板絆腳」的位置：①餐桌邊（火鍋/氣炸鍋）②客廳茶几（手機/筆電/掃地機）③沙發前。地插要做<strong>防水防踩的彈起式/掀蓋式</strong>，且要趁泥作前跟水電講好走管，封地坪後補不了。
+    </div>
+    <figure class="floorplan" style="margin-top:18px;">
+      <img src="./assets/floorplan-furniture-rectified.jpg" alt="使用者手繪家具配置圖（已透視校正回正）">
+      <figcaption>↑ 你拍的手繪家具圖，已用透視校正（perspective transform）把鏡頭傾斜拉正：左牆原本歪 3.9°→ 0.86°，上緣 0.06°→ 0.55°，雙軸都壓進 1° 內。上方向量圖即據此重繪。</figcaption>
+    </figure>
+  </section>
+
   <!-- B. 配置示意圖 -->
-  <section>
-    <h2 class="section-title"><span class="num-badge">B</span>插座配置示意圖</h2>
+  <section id="schematic">
+    <h2 class="section-title"><span class="num-badge">C</span>插座配置示意圖</h2>
     <p class="section-sub">每個房間標的是<strong>建議起點數量</strong>（插=插座／開=開關／網=網路孔／迴=220V 專迴／防=防水插座）。橘色虛線為大樑位。比例接近非施工圖。</p>
     <div class="mapcard">
       <svg viewBox="0 0 860 1120" role="img" aria-label="插座配置示意圖" font-family="'Noto Sans TC',sans-serif">
@@ -306,8 +570,8 @@
   </section>
 
   <!-- C. 逐區數量總表 -->
-  <section>
-    <h2 class="section-title"><span class="num-badge">C</span>逐區數量總表</h2>
+  <section id="totals">
+    <h2 class="section-title"><span class="num-badge">D</span>逐區數量總表</h2>
     <p class="section-sub">建議起點，與走查清單一致。「插座」含一般 + 防水；專迴指 220V 獨立 NFB。實際以現場放樣為準。</p>
     <table class="grid">
       <thead>
@@ -336,8 +600,8 @@
   </section>
 
   <!-- D. 專迴 + 弱電 -->
-  <section>
-    <h2 class="section-title"><span class="num-badge">D</span>專迴 + 弱電（交給水電這兩張）</h2>
+  <section id="circuits">
+    <h2 class="section-title"><span class="num-badge">E</span>專迴 + 弱電（交給水電這兩張）</h2>
     <p class="section-sub">你的廚房用瓦斯爐 + 烤箱110V、無洗碗機 → 負載比一般輕，省下 IH / 烘碗機等好幾條高壓專迴。</p>
 
     <table class="grid" style="margin-bottom:18px;">
@@ -370,9 +634,221 @@
     </div>
   </section>
 
+
+  <section id="heights">
+    <h2 class="section-title"><span class="num-badge">F</span>插座 / 開關 高度速查</h2>
+    <p class="section-sub">高度水電會定，但你知道原則才能在現場喊「這個要高一點」。離地高度（cm）：</p>
+    <div class="heights">
+      <div class="hrow"><span class="hname">一般插座（地面層）</span><span class="hcm">30 cm</span><span class="hbar"><span style="width:12%"></span></span></div>
+      <div class="hrow"><span class="hname">床頭插座（含 USB）</span><span class="hcm">60–75 cm</span><span class="hbar"><span style="width:28%"></span></span></div>
+      <div class="hrow"><span class="hname">開關面板</span><span class="hcm">120–135 cm</span><span class="hbar"><span style="width:52%"></span></span></div>
+      <div class="hrow"><span class="hname">廚房 / 書桌 / 化妝檯面上方</span><span class="hcm">~110 cm</span><span class="hbar"><span style="width:44%"></span></span></div>
+      <div class="hrow"><span class="hname">浴室鏡邊（吹風機 / 化妝）</span><span class="hcm">~110 cm</span><span class="hbar"><span style="width:44%"></span></span></div>
+      <div class="hrow"><span class="hname">洗衣機 / 洗烘（高於機身防潑）</span><span class="hcm">110–120 cm</span><span class="hbar"><span style="width:48%"></span></span></div>
+      <div class="hrow"><span class="hname">冷氣專用插座（近天花）</span><span class="hcm">200–240 cm</span><span class="hbar"><span style="width:92%"></span></span></div>
+      <div class="hrow"><span class="hname">三合一暖風機（浴室高處）</span><span class="hcm">天花附近</span><span class="hbar"><span style="width:96%"></span></span></div>
+    </div>
+    <div class="callout wood">
+      <strong>💡 一個常被忽略的細節：插座要避開「家具會擋住」的地方。</strong>例如沙發背靠的牆，插座要拉到沙發兩側露出來、或做地板插座；衣櫃 / 高櫃預定位置的牆面別放插座（會被櫃子封死）。這就是為什麼要先有傢俱位置。
+    </div>
+  </section>
+
+  <section id="switches">
+    <h2 class="section-title"><span class="num-badge">G</span>開關規劃原則（雙切最有感）</h2>
+    <table class="grid">
+      <thead><tr><th>原則</th><th>用在哪</th><th>為什麼</th></tr></thead>
+      <tbody>
+        <tr><td><strong>雙切開關</strong>（兩處控同一燈）</td><td>客廳（大門口 + 沙發旁）<br>主臥（房門口 + 床頭）<br>長走道兩端</td><td>進門開、坐定 / 躺床關，不用摸黑走回去。<strong>這是裝潢最有感的小錢</strong>。</td></tr>
+        <tr><td><strong>玄關感應燈</strong></td><td>玄關 / 走道</td><td>抱小孩 / 提東西手沒空時自動亮。</td></tr>
+        <tr><td><strong>主燈 + 情境燈分開迴路</strong></td><td>客廳、主臥、餐廳</td><td>看電影 / 哄睡時只開間照不開主燈。</td></tr>
+        <tr><td><strong>調光開關</strong></td><td>餐廳、主臥、嬰兒房</td><td>餐廳氣氛 + 半夜泡奶 / 換尿布不刺眼。</td></tr>
+        <tr><td><strong>夜燈 / 感應小燈</strong></td><td>主臥 → 主臥衛浴動線、嬰兒房</td><td>夜起不開大燈、不吵醒寶寶 / 另一半。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="rooms">
+    <h2 class="section-title"><span class="num-badge">H</span>逐房間走查清單</h2>
+    <p class="section-sub">「建議」欄是我依你們的格局 + 電器決策填的起點；「要嗎 / 實際」欄你現場增減。專迴項（220V）已對應裝潢頁第 9 區。</p>
+
+    <!-- 玄關 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">01</span><h3>玄關</h3><span class="use">大門進來 · 鞋櫃區</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>鞋櫃旁插座（烘鞋機 / 電子鎖備援電源）</td><td class="c">插座</td><td class="c">1</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>掃地機器人基座（玄關常見擺位）</td><td class="c">插座</td><td class="c">1</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>玄關燈開關（+ 客廳燈雙切）</td><td class="c">開關</td><td class="c">1</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>感應夜燈（抱小孩進門手沒空）</td><td class="c">開關</td><td class="c">1</td><td class="c mono">—</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 客廳 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">02</span><h3>客廳</h3><span class="use">活動式投影 · 公共區 · 寶寶活動</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>沙發兩側（手機充電 / 立燈 / 按摩椅）</td><td class="c">插座</td><td class="c">2–4</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>投影機主投放位（茶几 / 邊櫃）<span class="pill net">網路</span></td><td class="c">插座</td><td class="c">1–2</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>媒體櫃（擴大機 / 串流盒 / router）<span class="pill net">網路</span></td><td class="c">插座</td><td class="c">2–3</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>投影布幕牆（電動布幕才需電源）</td><td class="c">插座</td><td class="c">0–1</td><td class="c mono">頂端</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>客廳冷氣（室外機 A，與主臥共用）<span class="pill p220">220V</span></td><td class="c">專迴</td><td class="c">1</td><td class="c mono">220+</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>弱電箱 / router 集線位置<span class="pill net">網路</span></td><td class="c">插座</td><td class="c">1</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>Wi-Fi AP 佈點（客廳側）<span class="pill net">網路</span></td><td class="c">插座</td><td class="c">1</td><td class="c mono">依點</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>空清 / 除濕機（機動）</td><td class="c">插座</td><td class="c">1–2</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>落地窗邊（季節 / 聖誕樹 / 寶寶遊戲區）</td><td class="c">插座</td><td class="c">1</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>客廳主燈 + 間照分迴 + 沙發旁雙切</td><td class="c">開關</td><td class="c">2–3</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 餐廳 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">03</span><h3>餐廳</h3><span class="use">餐桌 · 餐邊 / 電器櫃 · 電腦工作區</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>餐桌邊牆面（火鍋 / 氣炸鍋 / 桌上小家電）<strong>超常忘！</strong></td><td class="c">插座</td><td class="c">2</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>電腦工作區網路孔（桌機 / 視訊 / 大檔上傳，有線最穩）<strong>常用電腦要！</strong><span class="pill net">網路</span></td><td class="c">網孔</td><td class="c">2</td><td class="c mono">110 / 30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>餐邊 / 電器櫃（電鍋 / 熱水瓶 / 咖啡機）</td><td class="c">插座</td><td class="c">2–3</td><td class="c mono">110</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>餐廳燈（建議可調光）</td><td class="c">開關</td><td class="c">1</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 廚房 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">04</span><h3>廚房</h3><span class="use">瓦斯爐 · 烤箱110V · 無洗碗機</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>冰箱（建議獨立插座）</td><td class="c">插座</td><td class="c">1</td><td class="c mono">30 / 側</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>檯面上方（微波 / 電鍋 / 快煮壺 / 咖啡機 / 氣炸）</td><td class="c">插座</td><td class="c">3–4 組</td><td class="c mono">110</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>烤箱（110V，建議獨立迴別跟小家電擠）</td><td class="c">插座</td><td class="c">1</td><td class="c mono">櫃內</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>抽油煙機</td><td class="c">插座</td><td class="c">1</td><td class="c mono">高處</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>瓦斯爐旁（電池點火 / 檯面小物）</td><td class="c">插座</td><td class="c">1</td><td class="c mono">110</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>廚下淨水 RO（櫃內，需排水）</td><td class="c">插座</td><td class="c">1</td><td class="c mono">櫃內</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>廚房主燈 + 檯面下照明開關</td><td class="c">開關</td><td class="c">2</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 主臥 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">05</span><h3>主臥</h3><span class="use">夫妻 + 嬰兒床 · 旁有衛浴</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>床頭兩側（含 USB 充電）</td><td class="c">插座</td><td class="c">2–4</td><td class="c mono">60–75</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>嬰兒床側（夜燈 / 監視器 / 暖奶器 / 加濕器）</td><td class="c">插座</td><td class="c">1–2</td><td class="c mono">60</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>主臥冷氣（室外機 A）<span class="pill p220">220V</span></td><td class="c">專迴</td><td class="c">1</td><td class="c mono">220+</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>化妝 / 書桌（做中版系統櫃）<span class="pill net">網路</span></td><td class="c">插座</td><td class="c">1–2</td><td class="c mono">110</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>機動（除濕機 / 掃地機 / 未來電視投影）</td><td class="c">插座</td><td class="c">1</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>主燈雙切（房門口 + 床頭）+ 閱讀燈</td><td class="c">開關</td><td class="c">2–3</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>夜燈（往主臥衛浴動線）</td><td class="c">開關</td><td class="c">1</td><td class="c mono">—</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 次臥1 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">06</span><h3>次臥①</h3><span class="use">大寶房</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>床頭（含 USB）</td><td class="c">插座</td><td class="c">1–2</td><td class="c mono">60</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>書桌（未來，含網路孔）<span class="pill net">網路</span></td><td class="c">插座</td><td class="c">2–3</td><td class="c mono">110</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>次臥冷氣（室外機 B，兩次臥共用一台室外機）<span class="pill p220">220V</span></td><td class="c">專迴</td><td class="c">1</td><td class="c mono">220+</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>機動（空清 / 加濕 / 未來改用途）</td><td class="c">插座</td><td class="c">1</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>主燈雙切 + 夜燈</td><td class="c">開關</td><td class="c">2</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 次臥2 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">07</span><h3>次臥②</h3><span class="use">二寶 / 現作遊戲彈性間</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>床頭（含 USB，二寶階段才用）</td><td class="c">插座</td><td class="c">1–2</td><td class="c mono">60</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>書桌 / 遊戲區牆面（含網路孔）<span class="pill net">網路</span></td><td class="c">插座</td><td class="c">2</td><td class="c mono">110 / 30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>次臥冷氣（同室外機 B）<span class="pill p220">220V</span></td><td class="c">專迴</td><td class="c">1</td><td class="c mono">220+</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>機動（彈性間 — 空清 / 未來書房 / 客房）</td><td class="c">插座</td><td class="c">1–2</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>主燈雙切 + 夜燈</td><td class="c">開關</td><td class="c">2</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 衛浴 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">08</span><h3>衛浴 × 2</h3><span class="use">兩間都裝暖風機 · 有窗乾濕分離</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途（每間都要）</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>三合一暖風機（各自專迴，不可與免治 / 吹風機共迴）<span class="pill p220">220V</span></td><td class="c">專迴</td><td class="c">1 / 間</td><td class="c mono">高處</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>免治馬桶（防水插座 + 進水）<span class="pill wp">防水</span></td><td class="c">插座</td><td class="c">1 / 間</td><td class="c mono">馬桶側</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>鏡邊（吹風機 / 電動牙刷 / 化妝）<span class="pill wp">防水</span></td><td class="c">插座</td><td class="c">1 / 間</td><td class="c mono">110</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>暖風機控制面板 + 主燈 + 抽風開關</td><td class="c">開關</td><td class="c">門外</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 後陽台 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">09</span><h3>後陽台</h3><span class="use">洗烘區 · 熱水器 · 冷氣室外機</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>洗衣機 / 洗脫烘（高於機身防潑，需進排水）<span class="pill wp">防水</span></td><td class="c">插座</td><td class="c">1–2</td><td class="c mono">110–120</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>熱泵乾衣機（若走獨立組合，+1 插座）<span class="pill wp">防水</span></td><td class="c">插座</td><td class="c">0–1</td><td class="c mono">110</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>洗烘預留專迴（評估中也先拉）<span class="pill p220">220V</span></td><td class="c">專迴</td><td class="c">1</td><td class="c mono">110</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>電熱水器（若用電熱式）<span class="pill p220">220V</span></td><td class="c">專迴</td><td class="c">0–1</td><td class="c mono">高處</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>冷氣室外機 ×2 電源（從冷氣專迴來，確認位置）</td><td class="c">—</td><td class="c">2</td><td class="c mono">依機</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>機動（除濕 / 工具 / 清潔）<span class="pill wp">防水</span></td><td class="c">插座</td><td class="c">1</td><td class="c mono">110</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>後陽台燈 + 洗衣區照明</td><td class="c">開關</td><td class="c">1–2</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 前陽台 -->
+    <div class="room">
+      <div class="room-head"><span class="rno">10</span><h3>前陽台</h3><span class="use">客廳外 · 採光面</span></div>
+      <table class="grid">
+        <thead><tr><th>位置 / 用途</th><th class="c">類型</th><th class="c">建議</th><th class="c">高度</th><th class="c">要嗎</th><th class="c">實際</th></tr></thead>
+        <tbody>
+          <tr><td>機動（景觀燈 / 植栽 / 掃地機備位）<span class="pill wp">防水</span></td><td class="c">插座</td><td class="c">1</td><td class="c mono">30</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+          <tr><td>陽台燈</td><td class="c">開關</td><td class="c">1</td><td class="c mono">125</td><td class="c chk">☐</td><td class="c"><span class="fill"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="forgot">
+    <h2 class="section-title"><span class="num-badge">I</span>最常被忘記的 10 個位置</h2>
+    <div class="redflag-box">
+      <h3>🚩 走查時特別確認這幾個（事後補最痛）</h3>
+      <ol>
+        <li><strong>餐桌邊</strong> —— 火鍋 / 氣炸鍋 / 桌上小家電，幾乎人人忘。</li>
+        <li><strong>馬桶旁</strong> —— 免治馬桶要防水插座 + 進水。</li>
+        <li><strong>玄關</strong> —— 掃地機基座 / 烘鞋機 / 電子鎖備援。</li>
+        <li><strong>床頭 USB</strong> —— 手機 / 手錶充電，省一個轉接頭。</li>
+        <li><strong>廚房檯面上方</strong> —— 小家電要 3–4 組才夠，別只留 1 組。</li>
+        <li><strong>投影機 / 訊源後方</strong> —— 活動式也要在主投放位留插座。</li>
+        <li><strong>洗衣機高度</strong> —— 插座要高於機身（110cm），別放地面被潑。</li>
+        <li><strong>鏡櫃內 / 鏡邊</strong> —— 吹風機 / 電動牙刷 / 刮鬍刀。</li>
+        <li><strong>弱電箱 / router 位置</strong> —— 先定點，各房網路孔回拉這。</li>
+        <li><strong>嬰兒床側</strong> —— 監視器 / 夜燈 / 暖奶器 / 加濕器，會用到 2 個。</li>
+      </ol>
+    </div>
+  </section>
+
   <!-- E. 4 條總原則 -->
-  <section>
-    <h2 class="section-title"><span class="num-badge">E</span>設計這份配置的 4 條總原則</h2>
+  <section id="principles">
+    <h2 class="section-title"><span class="num-badge">J</span>設計這份配置的 4 條總原則</h2>
     <div class="principles">
       <div class="pcard wood">
         <div class="pno">原則 01</div>
@@ -398,8 +874,8 @@
   </section>
 
   <!-- F. 怎麼用 -->
-  <section>
-    <h2 class="section-title"><span class="num-badge">F</span>這張圖怎麼用</h2>
+  <section id="howto">
+    <h2 class="section-title"><span class="num-badge">K</span>這張圖怎麼用</h2>
     <div class="callout sage">
       <strong>① 配置圖看「分布」，走查清單填「細節」。</strong>這張鳥瞰圖讓你跟太太快速對「哪一區會不會太少」；確認後到 <a href="./socket-plan-checklist.html">逐房間走查清單</a> 逐格勾「要嗎 / 實際數量」，兩份一起交設計師。
     </div>
