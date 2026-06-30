@@ -15,6 +15,7 @@
     --bg: #FAFAF7;
     --paper: #FFFFFF;
     --accent: #14B8A6;
+    --accent-soft: #E6FBF7;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -38,23 +39,103 @@
   }
   .lede {
     font-size: 18px; color: #2A2F38;
-    max-width: 640px; margin: 0 0 48px;
+    max-width: 640px; margin: 0 0 36px;
   }
-  .doc-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
+
+  /* ── Toolbar：搜尋 + 全展/全收 ───────────────── */
+  .toolbar {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: 12px; margin-bottom: 36px;
   }
+  .search-wrap { position: relative; flex: 1; min-width: 220px; }
+  .search-wrap svg {
+    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+    width: 18px; height: 18px; color: var(--muted); pointer-events: none;
+  }
+  #search {
+    width: 100%; padding: 13px 16px 13px 44px;
+    font-family: inherit; font-size: 15px; color: var(--ink);
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 14px; outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  #search:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  #search::placeholder { color: #9AA1AC; }
+  .bulk { display: flex; gap: 8px; }
+  .bulk button {
+    font-family: inherit; font-size: 13px; font-weight: 600;
+    color: var(--muted); background: var(--paper);
+    border: 1px solid var(--line); border-radius: 12px;
+    padding: 11px 16px; cursor: pointer;
+    transition: color .2s ease, border-color .2s ease, background .2s ease;
+    white-space: nowrap;
+  }
+  .bulk button:hover {
+    color: var(--accent); border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  /* ── 分類（可收合）─────────────────────────── */
+  .cat {
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .cat[open] { box-shadow: 0 8px 28px -18px rgba(14,17,22,.22); }
+  .cat > summary {
+    list-style: none; cursor: pointer;
+    display: flex; align-items: center; gap: 14px;
+    padding: 22px 26px;
+    background: var(--paper);
+    user-select: none;
+    transition: background .2s ease;
+  }
+  .cat > summary::-webkit-details-marker { display: none; }
+  .cat > summary:hover { background: #FCFCFB; }
+  .cat-chevron {
+    flex-shrink: 0; width: 12px; height: 12px;
+    color: var(--muted);
+    transition: transform .25s ease;
+  }
+  .cat[open] .cat-chevron { transform: rotate(90deg); }
+  .cat-icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
+  .cat-text { flex: 1; min-width: 0; }
+  .cat-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 800; font-size: 18px; margin: 0;
+  }
+  .cat-sub {
+    font-size: 13px; color: var(--muted); margin: 2px 0 0;
+  }
+  .cat-count {
+    flex-shrink: 0;
+    font-size: 13px; font-weight: 700; color: var(--muted);
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 999px; padding: 3px 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .cat-body {
+    padding: 6px 18px 20px;
+    display: grid; grid-template-columns: 1fr; gap: 14px;
+  }
+
+  /* ── 文件卡 ───────────────────────────────── */
   .doc-card {
     background: var(--paper);
     border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 28px;
+    border-radius: 16px;
+    padding: 22px 24px;
     text-decoration: none;
     color: inherit;
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 20px;
     transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
     position: relative;
     overflow: hidden;
@@ -70,44 +151,53 @@
     box-shadow: 0 12px 32px -12px rgba(20,184,166,.25);
   }
   .doc-card:hover::before { opacity: 1; }
-  .doc-icon {
-    font-size: 44px; line-height: 1; flex-shrink: 0;
-  }
-  .doc-body { flex: 1; }
+  .doc-icon { font-size: 38px; line-height: 1; flex-shrink: 0; }
+  .doc-body { flex: 1; min-width: 0; }
   .doc-title {
     font-family: 'Noto Serif TC', serif;
-    font-weight: 800; font-size: 19px;
+    font-weight: 800; font-size: 18px;
     margin: 0 0 6px;
   }
-  .doc-desc {
-    font-size: 14px; color: var(--muted);
-    margin: 0;
-  }
+  .doc-desc { font-size: 14px; color: var(--muted); margin: 0; }
   .doc-meta {
-    font-size: 11.5px;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    margin-top: 8px;
-    text-transform: uppercase;
-    font-weight: 600;
+    font-size: 11.5px; letter-spacing: 0.08em;
+    color: var(--muted); margin-top: 8px;
+    text-transform: uppercase; font-weight: 600;
   }
   .arrow {
-    color: var(--muted); font-size: 18px;
+    color: var(--muted); font-size: 18px; flex-shrink: 0;
     transition: transform .2s ease, color .2s ease;
   }
-  .doc-card:hover .arrow {
-    transform: translateX(4px); color: var(--accent);
+  .doc-card:hover .arrow { transform: translateX(4px); color: var(--accent); }
+
+  .no-results {
+    display: none;
+    text-align: center; color: var(--muted);
+    font-size: 15px; padding: 40px 0;
   }
+  .no-results.show { display: block; }
+
   footer {
-    margin-top: 64px; padding-top: 24px;
+    margin-top: 56px; padding-top: 24px;
     border-top: 1px solid var(--line);
     font-size: 12.5px; color: var(--muted);
   }
   footer a { color: var(--muted); }
+
   @media (max-width: 540px) {
     .container { padding: 48px 20px; }
-    .doc-card { padding: 22px; gap: 14px; }
-    .doc-icon { font-size: 32px; }
+    .cat > summary { padding: 18px 18px; gap: 11px; }
+    .cat-icon { font-size: 22px; }
+    .cat-title { font-size: 16px; }
+    .doc-card { padding: 18px; gap: 14px; }
+    .doc-icon { font-size: 30px; }
+    .bulk { flex: 1; }
+    .bulk button { flex: 1; }
+  }
+
+  mark {
+    background: #FEF3C7; color: inherit;
+    border-radius: 3px; padding: 0 1px;
   }
 </style>
 </head>
@@ -117,122 +207,260 @@
   <h1>家居研究筆記</h1>
   <p class="lede">買房 / 裝修 / 家電採購的決策資料庫。每份文件都是對市場主流選項的完整對照，附第三方認證數據、5 年總持有成本與使用情境決策樹。</p>
 
-  <div class="doc-grid">
-    <a class="doc-card" href="./home-renovation-plan.html">
-      <div class="doc-icon">📐</div>
-      <div class="doc-body">
-        <h2 class="doc-title">新家裝潢規劃</h2>
-        <p class="doc-desc">7 樓華廈第 6 樓 · 不打牆 3 房 2 廳雙衛 · 對應「夫妻 + 兩寶（未來可能 + 岳父）」人口結構</p>
-        <div class="doc-meta">室內 28 坪 · 天花 2.7m / 樑下 2.3m · 房間分配 + 保高化樑 + 坪數計價防灌水</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./laundry-comparison.html">
-      <div class="doc-icon">🧺</div>
-      <div class="doc-body">
-        <h2 class="doc-title">後陽台洗烘設備比較</h2>
-        <p class="doc-desc">洗脫烘一體機 vs 獨立洗衣機 + 熱泵乾衣機 · 空間有限 + 要再生一個的取捨</p>
-        <div class="doc-meta">2026/06 momo 實查價 · 5 年總成本試算 · 機種實價表 + Threads 網友心得 + 決策建議</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./socket-plan-checklist.html">
-      <div class="doc-icon">🔌</div>
-      <div class="doc-body">
-        <h2 class="doc-title">插座 / 開關 / 弱電 定位走查清單</h2>
-        <p class="doc-desc">客戶該做的「需求定位」（非配電圖）· 列印帶著走一遍房子 · 填完交水電</p>
-        <div class="doc-meta">逐房間 10 區 · 高度速查 · 最常忘的 10 個位置 · 列印 A4 優化</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./house-inspection-luzhou.html">
-      <div class="doc-icon">🔍</div>
-      <div class="doc-body">
-        <h2 class="doc-title">蘆洲皇家名門驗屋作戰計畫</h2>
-        <p class="doc-desc">32 年中古屋「重大風險排雷」· 結構/漏水/海砂/管線/電路/違建 八區檢查 + 紅旗清單 + 議價保留款</p>
-        <div class="doc-meta">14 件工具 · 8 區流程 · 晚間時間軸 · 民法 §354 + 海砂屋查詢系統</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./air-purifier-luzhou.html">
-      <div class="doc-icon">🏠</div>
-      <div class="doc-body">
-        <h2 class="doc-title">蘆洲新家空清決策</h2>
-        <p class="doc-desc">真的需要嗎？31 年中古屋 + 無過敏 + 2026/06/30 交屋的場景化分析</p>
-        <div class="doc-meta">3 機型 · Coway AP-1019C / AP-1220B / Amway SKY · 雙機策略</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./decoration-invoice-tax.html">
-      <div class="doc-icon">🧾</div>
-      <div class="doc-body">
-        <h2 class="doc-title">裝潢發票 & 設計費索取憑證決策</h2>
-        <p class="doc-desc">設計師說「沒要賣或抵稅很少開發票」對嗎？2,090 萬皇家名門社區 32 年中古屋逐條法源查核</p>
-        <div class="doc-meta">所得稅法 §17/§14-4/§4-5 + 營業稅法 §32 · 房地合一 vs 綜所稅 vs 保固三層拆解 · 5 年期望節稅試算</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./air-purifier-comparison.html">
-      <div class="doc-icon">🌬️</div>
-      <div class="doc-body">
-        <h2 class="doc-title">空氣清淨機比較</h2>
-        <p class="doc-desc">POIEMA 新氣几 P50 vs Amway ATMOSPHERE SKY · 零耗材 vs 醫療級認證對戰</p>
-        <div class="doc-meta">2 機型 · NSF / AHAM / Allergy UK · 3 年成本對照</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./water-purifier-comparison.html">
-      <div class="doc-icon">💧</div>
-      <div class="doc-body">
-        <h2 class="doc-title">櫥下淨水器比較</h2>
-        <p class="doc-desc">千山 PF-207（現有）vs Amway eSpring Pro vs Coway P-150N vs 3M S301 · 該不該換機分析</p>
-        <div class="doc-meta">4 機型 · NSF 全機認證 · 5 年總持有成本</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./window-screen-comparison.html">
-      <div class="doc-icon">🪟</div>
-      <div class="doc-body">
-        <h2 class="doc-title">防霾紗窗比較</h2>
-        <p class="doc-desc">SMOG · Poll-tex 普特絲 · Usii · 綠綠好日 · HOSOI 禾工宅 · 含透視度分析</p>
-        <div class="doc-meta">5 品牌 · 4 種技術路線 · 整戶 30 坪費用對照</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./vacuum-cleaner-comparison.html">
-      <div class="doc-icon">🌀</div>
-      <div class="doc-body">
-        <h2 class="doc-title">無線吸塵器比較</h2>
-        <p class="doc-desc">Yates CV-X1 · Dyson V15 · LG A9K-MAX2 · 小米 G11 · Tineco S15 PRO</p>
-        <div class="doc-meta">5 機型 · 台製 vs 國際 · 重量/吸力/續航</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a class="doc-card" href="./robot-vacuum-comparison.html">
-      <div class="doc-icon">🤖</div>
-      <div class="doc-body">
-        <h2 class="doc-title">掃拖機器人比較</h2>
-        <p class="doc-desc">iRobot Roomba Combo j7+ vs Ecovacs DEEBOT X2 OMNI · AI 避障 vs 全自動洗烘</p>
-        <div class="doc-meta">2 機型 · 圓形 vs 方形 · 6 種使用情境建議</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
+  <div class="toolbar">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input id="search" type="search" placeholder="搜尋文件（標題、品牌、關鍵字…）" autocomplete="off">
+    </div>
+    <div class="bulk">
+      <button id="expand-all" type="button">展開全部</button>
+      <button id="collapse-all" type="button">收合全部</button>
+    </div>
   </div>
+
+  <!-- ═══ 分類 1：新家專案 ═══ -->
+  <details class="cat" open>
+    <summary>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <span class="cat-icon">🏡</span>
+      <span class="cat-text">
+        <p class="cat-title">新家專案 — 蘆洲皇家名門</p>
+        <p class="cat-sub">買房到裝修的一次性決策</p>
+      </span>
+      <span class="cat-count">4</span>
+    </summary>
+    <div class="cat-body">
+
+      <a class="doc-card" href="./home-renovation-plan.html">
+        <div class="doc-icon">📐</div>
+        <div class="doc-body">
+          <h2 class="doc-title">新家裝潢規劃</h2>
+          <p class="doc-desc">7 樓華廈第 6 樓 · 不打牆 3 房 2 廳雙衛 · 對應「夫妻 + 兩寶（未來可能 + 岳父）」人口結構</p>
+          <div class="doc-meta">室內 28 坪 · 天花 2.7m / 樑下 2.3m · 房間分配 + 保高化樑 + 坪數計價防灌水</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./house-inspection-luzhou.html">
+        <div class="doc-icon">🔍</div>
+        <div class="doc-body">
+          <h2 class="doc-title">蘆洲皇家名門驗屋作戰計畫</h2>
+          <p class="doc-desc">32 年中古屋「重大風險排雷」· 結構/漏水/海砂/管線/電路/違建 八區檢查 + 紅旗清單 + 議價保留款</p>
+          <div class="doc-meta">14 件工具 · 8 區流程 · 晚間時間軸 · 民法 §354 + 海砂屋查詢系統</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./decoration-invoice-tax.html">
+        <div class="doc-icon">🧾</div>
+        <div class="doc-body">
+          <h2 class="doc-title">裝潢發票 & 設計費索取憑證決策</h2>
+          <p class="doc-desc">設計師說「沒要賣或抵稅很少開發票」對嗎？2,090 萬皇家名門社區 32 年中古屋逐條法源查核</p>
+          <div class="doc-meta">所得稅法 §17/§14-4/§4-5 + 營業稅法 §32 · 房地合一 vs 綜所稅 vs 保固三層拆解 · 5 年期望節稅試算</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./socket-plan-checklist.html">
+        <div class="doc-icon">🔌</div>
+        <div class="doc-body">
+          <h2 class="doc-title">插座 / 開關 / 弱電 定位走查清單</h2>
+          <p class="doc-desc">客戶該做的「需求定位」（非配電圖）· 列印帶著走一遍房子 · 填完交水電</p>
+          <div class="doc-meta">逐房間 10 區 · 高度速查 · 最常忘的 10 個位置 · 列印 A4 優化</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+    </div>
+  </details>
+
+  <!-- ═══ 分類 2：空氣・水・防護 ═══ -->
+  <details class="cat" open>
+    <summary>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <span class="cat-icon">🌬️</span>
+      <span class="cat-text">
+        <p class="cat-title">空氣・水・防護</p>
+        <p class="cat-sub">空品 / 水質 / 防霾 的需求判斷與機種橫評</p>
+      </span>
+      <span class="cat-count">4</span>
+    </summary>
+    <div class="cat-body">
+
+      <a class="doc-card" href="./air-purifier-luzhou.html">
+        <div class="doc-icon">🏠</div>
+        <div class="doc-body">
+          <h2 class="doc-title">蘆洲新家空清決策</h2>
+          <p class="doc-desc">真的需要嗎？31 年中古屋 + 無過敏 + 2026/06/30 交屋的場景化分析</p>
+          <div class="doc-meta">3 機型 · Coway AP-1019C / AP-1220B / Amway SKY · 雙機策略</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./air-purifier-comparison.html">
+        <div class="doc-icon">🌬️</div>
+        <div class="doc-body">
+          <h2 class="doc-title">空氣清淨機比較</h2>
+          <p class="doc-desc">POIEMA 新氣几 P50 vs Amway ATMOSPHERE SKY · 零耗材 vs 醫療級認證對戰</p>
+          <div class="doc-meta">2 機型 · NSF / AHAM / Allergy UK · 3 年成本對照</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./water-purifier-comparison.html">
+        <div class="doc-icon">💧</div>
+        <div class="doc-body">
+          <h2 class="doc-title">櫥下淨水器比較</h2>
+          <p class="doc-desc">千山 PF-207（現有）vs Amway eSpring Pro vs Coway P-150N vs 3M S301 · 該不該換機分析</p>
+          <div class="doc-meta">4 機型 · NSF 全機認證 · 5 年總持有成本</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./window-screen-comparison.html">
+        <div class="doc-icon">🪟</div>
+        <div class="doc-body">
+          <h2 class="doc-title">防霾紗窗比較</h2>
+          <p class="doc-desc">SMOG · Poll-tex 普特絲 · Usii · 綠綠好日 · HOSOI 禾工宅 · 含透視度分析</p>
+          <div class="doc-meta">5 品牌 · 4 種技術路線 · 整戶 30 坪費用對照</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+    </div>
+  </details>
+
+  <!-- ═══ 分類 3：清潔・洗衣家電 ═══ -->
+  <details class="cat" open>
+    <summary>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <span class="cat-icon">🧹</span>
+      <span class="cat-text">
+        <p class="cat-title">清潔・洗衣家電</p>
+        <p class="cat-sub">掃地 / 吸塵 / 洗烘 的機種對戰</p>
+      </span>
+      <span class="cat-count">3</span>
+    </summary>
+    <div class="cat-body">
+
+      <a class="doc-card" href="./laundry-comparison.html">
+        <div class="doc-icon">🧺</div>
+        <div class="doc-body">
+          <h2 class="doc-title">後陽台洗烘設備比較</h2>
+          <p class="doc-desc">洗脫烘一體機 vs 獨立洗衣機 + 熱泵乾衣機 · 空間有限 + 要再生一個的取捨</p>
+          <div class="doc-meta">2026/06 momo 實查價 · 5 年總成本試算 · 機種實價表 + Threads 網友心得 + 決策建議</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./vacuum-cleaner-comparison.html">
+        <div class="doc-icon">🌀</div>
+        <div class="doc-body">
+          <h2 class="doc-title">無線吸塵器比較</h2>
+          <p class="doc-desc">Yates CV-X1 · Dyson V15 · LG A9K-MAX2 · 小米 G11 · Tineco S15 PRO</p>
+          <div class="doc-meta">5 機型 · 台製 vs 國際 · 重量/吸力/續航</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./robot-vacuum-comparison.html">
+        <div class="doc-icon">🤖</div>
+        <div class="doc-body">
+          <h2 class="doc-title">掃拖機器人比較</h2>
+          <p class="doc-desc">iRobot Roomba Combo j7+ vs Ecovacs DEEBOT X2 OMNI · AI 避障 vs 全自動洗烘</p>
+          <div class="doc-meta">2 機型 · 圓形 vs 方形 · 6 種使用情境建議</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+    </div>
+  </details>
+
+  <p class="no-results" id="no-results">找不到符合「<span id="nr-term"></span>」的文件。</p>
 
   <footer>
     Source · <a href="https://github.com/tzchia/home-research">github.com/tzchia/home-research</a><br>
     這些文件以「採購決策參考」為目的，整理自公開資料來源。價格、規格、認證等以原廠最新公告為準。
   </footer>
 </div>
+
+<script>
+(function () {
+  var search = document.getElementById('search');
+  var cats = Array.prototype.slice.call(document.querySelectorAll('.cat'));
+  var noResults = document.getElementById('no-results');
+  var nrTerm = document.getElementById('nr-term');
+
+  // 記住每個分類的初始展開狀態（清空搜尋時還原）
+  cats.forEach(function (c) { c.dataset.defaultOpen = c.open ? '1' : '0'; });
+
+  document.getElementById('expand-all').addEventListener('click', function () {
+    cats.forEach(function (c) { c.open = true; });
+  });
+  document.getElementById('collapse-all').addEventListener('click', function () {
+    cats.forEach(function (c) { c.open = false; });
+  });
+
+  function clearMarks(el) {
+    el.querySelectorAll('mark').forEach(function (m) {
+      m.replaceWith(document.createTextNode(m.textContent));
+    });
+    el.normalize();
+  }
+
+  function highlight(el, term) {
+    if (!term) return;
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    var lc = term.toLowerCase();
+    nodes.forEach(function (node) {
+      var text = node.nodeValue, idx = text.toLowerCase().indexOf(lc);
+      if (idx === -1) return;
+      var span = document.createElement('span');
+      span.appendChild(document.createTextNode(text.slice(0, idx)));
+      var mk = document.createElement('mark');
+      mk.textContent = text.slice(idx, idx + term.length);
+      span.appendChild(mk);
+      span.appendChild(document.createTextNode(text.slice(idx + term.length)));
+      node.replaceWith(span);
+    });
+  }
+
+  function filter() {
+    var q = search.value.trim().toLowerCase();
+    var anyVisible = false;
+
+    cats.forEach(function (cat) {
+      var cards = Array.prototype.slice.call(cat.querySelectorAll('.doc-card'));
+      var shown = 0;
+      cards.forEach(function (card) {
+        clearMarks(card);
+        var match = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
+        card.style.display = match ? '' : 'none';
+        if (match) { shown++; if (q) highlight(card, search.value.trim()); }
+      });
+      // 有搜尋字串時：有命中就展開、沒命中就整個分類隱藏
+      if (q) {
+        cat.style.display = shown ? '' : 'none';
+        if (shown) cat.open = true;
+      } else {
+        cat.style.display = '';
+        cat.open = cat.dataset.defaultOpen === '1';
+      }
+      if (shown) anyVisible = true;
+    });
+
+    if (q && !anyVisible) {
+      nrTerm.textContent = search.value.trim();
+      noResults.classList.add('show');
+    } else {
+      noResults.classList.remove('show');
+    }
+  }
+
+  search.addEventListener('input', filter);
+})();
+</script>
 </body>
 </html>
