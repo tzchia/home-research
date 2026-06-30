@@ -244,8 +244,9 @@
           <!-- 次臥② -->
           <text x="367" y="198"><tspan fill="#3A4632">插5</tspan> <tspan fill="#8A6A2E">開2</tspan></text>
           <text x="367" y="218"><tspan fill="#1F5B75">網1</tspan> <tspan fill="#99291F">迴1</tspan></text>
-          <!-- 餐廳 -->
-          <text x="270" y="480"><tspan fill="#3A4632">插4</tspan> <tspan fill="#8A6A2E">開1</tspan></text>
+          <!-- 餐廳（電腦工作區 → 加網路孔 ×2） -->
+          <text x="270" y="470"><tspan fill="#3A4632">插4</tspan> <tspan fill="#8A6A2E">開1</tspan></text>
+          <text x="270" y="492"><tspan fill="#1F5B75">網2</tspan> <tspan fill="#8A7F72" font-size="11">電腦工作區</tspan></text>
           <!-- 客廳 -->
           <text x="270" y="822" font-size="15"><tspan fill="#3A4632">插10</tspan> <tspan fill="#8A6A2E">開3</tspan></text>
           <text x="270" y="846" font-size="15"><tspan fill="#1F5B75">網2</tspan> <tspan fill="#99291F">迴1</tspan></text>
@@ -271,7 +272,14 @@
         <g>
           <circle cx="180" cy="640" r="15" fill="#1F5B75" opacity="0.9"/>
           <text x="180" y="645" font-size="13" fill="white" text-anchor="middle" font-weight="700">⌂</text>
-          <text x="180" y="672" font-size="11" fill="#1F5B75" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700">弱電箱/Router</text>
+          <text x="180" y="672" font-size="11" fill="#1F5B75" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700">弱電箱/主Router</text>
+        </g>
+
+        <!-- WiFi Mesh AP（次臥側，有線回程涵蓋北半部） -->
+        <g>
+          <circle cx="380" cy="278" r="14" fill="#1F5B75" opacity="0.9"/>
+          <text x="380" y="283" font-size="11" fill="white" text-anchor="middle" font-weight="700">AP</text>
+          <text x="380" y="305" font-size="10" fill="#1F5B75" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700">Mesh AP·有線回程</text>
         </g>
 
         <!-- 圖底方位 -->
@@ -298,7 +306,7 @@
       <tbody>
         <tr><td>玄關</td><td class="c num sock">2</td><td class="c num sw">2</td><td class="c dash">–</td><td class="c dash">–</td><td>掃地機基座 · 烘鞋 · 感應夜燈</td></tr>
         <tr><td>客廳</td><td class="c num sock">10</td><td class="c num sw">3</td><td class="c num net">2</td><td class="c num circ">1</td><td>沙發兩側 + 背牆 · 媒體櫃 · 投影 · 弱電箱中樞 · 冷氣A</td></tr>
-        <tr><td>餐廳</td><td class="c num sock">4</td><td class="c num sw">1</td><td class="c dash">–</td><td class="c dash">–</td><td>餐桌邊（桌面高）· 餐邊電器櫃 · 可調光</td></tr>
+        <tr><td>餐廳</td><td class="c num sock">4</td><td class="c num sw">1</td><td class="c num net">2</td><td class="c dash">–</td><td>餐桌邊（桌面高）· <strong>電腦工作區網孔 ×2</strong> · 餐邊電器櫃</td></tr>
         <tr><td>廚房</td><td class="c num sock">8</td><td class="c num sw">2</td><td class="c dash">–</td><td class="c dash">–</td><td>檯面 3–4 組 · 冰箱獨立 · 烤箱110V · 櫥下淨水</td></tr>
         <tr><td>主臥</td><td class="c num sock">6</td><td class="c num sw">3</td><td class="c num net">1</td><td class="c num circ">1</td><td>床頭+USB · 嬰兒床側 · 化妝桌 · 冷氣A</td></tr>
         <tr><td>次臥①</td><td class="c num sock">5</td><td class="c num sw">2</td><td class="c num net">1</td><td class="c num circ">1</td><td>床頭 · 書桌 · 冷氣B</td></tr>
@@ -309,7 +317,7 @@
         <tr><td>前陽台<span class="num wp"> 防</span></td><td class="c num sock">1</td><td class="c num sw">1</td><td class="c dash">–</td><td class="c dash">–</td><td>景觀燈 · 掃地機備位</td></tr>
       </tbody>
       <tfoot>
-        <tr><td>合計（起點）</td><td class="c">≈ 48</td><td class="c">≈ 19</td><td class="c">5</td><td class="c">7</td><td>每房再 +1 組緩衝最保險</td></tr>
+        <tr><td>合計（起點）</td><td class="c">≈ 48</td><td class="c">≈ 19</td><td class="c">7</td><td class="c">7</td><td>每房再 +1 組緩衝最保險</td></tr>
       </tfoot>
     </table>
     <div class="callout sage">
@@ -337,8 +345,9 @@
     <table class="grid">
       <thead><tr><th>弱電（網路）佈線</th><th>做法</th></tr></thead>
       <tbody>
-        <tr><td><span class="num net">中樞</span> 弱電箱 / 主 Router</td><td>設在客廳（對外光纖進線端），所有房間網路線回拉到這</td></tr>
-        <tr><td><span class="num net">回程</span> 每房 Cat6 ×1（客廳 ×2）</td><td>主臥 / 次臥① / 次臥② 各 1 條、客廳 2 條 → 共 5 孔。Mesh 雖方便，但有線回程最穩，房內牆便宜時就埋</td></tr>
+        <tr><td><span class="num net">中樞</span> 弱電箱 / 主 Router</td><td>設在客廳（對外光纖進線端），所有房間網路線回拉到這。主 Router 涵蓋客廳 / 餐廳 / 前陽台（南半部）</td></tr>
+        <tr><td><span class="num net">回程</span> 各房 Cat6 牆孔</td><td>主臥 / 次臥① / 次臥② 各 1 條、客廳 ×2、<strong>餐廳 ×2（電腦工作區）</strong> → 共 <strong>7 孔</strong>。Mesh 雖方便，但有線回程最穩，房內牆便宜時就埋</td></tr>
+        <tr><td><span class="num net">AP</span> Mesh AP ×1（次臥側）</td><td>28 坪長型格局，客廳主機涵蓋不到北端（次臥 / 後陽台會弱）→ 在次臥側放 1 台 Mesh AP，<strong>插次臥網孔當有線回程</strong>（比無線回程穩一倍）。日後訊號不夠再加，但牆孔先留</td></tr>
       </tbody>
     </table>
   </section>
