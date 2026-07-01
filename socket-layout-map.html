@@ -213,7 +213,7 @@
   <!-- A. 配置圖（真實比例平面圖 + 插座疊層） -->
   <section id="plan">
     <h2 class="section-title"><span class="num-badge">A</span>插座 / 開關 / 弱電 配置圖</h2>
-    <p class="section-sub">底圖是你的<strong>專業比例平面圖（SCALE 1/60）</strong>，我在上面標出每個插座 / 開關 / 網路 / 專迴的<strong>建議位置</strong>。<strong>實心圓＝牆面點位</strong>（貼在牆線上）；<strong>橘色虛線方框＝地板插座</strong>（家具離牆、必須走地插）。數量是起點，現場放樣可增減。</p>
+    <p class="section-sub">底圖是你的<strong>專業比例平面圖（SCALE 1/60）</strong>，我在上面標出每個插座 / 開關 / 網路 / 專迴的<strong>建議位置</strong>。<strong>全部點位都貼在牆線上（牆面出線）</strong>。<strong>此版已取消原本的 3 個地板插座</strong>——改用牆面 + 家具內建插座替代，理由見下方橘色框。數量是起點，現場放樣可增減。</p>
     <div class="mapcard fig-box">
       <svg viewBox="0 0 960 1280" role="img" aria-label="插座配置圖（疊在真實平面圖上）" xmlns="http://www.w3.org/2000/svg">
 <image href="./assets/floorplan-scaled.jpg" x="0" y="0" width="960" height="1280"/>
@@ -236,7 +236,6 @@
 <circle cx="244" cy="392" r="15.5" fill="#fff" opacity="0.95"/><circle cx="244" cy="392" r="13" fill="#1F5B75"/><text x="244" y="397" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">網</text>
 <circle cx="278" cy="392" r="15.5" fill="#fff" opacity="0.95"/><circle cx="278" cy="392" r="13" fill="#1F5B75"/><text x="278" y="397" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">網</text>
 <circle cx="330" cy="392" r="15.5" fill="#fff" opacity="0.95"/><circle cx="330" cy="392" r="13" fill="#8A6A2E"/><text x="330" y="397" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">開</text>
-<rect x="283" y="483" width="34" height="34" rx="4" fill="#FFF3E0" stroke="#C77D2E" stroke-width="2.4" stroke-dasharray="5 3"/><text x="300" y="505" font-size="15" fill="#9A5A1E" text-anchor="middle" font-weight="700">插</text>
 <circle cx="88" cy="760" r="15.5" fill="#fff" opacity="0.95"/><circle cx="88" cy="760" r="13" fill="#444444"/><text x="88" y="764" font-size="11" fill="#fff" text-anchor="middle" font-weight="700">TV</text>
 <circle cx="88" cy="792" r="15.5" fill="#fff" opacity="0.95"/><circle cx="88" cy="792" r="13" fill="#3A4632"/><text x="88" y="797" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">插</text>
 <circle cx="88" cy="900" r="15.5" fill="#fff" opacity="0.95"/><circle cx="88" cy="900" r="13" fill="#3A4632"/><text x="88" y="905" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">插</text>
@@ -244,8 +243,6 @@
 <circle cx="525" cy="730" r="15.5" fill="#fff" opacity="0.95"/><circle cx="525" cy="730" r="13" fill="#5A4682"/><text x="525" y="735" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">U</text>
 <circle cx="525" cy="820" r="15.5" fill="#fff" opacity="0.95"/><circle cx="525" cy="820" r="13" fill="#1F5B75"/><text x="525" y="825" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">網</text>
 <circle cx="88" cy="600" r="15.5" fill="#fff" opacity="0.95"/><circle cx="88" cy="600" r="13" fill="#99291F"/><text x="88" y="605" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">迴</text>
-<rect x="343" y="843" width="34" height="34" rx="4" fill="#FFF3E0" stroke="#C77D2E" stroke-width="2.4" stroke-dasharray="5 3"/><text x="360" y="865" font-size="15" fill="#9A5A1E" text-anchor="middle" font-weight="700">插</text>
-<rect x="413" y="903" width="34" height="34" rx="4" fill="#FFF3E0" stroke="#C77D2E" stroke-width="2.4" stroke-dasharray="5 3"/><text x="430" y="925" font-size="15" fill="#9A5A1E" text-anchor="middle" font-weight="700">插</text>
 <circle cx="210" cy="1080" r="15.5" fill="#fff" opacity="0.95"/><circle cx="210" cy="1080" r="13" fill="#3A4632"/><text x="210" y="1085" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">插</text>
 <circle cx="150" cy="1080" r="15.5" fill="#fff" opacity="0.95"/><circle cx="150" cy="1080" r="13" fill="#8A6A2E"/><text x="150" y="1085" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">開</text>
 <circle cx="290" cy="1080" r="15.5" fill="#fff" opacity="0.95"/><circle cx="290" cy="1080" r="13" fill="#8A6A2E"/><text x="290" y="1085" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">開</text>
@@ -290,12 +287,18 @@
       <span><span class="dot wp"></span> 防＝防潑水插座</span>
       <span><span class="dot" style="background:#5A4682;"></span> U＝USB充電</span>
       <span><span class="dot" style="background:#444;"></span> TV＝訊號管(投影·電視)</span>
-      <span><span class="dot" style="background:#FFF3E0;border:2px dashed #C77D2E;"></span> 虛線方框＝地板插座</span>
       <span><span class="dot" style="background:#C2453B;"></span> ⚡＝總電源(配電箱·強電)</span>
       <span><span class="dot net"></span> ⌂＝弱電箱(網路·訊號)</span>
     </div>
     <div class="callout warn">
-      <strong>⚠ 浮在房間中間的插座 = 地板插座（地插）。</strong>插座一定要有依附（牆/地/天花），不會憑空懸在半空。圖上<strong>實心圓都貼在牆線上</strong>；只有<strong>橘色虛線方框</strong>是地插，用在「家具離牆、拉牆面線會橫過地板絆腳」的位置：①餐桌邊（火鍋/氣炸鍋）②客廳茶几（手機/筆電/掃地機）③沙發前。地插要做<strong>防水防踩的彈起式/掀蓋式</strong>，且要趁泥作前跟水電講好走管，封地坪後補不了。
+      <strong>⚠ 為什麼這版把地板插座全部取消？</strong>你原本 3 個地插（餐桌邊、客廳茶几、沙發前）我重新評估後<strong>建議全部拿掉</strong>，三個理由：<strong>①施工要敲地板</strong>——地插得在泥作前埋管、開槽走線，多一道工、封坪後補不了；<strong>②縫隙易積灰</strong>——掀蓋 / 彈起式地插的溝縫是灰塵、湯汁、水氣的死角，長年卡垢難清；<strong>③掃地機打結</strong>——地插凸出地面或蓋子邊緣會卡住掃地機、拖布，反而每天礙事。地插的維護與清潔成本，長期看不划算。<br><br>
+      <strong>那原本要地插的用電需求怎麼補？</strong>逐一改成牆面 / 家具方案，效果一樣、清潔零負擔：
+      <ul style="margin:8px 0 0;padding-left:20px;line-height:1.7;">
+        <li><strong>餐桌邊（火鍋 / 氣炸鍋）</strong>→ 靠最近的牆面做<strong>桌高插座（約 75–90cm）</strong>；若餐桌真的離牆遠，改由<strong>餐邊櫃 / 電器櫃檯面出線</strong>，鍋具擺櫃邊使用。</li>
+        <li><strong>客廳茶几（手機 / 筆電 / 掃地機）</strong>→ 沙發兩側牆插已足夠日常充電；掃地機<strong>基座本來就該靠牆</strong>（已在玄關 / 客廳牆邊留位），不需要浮在中央。</li>
+        <li><strong>沙發前</strong>→ 併入<strong>沙發側邊牆插</strong>；要更方便就選<strong>帶 USB / 無線充電面板的邊几</strong>，走家具而非地坪。</li>
+      </ul>
+      <em style="color:var(--muted);">保留彈性：若你日後仍想在某一點做地插，記得只在該點、且務必選<strong>防水防踩的掀蓋 / 彈起式</strong>，並趁泥作前跟水電講好走管。</em>
     </div>
     <div class="callout sage">
       <strong>這張圖怎麼用：</strong>點位是依你<strong>實際家具配置</strong>規劃的起點，列印帶去現場跟水電師傅逐點對。位置/數量都可增減——寧可現在多留出線點，也別入住後天天用延長線、再打牆補做。下方各區還有逐房間走查清單與高度速查可一起帶。
@@ -382,7 +385,7 @@
       <div class="hrow"><span class="hname">三合一暖風機（浴室高處）</span><span class="hcm">天花附近</span><span class="hbar"><span style="width:96%"></span></span></div>
     </div>
     <div class="callout wood">
-      <strong>💡 一個常被忽略的細節：插座要避開「家具會擋住」的地方。</strong>例如沙發背靠的牆，插座要拉到沙發兩側露出來、或做地板插座；衣櫃 / 高櫃預定位置的牆面別放插座（會被櫃子封死）。這就是為什麼要先有傢俱位置。
+      <strong>💡 一個常被忽略的細節：插座要避開「家具會擋住」的地方。</strong>例如沙發背靠的牆，插座要<strong>拉到沙發兩側露出來</strong>；衣櫃 / 高櫃預定位置的牆面別放插座（會被櫃子封死）。這就是為什麼要先有傢俱位置。<em style="color:var(--muted);">（本案已決定不做地板插座，一律走牆面 / 家具出線，理由見 A 區橘色框。）</em>
     </div>
   </section>
 
@@ -613,7 +616,7 @@
       <strong>① 配置圖看「分布」，走查清單填「細節」。</strong>這張鳥瞰圖讓你跟太太快速對「哪一區會不會太少」；確認後到 <a href="./socket-plan-checklist.html">逐房間走查清單</a> 逐格勾「要嗎 / 實際數量」，兩份一起交設計師。
     </div>
     <div class="callout warn">
-      <strong>② 插座要避開家具會擋住的地方。</strong>沙發背牆、衣櫃 / 高櫃預定位置別放插座（會被封死）→ 所以要先有傢俱配置想法。沙發插座拉到兩側或做地板插座。
+      <strong>② 插座要避開家具會擋住的地方。</strong>沙發背牆、衣櫃 / 高櫃預定位置別放插座（會被封死）→ 所以要先有傢俱配置想法。<strong>沙發插座拉到兩側牆面</strong>（本案不做地板插座）。
     </div>
     <div class="callout danger">
       <strong>③ 現場放樣是最後改機會。</strong>水電配管前會在牆上標出每個插座開關位置，這一刻拿這張圖 + 清單對一遍、站到傢俱位置比高度，確認再施工。封板後改不動了。
