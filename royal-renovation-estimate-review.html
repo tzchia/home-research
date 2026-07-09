@@ -20,6 +20,26 @@ figure{margin:0} img{max-width:100%;height:auto;border:1px solid var(--line);bor
 .details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px} details{background:white;border:1px solid var(--line);border-radius:12px;padding:10px} summary{cursor:pointer;font-weight:700}
 .callout{border-left:5px solid var(--warn);background:#fff7ed;padding:12px;border-radius:10px} .green{border-left-color:var(--ok);background:#ecfdf5} .red{border-left-color:var(--bad);background:#fef2f2}
 .small{font-size:13px} @media(max-width:900px){.g2,.g3,.g4,.details-grid{grid-template-columns:1fr} .wrap{padding:14px}} @media(max-width:1200px) and (min-width:901px){.g4{grid-template-columns:1fr 1fr}}
+/* 議價作戰指南 */
+.att-def{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.att,.def{border-radius:12px;padding:14px}
+.att{background:#fff7ed;border:1px solid #fdba74}
+.def{background:#fef2f2;border:1px solid #fca5a5}
+.att h3,.def h3{margin:0 0 8px;font-size:16px}
+.att h3{color:#b45309}.def h3{color:#b91c1c}
+.att ul,.def ul{margin:0;padding-left:18px}.att li,.def li{margin:7px 0;font-size:14px}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.judge{display:inline-block;border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700;white-space:nowrap}
+.j-ok{background:#dcfce7;color:#166534}.j-warn{background:#fef9c3;color:#854d0e}.j-hot{background:#fee2e2;color:#991b1b}
+.srcbox{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px;font-size:12px;color:var(--muted);margin-top:12px}
+.srcbox a{color:#0f766e;word-break:break-all}
+.tmpl{background:#0f172a;color:#e2e8f0;border-radius:12px;padding:16px;margin-top:10px;position:relative}
+.tmpl .lbl{position:absolute;top:-10px;left:14px;background:#0f766e;color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px}
+.tmpl p{margin:10px 0;font-size:14px;line-height:1.6}
+.tmpl .q{color:#7dd3fc}
+.mtx td:first-child{font-weight:600}
+@media(max-width:760px){.att-def{grid-template-columns:1fr}}
+@media print{.tmpl{background:#fff;color:#000;border:1px solid #000}.tmpl .q{color:#000;font-weight:700}}
 /* 原始 PDF 按鈕列 */
 .pdfbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .pdfbtn{display:inline-flex;align-items:center;gap:7px;text-decoration:none;background:#0f766e;color:#fff;border-radius:10px;padding:9px 13px;font-size:14px;font-weight:600;border:1px solid #0b5a54;transition:background .15s,transform .1s}
@@ -134,6 +154,87 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
     <li>工程監造與風險管理費 5% 具體服務：每週到場幾次？是否出施工圖/水電圖/放樣確認？</li>
     <li>所有「依照最後追加減」的單價表請先列好，避免施工後沒有議價基準。</li>
   </ol>
+</section>
+
+<section class="card" style="border-top:4px solid var(--accent)">
+  <div class="kicker">增補 · 2026/07/09 · 業界行情實查（來源：PRO360 達人網 2024–2026 平台報價統計）</div>
+  <h2>💰 議價作戰指南：行情、攻守點、溝通話術</h2>
+
+  <div class="callout"><strong>先破解你們的 60 萬直覺。</strong>你們原本估「電線重拉＋浴廁重做 ≈ 60 萬」——這個數字其實抓得不錯（市場行情約 52 萬，見下表），但<u>估價單裡的「水電 31 萬＋泥作雙衛 27 萬＝58 萬」不能直接對應你們心裡那筆帳</u>，因為它把<strong>全室磁磚、地面整平、全室燈具、開關插座、弱電、乾濕分離</strong>全綁進去了。要嘛你們的心理預算要往上修（因為做的比想像多），要嘛請設計師把「純電線」「純雙衛」單獨拉出來報，才對得起你們那 60 萬的基準。</div>
+
+  <h3>一、各項行情對照：估價單 vs 市場</h3>
+  <table class="mtx"><thead><tr><th>項目</th><th>市場行情（PRO360）</th><th>C0709 報價</th><th>判定</th></tr></thead><tbody>
+    <tr><td>全室水電重拉<br><span class="muted small">含水管，30 坪老屋</span></td><td class="mono">14–24 萬/屋<br>（老屋偏高標）</td><td class="mono">310,000</td><td><span class="judge j-ok">合理</span> 落在區間內，32 年老屋全換偏高標合理</td></tr>
+    <tr><td>進屋大電＋配電箱<br><span class="muted small">含 NFB 漏電斷路器</span></td><td class="mono">大電 3–5 萬<br>配電箱 1.2–1.5 萬</td><td class="mono">含在水電<br>40,000</td><td><span class="judge j-ok">合理</span> 需甲級技術士，別砍</td></tr>
+    <tr><td>弱電（網路/電視）</td><td class="mono">9,000–37,000</td><td class="mono">10,000</td><td><span class="judge j-ok">偏低</span> 便宜，別砍反而要確認有含 Cat6</td></tr>
+    <tr><td>雙衛整間打掉重做<br><span class="muted small">含拆除/防水/貼磚/設備</span></td><td class="mono">20–25 萬/間<br>× 2 ≈ 40–50 萬</td><td class="mono">泥作 270,000<br>＋設備 60,000<br>＋乾濕 40,000<br>≈ 37 萬</td><td><span class="judge j-warn">偏低/需確認</span> 比行情低，要問是否偷工（防水道數、閉水測試）</td></tr>
+    <tr><td>浴室防水</td><td class="mono">2,000–3,000/坪<br>6,000–10,000/間</td><td class="mono">含在泥作</td><td><span class="judge j-hot">必問</span> 要單獨拉出：幾道、閉水測試幾小時</td></tr>
+    <tr><td>拆除清運</td><td class="mono">清運 1–1.5 萬/車<br>（2.5–3.5 噸）</td><td class="mono">160,000<br>（5 車＝10 萬）</td><td><span class="judge j-warn">可議</span> 5 車對 28 坪略多，要求按實計車數</td></tr>
+    <tr><td>油漆（AB 膠披土全屋）</td><td class="mono">乳膠漆 2–3 道 500–1,500/坪<br>AB 膠加項 100–150/坪</td><td class="mono">263,000</td><td><span class="judge j-hot">偏高/需拆解</span> 28 坪牆面約 90 坪，全室 AB 膠灌水疑慮最大</td></tr>
+    <tr><td>天花板（矽酸鈣暗架）</td><td class="mono">暗架 3,500–4,000/坪<br>造型燈溝 6,000+/坪</td><td class="mono">126,000<br>（28 坪 4,500/坪）</td><td><span class="judge j-ok">合理</span> 含窗簾盒，單價正常</td></tr>
+    <tr><td>監造與風險管理費 5%</td><td class="mono">業界 5–10%<br>（或 3,000–5,000/坪）</td><td class="mono">工程款 ×5%</td><td><span class="judge j-ok">偏低合理</span> 不算高，但要問計費基數與服務內容</td></tr>
+  </tbody></table>
+  <p class="small muted">※ 行情數字來自 PRO360 達人網各工項專頁（2024–2026 平台實際報價統計，每頁標更新日）。所有數字仍以現場勘查報價為準，簽約前務必要求師傅到場、規格廠牌保固寫進估價單。</p>
+
+  <h3>二、攻守分工：哪裡殺、哪裡守</h3>
+  <div class="att-def">
+    <div class="att">
+      <h3>🗡️ 議價著重點（看得見的、可替換的）</h3>
+      <ul>
+        <li><strong>油漆 26.3 萬</strong>——最大的水。全室 AB 膠披土＋玻纖網是「牆面很爛才需要」的高規做法。要求設計師<u>標明「哪幾面牆」真的裂到需要 AB 膠</u>，其餘改一般批土＋乳膠漆，這一項有機會省 8–12 萬。</li>
+        <li><strong>拆除清運 5 車＝10 萬</strong>——28 坪不打牆，5 車偏多。改「按實計車數、多退少補」，並問一車幾噸。</li>
+        <li><strong>天花／木作</strong>——木作是全台裝修最大灌水區（佔總價 30–40%）。C 案木作少（只有天花），但未來要加系統櫃時，優先用系統櫃（2,500–6,000/尺）取代木作櫃（5,000–12,000/尺），省一半。</li>
+        <li><strong>建材等級</strong>——磁磚、超耐磨地板、衛浴設備「型號另選」的，堅持看型號報價單，用中價位國產取代進口。</li>
+        <li><strong>「式」計價全部要求改「實作實算」</strong>——按實際數量×單價，驗收按實丈量結算。</li>
+      </ul>
+    </div>
+    <div class="def">
+      <h3>🛡️ 底線緊守（藏在牆裡的、關安全的）</h3>
+      <ul>
+        <li><strong>防水工程</strong>——浴室 10 大地雷之首就是「沒做全室防水」。省了必後患（壁癌、漏水），事後補要打掉重做。<u>要求全室防水、閉水測試 24–48 小時</u>（不是 3–5 分鐘）。</li>
+        <li><strong>水電管線</strong>——隱蔽在牆內，32 年老屋一定要全換，事後重做要打牆。這 31 萬別砍，反而要確認線材規格（電線品牌、迴路數、220V 專迴、接地、漏電斷路器）。</li>
+        <li><strong>配電箱＋大電</strong>——30 坪要 75–100 安培才夠。這關跳電與電火安全，用甲級技術士，不能省。</li>
+        <li><strong>泥作防水回填</strong>——廁所回填、粗胚、防水、貼磚是連動工序，偷一道日後整間漏。</li>
+        <li><strong>弱電</strong>——現在便宜（1 萬），趁牆打開一次做好 Cat6，日後補線要拆牆。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>三、「各家報價不一樣」怎麼拿捏？（回應設計師朋友的提醒）</h3>
+  <div class="callout green"><strong>你朋友說得對——價格差主要不是「誰黑心」，是「等級」與「利潤成數」不同。</strong>台灣中古屋翻新每坪行情分四級：<span class="pill">陽春 2–4 萬/坪</span><span class="pill">中階 4–6 萬/坪</span><span class="pill">高階 7–10 萬/坪</span><span class="pill">豪宅 10 萬以上</span>。差在<strong>建材等級（塑膠地板 vs 進口實木）、工法（系統櫃 vs 客製封頂木作）、工班素質、設計含量</strong>。設計師發包給工班會抓總工程款 <strong>10–30%</strong> 的管理利潤，豪宅案因材料貴、客製多，利潤成數與絕對金額都更高。</div>
+  <ul class="checklist">
+    <li><strong>先定位自己要哪一級。</strong>你們是 2,090 萬買的 32 年中古屋、不打牆、保 3 房 2 廳，走「中階 4–6 萬/坪」最務實。A/B 案 8.3–8.5 萬/坪已到「高階」價位，但用的又是「式」「型號另選」的模糊報法——<u>付高階的錢、拿不到高階的規格透明度</u>，這才是 A/B 的真問題。</li>
+    <li><strong>同一級才有可比性。</strong>要 3 家報價比價時，先跟每一家講死同一份「材料等級規格書」（磁磚國產/進口、地板超耐磨/塑膠、衛浴設備價位帶、櫃體系統/木作），否則甲家報平價、乙家報豪宅，數字沒有可比性。</li>
+    <li><strong>利潤合理，藏利潤不合理。</strong>設計師賺 10–30% 管理財是正當的（他扛監工、協調、抓進度、扛風險）。你要防的不是「他有利潤」，是「利潤藏在看不到的『一式』裡讓你無法判斷」。把每一項拆到有單價、有數量、有型號，利潤自然透明，該給的服務費照給。</li>
+  </ul>
+
+  <h3>四、跟設計師溝通的話術（不傷關係版）</h3>
+  <div class="tmpl"><span class="lbl">複製貼上 · 要求透明報價</span>
+    <p><span class="q">「</span>設計師你好，這份估價單我們很想採用，但家人討論時希望能更看懂每一筆錢。可以麻煩你把寫『<strong>一式</strong>』的項目，拆成<strong>數量、單價、建材品牌型號</strong>嗎？像水電我想知道幾個迴路、幾個插座、電線品牌；泥作雙衛想知道防水做幾道、閉水測試幾小時。我們不是要砍價，是想把每一塊錢對應到設計圖，這樣驗收也比較清楚。<span class="q">」</span></p>
+  </div>
+  <div class="tmpl"><span class="lbl">複製貼上 · 針對可議項</span>
+    <p><span class="q">「</span>油漆這塊是全室 AB 膠披土，我查了資料 AB 膠通常是牆面已經龜裂才需要。可以幫我們<strong>標出哪幾面牆真的需要 AB 膠＋玻纖網</strong>，其他狀況好的牆改一般批土＋乳膠漆嗎？想抓一個分級的版本比較。另外拆除清運 5 車，能不能改<strong>按實際車數計、多退少補</strong>？<span class="q">」</span></p>
+  </div>
+  <div class="tmpl"><span class="lbl">複製貼上 · 守住隱蔽工程</span>
+    <p><span class="q">「</span>防水和水電這兩塊我們<strong>不想省</strong>，請用好一點的做法——防水要全室、閉水測試做滿 24 小時；水電請全室換線、配電箱到 100 安培、雙衛各留專迴。這部分該多少就多少，我們要的是十年不出問題。<span class="q">」</span></p>
+  </div>
+  <p class="small muted">💡 訣竅：<strong>先給信任、再要透明、最後才議價</strong>。開場肯定他的設計、明說「不是要砍價是要看懂」、主動說隱蔽工程不省——這三招會讓設計師覺得你是懂行又好合作的業主，反而更願意給你實在的價格；一上來就砍反而讓他把利潤藏更深。</p>
+
+  <div class="callout"><strong>簽約自保 3 條（PRO360 + 住保會建議）：</strong>① 老屋預留總預算 <strong>10–15% 追加款</strong>，合約載明「追加需書面同意並列於報價單、未施作須退款」；② <strong>分期付款</strong>綁驗收階段（頭款/水電後/木作後/完工），你這份是 30/40/20/10 的四期，算合理；③ 簽<strong>紙本合約</strong>附工項、建材型號、完工日、驗收方式，糾紛可找「台灣住宅品質消費者保護協會（住保會）」調解。</div>
+
+  <div class="srcbox">
+    <strong>資料來源（PRO360 達人網，2024–2026 平台實際報價統計，均標更新日）：</strong><br>
+    · 老屋電線重拉 <a href="https://www.pro360.com.tw/price/electrician" target="_blank" rel="noopener">pro360.com.tw/price/electrician</a>（2025/07/10）<br>
+    · 水電管線重拉 <a href="https://www.pro360.com.tw/price/pipes_wire_install" target="_blank" rel="noopener">/price/pipes_wire_install</a>（2025/06/18）<br>
+    · 浴室裝潢費用 <a href="https://www.pro360.com.tw/price/bathroom_decorating" target="_blank" rel="noopener">/price/bathroom_decorating</a>（2025/06/27）<br>
+    · 防水工程費用 <a href="https://www.pro360.com.tw/price/waterproofing" target="_blank" rel="noopener">/price/waterproofing</a>（2025/09/24）<br>
+    · 拆除工程費用 <a href="https://www.pro360.com.tw/price/demolition_clearance" target="_blank" rel="noopener">/price/demolition_clearance</a>（2025/06/20）<br>
+    · 貼磁磚/泥作 <a href="https://www.pro360.com.tw/price/tile_installation" target="_blank" rel="noopener">/price/tile_installation</a>（2025/06/17）<br>
+    · 油漆工程 <a href="https://www.pro360.com.tw/price/wall_painting" target="_blank" rel="noopener">/price/wall_painting</a>（2025/09/30）<br>
+    · 輕鋼架天花 <a href="https://www.pro360.com.tw/price/light_steel_frame" target="_blank" rel="noopener">/price/light_steel_frame</a><br>
+    · 設計費/監造費 <a href="https://www.pro360.com.tw/price/interior_designer" target="_blank" rel="noopener">/price/interior_designer</a>、裝潢預算 <a href="https://www.pro360.com.tw/guide/decorating_price" target="_blank" rel="noopener">/guide/decorating_price</a><br>
+    <span style="color:#b45309">※ 受查證環境限制，本次以 PRO360 單一平台多分頁互相印證；監造費%區間為業界通則。建議再向 2–3 家設計師實際詢價交叉比對。</span>
+  </div>
 </section>
 
 <section class="card">
