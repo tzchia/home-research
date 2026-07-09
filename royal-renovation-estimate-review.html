@@ -120,9 +120,46 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 .lightbox-hint{position:fixed;left:18px;bottom:14px;color:white;background:rgba(0,0,0,.35);border-radius:999px;padding:8px 12px;font-size:13px;}
 @media print{.lightbox-overlay{display:none!important}}
 
+
+/* 閱讀進度條 + 側邊導覽 */
+.read-progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:300;background:rgba(15,118,110,.12)}
+.read-progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#14b8a6,#0f766e,#8b5e34);box-shadow:0 0 8px rgba(15,118,110,.45);transition:width .08s linear}
+.read-pct{position:fixed;top:10px;right:12px;z-index:301;font-size:11px;font-weight:700;letter-spacing:.5px;color:#0f766e;background:rgba(255,255,255,.9);border:1px solid #99f6e4;border-radius:999px;padding:2px 9px;font-family:"JetBrains Mono",ui-monospace,monospace;user-select:none}
+.sidedock{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:120;display:none;flex-direction:column;gap:1px;background:rgba(255,253,248,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:12px 10px;box-shadow:0 12px 30px rgba(15,118,110,.15);max-height:88vh;overflow:auto;scrollbar-width:thin}
+.sidedock::-webkit-scrollbar{width:5px}.sidedock::-webkit-scrollbar-thumb{background:#b6d9e0;border-radius:999px}
+.sidedock .sd-head{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:.08em;padding:0 8px 6px;text-transform:uppercase}
+.sidedock .sd-prog{height:4px;background:rgba(15,118,110,.12);border-radius:999px;overflow:hidden;margin:0 6px 8px}
+.sidedock .sd-prog>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#14b8a6,#0f766e);border-radius:999px;transition:width .08s linear}
+.sidedock a{display:flex;align-items:center;gap:9px;padding:5px 10px;border-radius:10px;font-size:12.5px;font-weight:700;color:var(--muted);border:0;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
+.sidedock a .sd-dot{width:8px;height:8px;border-radius:999px;background:#cfe6df;flex:0 0 auto;transition:background .15s,box-shadow .15s}
+.sidedock a:hover{background:#ecfdf5;color:var(--ink)}
+.sidedock a:hover .sd-dot{background:#14b8a6}
+.sidedock a.active{background:#0f766e;color:#fff}
+.sidedock a.active .sd-dot{background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+@media(min-width:1400px){.sidedock{display:flex}}
+@media print{.read-progress,.read-pct,.sidedock{display:none!important}}
 </style>
 </head>
-<body><main class="wrap">
+<body>
+<div class="read-progress"><i id="rpFill"></i></div>
+<div class="read-pct" id="rpPct">0%</div>
+<nav class="sidedock" id="sidedock" aria-label="頁面導覽">
+  <div class="sd-head">本頁導覽</div>
+  <div class="sd-prog"><i id="sideFill"></i></div>
+  <a href="#concl"><span class="sd-dot"></span>一句話結論</a>
+  <a href="#price"><span class="sd-dot"></span>總價比較</a>
+  <a href="#items"><span class="sd-dot"></span>分項差異</a>
+  <a href="#design"><span class="sd-dot"></span>圖面核對</a>
+  <a href="#reason"><span class="sd-dot"></span>合理性判斷</a>
+  <a href="#options"><span class="sd-dot"></span>建議選項</a>
+  <a href="#questions"><span class="sd-dot"></span>12 個問題</a>
+  <a href="#negotiate"><span class="sd-dot"></span>💰 議價作戰指南</a>
+  <a href="#compare"><span class="sd-dot"></span>🔍 兩師傅對比</a>
+  <a href="#sheet"><span class="sd-dot"></span>🖨️ 現場確認表</a>
+  <a href="#sourcespdf"><span class="sd-dot"></span>估價原稿</a>
+  <a href="#refs"><span class="sd-dot"></span>資料來源</a>
+</nav>
+<main class="wrap">
 <header class="card">
   <div class="kicker">皇家名門｜估價單 A / B / C0708 / C0709 四版本 + 現況/設計平面圖 + home-research 決策原則整理</div>
   <h1>裝修估價與設計比較討論頁</h1>
@@ -145,19 +182,19 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 </section>
 
 <section class="card" style="margin-top:16px">
-  <h2>一句話結論</h2>
+  <h2 id="concl">一句話結論</h2>
   <div class="callout red"><strong>A/B 不建議直接簽。</strong>不是單價全部離譜，而是「式」太多、型號另選、依照追加減，且 A/B 已到 231~237 萬，遠高於 repo 中原先 150 萬工程預算思路。若要走 A/B，必須先把規格、數量、圖面對應、追加規則補齊。</div>
   <div class="callout green" style="margin-top:10px"><strong>C 有兩個版本，設計師 7/8→7/9 改了一次。</strong><br><strong>C0708（7/8）</strong>＝陽春先住版：117.3 萬、4.2 萬/坪，最省，但<u>沒有泥作、沒有雙衛防水</u>，浴室等於沿用不動。<br><strong>C0709（7/9）</strong>＝準完整版：161.4 萬、5.8 萬/坪，補回拆除清運（16 萬）與泥作/雙衛防水（27 萬），<u>首度超過 150 萬預算約 11.4 萬</u>。兩版都仍缺系統櫃、廚具、玻璃、鐵件。關鍵抉擇：<strong>浴室要不要現在一起翻新</strong>——要，就 C0709；先沿用、日後再說，就 C0708。</div>
 </section>
 
 <section class="card">
-  <h2>總價比較</h2>
+  <h2 id="price">總價比較</h2>
   <table><thead><tr><th>方案</th><th>工程小計</th><th>監造與風險管理 5%</th><th>發票稅 5%</th><th>總計</th><th>約當萬/坪</th><th>相對 150 萬預算</th></tr></thead><tbody><tr><th>方案 A</th><td>NT$ 2,100,000</td><td>NT$ 105,000</td><td>NT$ 110,250</td><td><strong>NT$ 2,315,250</strong></td><td>8.3 萬/坪</td><td class="bad">NT$ 815,250</td></tr><tr><th>方案 B</th><td>NT$ 2,150,000</td><td>NT$ 107,500</td><td>NT$ 112,875</td><td><strong>NT$ 2,370,375</strong></td><td>8.5 萬/坪</td><td class="bad">NT$ 870,375</td></tr><tr><th>方案 C0708（7/8）</th><td>NT$ 1,064,000</td><td>NT$ 53,200</td><td>NT$ 55,860</td><td><strong>NT$ 1,173,060</strong></td><td>4.2 萬/坪</td><td class="ok">NT$ -326,940</td></tr><tr style="background:#f0fdfa"><th>方案 C0709（7/9）</th><td>NT$ 1,464,000</td><td>NT$ 73,200</td><td>NT$ 76,860</td><td><strong>NT$ 1,614,060</strong></td><td>5.8 萬/坪</td><td class="warn">NT$ +114,060</td></tr></tbody></table>
   <p class="small muted">解讀：A/B 若把冷氣也算進工程，約 8.3~8.5 萬/坪；C 新版補回泥作後約 5.8 萬/坪，範圍已接近可入住。repo 的裝潢頁把 150 萬/28 坪視為約 5.4 萬/坪、舒適中階——C 新版 5.8 萬/坪已略高於此基準且仍未含系統櫃/廚具，議價空間應優先放在拆除清運（5 車垃圾車 10 萬）與油漆（26.3 萬）兩塊。冷氣、活動家具家電仍應獨立編列。</p>
 </section>
 
 <section class="card">
-  <h2>分項差異：錢花在哪裡</h2>
+  <h2 id="items">分項差異：錢花在哪裡</h2>
   <table><thead><tr><th>項目</th><th>方案 A</th><th>方案 B</th><th>C0708</th><th>C0709</th></tr></thead><tbody><tr><th>保護/拆除/清運</th><td>NT$ 200,000<div class="bar"><span style="width:31.2%"></span></div></td><td>NT$ 230,000<div class="bar"><span style="width:35.8%"></span></div></td><td>NT$ 30,000<div class="bar"><span style="width:4.7%"></span></div></td><td>NT$ 160,000<div class="bar"><span style="width:24.9%"></span></div></td></tr><tr><th>水電</th><td>NT$ 310,000<div class="bar"><span style="width:48.3%"></span></div></td><td>NT$ 310,000<div class="bar"><span style="width:48.3%"></span></div></td><td>NT$ 310,000<div class="bar"><span style="width:48.3%"></span></div></td><td>NT$ 310,000<div class="bar"><span style="width:48.3%"></span></div></td></tr><tr><th>泥作/雙衛</th><td>NT$ 350,000<div class="bar"><span style="width:54.5%"></span></div></td><td>NT$ 410,000<div class="bar"><span style="width:63.9%"></span></div></td><td>NT$ 0<div class="bar"><span style="width:0.0%"></span></div></td><td>NT$ 270,000<div class="bar"><span style="width:42.1%"></span></div></td></tr><tr><th>天花/系統櫃/房門</th><td>NT$ 642,000<div class="bar"><span style="width:100.0%"></span></div></td><td>NT$ 602,000<div class="bar"><span style="width:93.8%"></span></div></td><td>NT$ 126,000<div class="bar"><span style="width:19.6%"></span></div></td><td>NT$ 126,000<div class="bar"><span style="width:19.6%"></span></div></td></tr><tr><th>油漆</th><td>NT$ 263,000<div class="bar"><span style="width:41.0%"></span></div></td><td>NT$ 263,000<div class="bar"><span style="width:41.0%"></span></div></td><td>NT$ 263,000<div class="bar"><span style="width:41.0%"></span></div></td><td>NT$ 263,000<div class="bar"><span style="width:41.0%"></span></div></td></tr><tr><th>空調</th><td>NT$ 200,000<div class="bar"><span style="width:31.2%"></span></div></td><td>NT$ 200,000<div class="bar"><span style="width:31.2%"></span></div></td><td>NT$ 200,000<div class="bar"><span style="width:31.2%"></span></div></td><td>NT$ 200,000<div class="bar"><span style="width:31.2%"></span></div></td></tr><tr><th>門/通風門</th><td>NT$ 30,000<div class="bar"><span style="width:4.7%"></span></div></td><td>NT$ 30,000<div class="bar"><span style="width:4.7%"></span></div></td><td>NT$ 30,000<div class="bar"><span style="width:4.7%"></span></div></td><td>NT$ 30,000<div class="bar"><span style="width:4.7%"></span></div></td></tr><tr><th>地板/粗清</th><td>NT$ 105,000<div class="bar"><span style="width:16.4%"></span></div></td><td>NT$ 105,000<div class="bar"><span style="width:16.4%"></span></div></td><td>NT$ 105,000<div class="bar"><span style="width:16.4%"></span></div></td><td>NT$ 105,000<div class="bar"><span style="width:16.4%"></span></div></td></tr></tbody></table>
   <h3>關鍵差異</h3>
   <ul class="checklist">
@@ -170,7 +207,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 
 <section class="grid g2">
   <div class="card">
-    <h2>設計/圖面核對</h2>
+    <h2 id="design">設計/圖面核對</h2>
     <ul class="checklist">
       <li><strong>現況圖：</strong>已標出 3 房、雙衛、廚房、前後陽台與主要尺寸，可作估價基準。</li>
       <li><strong>設計圖：</strong>檔案中有「設計平面圖 A / B」，但頁首文字顯示其他案名/地址，必須請設計師確認是否為正確版本或模板未改。</li>
@@ -179,7 +216,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
     </ul>
   </div>
   <div class="card">
-    <h2>合理性判斷</h2>
+    <h2 id="reason">合理性判斷</h2>
     <p><span class="pill">合理</span> 水電 310,000 對 32 年中古屋、全室管線更新 + 弱電 + 雙衛設備 + 燈具，方向合理，但要拆點位與線材規格。</p>
     <p><span class="pill">偏高/需拆解</span> 油漆 263,000 用「AB 膠披土全屋」邏輯，若牆面狀況很差可能合理；若只是一般批土水泥漆，需重新議價。</p>
     <p><span class="pill">高風險</span> A/B 泥作與系統櫃大量用「式」「型號另選」「依最後追加減」，容易施工中變成追加。</p>
@@ -188,7 +225,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 </section>
 
 <section class="card">
-  <h2>依 repo 原則重排的建議選項</h2>
+  <h2 id="options">依 repo 原則重排的建議選項</h2>
   <table><thead><tr><th>家人可討論的選項</th><th>內容</th><th>預算與風險</th><th>我的建議</th></tr></thead><tbody>
     <tr><th>先住版</th><td>即 C0708：水電、必要天花、油漆、冷氣、地板、門與粗清，浴室/廚房沿用不動。</td><td>約 117 萬，浴室/廚房/收納延後處理。</td><td>若現況浴室可接受、廚房不急著全換，這是最省、最符合「不可逆先做」的版本。</td></tr>
     <tr><th>做中版</th><td>即 C0709（已含泥作＋雙衛防水 161 萬）+ 必要系統櫃 + 廚具。</td><td>C0709 已 161 萬；再加系統櫃/廚具後合理目標約 190~210 萬。</td><td><strong>C0709 本身就落在做中版起點。</strong>最值得請設計師把系統櫃/廚具獨立報價後再決定加不加。</td></tr>
@@ -197,7 +234,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 </section>
 
 <section class="card">
-  <h2>請設計師/工班補充的 12 個問題</h2>
+  <h2 id="questions">請設計師/工班補充的 12 個問題</h2>
   <ol class="checklist">
     <li>每一項「式」的明細是什麼？請拆成點位、米數、尺數、品牌、型號、數量。</li>
     <li>水電 310,000 是否含全室換線、配電箱、接地、漏電斷路器、Cat6 網路、220V 專迴？各幾迴？</li>
@@ -216,7 +253,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 
 <section class="card" style="border-top:4px solid var(--accent)">
   <div class="kicker">增補 · 2026/07/09 · 業界行情實查（來源：PRO360 達人網 2024–2026 平台報價統計）</div>
-  <h2>💰 議價作戰指南：行情、攻守點、溝通話術</h2>
+  <h2 id="negotiate">💰 議價作戰指南：行情、攻守點、溝通話術</h2>
 
   <div class="callout"><strong>先破解你們的 60 萬直覺。</strong>你們原本估「電線重拉＋浴廁重做 ≈ 60 萬」——這個數字其實抓得不錯（市場行情約 52 萬，見下表），但<u>估價單裡的「水電 31 萬＋泥作雙衛 27 萬＝58 萬」不能直接對應你們心裡那筆帳</u>，因為它把<strong>全室磁磚、地面整平、全室燈具、開關插座、弱電、乾濕分離</strong>全綁進去了。要嘛你們的心理預算要往上修（因為做的比想像多），要嘛請設計師把「純電線」「純雙衛」單獨拉出來報，才對得起你們那 60 萬的基準。</div>
 
@@ -318,7 +355,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 
 <section class="card" style="border-top:4px solid #8b5e34">
   <div class="kicker">增補 · 2026/07/09 · 跨案場類推分析</div>
-  <h2>🔍 兩位師傅對比：Frank 表哥 vs 胡師傅</h2>
+  <h2 id="compare">🔍 兩位師傅對比：Frank 表哥 vs 胡師傅</h2>
 
   <div class="callout"><strong>重要前提：這是兩個不同案場，只能「類推」不能「直接比價」。</strong>胡師傅報的是<u>妹妹的案場</u>（信義房屋仲介介紹）：權狀 19.66 坪、室內約 <strong>17 坪</strong>、陽台 1.73 坪、<strong>50 年加強磚造</strong>、要<strong>全室隔間拆除＋重隔</strong>、一間廁所重作＋一間新作。曾家皇家名門是 <strong>28 坪、32 年 RC 造、不打牆保留格局</strong>。屋齡、結構、坪數、動不動隔間都不同，所以下面所有比較都要記得「橘子比蘋果，看的是<strong>單價邏輯與報價品質</strong>，不是誰總價低誰就贏」。</div>
 
@@ -405,7 +442,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 
 <section class="card" id="fillsheet" style="border-top:4px solid #8c1f12">
   <div class="no-print" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div><div class="kicker">帶去現場用 · 可列印 A4</div><h2 style="margin:2px 0">🖨️ C0709 現場議價與規格確認表</h2></div>
+    <div><div class="kicker">帶去現場用 · 可列印 A4</div><h2 id="sheet" style="margin:2px 0">🖨️ C0709 現場議價與規格確認表</h2></div>
     <button onclick="window.print()" style="cursor:pointer;background:#8c1f12;color:#fff;border:none;border-radius:8px;padding:9px 15px;font-size:14px;font-weight:700">🖨️ 列印這張表</button>
   </div>
   <p class="small muted no-print">下面這張是「拿在手上、逐格勾填、填完交給設計師」的工具表。按上面的按鈕會<strong>只印這張表</strong>（A4 直式），現場對談時逐條核對。</p>
@@ -497,7 +534,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 </section>
 
 <section class="card">
-  <h2>圖面與估價原稿</h2>
+  <h2 id="sourcespdf">圖面與估價原稿</h2>
   <div class="pdfbar" style="margin-bottom:12px">
     <a class="pdfbtn alt" href="./assets/pdf/floorplan-existing.pdf" target="_blank" rel="noopener"><span class="ic">📐</span>現況平面圖 PDF</a>
     <a class="pdfbtn alt" href="./assets/pdf/design-plan.pdf" target="_blank" rel="noopener"><span class="ic">📐</span>設計平面圖 PDF</a>
@@ -516,7 +553,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 </section>
 
 <section class="card small">
-  <h2>資料來源註記</h2>
+  <h2 id="refs">資料來源註記</h2>
   <p>估價金額整理自你上傳的 A/B/C 估價單；設計資訊整理自現況平面圖、設計平面圖與 home-research。home-research 的核心裝修頁明確採「不打牆、保高、系統櫃為主」策略，室內實際淨面積約 28 坪，原討論預算為 150 萬；插座頁則提醒高功率走專迴、弱電以客廳為中樞；洗烘頁則建議後陽台先預留 220V 專迴與 110V 防潮插座。</p>
   <p class="muted">本頁是家人討論用，不是施工合約；正式簽約前應要求廠商補施工圖、材料表、型號表、點位圖、追加單價表與保固條款。</p>
 </section>
@@ -547,4 +584,46 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 })();
 </script>
 
+<script>
+(function(){
+  var fill=document.getElementById('rpFill');
+  var pctEl=document.getElementById('rpPct');
+  var sideFill=document.getElementById('sideFill');
+  var sidedock=document.getElementById('sidedock');
+  if(!fill) return;
+  var sideLinks=sidedock?Array.prototype.slice.call(sidedock.querySelectorAll('a')):[];
+  var sections=sideLinks.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var doc=document.documentElement;
+    var max=doc.scrollHeight-doc.clientHeight;
+    var pct=max>0?(doc.scrollTop/max)*100:0;
+    pct=Math.min(100,Math.max(0,pct));
+    fill.style.width=pct+'%';
+    if(pctEl) pctEl.textContent=Math.round(pct)+'%';
+    if(sideFill) sideFill.style.width=pct+'%';
+    var line=90, idx=-1;
+    for(var i=0;i<sections.length;i++){
+      var s=sections[i]; if(!s) continue;
+      if(s.getBoundingClientRect().top<=line) idx=i;
+    }
+    if(doc.scrollTop+doc.clientHeight>=doc.scrollHeight-4) idx=sideLinks.length-1;
+    sideLinks.forEach(function(a,i){
+      if(i===idx){
+        if(!a.classList.contains('active')){
+          a.classList.add('active');
+          var ar=a.getBoundingClientRect(), dr=sidedock.getBoundingClientRect();
+          if(ar.top<dr.top||ar.bottom>dr.bottom){ a.scrollIntoView({block:'nearest'}); }
+        }
+      } else a.classList.remove('active');
+    });
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update);} }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  sideLinks.forEach(function(a){a.addEventListener('click',function(){setTimeout(update,400);});});
+  update();
+})();
+</script>
 </body></html>
