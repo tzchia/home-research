@@ -41,6 +41,18 @@ figure{margin:0} img{max-width:100%;height:auto;border:1px solid var(--line);bor
 @media(max-width:760px){.att-def{grid-template-columns:1fr}}
 @media print{.tmpl{background:#fff;color:#000;border:1px solid #000}.tmpl .q{color:#000;font-weight:700}}
 
+/* 兩師傅對比 */
+.vs2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.vscard{border-radius:12px;padding:14px}
+.vscard.frank{background:#eef7f5;border:1px solid #99f6e4}
+.vscard.hu{background:#fef6ee;border:1px solid #fdba74}
+.vscard h3{margin:0 0 4px;font-size:17px}
+.vscard .who{font-size:12px;color:var(--muted);margin-bottom:8px}
+.vscard .row{display:flex;justify-content:space-between;font-size:13px;padding:3px 0;border-bottom:1px dashed var(--line)}
+.vscard .row b{font-variant-numeric:tabular-nums}
+.plus{color:#047857;font-weight:600}.minus{color:#b91c1c;font-weight:600}
+.vscard ul{margin:6px 0 0;padding-left:16px;font-size:12.5px}.vscard li{margin:4px 0}
+@media(max-width:760px){.vs2{grid-template-columns:1fr}}
 /* 現場議價確認表（可列印 A4） */
 .fillsheet{background:#fff;border:1.5px solid var(--ink,#172033);border-radius:12px;padding:18px 20px;margin-top:12px}
 .fillsheet .fs-head{border-bottom:2px solid #172033;padding-bottom:8px;margin-bottom:10px}
@@ -302,6 +314,93 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
     · 設計費/監造費 <a href="https://www.pro360.com.tw/price/interior_designer" target="_blank" rel="noopener">/price/interior_designer</a>、裝潢預算 <a href="https://www.pro360.com.tw/guide/decorating_price" target="_blank" rel="noopener">/guide/decorating_price</a><br>
     <span style="color:#b45309">※ 受查證環境限制，本次以 PRO360 單一平台多分頁互相印證；監造費%區間為業界通則。建議再向 2–3 家設計師實際詢價交叉比對。</span>
   </div>
+</section>
+
+<section class="card" style="border-top:4px solid #8b5e34">
+  <div class="kicker">增補 · 2026/07/09 · 跨案場類推分析</div>
+  <h2>🔍 兩位師傅對比：Frank 表哥 vs 胡師傅</h2>
+
+  <div class="callout"><strong>重要前提：這是兩個不同案場，只能「類推」不能「直接比價」。</strong>胡師傅報的是<u>妹妹的案場</u>（信義房屋仲介介紹）：權狀 19.66 坪、室內約 <strong>17 坪</strong>、陽台 1.73 坪、<strong>50 年加強磚造</strong>、要<strong>全室隔間拆除＋重隔</strong>、一間廁所重作＋一間新作。曾家皇家名門是 <strong>28 坪、32 年 RC 造、不打牆保留格局</strong>。屋齡、結構、坪數、動不動隔間都不同，所以下面所有比較都要記得「橘子比蘋果，看的是<strong>單價邏輯與報價品質</strong>，不是誰總價低誰就贏」。</div>
+
+  <div class="vs2">
+    <div class="vscard frank">
+      <h3>Frank 表哥（C0709）</h3>
+      <div class="who">皇家名門 · 28 坪 · 32 年 RC · 不打牆 · 信義房屋仲介介紹</div>
+      <div class="row"><span>開發票總計</span><b>161.4 萬</b></div>
+      <div class="row"><span>工程小計</span><b>146.4 萬</b></div>
+      <div class="row"><span>每坪（含冷氣）</span><b>5.8 萬/坪</b></div>
+      <div class="row"><span>每坪（拉掉冷氣 20 萬）</span><b>約 4.5 萬/坪</b></div>
+      <ul>
+        <li>✅ 有監造 5%＋開發票（稅 5%）＝有紙本、有監工服務</li>
+        <li>✅ <strong>含冷氣 20 萬</strong>（設計師統包）</li>
+        <li>✅ 地板用<strong>超耐磨木地板</strong>（較高階）</li>
+        <li>❌ 大量「式／型號另選／依最後追加減」＝模糊</li>
+        <li>❌ 廚具 0（未報）、冷熱排水只 1 萬（偏低疑藏簡）</li>
+      </ul>
+    </div>
+    <div class="vscard hu">
+      <h3>胡師傅（妹妹案場）</h3>
+      <div class="who">妹妹家 · 17 坪 · 50 年加強磚造 · 全室打隔間重做 · 信義房屋仲介介紹</div>
+      <div class="row"><span>逐項加總</span><b>108.1 萬</b></div>
+      <div class="row"><span>他手寫「圖跟寫」</span><b class="minus">98 萬（差 10 萬待問）</b></div>
+      <div class="row"><span>每坪（逐項加總）</span><b>6.4 萬/坪</b></div>
+      <div class="row"><span>每坪（拉掉打隔間 8 萬）</span><b>約 4.7 萬/坪</b></div>
+      <ul>
+        <li>✅ <strong>報價顆粒度極細</strong>（每項有數量 ×2 ×3 ×10 ＋單價）</li>
+        <li>✅ <strong>含廚具 13 萬、含後陽台外窗＋三合一門 8 萬、含加壓馬達</strong></li>
+        <li>✅ 誠實說「沒冷氣、沒家電，網路買最便宜」＝幫屋主省錢</li>
+        <li>❌ LINE 手打、<strong>沒開發票、沒監造</strong>（工班直發模式）</li>
+        <li>❌ 沒列配電箱、弱電 Cat6、廁所回填粗胚（50 年磚造關鍵缺項）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>一、每坪單價正規化（拉掉不可比項後，其實很接近）</h3>
+  <div class="callout green"><strong>把兩邊都拉到「可比基準」後：Frank ≈ 4.5 萬/坪（不打牆）、胡師傅 ≈ 4.7 萬/坪（含打隔間）。</strong>兩位都落在<strong>「中階偏克制」4.5–4.7 萬/坪</strong>的同一級距——這反過來證明 <u>Frank 的 C0709 單價本身不算離譜</u>，問題不在「單價太貴」，而在「式」的模糊、油漆全室 AB 膠、以及冷氣要不要讓他統包。胡師傅便宜的觀感，很大一部分是<strong>坪數小（17 vs 28）＋不含冷氣＋用塑膠地板＋沒開發票（省 5% 稅）</strong>，不是真的每坪便宜一截。</div>
+
+  <h3>二、逐工項對照（同項目誰的單價邏輯較實在）</h3>
+  <table class="mtx"><thead><tr><th>工項</th><th>Frank C0709（28 坪）</th><th>胡師傅（17 坪）</th><th>類推判讀</th></tr></thead><tbody>
+    <tr><td><strong>拆除清運</strong></td><td class="mono">160,000<br><span class="muted small">雙衛見底＋隔間＋5 車＋電梯保護</span></td><td class="mono">125,000<br><span class="muted small">全室隔間＋全室天花＋全室固定櫃＋外窗</span></td><td>胡拆得更多卻更便宜，因坪數小；但兩邊清運都<span class="judge j-warn">沒明列車數</span>，都要改「按實計車、多退少補」</td></tr>
+    <tr><td><strong>水電</strong></td><td class="mono">310,000<br><span class="muted small">含配電箱4萬、弱電1萬、燈具3萬、雙衛設備6萬</span></td><td class="mono">261,080<br><span class="muted small">線路6.5萬、給排水9.5萬、設備3.5萬、加壓馬達1萬</span></td><td>胡的<strong>給排水 9.5 萬</strong>比 Frank 的 1 萬完整（含廚房陽台）→ 反證 Frank 冷熱排水偏低；但胡<span class="judge j-hot">沒列配電箱／漏電斷路器／弱電 Cat6</span>，50 年磚造這是硬傷，必問</td></tr>
+    <tr><td><strong>泥作</strong></td><td class="mono">270,000<br><span class="muted small">磁磚8萬＋整平3萬＋雙衛整包14萬＋門框2萬</span></td><td class="mono">268,000<br><span class="muted small">新增隔間7.8萬＋雙衛貼磚防水約12萬＋陽台等</span></td><td>胡多了<strong>全室打隔間重隔 7.8 萬</strong>（Frank 不打牆＝0）；但胡防水<span class="judge j-hot">兩間才 1.4 萬（7 千/間偏低）</span>、且沒明列廁所回填粗胚，磚造老屋這層不能省</td></tr>
+    <tr><td><strong>油漆</strong></td><td class="mono">263,000<br><span class="muted small">全室 AB 膠披土（9,400/坪）</span></td><td class="mono">110,000<br><span class="muted small">未註做法（6,470/坪）</span></td><td class="mono"><span class="judge j-warn">關鍵佐證</span> 胡便宜近一半 → <strong>證實 Frank 油漆 26.3 萬確實偏貴</strong>，全室 AB 膠是可議點；但也要問胡是不是只做一般批土（磚造牆易裂，接縫仍需 AB 膠）</td></tr>
+    <tr><td><strong>天花</strong></td><td class="mono">126,000<br><span class="muted small">全室矽酸鈣暗架＋窗簾盒</span></td><td class="mono">僅浴室 16,000<br><span class="muted small">客廳臥室不做全室天花</span></td><td>Frank 做全室天花、胡幾乎不做（省下這 12 萬）→ 這是<strong>兩邊總價差的主因之一</strong>，屬「要不要做」的取捨，不是誰灌水</td></tr>
+    <tr><td><strong>地板</strong></td><td class="mono">75,000<br><span class="muted small">超耐磨木地板 25 坪</span></td><td class="mono">26,000<br><span class="muted small">塑膠地板 17 坪</span></td><td>材質等級差異：Frank 超耐磨（4,000+/坪）vs 胡塑膠地板（1,500/坪）→ 胡走<strong>平價路線</strong>，反映「不同利潤／不同等級」</td></tr>
+    <tr><td><strong>廚具</strong></td><td class="mono"><span class="minus">0（未報）</span></td><td class="mono">130,000<br><span class="muted small">已含</span></td><td>胡<strong>含廚具</strong>是優勢；Frank 要另加 → 比總價時記得幫 Frank 補回這 10–15 萬才公平</td></tr>
+    <tr><td><strong>冷氣</strong></td><td class="mono">200,000<br><span class="muted small">設計師統包 4 台</span></td><td class="mono"><span class="minus">0（叫你網路自購）</span></td><td>胡叫你<strong>自購最省</strong>（一對一分離式網購＋找師傅安裝，通常比統包省 3–5 萬）；Frank 統包省事但貴 → 建議冷氣兩邊都<strong>自行發包</strong></td></tr>
+    <tr><td><strong>鋁窗</strong></td><td class="mono">30,000<br><span class="muted small">廁所門＋通風門，沒換外窗</span></td><td class="mono">80,000<br><span class="muted small">後陽台外窗＋三合一門</span></td><td>胡<strong>有換後陽台外窗</strong>（scope 更完整）；Frank 沒換外窗 → 若曾家外窗也老舊，這筆要補問 Frank</td></tr>
+  </tbody></table>
+
+  <h3>三、專業程度與商業模式判讀</h3>
+  <div class="att-def">
+    <div class="att" style="border-color:#99f6e4;background:#eef7f5">
+      <h3 style="color:#0f766e">Frank 表哥 ＝ 設計師／統包模式</h3>
+      <ul>
+        <li><strong>有：</strong>正式估價單、小計架構、監造 5%、開發票、統包冷氣</li>
+        <li><strong>貴在：</strong>中間管理層（監工、協調、扛風險）＋開發票 5% 稅＋較高階建材</li>
+        <li><strong>風險：</strong>「式」太多把追加風險丟給屋主</li>
+        <li><strong>適合：</strong>沒空盯工、要紙本保固、要一條龍的屋主</li>
+      </ul>
+    </div>
+    <div class="def" style="border-color:#fdba74;background:#fef6ee">
+      <h3 style="color:#b45309">胡師傅 ＝ 工班直發／統包師傅模式</h3>
+      <ul>
+        <li><strong>有：</strong>細到每項數量單價、含廚具鋁窗、實在的省錢態度</li>
+        <li><strong>便宜在：</strong>沒中間層、沒監造、不開發票（省 5% 但無憑證保障）</li>
+        <li><strong>風險：</strong>缺配電箱/弱電/回填等關鍵項＝可能「沒把該做的列進去」，便宜未必真省；無正式圖面與保固架構</li>
+        <li><strong>適合：</strong>自己會看報價、願意盯工、信任師傅的屋主</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout green"><strong>對曾家最有用的三個啟示：</strong>
+  <ol style="margin:8px 0 0;padding-left:20px">
+    <li><strong>胡師傅的細顆粒度報價，就是你們該要求 Frank 做到的「實作實算」範本。</strong>可以直接跟 Frank 說：「同樣仲介介紹的另一位師傅，報價每一項都有數量和單價，能不能也幫我們拆到這個細度？」——用同業標準施壓，比空口喊拆細有力。</li>
+    <li><strong>兩邊每坪 4.5–4.7 萬其實同級，證明 C0709 單價合理。</strong>你們的談判重點不是「總價砍一刀」，而是油漆全室 AB 膠、冷氣統包、天花範圍這幾個「範圍換價格」的點（胡師傅的油漆便宜一半、冷氣叫你自購，正好是佐證）。</li>
+    <li><strong>但別被「便宜」誤導——胡的缺項（配電箱、弱電、廁所回填、防水道數）提醒你：低報價可能是漏列該做的。</strong>無論找誰，都用<u>同一份規格書</u>（下方 A4 確認表）去問，兩邊拉到同一把尺，才知道誰真的划算。50 年加強磚造全室打隔間還要特別做<strong>結構安全評估</strong>（磚牆可能承重），這點胡師傅報價裡完全沒提到，妹妹那邊務必追問。</li>
+  </ol></div>
+
+  <p class="small muted">※ 胡師傅數字讀自 LINE 報價截圖；逐項加總 108.1 萬與他手寫「98 萬」有 10 萬落差，簽約前務必請他確認總價與是否有項目重複／遺漏。跨案場類推僅供理解「單價邏輯與報價品質」，不代表兩案可互換報價。</p>
 </section>
 
 <section class="card" id="fillsheet" style="border-top:4px solid #8c1f12">
