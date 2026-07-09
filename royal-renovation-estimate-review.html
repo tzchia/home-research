@@ -40,6 +40,52 @@ figure{margin:0} img{max-width:100%;height:auto;border:1px solid var(--line);bor
 .mtx td:first-child{font-weight:600}
 @media(max-width:760px){.att-def{grid-template-columns:1fr}}
 @media print{.tmpl{background:#fff;color:#000;border:1px solid #000}.tmpl .q{color:#000;font-weight:700}}
+
+/* 現場議價確認表（可列印 A4） */
+.fillsheet{background:#fff;border:1.5px solid var(--ink,#172033);border-radius:12px;padding:18px 20px;margin-top:12px}
+.fillsheet .fs-head{border-bottom:2px solid #172033;padding-bottom:8px;margin-bottom:10px}
+.fillsheet h3{margin:0;font-size:18px}
+.fillsheet .fs-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.fs-pricebar{display:flex;border:1.5px solid #172033;margin:10px 0}
+.fs-pricebar .c{flex:1;padding:6px 10px;border-right:1px solid var(--line)}
+.fs-pricebar .c:last-child{border-right:none}
+.fs-pricebar .l{font-size:10px;letter-spacing:.1em;color:var(--muted)}
+.fs-pricebar .v{font-size:15px;font-weight:800}
+.fs-pricebar .goal .v{color:#b91c1c}
+.fs-stance{font-size:12px;background:#f6f4f0;padding:7px 10px;border-left:3px solid #172033;margin-bottom:10px}
+.fs-tag{display:inline-block;color:#fff;font-size:11px;font-weight:800;padding:2px 8px;letter-spacing:.1em;margin-right:6px}
+.fs-tag.hold{background:#8c1f12}.fs-tag.nego{background:#1f4e79}.fs-tag.gate{background:#172033}
+.fs-blk{font-weight:800;font-size:14px;margin:14px 0 6px;display:flex;align-items:baseline;gap:8px}
+.fs-blk .note{font-size:11px;font-weight:400;color:var(--muted)}
+.fcard{border:1.5px solid var(--line);border-left:4px solid #8c1f12;margin-bottom:8px;border-radius:6px;overflow:hidden}
+.fcard .fh{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;background:#f6f4f0;padding:5px 10px;border-bottom:1px solid var(--line)}
+.fcard .fh .nm{font-weight:800;font-size:13px}
+.fcard .fh .vd{font-size:10.5px;color:var(--muted)}
+.fcard .fh .am{font-weight:800;font-size:12.5px}
+.fcard .fb{padding:6px 10px}
+.fcard ul{list-style:none;margin:0;padding:0}
+.fcard li{display:flex;gap:7px;align-items:flex-start;padding:3px 0;font-size:12px}
+.ck{flex:none;width:12px;height:12px;border:1.5px solid #172033;margin-top:2px;border-radius:2px}
+.bk{display:inline-block;min-width:54px;border-bottom:1px solid #172033;height:13px}
+.bk.w{min-width:120px}
+.fwhy{font-size:10.5px;color:var(--muted);padding:5px 10px;border-top:1px dashed var(--line)}
+.fwhy b{color:#8c1f12}
+.ftbl{width:100%;border-collapse:collapse;font-size:11.5px;margin:4px 0}
+.ftbl th{background:#172033;color:#fff;padding:5px 7px;text-align:left;font-size:11px}
+.ftbl td{border:1px solid var(--line);padding:6px 7px;vertical-align:top}
+.ftbl .it{font-weight:800}.ftbl .q{color:var(--muted);font-size:10.5px}
+.ftbl .tg{font-weight:900;color:#1f4e79;white-space:nowrap}
+.ftbl .sum td{background:#f6f4f0;font-weight:800}
+.fask{border:1.5px solid #172033;padding:8px 11px;border-radius:6px;margin-top:8px}
+.fask ol{margin:0 0 0 18px;font-size:12px}.fask li{padding:2px 0}
+.fask .tip{font-size:10.5px;color:var(--muted);margin-top:5px}
+@media print{
+  body *{visibility:hidden}
+  #fillsheet, #fillsheet *{visibility:visible}
+  #fillsheet{position:absolute;left:0;top:0;width:100%;border:none;padding:0}
+  .fillsheet{box-shadow:none;border:none}
+}
+
 /* 原始 PDF 按鈕列 */
 .pdfbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .pdfbtn{display:inline-flex;align-items:center;gap:7px;text-decoration:none;background:#0f766e;color:#fff;border-radius:10px;padding:9px 13px;font-size:14px;font-weight:600;border:1px solid #0b5a54;transition:background .15s,transform .1s}
@@ -162,7 +208,20 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
 
   <div class="callout"><strong>先破解你們的 60 萬直覺。</strong>你們原本估「電線重拉＋浴廁重做 ≈ 60 萬」——這個數字其實抓得不錯（市場行情約 52 萬，見下表），但<u>估價單裡的「水電 31 萬＋泥作雙衛 27 萬＝58 萬」不能直接對應你們心裡那筆帳</u>，因為它把<strong>全室磁磚、地面整平、全室燈具、開關插座、弱電、乾濕分離</strong>全綁進去了。要嘛你們的心理預算要往上修（因為做的比想像多），要嘛請設計師把「純電線」「純雙衛」單獨拉出來報，才對得起你們那 60 萬的基準。</div>
 
-  <h3>一、各項行情對照：估價單 vs 市場</h3>
+  <h3>一、把 C0709 拆開：哪些是你們以為的 60 萬？哪些不是？</h3>
+  <table class="mtx"><thead><tr><th>費用層</th><th>項目</th><th>金額</th><th>備註</th></tr></thead><tbody>
+    <tr><td>原本預期核心</td><td>水電全室更新</td><td class="mono">31.0 萬</td><td>需確認迴路/線徑/管徑/點位/弱電/Cat6/220V</td></tr>
+    <tr><td>原本預期核心</td><td>雙衛泥作、防水、貼磚</td><td class="mono">27.0 萬</td><td>雙衛本體合理，但要拆規格</td></tr>
+    <tr style="background:#ecfdf5"><td><strong>核心小計</strong></td><td><strong>水電 ＋ 雙衛泥作</strong></td><td class="mono"><strong>58.0 萬</strong></td><td><strong>「60 萬左右」不是錯，是你們直覺剛好對應核心工程</strong></td></tr>
+    <tr><td>拉高總價</td><td>拆除／清運／保護</td><td class="mono">16.0 萬</td><td>可議價重點</td></tr>
+    <tr><td>拉高總價</td><td>天花板</td><td class="mono">12.6 萬</td><td>保高原則應縮範圍</td></tr>
+    <tr><td>拉高總價</td><td>油漆 AB 膠披土</td><td class="mono">26.3 萬</td><td>最大議價點之一</td></tr>
+    <tr><td>拉高總價</td><td>空調</td><td class="mono">20.0 萬</td><td>可獨立找冷氣行比價</td></tr>
+    <tr><td>拉高總價</td><td>門／地板／粗清</td><td class="mono">13.5 萬</td><td>地板 25 坪×3,000 合理但型號另選</td></tr>
+    <tr><td>總價加成</td><td>監造 5% ＋ 發票稅 5%</td><td class="mono">約 15.0 萬</td><td>可接受，但服務內容要寫清楚</td></tr>
+  </tbody></table>
+
+  <h3>二、各項行情對照：估價單 vs 市場</h3>
   <table class="mtx"><thead><tr><th>項目</th><th>市場行情（PRO360）</th><th>C0709 報價</th><th>判定</th></tr></thead><tbody>
     <tr><td>全室水電重拉<br><span class="muted small">含水管，30 坪老屋</span></td><td class="mono">14–24 萬/屋<br>（老屋偏高標）</td><td class="mono">310,000</td><td><span class="judge j-ok">合理</span> 落在區間內，32 年老屋全換偏高標合理</td></tr>
     <tr><td>進屋大電＋配電箱<br><span class="muted small">含 NFB 漏電斷路器</span></td><td class="mono">大電 3–5 萬<br>配電箱 1.2–1.5 萬</td><td class="mono">含在水電<br>40,000</td><td><span class="judge j-ok">合理</span> 需甲級技術士，別砍</td></tr>
@@ -176,7 +235,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
   </tbody></table>
   <p class="small muted">※ 行情數字來自 PRO360 達人網各工項專頁（2024–2026 平台實際報價統計，每頁標更新日）。所有數字仍以現場勘查報價為準，簽約前務必要求師傅到場、規格廠牌保固寫進估價單。</p>
 
-  <h3>二、攻守分工：哪裡殺、哪裡守</h3>
+  <h3>三、攻守分工：哪裡殺、哪裡守</h3>
   <div class="att-def">
     <div class="att">
       <h3>🗡️ 議價著重點（看得見的、可替換的）</h3>
@@ -200,7 +259,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
     </div>
   </div>
 
-  <h3>三、「各家報價不一樣」怎麼拿捏？（回應設計師朋友的提醒）</h3>
+  <h3>四、「各家報價不一樣」怎麼拿捏？（回應設計師朋友的提醒）</h3>
   <div class="callout green"><strong>你朋友說得對——價格差主要不是「誰黑心」，是「等級」與「利潤成數」不同。</strong>台灣中古屋翻新每坪行情分四級：<span class="pill">陽春 2–4 萬/坪</span><span class="pill">中階 4–6 萬/坪</span><span class="pill">高階 7–10 萬/坪</span><span class="pill">豪宅 10 萬以上</span>。差在<strong>建材等級（塑膠地板 vs 進口實木）、工法（系統櫃 vs 客製封頂木作）、工班素質、設計含量</strong>。設計師發包給工班會抓總工程款 <strong>10–30%</strong> 的管理利潤，豪宅案因材料貴、客製多，利潤成數與絕對金額都更高。</div>
   <ul class="checklist">
     <li><strong>先定位自己要哪一級。</strong>你們是 2,090 萬買的 32 年中古屋、不打牆、保 3 房 2 廳，走「中階 4–6 萬/坪」最務實。A/B 案 8.3–8.5 萬/坪已到「高階」價位，但用的又是「式」「型號另選」的模糊報法——<u>付高階的錢、拿不到高階的規格透明度</u>，這才是 A/B 的真問題。</li>
@@ -208,7 +267,7 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
     <li><strong>利潤合理，藏利潤不合理。</strong>設計師賺 10–30% 管理財是正當的（他扛監工、協調、抓進度、扛風險）。你要防的不是「他有利潤」，是「利潤藏在看不到的『一式』裡讓你無法判斷」。把每一項拆到有單價、有數量、有型號，利潤自然透明，該給的服務費照給。</li>
   </ul>
 
-  <h3>四、跟設計師溝通的話術（不傷關係版）</h3>
+  <h3>五、跟設計師溝通的話術（不傷關係版）</h3>
   <div class="tmpl"><span class="lbl">複製貼上 · 要求透明報價</span>
     <p><span class="q">「</span>設計師你好，這份估價單我們很想採用，但家人討論時希望能更看懂每一筆錢。可以麻煩你把寫『<strong>一式</strong>』的項目，拆成<strong>數量、單價、建材品牌型號</strong>嗎？像水電我想知道幾個迴路、幾個插座、電線品牌；泥作雙衛想知道防水做幾道、閉水測試幾小時。我們不是要砍價，是想把每一塊錢對應到設計圖，這樣驗收也比較清楚。<span class="q">」</span></p>
   </div>
@@ -219,6 +278,14 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
     <p><span class="q">「</span>防水和水電這兩塊我們<strong>不想省</strong>，請用好一點的做法——防水要全室、閉水測試做滿 24 小時；水電請全室換線、配電箱到 100 安培、雙衛各留專迴。這部分該多少就多少，我們要的是十年不出問題。<span class="q">」</span></p>
   </div>
   <p class="small muted">💡 訣竅：<strong>先給信任、再要透明、最後才議價</strong>。開場肯定他的設計、明說「不是要砍價是要看懂」、主動說隱蔽工程不省——這三招會讓設計師覺得你是懂行又好合作的業主，反而更願意給你實在的價格；一上來就砍反而讓他把利潤藏更深。</p>
+
+  <h3>六、建議談判目標：三個落點</h3>
+  <table class="mtx"><thead><tr><th>版本</th><th>內容</th><th>合理目標價</th><th>態度</th></tr></thead><tbody>
+    <tr style="background:#ecfdf5"><td><strong>安全基礎版</strong></td><td>C0709 保留水電、雙衛、必要拆除、防水、地板、必要油漆；冷氣可外包；天花縮範圍。</td><td class="mono">145–160 萬</td><td><span class="judge j-ok">最該談</span></td></tr>
+    <tr><td>可入住中階版</td><td>安全基礎版 ＋ 必要鞋櫃/衣櫃/餐邊電器櫃 ＋ 廚具基本更新。</td><td class="mono">170–200 萬</td><td><span class="judge j-warn">若想一次到位的實際落點</span></td></tr>
+    <tr><td>A/B 全做版</td><td>大量系統櫃/木作 ＋ 冷氣 ＋ 雙衛 ＋ 地板 ＋ 油漆，但仍缺廚具。</td><td class="mono">超過 220 萬</td><td><span class="judge j-hot">明細不足下不建議簽</span></td></tr>
+  </tbody></table>
+  <p class="small muted">本次談判目標：不動水電、防水任何一毛，靠油漆/拆除/空調三項「範圍換價格」，把 C0709 從 161.4 萬談回 <strong>145–150 萬</strong>，省下的差額預留給尚未報價的系統櫃／廚具。</p>
 
   <div class="callout"><strong>簽約自保 3 條（PRO360 + 住保會建議）：</strong>① 老屋預留總預算 <strong>10–15% 追加款</strong>，合約載明「追加需書面同意並列於報價單、未施作須退款」；② <strong>分期付款</strong>綁驗收階段（頭款/水電後/木作後/完工），你這份是 30/40/20/10 的四期，算合理；③ 簽<strong>紙本合約</strong>附工項、建材型號、完工日、驗收方式，糾紛可找「台灣住宅品質消費者保護協會（住保會）」調解。</div>
 
@@ -234,6 +301,99 @@ img[data-zoomable="true"], section img { cursor: zoom-in; }
     · 輕鋼架天花 <a href="https://www.pro360.com.tw/price/light_steel_frame" target="_blank" rel="noopener">/price/light_steel_frame</a><br>
     · 設計費/監造費 <a href="https://www.pro360.com.tw/price/interior_designer" target="_blank" rel="noopener">/price/interior_designer</a>、裝潢預算 <a href="https://www.pro360.com.tw/guide/decorating_price" target="_blank" rel="noopener">/guide/decorating_price</a><br>
     <span style="color:#b45309">※ 受查證環境限制，本次以 PRO360 單一平台多分頁互相印證；監造費%區間為業界通則。建議再向 2–3 家設計師實際詢價交叉比對。</span>
+  </div>
+</section>
+
+<section class="card" id="fillsheet" style="border-top:4px solid #8c1f12">
+  <div class="no-print" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <div><div class="kicker">帶去現場用 · 可列印 A4</div><h2 style="margin:2px 0">🖨️ C0709 現場議價與規格確認表</h2></div>
+    <button onclick="window.print()" style="cursor:pointer;background:#8c1f12;color:#fff;border:none;border-radius:8px;padding:9px 15px;font-size:14px;font-weight:700">🖨️ 列印這張表</button>
+  </div>
+  <p class="small muted no-print">下面這張是「拿在手上、逐格勾填、填完交給設計師」的工具表。按上面的按鈕會<strong>只印這張表</strong>（A4 直式），現場對談時逐條核對。</p>
+
+  <div class="fillsheet">
+    <div class="fs-head">
+      <h3>C0709 議價與規格確認表</h3>
+      <div class="fs-sub">對談日期：<span class="bk w"></span>　出席：<span class="bk w"></span>　｜　家庭內部談判準備用，非合約文件</div>
+    </div>
+
+    <div class="fs-pricebar">
+      <div class="c"><div class="l">現報總計（7/9 版）</div><div class="v">NT$ 1,614,060</div></div>
+      <div class="c"><div class="l">工程小計＋監造5%＋稅5%</div><div class="v">146.4萬＋7.3萬＋7.7萬</div></div>
+      <div class="c goal"><div class="l">本次談判目標</div><div class="v">NT$ 145～150 萬</div></div>
+    </div>
+    <div class="fs-stance"><strong>姿態：</strong>認可合理項目（水電、雙衛），質疑特定項目的計價基礎（油漆、拆除、空調），用「範圍換價格」，不喊整包折扣。談成的差額，預留給尚未報價的系統櫃／廚具。</div>
+
+    <div class="fs-blk"><span class="fs-tag hold">A・底線</span>不砍價，但規格必須寫進合約附件<span class="note">口頭承諾一律無效，逐條勾選＋填空</span></div>
+
+    <div class="fcard">
+      <div class="fh"><span class="nm">A1　水電全室更新</span><span class="vd">行情 25～36 萬（全面更新可達 42 萬+）</span><span class="am">報價 31 萬｜☐ 維持</span></div>
+      <div class="fb"><ul>
+        <li><span class="ck"></span>全室換線：品牌 <span class="bk"></span>（太平洋／華新等），2.0mm 實心線，進場核對線材標示</li>
+        <li><span class="ck"></span>配電箱更新＋接地；浴室、廚房、陽台迴路加裝<strong>漏電斷路器</strong></li>
+        <li><span class="ck"></span>220V 專迴：冷氣 <span class="bk"></span> 迴、廚房 <span class="bk"></span> 迴、後陽台洗烘 <span class="bk"></span> 迴、雙衛暖風 <span class="bk"></span> 迴</li>
+        <li><span class="ck"></span>110V 迴路數 <span class="bk"></span>；後陽台防潮插座；弱電 Cat6 至各房、以客廳為中樞</li>
+        <li><span class="ck"></span>出<strong>水電配置圖＋點位圖</strong>，放樣當日屋主到場逐點確認後才封板</li>
+        <li><span class="ck"></span>衛浴設備 2 式 6 萬：馬桶 <span class="bk w"></span>　面盆／龍頭 <span class="bk w"></span>（廠牌型號書面列出）</li>
+        <li><span class="ck"></span>三合一暖風機是否含在內？☐ 是　☐ 否（原規劃雙衛皆裝，估價單目前只見排風機／通風門）</li>
+      </ul></div>
+      <div class="fwhy">為什麼不砍：31 萬約 1.1 萬/坪，落在行情中低段。<b>砍這裡只會逼對方降線材、減迴路。</b></div>
+    </div>
+
+    <div class="fcard">
+      <div class="fh"><span class="nm">A2　泥作／雙衛防水</span><span class="vd">北部全面翻新約 20～29 萬/間</span><span class="am">報價 27 萬｜☐ 維持</span></div>
+      <div class="fb"><ul>
+        <li><span class="ck"></span>磁磚打除<strong>見底</strong>（見磚／RC），拆除深度寫入工項</li>
+        <li><span class="ck"></span>防水材品牌 <span class="bk"></span>、道數 <span class="bk"></span>；淋浴區高度 <strong>≥180cm（建議到頂）</strong>、非淋浴區 ≥120cm</li>
+        <li><span class="ck"></span><strong>閉水測試 24～48 小時</strong>寫入合約，測試起訖拍照存證，通過才貼磚</li>
+        <li><span class="ck"></span>洩水坡度、門檻止水墩、糞管／排水是否移位（移位另計原則先講明）</li>
+        <li><span class="ck"></span>磁磚：產地 <span class="bk"></span>、規格 <span class="bk"></span>、單價 <span class="bk"></span>/坪（窯變磚色差先看樣）</li>
+        <li><span class="ck"></span>防水保固 <span class="bk"></span> 年（書面），滲漏責任歸屬寫明</li>
+      </ul></div>
+      <div class="fwhy">為什麼不砍：雙衛含設備約 33～40 萬，已在行情<b>低標</b>。錢已經不多，更要盯工序不被省。</div>
+    </div>
+
+    <div class="fcard">
+      <div class="fh"><span class="nm">A3　監造與風險管理 5%</span><span class="vd">行情 5～10%，5% 屬低標</span><span class="am">報價 7.3 萬｜☐ 維持</span></div>
+      <div class="fb"><ul>
+        <li><span class="ck"></span>每週到場 <span class="bk"></span> 次；每週回傳進度照片／訊息</li>
+        <li><span class="ck"></span>含施工圖、水電圖、放樣確認；關鍵節點（放樣、閉水、封板前）通知屋主到場</li>
+      </ul></div>
+      <div class="fwhy">別砍百分比，<b>把服務內容量化</b>才是重點——5% 買到什麼，要寫清楚。</div>
+    </div>
+
+    <div class="fs-blk"><span class="fs-tag nego">B・議價</span>要談的四個項目<span class="note">依優先順序，合計目標省 11～16 萬</span></div>
+    <table class="ftbl">
+      <tr><th style="width:14%">項目／報價</th><th style="width:25%">行情帶（北部）</th><th style="width:42%">談法（可照唸）</th><th style="width:19%">目標</th></tr>
+      <tr><td><div class="it">① 油漆</div><div class="q">26.3 萬</div></td><td>塗刷 900～1,600/坪，舊屋修補 +300～800；28 坪地坪塗刷約 84～110 坪 → 約 10～20 萬</td><td>「AB 膠披土全屋的前提是什麼？請現場指出哪些牆需要 AB 膠、哪些做一般二批二磨就好，按實際範圍分開計價。」天花矽酸鈣板接縫必做 AB 膠，牆面視牆況。</td><td><div class="tg">18～20 萬</div><div class="q">省 6～8 萬</div></td></tr>
+      <tr><td><div class="it">② 拆除清運</div><div class="q">16 萬</div></td><td>拆除 700～1,500/坪；清運每車（3.5 噸）1～2.8 萬；另加梯廳電梯保護</td><td>「拆除範圍請對圖標示；清運改『單價×實際車數』結算，每車出車拍照。」順帶確認：為何 A/B 版報 6～7 車、C 版 5 車？</td><td><div class="tg">按實結算</div><div class="q">省 0～3 萬</div></td></tr>
+      <tr><td><div class="it">③ 空調</div><div class="q">20 萬</div></td><td>標準品，品牌價差大（國產 vs 日系可差 5 萬+）</td><td>「請列品牌、機型、冷房能力、室內外機組合、銅管米數、排水器、室外機架防鏽、保固。若高於自行詢價 10% 以上，這項自行發包、安裝配合工期。」</td><td><div class="tg">同價或外發</div><div class="q">省 2～5 萬</div></td></tr>
+      <tr><td><div class="it">④ 天花／地板</div><div class="q">12.6／10.5 萬</div></td><td>木作天花約 2,500～6,000/坪</td><td>「天花施作範圍請對圖（哪些平釘、是否造型）；地板材質等級給兩個選項比較。」保高原則：只處理樑、不整片包到樑下。</td><td><div class="tg">視範圍</div><div class="q">彈性項</div></td></tr>
+      <tr class="sum"><td colspan="3">合計談判空間（不動水電、防水任何一毛）</td><td><div class="tg">−11～16 萬 → 落回 145～150 萬</div></td></tr>
+    </table>
+
+    <div class="fs-blk"><span class="fs-tag gate">C・簽約前提</span>缺一項就先不簽</div>
+    <div class="fcard" style="border-left-color:#172033">
+      <div class="fb"><ul>
+        <li><span class="ck"></span>所有「式」拆成：品牌／型號／數量／單價（含衛浴 2 式、空調、通風門）</li>
+        <li><span class="ck"></span><strong>追加單價表</strong>簽約前先附；未列單價之追加需書面同意後施作</li>
+        <li><span class="ck"></span>付款節點：簽約 30／開工 30／泥作木作進場 30／驗收尾款 10 →<strong>爭取尾款拉到 15～20</strong></li>
+        <li><span class="ck"></span>階段驗收綁款：水電放樣→防水閉水→貼磚→完工，各節點通過才付下一期</li>
+        <li><span class="ck"></span>保固：防水 <span class="bk"></span> 年、水電 <span class="bk"></span> 年、整體 <span class="bk"></span> 年</li>
+        <li><span class="ck"></span>系統櫃、廚具、玻璃、鐵件：<strong>獨立報價</strong>，屋主保留外發權（系統櫃最易比價）</li>
+        <li><span class="ck"></span>設計平面圖頁首案名／地址請更正為本案（確認非模板誤用），估價項目對應到圖面</li>
+      </ul></div>
+    </div>
+
+    <div class="fask">
+      <div style="font-weight:800;font-size:13px;margin-bottom:4px">D・現場開場三問（測誠意）</div>
+      <ol>
+        <li>每一項「式」的明細是什麼？能否拆成點位、米數、品牌、型號？</li>
+        <li>雙衛防水的做法：高度、道數、閉水測試幾小時、保固幾年？</li>
+        <li>「依最後追加減」的單價表，能否簽約前先列好？</li>
+      </ol>
+      <div class="tip">對方回應的具體程度，就是這家值不值得簽的答案。爽快答應打折但規格含糊 → 警訊；逐條回答並願意寫進合約 → 加分。</div>
+    </div>
   </div>
 </section>
 
