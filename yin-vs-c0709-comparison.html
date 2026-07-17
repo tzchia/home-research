@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>尹公館 0617 vs 蘆洲 C0709 — 重複工項單價對照</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1116; --muted:#6B7280; --line:#E5E7EB; --bg:#FAFAF7; --paper:#FFFFFF;
+  --primary:#4C3D8F; --primary-soft:#EEEBF8; --primary-ink:#372B6B;
+  --frank:#B45309; --frank-soft:#FEF3E2;
+  --yin:#0F6B6B; --yin-soft:#E3F2F1;
+  --win:#0E7A46; --win-soft:#E5F5EC;
+  --warn:#B45309; --warn-soft:#FEF3E2;
+  --danger:#B3261E; --danger-soft:#FBEAE9;
+  --r-lg:22px; --r-md:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Noto Serif TC',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+.container{max-width:1080px;margin:0 auto;padding:56px 28px}
+h1,h2,h3{font-family:'Noto Serif TC',serif}
+.mono{font-family:'JetBrains Mono',monospace}
+
+.kicker{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-bottom:12px}
+h1{font-size:clamp(26px,4.2vw,40px);font-weight:900;line-height:1.28;margin-bottom:18px}
+.lede{font-size:16px;color:var(--muted);max-width:820px;margin-bottom:22px}
+
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tag{font-size:12.5px;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--muted)}
+.tag.hl{background:var(--primary-soft);border-color:transparent;color:var(--primary-ink)}
+
+.pdfbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.pdfbtn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:11px 18px;border-radius:12px;text-decoration:none;border:1.5px solid transparent}
+.pdfbtn.yin{background:var(--yin);color:#fff}
+.pdfbtn.frank{background:var(--frank);color:#fff}
+
+.hero{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 28px;margin-bottom:36px;border-top:5px solid var(--primary)}
+.hero h2{font-size:19px;margin-bottom:12px}
+.hero p{font-size:15px;margin-bottom:10px}
+.hero p:last-child{margin-bottom:0}
+
+.callout{border-radius:var(--r-md);padding:16px 20px;margin:20px 0;font-size:14.5px}
+.callout.warn{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.callout.danger{background:var(--danger-soft);border-left:4px solid var(--danger)}
+.callout.info{background:var(--primary-soft);border-left:4px solid var(--primary)}
+.callout strong{font-weight:800}
+
+section{margin-bottom:48px}
+section>h2{font-size:22px;font-weight:900;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--primary);color:#fff;font-size:15px;font-weight:800;font-family:'Inter';flex-shrink:0}
+section>.sub{font-size:14px;color:var(--muted);margin-bottom:18px}
+
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px}
+.pcard.yin{border-top:5px solid var(--yin)}
+.pcard.frank{border-top:5px solid var(--frank)}
+.pcard h3{font-size:17px;margin-bottom:4px}
+.pcard .who{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.pcard.yin .who{color:var(--yin)} .pcard.frank .who{color:var(--frank)}
+.pcard ul{list-style:none}
+.pcard li{font-size:14px;padding:7px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:12px}
+.pcard li:last-child{border-bottom:none}
+.pcard li .k{color:var(--muted)}
+.pcard li .v{font-weight:700;text-align:right}
+
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;font-size:13.5px}
+th{background:#F4F3EF;text-align:left;padding:11px 12px;font-size:12.5px;letter-spacing:.04em;color:var(--muted);border-bottom:2px solid var(--line);white-space:nowrap}
+td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-family:'JetBrains Mono',monospace;font-weight:600;white-space:nowrap}
+.tablewrap{overflow-x:auto;border-radius:var(--r-md)}
+tfoot td{background:#F4F3EF;font-weight:800}
+
+.pill{display:inline-block;font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.pill.hi{background:var(--danger-soft);color:var(--danger)}
+.pill.lo{background:#E8F0FE;color:#1A56DB}
+.pill.ok{background:var(--win-soft);color:var(--win)}
+.pill.diff{background:#F3F4F6;color:#4B5563}
+
+.insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.icard{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px 22px}
+.icard.att{border-top:4px solid var(--danger)}
+.icard.risk{border-top:4px solid #1A56DB}
+.icard h3{font-size:16px;margin-bottom:10px}
+.icard ul{list-style:none}
+.icard li{font-size:14px;padding:6px 0 6px 22px;position:relative;border-bottom:1px dashed var(--line)}
+.icard li:last-child{border-bottom:none}
+.icard.att li::before{content:"↘";position:absolute;left:0;color:var(--danger);font-weight:800}
+.icard.risk li::before{content:"⚠";position:absolute;left:0;color:#1A56DB;font-weight:800}
+
+.tmpl{background:#1F2430;color:#E6E8EE;border-radius:var(--r-lg);padding:22px 26px;margin-top:16px;position:relative}
+.tmpl .lbl{position:absolute;top:-11px;left:22px;background:var(--primary);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:999px}
+.tmpl p{font-size:14.5px;margin-bottom:10px}
+.tmpl p:last-child{margin-bottom:0}
+
+.sources{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px 24px;font-size:13px;color:var(--muted)}
+.sources a{color:var(--primary)}
+footer{margin-top:40px;font-size:12.5px;color:var(--muted);text-align:center}
+footer a{color:var(--primary)}
+
+@media(max-width:760px){
+  .profile-grid,.insight-grid{grid-template-columns:1fr}
+  .container{padding:40px 18px}
+}
+@media print{.pdfbar{display:none}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<p class="kicker">跨案場估價對照 · 2026-07-17</p>
+<h1>尹公館（台北富陽街）vs 我們的 C0709（蘆洲）<br>重複工項的單價，到底誰貴誰便宜？</h1>
+<p class="lede">拿到一份別人案場的完整設計公司報價單（尹公館，2026/6/17，17 頁逐項細列），與我們 Frank 工作室的 C0709 方案交叉比對。兩案共有 <strong>16 項重複工項</strong>可以類推對照 — 結論：<strong>C0709 整體不貴，但有 5 項明顯偏高可談、2 項可疑地偏低（追加風險）</strong>，而尹公館的「細顆粒報價格式」正是我們該拿去要求 Frank 拆細的最佳範本。</p>
+
+<div class="tagrow">
+  <span class="tag hl">尹公館 合約 1,944,131</span>
+  <span class="tag hl">C0709 含監造稅 1,614,060</span>
+  <span class="tag">台北市 vs 新北蘆洲</span>
+  <span class="tag">室內 ~18 坪 vs ~28 坪</span>
+  <span class="tag">設計公司細列 vs 統包一式</span>
+</div>
+
+<div class="pdfbar">
+  <a class="pdfbtn yin" href="./assets/pdf/estimate-yin0617.pdf" target="_blank" rel="noopener">📄 尹公館估價單 0617（17 頁）</a>
+  <a class="pdfbtn frank" href="./assets/pdf/estimate-C0709.pdf" target="_blank" rel="noopener">📄 我們的估價單 C0709</a>
+  <a class="pdfbtn" style="background:#F3F4F6;color:#374151" href="./royal-renovation-estimate-review.html" target="_blank" rel="noopener">↗ 回估價單總評頁</a>
+</div>
+
+<div class="hero">
+  <h2>先講鐵則：這兩份不能直接比總價，只能「類推」</h2>
+  <p>尹公館在<strong>台北市（工資高 10–20%）</strong>、室內約 18 坪（推估自細清 18 坪／地板 15 坪，非文件明載）、範圍含<strong>全套廚具 23 萬 + 系統櫃 20 萬 + 玄關防火大門 6.5 萬</strong>；我們 C0709 在蘆洲、約 28 坪、廚具系統櫃全部未含。總價直接除坪數會嚴重失真。</p>
+  <p>正確做法是<strong>逐一挑出兩邊都有的重複工項，比「單價」與「計價方式」</strong>。比完的大局：拉掉不可比項後，尹公館約 <span class="mono">68,600/坪</span>、C0709 約 <span class="mono">45,100/坪</span> — C 便宜 34%，符合「蘆洲 vs 台北 + 統包 vs 設計公司」的合理差距。<strong>C0709 的問題從來不是貴，是「一式」太模糊。</strong></p>
+</div>
+
+<!-- ═══ 1 基本盤 ═══ -->
+<section id="profile">
+  <h2><span class="badge">A</span>兩案基本盤</h2>
+  <p class="sub">計價軸完全不同：尹公館逐口／逐迴／逐坪計價（可稽核），C0709 大量「一式」（好談但難拆）。</p>
+  <div class="profile-grid">
+    <div class="pcard yin">
+      <p class="who">對照組 · 室內設計公司</p>
+      <h3>富陽街尹公館（2026/6/17）</h3>
+      <ul>
+        <li><span class="k">地點</span><span class="v">台北市富陽街 78 號 11F</span></li>
+        <li><span class="k">室內坪數</span><span class="v">約 18 坪（推估）</span></li>
+        <li><span class="k">工程費用</span><span class="v mono">1,851,553</span></li>
+        <li><span class="k">設計監管費</span><span class="v mono">5% = 92,578</span></li>
+        <li><span class="k">合約總計</span><span class="v mono">1,944,131</span></li>
+        <li><span class="k">電器設備（另計）</span><span class="v mono">467,955</span></li>
+        <li><span class="k">範圍特點</span><span class="v">含廚具/系統櫃/防火大門/玻璃工程</span></li>
+        <li><span class="k">報價風格</span><span class="v">逐口·逐迴·逐坪，17 頁細列</span></li>
+      </ul>
+    </div>
+    <div class="pcard frank">
+      <p class="who">我們的 · Frank 工作室 統包</p>
+      <h3>蘆洲中興街 C0709（2026/7/9）</h3>
+      <ul>
+        <li><span class="k">地點</span><span class="v">新北市蘆洲區中興街 148 號</span></li>
+        <li><span class="k">室內坪數</span><span class="v">約 28 坪（天花板計 28 坪）</span></li>
+        <li><span class="k">直接工程</span><span class="v mono">1,464,000</span></li>
+        <li><span class="k">監造與風險管理費</span><span class="v mono">5% → 1,537,200</span></li>
+        <li><span class="k">開立發票（稅）</span><span class="v mono">5% → 1,614,060</span></li>
+        <li><span class="k">電器設備</span><span class="v">未含（自購）</span></li>
+        <li><span class="k">範圍特點</span><span class="v">廚具/系統櫃/玻璃/鐵件全未含</span></li>
+        <li><span class="k">報價風格</span><span class="v">多數「一式」，少數量單價</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <strong>每坪正規化（拉掉不可比項後）：</strong>尹公館 1,851,553 − 空調 12 萬 − 廚具 23.1 萬 − 系統櫃 20 萬 − 鐵件大門 6.5 萬 = <span class="mono">1,235,008 ÷ 18 坪 ≈ 68,600/坪</span>；C0709 1,464,000 − 空調 20 萬 = <span class="mono">1,264,000 ÷ 28 坪 ≈ 45,100/坪</span>。尹每坪貴 52% 的三個合理原因：台北市工資、用料等級（QUICK-STEP 進口地板、TOTO/國際牌、玻璃拉門）、設計公司管理成本。
+  </div>
+</section>
+
+<!-- ═══ 2 重複工項對照 ═══ -->
+<section id="items">
+  <h2><span class="badge">B</span>重複工項逐項對照（16 項）</h2>
+  <p class="sub">判定基準：換算到相同單位後的價差。<span class="pill hi">C 偏高可談</span> <span class="pill lo">C 偏低要警惕</span> <span class="pill ok">相近合理</span> <span class="pill diff">等級不同不可直比</span></p>
+
+  <div class="tablewrap">
+  <table>
+    <thead>
+      <tr><th>工項</th><th>C0709（Frank）</th><th>尹公館 0617</th><th>換算對比</th><th>判定</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>電梯及梯廳保護</strong></td>
+        <td class="num">10,000 /式</td>
+        <td class="num">3,600 /式</td>
+        <td>C 貴 <strong>+178%</strong>（尹含保護板+3mm 夾板）</td>
+        <td><span class="pill hi">C 偏高可談</span></td>
+      </tr>
+      <tr>
+        <td><strong>廢棄物清運（每車）</strong></td>
+        <td class="num">20,000 /車 ×5 = 100,000</td>
+        <td class="num">18,000 /車 ×2（另完工清運 7,500/車）</td>
+        <td>單價相近（+11%），但 C 的 <strong>5 車</strong>偏多：尹 18 坪拆更多品項才用 3 車</td>
+        <td><span class="pill hi">車數必問</span></td>
+      </tr>
+      <tr>
+        <td><strong>拆除工程整包</strong></td>
+        <td class="num">50,000 /式（衛浴×2+隔間牆）</td>
+        <td class="num">48,000（7 項細列：櫃體/天花/磚牆/地磚/衛浴/PVC/大門）</td>
+        <td>總額相近，但尹拆的<strong>範圍大得多</strong>；C 拆 3 樣收 5 萬偏貴</td>
+        <td><span class="pill hi">C 偏高可談</span></td>
+      </tr>
+      <tr>
+        <td><strong>配電箱更新</strong></td>
+        <td class="num">40,000 /式（含漏電斷路器+整線）</td>
+        <td class="num">18,000（開關箱 12,000 + 無熔絲開關 6,000）</td>
+        <td>C 貴 <strong>+122%</strong>。「整線」值 2.2 萬差額嗎？必問內容物</td>
+        <td><span class="pill hi">C 偏高可談</span></td>
+      </tr>
+      <tr>
+        <td><strong>管路（溝）打鑿</strong></td>
+        <td class="num">30,000 /式</td>
+        <td class="num">12,000 /式（另泥作修補 9,600 = 21,600）</td>
+        <td>C 貴 <strong>+39%～150%</strong>（看 C 是否含修補）</td>
+        <td><span class="pill hi">C 偏高可談</span></td>
+      </tr>
+      <tr>
+        <td><strong>全室油漆</strong></td>
+        <td class="num">263,000 /式（AB膠+抗裂網+批土+青葉水泥漆）</td>
+        <td class="num">141,000（天花 2,500/坪×18 + 牆 2,400/坪×40，得利乳膠漆）</td>
+        <td>換算地坪：C ≈ <span class="mono">9,400/坪</span> vs 尹 ≈ <span class="mono">7,800/坪</span>，C 貴 +20%。全室 AB膠是最大議價點（總評頁已標）</td>
+        <td><span class="pill hi">C 偏高可談</span></td>
+      </tr>
+      <tr>
+        <td><strong>粗清 vs 細清</strong></td>
+        <td class="num">粗清 30,000 /式（≈1,071/坪）</td>
+        <td class="num">細清 600/坪 ×18 = 10,800</td>
+        <td>細清工序比粗清多，尹的細清每坪還便宜 44% — C 粗清有議價空間</td>
+        <td><span class="pill hi">C 偏高可談</span></td>
+      </tr>
+      <tr>
+        <td><strong>冷熱水管＋排水管</strong></td>
+        <td class="num">10,000 /式</td>
+        <td class="num">56,880（冷 19,440 + 熱 15,840 + 排 18,000 + 糞管 3,600，逐口計價）</td>
+        <td>C 低到不合理（<strong>−82%</strong>）— 雙衛全打見底的案子水管只編 1 萬，幾乎確定<strong>低列後靠追加</strong></td>
+        <td><span class="pill lo">C 偏低要警惕</span></td>
+      </tr>
+      <tr>
+        <td><strong>插座＋開關（含佈線）</strong></td>
+        <td class="num">20,000（插座 15,000 + 開關 5,000，一式）</td>
+        <td class="num">≈88,140（插座 33 口×960 + 開關 20 口×840 + 5 迴電源 + 面板 + 安裝 12,000）</td>
+        <td>C 未列口數。若照我們配置圖 50+ 點位，2 萬一式<strong>大概率不夠</strong>（C 另有「各空間管線更新 6 萬」，界線要問清）</td>
+        <td><span class="pill lo">C 偏低要警惕</span></td>
+      </tr>
+      <tr>
+        <td><strong>弱電（電視/網路）</strong></td>
+        <td class="num">10,000 /式</td>
+        <td class="num">6,720（電視 3,000 + 網路 3,000 + 面板 720）</td>
+        <td>C 貴 +49% 但金額小；尹只配 2 口，我們點位多，接近合理</td>
+        <td><span class="pill ok">相近合理</span></td>
+      </tr>
+      <tr>
+        <td><strong>天花板（矽酸鈣）</strong></td>
+        <td class="num">4,500 /坪 ×28</td>
+        <td class="num">4,000 /坪（客餐廳）；浴室 3,960 /坪</td>
+        <td>C 貴 +12.5%，但含窗簾盒（尹窗簾盒另計 960/尺）→ 實質同價位帶</td>
+        <td><span class="pill ok">相近合理</span></td>
+      </tr>
+      <tr>
+        <td><strong>浴室泥作全套（每間）</strong></td>
+        <td class="num">70,000 /間（回填/粗胚/防水/細抹/粉牆/貼磚/抹縫）</td>
+        <td class="num">≈131,280 /間（砌磚/打底/灌漿/貼磚工資/磚材/彈泥防水到頂/門檻，逐項細列）</td>
+        <td>C 便宜近半 — 但 C 磁磚材料另列全室一式 8 萬，兩邊口徑不同；C 價位屬合理偏低，<strong>防水道數要寫進合約</strong></td>
+        <td><span class="pill ok">相近合理</span></td>
+      </tr>
+      <tr>
+        <td><strong>衛浴設備＋安裝（每間）</strong></td>
+        <td class="num">30,000 /間（馬桶/臉盆/龍頭/沖洗器/毛巾架，型號另選）</td>
+        <td class="num">安裝工資 8,400 + TOTO 龍頭 10,050（馬桶走電器表：國際牌全自動 56,900）</td>
+        <td>軸不同：C 含基本款設備、尹設備升級另計。C 的 3 萬屬<strong>基本款預算</strong>，「型號另選」= 追加入口，先問基準型號</td>
+        <td><span class="pill diff">等級不同</span></td>
+      </tr>
+      <tr>
+        <td><strong>冷氣（含安裝）</strong></td>
+        <td class="num">愛普頓 1 噸 40,000/組×3；3 噸 80,000</td>
+        <td class="num">國際牌 UJ36（1 噸級）46,200；UJ71（2.5 噸級）64,800</td>
+        <td>C 用二線品牌，價格卻貼近尹的一線國際牌（3 噸 8 萬 &gt; 國際 2.5 噸 6.5 萬）— <strong>品牌價值必問</strong>，或要求改列一線品牌重報</td>
+        <td><span class="pill hi">C 偏高可談</span></td>
+      </tr>
+      <tr>
+        <td><strong>超耐磨木地板</strong></td>
+        <td class="num">3,000 /坪 ×25（型號另選）</td>
+        <td class="num">5,700 /坪 ×15（比利時 QUICK-STEP Impressive 含原廠靜音墊）</td>
+        <td>等級不同：C 是國產基本款價位、尹是進口品牌。合理，但 C「型號另選」升級時每坪可能 +1,500 以上</td>
+        <td><span class="pill diff">等級不同</span></td>
+      </tr>
+      <tr>
+        <td><strong>乾濕分離／浴室門</strong></td>
+        <td class="num">乾濕分離 20,000/間×2；廁所門 5,000/樘</td>
+        <td class="num">鋁框長虹玻璃拉門全套 ≈61,560 /間</td>
+        <td>等級差 3 倍：C 應為標準淋浴拉門+塑鋼門，尹是訂製玻璃拉門。C 價位合理</td>
+        <td><span class="pill diff">等級不同</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>監管費口徑注意：</strong>兩邊都收 5% 監造／監管，但 C0709 之後<strong>再加 5% 發票稅</strong>（總計 1,614,060），尹公館報價單上沒有出現發票稅欄位 — 簽約時要確認尹式報法是「未稅」還是「單價已內含」，否則總價會被低估 5%。
+  </div>
+</section>
+
+<!-- ═══ 3 判讀 ═══ -->
+<section id="verdict">
+  <h2><span class="badge">C</span>這份對照告訴我們什麼</h2>
+  <p class="sub">與先前「胡師傅對照」的結論一致並再度強化：C0709 的問題不是貴，是模糊。</p>
+
+  <div class="insight-grid">
+    <div class="icard att">
+      <h3>↘ C0709 偏高、可談的 5+2 項（潛在空間約 8–12 萬）</h3>
+      <ul>
+        <li><strong>全室 AB 膠油漆 263,000</strong>：比尹的得利乳膠漆規格每坪貴 20%。只在天花+新作牆用 AB 膠、舊牆改批土，可省 5–8 萬</li>
+        <li><strong>配電箱 40,000</strong>：對照尹 18,000，要求列出「整線」的具體內容，目標 −1 萬</li>
+        <li><strong>管路打鑿 30,000</strong>：對照尹 21,600（含修補），目標 −5 千～1 萬</li>
+        <li><strong>清運 5 車 100,000</strong>：單價可接受，車數要求「按實際車次結算、附過磅單」</li>
+        <li><strong>粗清 30,000</strong>：對照尹細清 600/坪，目標 2 萬上下</li>
+        <li><strong>電梯保護 10,000</strong>：小額，可當談判讓步交換項</li>
+        <li><strong>愛普頓冷氣 200,000</strong>：二線品牌一線價，要求重報國際牌/大金同噸數對比，或自購</li>
+      </ul>
+    </div>
+    <div class="icard risk">
+      <h3>⚠ C0709 偏低、將來會咬人的 2 項</h3>
+      <ul>
+        <li><strong>水管配置只編 10,000</strong>：尹同性質工項 56,880。雙衛打見底的案子這數字做不完 —「依照最後追加減」備註就是為它準備的。<strong>簽約前要求改成逐口計價鎖量</strong></li>
+        <li><strong>插座+開關共 20,000 未列口數</strong>：尹 33 口插座+20 開關收 8.8 萬。我們的配置圖點位更多 — 把配置圖釘進合約、註明「含圖上全部點位」，否則每追加一口市價 960–1,500</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout danger">
+    <strong>最重要的一招（和上次胡師傅對照相同）：</strong>尹公館這份 17 頁報價，插座按「口」、電源按「迴」、貼磚按「坪」、磚材與工資分列、防水寫明「彈泥+抗裂網到頂」。這就是市面上設計公司做得到的細度 — 拿它當範本要求 Frank：<em>「同樣是裝修報價，人家每一項都有數量單價，麻煩也拆到這個細度。」</em>拆完模糊項自然現形。
+  </div>
+
+  <div class="tmpl">
+    <span class="lbl">複製貼上 · 給 Frank 的話</span>
+    <p>Frank 哥，我們拿到朋友在台北的裝修報價單研究了一下，人家水電是一口一口列的（插座 960/口、冷水管 3,240/口）。想請你幫個忙：</p>
+    <p>1️⃣ 水電那包（管線更新 6 萬＋插座 1.5 萬＋開關 5 千＋水管 1 萬）能不能照我們的插座配置圖，拆成口數×單價？我們想把點位鎖進合約，之後互相都不用為追加吵。</p>
+    <p>2️⃣ 配電箱 4 萬和打鑿 3 萬，麻煩列一下內容物；油漆我們想討論 AB 膠只做天花＋新作牆的版本。</p>
+    <p>3️⃣ 冷氣想比較一下國際牌同噸數的價格，如果價差大我們考慮自購、安裝還是請你們做。</p>
+  </div>
+</section>
+
+<!-- ═══ sources ═══ -->
+<section id="src">
+  <div class="sources">
+    <strong>資料來源與誠實聲明：</strong>
+    ① <a href="./assets/pdf/estimate-yin0617.pdf">尹公館估價單 2026/6/17</a>（台北市富陽街，17 頁，合約總計 1,944,131；電器設備 467,955 另計）；
+    ② <a href="./assets/pdf/estimate-C0709.pdf">Frank 工作室 C0709 2026/7/9</a>（總計 1,464,000，含監造+稅 1,614,060）。
+    尹公館室內坪數 18 坪為推估值（依細清 18 坪／地板 15 坪／油漆牆面 40 坪回推），非文件明載；兩案地區（台北 vs 蘆洲）、屋況、用料等級不同，本頁所有價差均為「類推參考」，實際議價請以現場放樣與最終圖說為準。
+  </div>
+</section>
+
+<footer>
+  <a href="./index.html">← 回 home-research 首頁</a> · <a href="./royal-renovation-estimate-review.html">估價單總評（A/B/C0708/C0709）</a> · 最後更新 2026-07-17
+</footer>
+
+</div>
+</body>
+</html>
