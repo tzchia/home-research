@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>系統櫃工班研究 — PRO360 蘆洲衣帽間/衣櫃 14 家口碑實查</title>
+<title>系統櫃工班研究 — PRO360 14 家 × Google Maps 17 家門市口碑實查（三重蘆洲）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -107,14 +107,15 @@ footer{padding:36px 0 56px;color:var(--muted);font-size:13px;text-align:center}
   <div class="wrap">
     <a class="backlink" href="./index.html">← home-research 首頁</a>
     <p class="kicker">Contractor Research · 2026-08-04</p>
-    <h1>系統櫃工班研究：PRO360 口碑實查 14 家</h1>
-    <p class="lede">針對新北（郵遞區號 247 蘆洲）「半開放衣帽間（加拉門或布簾）／衣櫃」情境，透過 PRO360 後端 API 抓完「系統櫃訂製」全部 2,789 家清單，對通過門檻的 249 家逐一撈完全部顧客評論（含前端隱藏的 1–3 星負評），再以「2026 年有系統櫃訂製成交評論」做最後把關——全部條件達標者僅 14 家（原目標 20 家，如實回報）。</p>
+    <h1>系統櫃工班研究：PRO360 工班 14 家 × Maps 門市 17 家</h1>
+    <p class="lede">針對新北（郵遞區號 247 蘆洲）「半開放衣帽間（加拉門或布簾）／衣櫃」情境，透過 PRO360 後端 API 抓完「系統櫃訂製」全部 2,789 家清單，對通過門檻的 249 家逐一撈完全部顧客評論（含前端隱藏的 1–3 星負評），再以「2026 年有系統櫃訂製成交評論」做最後把關——全部條件達標者僅 14 家（原目標 20 家，如實回報）。另以已登入 Google Maps 爬取三重/蘆洲 17 家系統櫃門市共 1,600+ 則評論（含低分排序），兩軌分開評比＋跨平台合併詢價名單。</p>
     <div class="tags">
       <span class="tag">📍 新北 247 蘆洲</span>
       <span class="tag">🚪 半開放衣帽間（拉門/布簾）/ 衣櫃</span>
       <span class="tag">🔎 2,789 家全掃</span>
       <span class="tag">💬 249 家評論全讀（含隱藏負評）</span>
       <span class="tag">📅 2026 成交案例把關</span>
+      <span class="tag">🗺️ Google Maps 17 家門市 1,600+ 則評論</span>
     </div>
   </div>
 </header>
@@ -128,6 +129,7 @@ footer{padding:36px 0 56px;color:var(--muted);font-size:13px;text-align:center}
       <h3>🎯 建議詢價組合（半開放衣帽間 + 拉門/布簾情境）</h3>
       <p><strong>首選詢價：輝翰系統傢俱設計</strong>（38 評論全 5 星零負評 · 系統櫃本業 32 則 · 通過公司認證 · 不嫌案小）與 <strong>詠采系統傢俱設計</strong>（2026 動能最強：14 則評論中 9 則是 2026 系統櫃成交 · 100% 純系統櫃專業戶）。<br>
       <strong>加一家比價：睿沐系統櫥櫃設計</strong>（唯一有「開放式衣櫃」成交評論原文者，與本案最對口）或 <strong>晨昱系統傢俱</strong>（老闆木工出身，拉門軌道/輕隔間可自做）。<br>
+      <strong>Maps 門市軌可加：億群（蘆洲工廠直營）或嘉宸（衣櫃實例多）先去現場摸板材</strong>（詳見 E–G 區）。<br>
       <strong>避開：勇志企業社</strong>——一則六千字 1★ 血淚負評揭露完工日承諾 4/10 實拖到 6/18（逾兩個月）、報價灌水、對業主吼罵等重複模式，廠商從未回覆；<strong>鉅洸系統家具</strong>的小案子有被已讀不回前例，審慎。<br>
       <strong>比價注意：壹作系統傢俱設計（#10）與輝翰是同一家公司</strong>——兩檔案頁公開統編同為 82274920（輝翰空間設計），詢價擇一即可，別當成兩家獨立比價。</p>
     </div>
@@ -359,10 +361,147 @@ footer{padding:36px 0 56px;color:var(--muted);font-size:13px;text-align:center}
   </div>
 </section>
 
-<!-- E. 詢價清單 -->
+
+<!-- E. Google Maps 門市評比 -->
 <section>
   <div class="wrap">
-    <div class="sect-head"><span class="badge">E</span><h2>詢價前檢查清單（半開放衣帽間情境）</h2></div>
+    <div class="sect-head"><span class="badge">E</span><h2>Google Maps 三蘆門市評比（另一個母體）</h2></div>
+    <p class="sect-sub">以已登入工作階段爬取 Google Maps「系統櫃/系統家具/衣櫃訂製 × 三重/蘆洲」5 組搜尋、去重 110 家 → 評論數 ≥10 共 73 家 → 排除床墊/沙發/純廚具等不對口者，對 17 家系統櫃相關門市逐一爬評論（最新排序＋最低分排序各一輪，共 1,600+ 則）。</p>
+
+    <div class="callout warn">
+      <h4>⚠️ 為什麼不能跟 PRO360 合成一個排名</h4>
+      <ul>
+        <li><b>兩個母體幾乎零重疊</b>：PRO360 的 14 家達標工班沒有任何一家出現在 Maps 搜尋前段；Maps 上是實體門市生態（連鎖品牌＋工廠直營），PRO360 上是接案工班。</li>
+        <li><b>Maps 星等有系統性膨脹</b>：三商美福集賢的 1★ 長文直接寫出機制——<q>訪談順利結束後，女設計師要求我們google上留下5星的好評</q>。大量 5★ 是「洽談體驗」不是完工實績；PRO360 的僱用數則是平台媒合成交的證據。兩邊分數不可直接相加。</li>
+        <li><b>日期精度不同</b>：Google 只給相對時間（「3 個月前」），本頁換算的絕對月份為推定值（誤差 ±1 個月）；PRO360 為精確日期。</li>
+      </ul>
+    </div>
+
+    <h3 style="margin:26px 0 10px;font-size:18px">17 家門市排名總表（依評論數）</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>#</th><th>門市</th><th>評論</th><th>評分</th><th>2026 新評論</th><th>低分(≤3★)</th><th>衣櫃/更衣室實例</th><th>對口度</th><th>一句話定位</th></tr></thead>
+        <tbody>
+          <tr class="warnrow"><td class="num">1</td><td>竹樂系統傢俱設計（五股）</td><td class="num">367</td><td class="num">4.9</td><td class="num">約25</td><td class="num">1</td><td>有（更衣室）</td><td><span class="pill semi">量體大但有新雷</span></td><td>三蘆周邊最大量體，2026-07 出現 1★「惡夢」評</td></tr>
+          <tr><td class="num">2</td><td>三商美福 新北集賢門市（蘆洲）</td><td class="num">219</td><td class="num">4.9</td><td class="num">約41</td><td class="num">3</td><td>有（更衣室）</td><td><span class="pill semi">連鎖，報價要防</span></td><td>2026 動能最強，但有報價灌水 1★ 長文</td></tr>
+          <tr><td class="num">3</td><td>三商美福 新北光復門市（三重）</td><td class="num">183</td><td class="num">5.0</td><td class="num">約29</td><td class="num">1</td><td>少</td><td><span class="pill semi">連鎖</span></td><td>評論多為「諮詢體驗」，完工實績文較少</td></tr>
+          <tr class="hit"><td class="num">4</td><td>「嘉宸」系統傢俱（蘆洲）</td><td class="num">164</td><td class="num">5.0</td><td class="num">約16</td><td class="num">2</td><td><b>多（衣櫃實例最多）</b></td><td><span class="pill fit">對口 ★</span></td><td>2026 衣櫃成交文最具體，詢價回覆有拖延前例</td></tr>
+          <tr><td class="num">5</td><td>永藍成室.空間設計（三重）</td><td class="num">152</td><td class="num">5.0</td><td class="num">約8</td><td class="num">0</td><td>無</td><td><span class="pill off">偏統包設計</span></td><td>零負評但評論偏整宅裝修，非純櫃體</td></tr>
+          <tr class="hit"><td class="num">6</td><td>歐德（蘆洲三民店）</td><td class="num">150</td><td class="num">5.0</td><td class="num">約23</td><td class="num">1</td><td>有（更衣室+衣櫃）</td><td><span class="pill fit">對口 ★</span></td><td>大品牌保固+此分店口碑乾淨（注意：三重店不同）</td></tr>
+          <tr class="warnrow"><td class="num">7</td><td>雅格名櫥（三重）</td><td class="num">146</td><td class="num">4.7</td><td class="num">約20</td><td class="num">11</td><td>少（偏廚具）</td><td><span class="pill risk">避開</span></td><td>低分最多：施工品質+售後爭議連發</td></tr>
+          <tr class="warnrow"><td class="num">8</td><td>都會族系統櫥櫃（泰山廠）</td><td class="num">112</td><td class="num">4.7</td><td class="num">約8</td><td class="num">9</td><td>有</td><td><span class="pill risk">審慎</span></td><td>價格便宜但圖面/施工品質負評一串</td></tr>
+          <tr class="hit"><td class="num">9</td><td>億群系統櫃（蘆洲，工廠直營）</td><td class="num">110</td><td class="num">5.0</td><td class="num">約27</td><td class="num"><b>0</b></td><td>有（衣櫃）</td><td><span class="pill fit">對口 ★</span></td><td>零低分+2026 高活躍，蘆洲在地工廠直營</td></tr>
+          <tr class="warnrow"><td class="num">10</td><td>歐德（三重店）</td><td class="num">86</td><td class="num">4.6</td><td class="num">約12</td><td class="num">8</td><td>有</td><td><span class="pill risk">審慎</span></td><td>同品牌不同店差很大：排隊排到明年+售後爭議</td></tr>
+          <tr><td class="num">11</td><td>房的事系統傢俱（蘆洲）</td><td class="num">80</td><td class="num">5.0</td><td class="num">約3</td><td class="num">1</td><td>有（衣櫃）</td><td><span class="pill fit">對口</span></td><td>小案友善、蘆洲在地，2026 新評論偏少</td></tr>
+          <tr><td class="num">12</td><td>史特麗室內設計（三重）</td><td class="num">65</td><td class="num">4.9</td><td class="num">約13</td><td class="num">1</td><td>有</td><td><span class="pill semi">半對口</span></td><td>設計整合強（櫃+地板+窗簾），偏全室案</td></tr>
+          <tr><td class="num">13</td><td>築晨系統傢俱（蘆洲）</td><td class="num">63</td><td class="num">4.9</td><td class="num">約4</td><td class="num">1</td><td>有</td><td><span class="pill semi">半對口</span></td><td>小案友善，惟 2026 動能低</td></tr>
+          <tr><td class="num">14</td><td>歐肯系統傢俱（三重門市）</td><td class="num">48</td><td class="num">4.8</td><td class="num">約2</td><td class="num">3</td><td>有</td><td><span class="pill semi">半對口</span></td><td>有中途換設計師+加價爭議前例</td></tr>
+          <tr class="warnrow"><td class="num">15</td><td>愛菲爾 三重三和店</td><td class="num">43</td><td class="num">4.8</td><td class="num">約3</td><td class="num">3</td><td>少</td><td><span class="pill risk">審慎</span></td><td>付 6 千訂金後被已讀不回的 1★ 前例</td></tr>
+          <tr><td class="num">16</td><td>愛菲爾集美店（蘆洲）</td><td class="num">38</td><td class="num">5.0</td><td class="num">約1</td><td class="num">0</td><td>無</td><td><span class="pill off">活躍度低</span></td><td>最新評論停在約 2025-11</td></tr>
+          <tr><td class="num">17</td><td>維立室內設計（蘆洲）</td><td class="num">24</td><td class="num">5.0</td><td class="num">約1</td><td class="num">0</td><td>無</td><td><span class="pill off">樣本少</span></td><td>2026 僅 1 則</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px">「2026 新評論」為相對時間換算之推定值（±1 個月）。低分數 = 兩種排序去重後 1–3★ 總數。</p>
+  </div>
+</section>
+
+<!-- F. Maps 重點門市優缺點 -->
+<section>
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">F</span><h2>Maps 重點門市優缺點（評論原文為證）</h2></div>
+    <p class="sect-sub">只列與衣帽間/衣櫃需求相關的前段班與必須避開者。引句照錄評論原文；相對日期換算為推定月份。</p>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>億群系統櫃廚具櫥櫃（工廠直營）</h3><span class="rank">Maps #9 · 110 評論 / 5.0 · 蘆洲五華街</span></div>
+      <p class="vstats">低分 <b>0 則</b>（17 家中唯二的百評零低分）· 2026 新評論約 27 則 · 最新約 2026-07</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>衣櫃實例：<q>決定找系統傢俱客制做衣櫃還有玄關收納展示櫃……找到離家裡超級近的億群系統櫃廚具櫥櫃公司</q>、<q>這次做的鞋櫃跟衣櫃很喜歡 訂製設計的款式符合我的需求</q></li>
+          <li>改到滿意為止：<q>從丈量 報價 更改 挑色 修改 再修改 陳先生都很有耐心，完工後真的很滿意，五金也很有質感</q>（約 2026-02）</li>
+          <li>售後：<q>完成後多少會有想調整的地方，反應後也是第一時間回覆及派人員到場處理</q>（約 2026-04）</li>
+          <li>蘆洲在地工廠直營，距離優勢</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 注意</h4><ul>
+          <li>評論約半數是廚具/抽油煙機案，純衣櫃案例比例中等</li>
+          <li>無線上出圖流程的描述，設計感需現場確認</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>「嘉宸」系統傢俱</h3><span class="rank">Maps #4 · 164 評論 / 5.0 · 蘆洲仁愛街</span></div>
+      <p class="vstats">低分 2 則 · 2026 新評論約 16 則 · 衣櫃實例最多最新</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>2026 衣櫃成交文最具體：<q>一開始只是想把衣櫃跟電視櫃做好，後來在討論過程中有給一些空間配置建議，最後調整成比較完整的收納規劃</q>（約 2026-06）</li>
+          <li>五金巧思：<q>衣櫃吊衣桿可以下拉使用，收納空間多很多</q>（約 2026-04）</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>詢價可能被晾著（約 2025-12 · 1★）：<q>說兩天內報價 已經過三週無聲無息🤔 好奇妙的店家</q></li>
+          <li>出圖爭議（4 年前 · 1★）：<q>支付訂金前有詢問過進場前是否會提供CAD出圖，老闆說會。但到進場前只提供了報價單和3D建模的截圖</q>——簽約前把出圖格式白紙黑字</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>歐德系統傢俱（蘆洲三民店）</h3><span class="rank">Maps #6 · 150 評論 / 5.0 · 蘆洲三民路</span></div>
+      <p class="vstats">低分 1 則（3★ 無文字）· 2026 新評論約 23 則 · 大品牌保固</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>更衣室+售後實例：<q>更衣室部分之後使用上有些不順手的地方，完工後（仍協助調整）……櫃子不會有甲醇臭味，生活使用上讓人很放心</q>（約 2025-11）</li>
+          <li>不硬塞櫃：<q>不會因為歐德是系統櫃出身，就將全部的空間都塞滿系統櫃，而是會依照客戶的需要及生活空間設計</q>（約 2026-06，三重店評論）</li>
+          <li>品牌保固與板材信任度是連鎖最大優勢</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 注意</h4><ul>
+          <li><b>同品牌不同店差很大</b>：歐德三重店 4.6 星、低分 8 則——<q>接洽二十天以上了無任何進度</q>（約 2026-07）、<q>設計師帶來的竟然是空白格局圖</q>。要指名蘆洲三民店。</li>
+          <li>大品牌單價通常最高，旺季要排隊</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="vcard caution">
+      <div class="vhead"><h3>避雷區（Maps 端）</h3><span class="rank">低分評論照錄</span></div>
+      <div class="pm">
+        <div class="minus" style="grid-column:1/-1"><h4>✗ 負評模式（皆為原文摘錄）</h4><ul>
+          <li><b>雅格名櫥（低分 11 則，近期連發）</b>：<q>裝完快3年發現洗碗槽不是當初說好的材質</q>（約 2026-07）、<q>排水管亂拉……一年後折到無法排水</q>（約 2026-04）、<q>會一直推給業主要請水電瓦斯修改到他們好施工的位置</q></li>
+          <li><b>都會族系統櫥櫃（低分 9 則）</b>：<q>給你的圖面不仔細看，錯了你倒霉……師傅施作，業主也要盯，施作過程，業務一次都沒來看過</q>（約 2024-08）、<q>價格確實便宜但板材摸起來比較廉價</q></li>
+          <li><b>歐德三重店（低分 8 則）</b>：見上；與蘆洲三民店切開看待</li>
+          <li><b>愛菲爾三重三和店</b>：<q>當場付6千～之後有2次的討論，談到快定案時，業者就已讀不回……花6千，只有得到一份報價單和買到經驗</q>（約 2024-08）</li>
+          <li><b>竹樂（僅 1 則低分但很新，約 2026-07）</b>：<q>滿心期待的新房，變成惡夢！不推薦</q>——無詳文無從查證，量體 367 評中的孤例，詢價時可直接問</li>
+          <li><b>三商美福集賢（報價與刷評機制）</b>：<q>女設計師要求我們google上留下5星的好評</q>、<q>家中神明桌的區塊保護1.2坪的空間，竟然報價28600元……整個報價單給我們的感覺就是有多貴就報多貴</q>（約 2025-08 · 1★ 長文）</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- G. 跨平台綜合詢價名單 -->
+<section>
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">G</span><h2>跨平台綜合詢價名單</h2></div>
+    <p class="sect-sub">兩軌分開評、合併用。共同基準：對口（衣帽間/衣櫃實例）＋口碑（低分內容而非平均分）＋2026 有活動。</p>
+    <div class="hero-card">
+      <h3>🎯 最終建議：兩軌各取 2 家，共 4 家詢價</h3>
+      <p><strong>PRO360 工班軌（成交有據）：輝翰</strong>（38 評零負評、不嫌案小）＋<strong>詠采</strong>（2026 動能最強純系統櫃）。<br>
+      <strong>Maps 門市軌（可現場摸板材）：億群</strong>（蘆洲工廠直營、百評零低分、2026 高活躍）＋<strong>嘉宸</strong>（衣櫃實例最多最新）或<strong>歐德蘆洲三民店</strong>（要品牌保固就選它，指名蘆洲店）。<br>
+      建議動線：<strong>先去億群/嘉宸門市現場摸板材五金→再約 PRO360 工班到府丈量報價</strong>，門市報價單拿來跟工班互相殺價。備位：睿沐（唯一開放式衣櫃實績）、房的事（蘆洲在地小案友善）。</p>
+    </div>
+    <div class="callout info">
+      <h4>兩軌的本質差異（決定怎麼用它們）</h4>
+      <ul>
+        <li><b>PRO360 工班</b>：僱用數=平台成交證據，評論綁定成交案，可信度高；但看不到門市、板材要靠樣品照。</li>
+        <li><b>Maps 門市</b>：能走進去摸板材、看五金、感受服務；但星等含「洽談好評」水分，且有店家主動索取 5★ 的機制性膨脹——判斷靠低分評論內容，不靠平均分。</li>
+        <li>兩邊都達標的共同訊號：<b>蘆洲在地 + 2026 持續有成交/新評論 + 低分評論少且非品質類</b>。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- H. 詢價清單 -->
+<section>
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">H</span><h2>詢價前檢查清單（半開放衣帽間情境）</h2></div>
     <p class="sect-sub">帶著這張清單去問，每一項都要寫進報價單，口頭承諾不算。</p>
     <ul class="check">
       <li><b>拉門是誰做的？</b>系統櫃廠自做，還是外包五金/玻璃行？影響保固歸屬與售後窗口——勇志負評裡廠商事後改口<q>我是做系統櫃又不是統包，投影幕關我什麼事?</q>就是責任切割的實例。</li>
@@ -379,17 +518,19 @@ footer{padding:36px 0 56px;color:var(--muted);font-size:13px;text-align:center}
   </div>
 </section>
 
-<!-- F. 資料來源與方法 -->
+<!-- I. 資料來源與方法 -->
 <section>
   <div class="wrap">
-    <div class="sect-head"><span class="badge">F</span><h2>資料來源與方法</h2></div>
+    <div class="sect-head"><span class="badge">I</span><h2>資料來源與方法</h2></div>
     <div class="sources">
       <ul>
         <li><b>資料快照</b>：2026-08-04 抓取 PRO360 達人網「系統櫃訂製」（premade_cabinet_installtion）分類。</li>
         <li><b>清單來源</b>：PRO360 後端清單 API 全量 28 頁（2,789 家），非前端搜尋頁（前端僅顯示部分卡片且排序受廣告影響）。</li>
         <li><b>評論來源</b>：PRO360 評論 API 逐家撈取全部評論（API 的類別參數實測無效，回傳全類別），再以每則評論自帶的類別欄位（quote_category_id=146 系統櫃訂製）本地過濾——含前端頁面預設隱藏的 1–3 星低分評論；引句皆為原文擷取。</li>
         <li><b>篩選門檻</b>：①服務區含蘆洲（247）②評論數 &gt; 僱用數 × 0.8 ③2026 年有系統櫃訂製成交評論。</li>
-        <li><b>限制</b>：僱用數/評論數為平台自報；評論真實性無法完全驗證（已標註疑似刷評者）；快照後的新評論不在本頁。</li>
+        <li><b>Google Maps 資料</b>：2026-08-04 以已登入工作階段爬取「系統櫃/系統家具/衣櫃訂製 × 三重/蘆洲」5 組搜尋（去重 110 家），17 家對口門市逐一爬評論（最新排序＋最低分排序，共 1,600+ 則，含全部 1–3★）。</li>
+        <li><b>Maps 日期為推定</b>：Google 僅顯示相對時間（「3 個月前」），絕對月份為換算推定值，誤差 ±1 個月。</li>
+        <li><b>限制</b>：僱用數/評論數為平台自報；評論真實性無法完全驗證（已標註疑似刷評者與索評機制）；快照後的新評論不在本頁。</li>
         <li><b>忠實度聲明</b>：本頁所有引句照錄評論原文（含錯字），分析判斷（如「疑似親友文」）皆標明為推定。</li>
       </ul>
     </div>
