@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>系統櫃工班研究 — PRO360 蘆洲衣帽間/衣櫃 14 家口碑實查</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#161A1D; --muted:#68707A; --line:#E3E6E9; --bg:#F8F7F4; --paper:#FFFFFF;
+  --wood:#6B4F3A; --wood-soft:#F3EDE6; --wood-ink:#4A3627;
+  --amber:#B07D2B; --amber-soft:#FBF3E3; --amber-ink:#7A5417;
+  --green:#2E7D5B; --green-soft:#E7F3EE;
+  --red:#B3402F; --red-soft:#FBEAE7;
+  --r-lg:20px; --r-sm:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Noto Sans TC',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Noto Serif TC',serif;line-height:1.35}
+a{color:var(--wood)}
+.mono{font-family:'JetBrains Mono',monospace}
+header{background:linear-gradient(135deg,var(--wood-ink) 0%,var(--wood) 100%);color:#fff;padding:56px 0 44px}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.75;margin-bottom:14px}
+header h1{font-size:clamp(26px,4vw,40px);font-weight:900;margin-bottom:14px}
+.lede{font-size:16px;opacity:.92;max-width:760px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 14px;font-size:13px;font-weight:500}
+.backlink{display:inline-block;margin-bottom:18px;color:#fff;opacity:.8;font-size:14px;text-decoration:none}
+.backlink:hover{opacity:1}
+section{padding:44px 0}
+section+section{border-top:1px solid var(--line)}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--wood);color:#fff;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;margin-right:12px;flex:none}
+.sect-head{display:flex;align-items:center;margin-bottom:8px}
+.sect-head h2{font-size:clamp(20px,3vw,27px)}
+.sect-sub{color:var(--muted);font-size:14.5px;margin-bottom:24px;margin-left:46px}
+.hero-card{background:var(--amber-soft);border:1.5px solid #E8D5AC;border-radius:var(--r-lg);padding:26px 28px;margin-top:26px}
+.hero-card h3{color:var(--amber-ink);font-size:18px;margin-bottom:10px}
+.hero-card p{font-size:15px}
+.hero-card strong{color:var(--amber-ink)}
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
+.fstep{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:16px 18px;text-align:center;position:relative}
+.fstep .num{font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:700;color:var(--wood)}
+.fstep .lbl{font-size:13px;color:var(--muted);margin-top:2px}
+.fstep:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px;z-index:1}
+.fstep.final .num{color:var(--amber)}
+.tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
+th{background:var(--wood-soft);color:var(--wood-ink);text-align:left;padding:11px 14px;font-size:13px;white-space:nowrap}
+td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+td.num{font-family:'JetBrains Mono',monospace;font-weight:500;white-space:nowrap}
+tr.hit{background:var(--green-soft)}
+tr.warnrow{background:var(--red-soft)}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill.fit{background:var(--green-soft);color:var(--green)}
+.pill.semi{background:var(--amber-soft);color:var(--amber-ink)}
+.pill.off{background:#EEF0F2;color:var(--muted)}
+.pill.risk{background:var(--red-soft);color:var(--red)}
+.vcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px 26px;margin-bottom:18px;border-top:4px solid var(--wood)}
+.vcard.rec{border-top-color:var(--green)}
+.vcard.caution{border-top-color:var(--red)}
+.vhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px}
+.vhead h3{font-size:19px}
+.vhead .rank{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:14px}
+.vstats{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.vstats b{color:var(--ink);font-family:'JetBrains Mono',monospace}
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.plus,.minus{border-radius:var(--r-sm);padding:14px 16px;font-size:14px}
+.plus{background:var(--green-soft)}
+.minus{background:var(--red-soft)}
+.plus h4{color:var(--green);font-size:13.5px;margin-bottom:6px}
+.minus h4{color:var(--red);font-size:13.5px;margin-bottom:6px}
+.plus ul,.minus ul{padding-left:18px}
+.plus li,.minus li{margin-bottom:4px}
+q{color:#4A5560;font-style:italic}
+.vlink{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:600;text-decoration:none;border:1px solid var(--wood);border-radius:999px;padding:5px 16px;color:var(--wood)}
+.vlink:hover{background:var(--wood);color:#fff}
+.callout{border-radius:var(--r-sm);padding:18px 22px;margin-top:20px;font-size:14.5px;border-left:4px solid}
+.callout.warn{background:var(--amber-soft);border-color:var(--amber)}
+.callout.danger{background:var(--red-soft);border-color:var(--red)}
+.callout.info{background:var(--wood-soft);border-color:var(--wood)}
+.callout h4{margin-bottom:8px;font-size:15px}
+.callout ul{padding-left:20px}
+.callout li{margin-bottom:5px}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:30px;position:relative;margin-bottom:10px;font-size:14.5px}
+ul.check li::before{content:"☐";position:absolute;left:2px;top:0;font-size:17px;color:var(--wood)}
+.sources{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:20px 24px;font-size:13.5px;color:var(--muted)}
+.sources li{margin-bottom:6px}
+footer{padding:36px 0 56px;color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:860px){
+  .funnel{grid-template-columns:repeat(2,1fr)}
+  .fstep:not(:last-child)::after{display:none}
+  .pm{grid-template-columns:1fr}
+}
+@media print{
+  header{background:#fff;color:#000}
+  .backlink,.vlink{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="backlink" href="./index.html">← home-research 首頁</a>
+    <p class="kicker">Contractor Research · 2026-08-04</p>
+    <h1>系統櫃工班研究：PRO360 口碑實查 14 家</h1>
+    <p class="lede">針對新北（郵遞區號 247 蘆洲）「半開放衣帽間（加拉門或布簾）／衣櫃」情境，透過 PRO360 後端 API 抓完「系統櫃訂製」全部 2,789 家清單，對通過門檻的 249 家逐一撈完全部顧客評論（含前端隱藏的 1–3 星負評），再以「2026 年有系統櫃訂製成交評論」做最後把關——全部條件達標者僅 14 家（原目標 20 家，如實回報）。</p>
+    <div class="tags">
+      <span class="tag">📍 新北 247 蘆洲</span>
+      <span class="tag">🚪 半開放衣帽間（拉門/布簾）/ 衣櫃</span>
+      <span class="tag">🔎 2,789 家全掃</span>
+      <span class="tag">💬 249 家評論全讀（含隱藏負評）</span>
+      <span class="tag">📅 2026 成交案例把關</span>
+    </div>
+  </div>
+</header>
+
+<!-- A. 結論 -->
+<section>
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">A</span><h2>先講結論</h2></div>
+    <p class="sect-sub">僱用數排行前段的口碑巨頭幾乎都是隔壁工種（油漆/家具維修/冷氣）——系統櫃訂製成交評論掛零，全數刷掉。</p>
+    <div class="hero-card">
+      <h3>🎯 建議詢價組合（半開放衣帽間 + 拉門/布簾情境）</h3>
+      <p><strong>首選詢價：輝翰系統傢俱設計</strong>（38 評論全 5 星零負評 · 系統櫃本業 32 則 · 通過公司認證 · 不嫌案小）與 <strong>詠采系統傢俱設計</strong>（2026 動能最強：14 則評論中 9 則是 2026 系統櫃成交 · 100% 純系統櫃專業戶）。<br>
+      <strong>加一家比價：睿沐系統櫥櫃設計</strong>（唯一有「開放式衣櫃」成交評論原文者，與本案最對口）或 <strong>晨昱系統傢俱</strong>（老闆木工出身，拉門軌道/輕隔間可自做）。<br>
+      <strong>避開：勇志企業社</strong>——一則萬字 1★ 血淚負評揭露拖工三個月、報價灌水、對業主吼罵等重複模式，廠商從未回覆；<strong>鉅洸系統家具</strong>的小案子有被已讀不回前例，審慎。</p>
+    </div>
+  </div>
+</section>
+
+<!-- B. 篩選漏斗 -->
+<section>
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">B</span><h2>篩選方法</h2></div>
+    <p class="sect-sub">四步漏斗。門檻理由：僱用數證明實案量；「評論數 &gt; 僱用數 × 0.8」剔除做很多案但客人不願留評的工班；「2026 系統櫃成交評論」確保是現役的本業工班，不是掛名跨接。</p>
+    <div class="funnel">
+      <div class="fstep"><div class="num">2789</div><div class="lbl">系統櫃訂製全台清單<br>（後端 API 全撈）</div></div>
+      <div class="fstep"><div class="num">1395</div><div class="lbl">服務區含蘆洲 247</div></div>
+      <div class="fstep"><div class="num">249</div><div class="lbl">僱用 &gt; 0 且<br>評論 &gt; 僱用 × 0.8</div></div>
+      <div class="fstep final"><div class="num">14</div><div class="lbl">2026 年有「系統櫃訂製」<br>成交評論 ＝ 最終入選</div></div>
+    </div>
+    <div class="callout info">
+      <h4>被「2026 系統櫃成交」門檻刷掉的高僱用數大戶（僅列前幾名，供理解落差）</h4>
+      <ul>
+        <li><b>長聖油漆</b>（218 僱用）— 本業油漆工程 114 則，系統櫃評論 0 則。</li>
+        <li><b>菜根湯圓</b>（184 僱用）— 本業家具維修/門片維修，系統櫃評論 0 則。</li>
+        <li><b>茂盛冷氣空調</b>（161 僱用）— 冷氣清洗/維修，系統櫃評論 0 則。</li>
+        <li><b>沐宸系統傢俱設計</b>（75 僱用 / 89 則系統櫃評論，量體其實很大）— 但最新評論停在 <b>2024-03</b>，2026 無成交紀錄，可能已轉往他平台接案；若名單不夠用可自行致意詢問。</li>
+        <li><b>洋葱</b>（91 僱用 / 17 則系統櫃評論）— 最新評論停在 2023-09，同上。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- C. 排名總表 -->
+<section>
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">C</span><h2>14 家排名總表（依評論數）</h2></div>
+    <p class="sect-sub">「對口度」＝評論內容顯示的實際專業 vs「衣帽間/衣櫃系統櫃訂製」的匹配程度。點專家名可直接開 PRO360 檔案頁。星等分布來自後端 API 全量評論（前端頁面預設隱藏低分）。</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>#</th><th>專家</th><th>評論</th><th>僱用</th><th>星等分布</th><th>系統櫃評論<br>(2026)</th><th>對口度</th><th>一句話定位</th></tr></thead>
+        <tbody>
+          <tr class="hit"><td class="num">1</td><td><a href="https://www.pro360.com.tw/service/420651/premade_cabinet_installtion" target="_blank" rel="noopener">輝翰系統傢俱設計</a></td><td class="num">38</td><td class="num">38</td><td class="num">5★×38</td><td class="num">32 (4)</td><td><span class="pill fit">對口 ★</span></td><td>系統櫃本業、零負評、不嫌案小</td></tr>
+          <tr><td class="num">2</td><td><a href="https://www.pro360.com.tw/service/303623/premade_cabinet_installtion" target="_blank" rel="noopener">4U 系統櫃專家</a></td><td class="num">32</td><td class="num">19</td><td class="num">5★×29 · 4★×2 · 1★×1</td><td class="num">25 (5)</td><td><span class="pill semi">對口但看量</span></td><td>回覆神速，但評論&gt;僱用要打折看</td></tr>
+          <tr><td class="num">3</td><td><a href="https://www.pro360.com.tw/service/323039/premade_cabinet_installtion" target="_blank" rel="noopener">晨昱系統傢俱｜室內裝潢</a></td><td class="num">28</td><td class="num">29</td><td class="num">5★×28</td><td class="num">22 (1)</td><td><span class="pill fit">對口</span></td><td>木工出身兼系統櫃，拉門有利</td></tr>
+          <tr><td class="num">4</td><td><a href="https://www.pro360.com.tw/service/409783/premade_cabinet_installtion" target="_blank" rel="noopener">奇閣創意家居</a></td><td class="num">21</td><td class="num">18</td><td class="num">5★×20 · 4★×1</td><td class="num">11 (1)</td><td><span class="pill semi">半對口</span></td><td>系統櫃+統包各半，會電腦繪圖</td></tr>
+          <tr class="hit"><td class="num">5</td><td><a href="https://www.pro360.com.tw/service/592477/premade_cabinet_installtion" target="_blank" rel="noopener">詠采系統傢俱設計</a></td><td class="num">14</td><td class="num">17</td><td class="num">5★×14</td><td class="num">14 (9)</td><td><span class="pill fit">對口 ★</span></td><td>100% 純系統櫃，2026 動能最強</td></tr>
+          <tr class="warnrow"><td class="num">6</td><td><a href="https://www.pro360.com.tw/service/293397/premade_cabinet_installtion" target="_blank" rel="noopener">勇志企業社</a></td><td class="num">14</td><td class="num">15</td><td class="num">5★×12 · 4★×1 · 1★×1</td><td class="num">12 (2)</td><td><span class="pill risk">有重大負評</span></td><td>萬字血淚控訴＋2026 也有進度落後評語</td></tr>
+          <tr class="warnrow"><td class="num">7</td><td><a href="https://www.pro360.com.tw/service/337333/premade_cabinet_installtion" target="_blank" rel="noopener">鉅洸系統家具</a></td><td class="num">11</td><td class="num">8</td><td class="num">5★×10 · 1★×1</td><td class="num">11 (1)</td><td><span class="pill risk">體驗兩極</span></td><td>小案曾被已讀不回，好評也不少</td></tr>
+          <tr class="hit"><td class="num">8</td><td><a href="https://www.pro360.com.tw/service/597517/premade_cabinet_installtion" target="_blank" rel="noopener">睿沐系統櫥櫃設計</a></td><td class="num">7</td><td class="num">7</td><td class="num">5★×7</td><td class="num">7 (3)</td><td><span class="pill fit">對口 ★</span></td><td>唯一有「開放式衣櫃」成交原文</td></tr>
+          <tr><td class="num">9</td><td><a href="https://www.pro360.com.tw/service/656191/premade_cabinet_installtion" target="_blank" rel="noopener">系統櫃設計（吳老闆/阿鋮）</a></td><td class="num">4</td><td class="num">3</td><td class="num">5★×4</td><td class="num">4 (4)</td><td><span class="pill semi">樣本少</span></td><td>2026 全是新成交，設計背景業主給好評</td></tr>
+          <tr><td class="num">10</td><td><a href="https://www.pro360.com.tw/service/619509/premade_cabinet_installtion" target="_blank" rel="noopener">壹作系統傢俱設計</a></td><td class="num">3</td><td class="num">2</td><td class="num">5★×3</td><td class="num">3 (2)</td><td><span class="pill semi">樣本少</span></td><td>維修小案好評</td></tr>
+          <tr><td class="num">11</td><td><a href="https://www.pro360.com.tw/service/305930/premade_cabinet_installtion" target="_blank" rel="noopener">西籐系統櫃</a></td><td class="num">3</td><td class="num">2</td><td class="num">5★×3</td><td class="num">3 (3)</td><td><span class="pill semi">樣本少</span></td><td>「報價作圖到施作」流程好評</td></tr>
+          <tr><td class="num">12</td><td><a href="https://www.pro360.com.tw/service/630480/premade_cabinet_installtion" target="_blank" rel="noopener">品風系統傢俱有限公司</a></td><td class="num">2</td><td class="num">1</td><td class="num">5★×2</td><td class="num">2 (1)</td><td><span class="pill off">樣本極少</span></td><td>無文字評論可佐證</td></tr>
+          <tr><td class="num">13</td><td><a href="https://www.pro360.com.tw/service/613413/premade_cabinet_installtion" target="_blank" rel="noopener">櫃生活GUEI LIFE_Otis建維</a></td><td class="num">2</td><td class="num">1</td><td class="num">5★×2</td><td class="num">2 (2)</td><td><span class="pill off">樣本極少</span></td><td>好評文字疑似親友文（錯字連篇）</td></tr>
+          <tr><td class="num">14</td><td><a href="https://www.pro360.com.tw/service/652089/premade_cabinet_installtion" target="_blank" rel="noopener">爾普室內設計</a></td><td class="num">1</td><td class="num">1</td><td class="num">5★×1</td><td class="num">1 (1)</td><td><span class="pill off">樣本極少</span></td><td>僅 1 則評論</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn">
+      <h4>⚠️ 為什麼不是 20 家？</h4>
+      <p>原需求為前 20 名，但「2026 年有系統櫃訂製成交評論」這個把關條件把 249 家的合格池刷到只剩 14 家——這是好事：代表其餘 235 家不是隔壁工種掛名，就是近期沒有本業成交（口碑再多也是舊帳）。寧缺勿濫，如實回報。</p>
+    </div>
+  </div>
+</section>
+
+<!-- D. 各家優缺點 -->
+<section>
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">D</span><h2>各家優缺點（評論原文為證）</h2></div>
+    <p class="sect-sub">所有引句皆為 PRO360 顧客評論原文擷取，未改寫、未虛構。低分（1–3 星）評論全數列出。依評論數排序。</p>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>輝翰系統傢俱設計</h3><span class="rank">#1 · 38 評論 / 38 僱用 / 5.0</span></div>
+      <p class="vstats">星等分布：<b>5★×38（零負評）</b> · 系統櫃本業評論 32 則 · 2026 成交 4 筆（最新 2026-07-14）· 新北林口 · 通過公司認證（統編 82274920）</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>不嫌案小：<q>做一個吊櫃小案子也積極幫忙</q>、<q>不會因物件少而拒絕，更會給予個別化設計</q></li>
+          <li>價格與品質：<q>系統櫃價格合理，溝通順暢，成品是我們想像中的樣子</q>、<q>價格公道，速度品質都很好</q></li>
+          <li>售後：<q>完工後也有售後服務和保固，不吝於回覆</q></li>
+          <li>效率：<q>約時間準時、施工確實、溝通順暢</q>、<q>安排施工速度很快</q></li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>回覆速度在忙季會拖（藏在 5★ 裡的微詞）：<q>因為太忙，總是無法即時回覆，讓業主緊張。但結果是好的</q>（2025-08）</li>
+          <li>週六日休息（服務時段一～五 09:00–21:00），假日勘場需配合</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/420651/premade_cabinet_installtion" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard">
+      <div class="vhead"><h3>4U 系統櫃專家</h3><span class="rank">#2 · 32 評論 / 19 僱用 / 4.8</span></div>
+      <p class="vstats">星等分布：5★×29 · 4★×2 · <b>1★×1</b> · 系統櫃評論 25 則 · 2026 成交 5 筆（最新 2026-04-13）</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>回覆速度是招牌：<q>自始自終都以最快速時間回覆顧客需求，包括下班以後</q>、<q>雖沒合作 但回覆快速真誠</q></li>
+          <li>先給圖再施工：<q>當天也提供示意圖讓我們更清楚施作的成品概況</q></li>
+          <li>小坪數友善：<q>小坪數施工，覃先生團隊還是願意施作不馬虎</q></li>
+          <li>預算控制：<q>完全在預算內，又做得超出理想中的完美</q></li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>一筆 <b>2023-07 的 1★ 無文字負評</b>——無從判斷原因，但存在</li>
+          <li>評論 32 &gt; 僱用 19：不少 5★ 是「詢價體驗好但最終沒成交」（如<q>雖沒合作</q>、<q>因其他原因雖沒完成交易</q>）——實作案例量要打七折看</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/303623/premade_cabinet_installtion" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>晨昱系統傢俱｜室內裝潢</h3><span class="rank">#3 · 28 評論 / 29 僱用 / 5.0</span></div>
+      <p class="vstats">星等分布：<b>5★×28（零負評）</b> · 系統櫃評論 22 則 · 2026 系統櫃成交 1 筆（2026-04-07）＋多筆小坪數裝潢好評（最新 2026-06-29）</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>條件透明：<q>除了免費丈量外 老闆好溝通 樣式可隨預算修改 施工快速 也有提供保固</q></li>
+          <li>不嫌案小：<q>老闆不會因為只做一個櫃子,就愛理不理,反而積極接洽溝通問題,且價格便宜.料實在.工細心</q></li>
+          <li>老闆本身是木工師傅（做拉門/輕隔間/收邊有利）：<q>本身小張也是自己做木工師傅的這部分真的很加分手藝也很細心</q></li>
+          <li>工期掌控：<q>施工品質很棒且工期掌控如期完成</q>、<q>提前完工後也協助許多庶務</q></li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>全部評論找不到實質抱怨；但 2026 純系統櫃成交僅 1 筆，近期重心偏小坪數統包，純櫃體案檔期需先確認</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/323039/premade_cabinet_installtion" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard">
+      <div class="vhead"><h3>奇閣創意家居</h3><span class="rank">#4 · 21 評論 / 18 僱用 / 5.0</span></div>
+      <p class="vstats">星等分布：5★×20 · 4★×1 · 系統櫃評論 11 則 · 2026 成交 1 筆（2026-04-13）</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>出圖能力：<q>彈性客製化調整溝通,專業度高,會電腦繪圖給買家清晰明瞭</q></li>
+          <li>不強迫推銷：<q>價格公道，服務負責，尊重屋主意願，不強迫施工。若屋主沒有明確想法，亦能提供專業建議</q></li>
+          <li>單做臥榻/小櫃也接：<q>幫客廳單做一個臥榻好收納，服務品質好，價格理想</q></li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>系統櫃僅佔評論一半（11/21），另一半是統包/木工——本業純度不如輝翰/詠采</li>
+          <li>2026 系統櫃成交僅 1 筆</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/409783/premade_cabinet_installtion" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>詠采系統傢俱設計</h3><span class="rank">#5 · 14 評論 / 17 僱用 / 5.0</span></div>
+      <p class="vstats">星等分布：<b>5★×14（零負評）</b> · 系統櫃評論 14/14（100% 純本業）· <b>2026 成交 9 筆——全名單動能最強</b>（最新 2026-06-01）</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>2026 上半年就有 9 筆系統櫃成交評論——現在進行式的本業工班，不是吃老本</li>
+          <li>唯一有 20 年老屋改造衣物收納的長文實例：<q>看著住了 20 年的房子變成現在這麼有質感的樣子，真的很有感。兩位師傅不但手藝專業，人也非常客氣，最棒的是過程中，他們非常有耐心，總是把業主的需求放在第一位</q>（2026-03）</li>
+          <li>窗口口碑：<q>接洽的窗口陳先生誠懇又專業，工作團隊也很細心</q></li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>14 則中有 4 則是無文字的 5★（僅評分）——文字樣本比帳面少</li>
+          <li>成立時間較新、總量體較小（17 僱用），大案經驗深度未知</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/592477/premade_cabinet_installtion" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard caution">
+      <div class="vhead"><h3>勇志企業社</h3><span class="rank">#6 · 14 評論 / 15 僱用 / 4.6</span></div>
+      <p class="vstats">星等分布：5★×12 · 4★×1 · <b>1★×1（萬字血淚長文）</b> · 2026 系統櫃成交 2 筆（最新 2026-07-11）</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>多數評論仍是 5★，統包能力有（拆除到櫃體一條龍）</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨（2024-11 · 1★ 長文控訴，摘錄原文）</h4><ul>
+          <li>拖延完工：<q>簽完約後隔天統包就把……2個櫃子和天花板拆光光……就使用消失術讓新家一直維持拆光狀態</q>，2/4 簽約承諾 4/10 完工，兩度違約展延</li>
+          <li>對業主吼罵：<q>統包就翻臉大吼我……全程在屋內用吼罵的，我直接在屋內當場嚇哭</q>、<q>給我大力重重的拍我新家廚房的檯面說:你這是情緒勒索!!!</q></li>
+          <li>板材/石英石顏色講 5 次仍做錯：<q>跟他說過板材和石英石顏色他忘記了5次!!……施工完後發現他浴室門面顏色還是做錯了!</q>換料還要加錢</li>
+          <li>插座/吊櫃漏做：<q>電視區插座強調過很重要一定要4組插座，最後只做了一組</q>、馬桶吊櫃講 3 次沒做還說<q>我們沒有說要做</q></li>
+          <li>書桌深度被強改 42cm：<q>打鍵盤手幾乎是懸空打</q></li>
+          <li>廠商從未在平台回覆此負評</li>
+          <li>而且不是孤例——<b>2026-07 的 4★ 也寫</b>：<q>只是進度有些落後</q> → 拖延是重複模式</li>
+        </ul></div>
+      </div>
+      <div class="callout danger"><h4>結論：不建議</h4><p>負評揭露的「拖延＋規格做錯＋追加費用＋態度失控」是裝潢最貴的四種災難同時出現，且 2026 最新評論仍見「進度落後」字樣。</p></div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/293397/premade_cabinet_installtion" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard caution">
+      <div class="vhead"><h3>鉅洸系統家具</h3><span class="rank">#7 · 11 評論 / 8 僱用 / 4.6</span></div>
+      <p class="vstats">星等分布：5★×10 · <b>1★×1</b> · 系統櫃評論 11 則 · 2026 成交 1 筆（2026-01-03）</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>成交案好評具體：施工細緻、價格合理等 5★ 有 10 則</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨（2023-12 · 1★ 原文）</h4><ul>
+          <li>小案被已讀不回：<q>加了賴問一問要做甚麼，我說吊櫃……叫我傳現場照片給他，然後就沒有理我了……早上9：30加好友到隔天早上8：00都沒有回，如果是覺得小工程不想接可以直接講就好</q></li>
+          <li>→ 衣帽間/衣櫃屬中小案，詢價體驗有兩極風險</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/337333/premade_cabinet_installtion" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>睿沐系統櫥櫃設計</h3><span class="rank">#8 · 7 評論 / 7 僱用 / 5.0</span></div>
+      <p class="vstats">星等分布：<b>5★×7（零負評）</b> · 系統櫃評論 7/7 · 2026 成交 3 筆（最新 2026-03-28）</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li><b>全名單唯一「開放式衣櫃」成交評論原文</b>：<q>幫兒子裝了一個開放式衣櫃，真的超好用！收納空間很夠，用起來也很方便～收好收滿完全沒問題</q>（2025-10）——與半開放衣帽間需求最直接對口</li>
+          <li>解題態度：<q>蔣先生認真負責，願意解決問題！價格公道，會願意繼續合作！</q>（2026-03）</li>
+          <li>出方案快：<q>好溝通，方案出很快，價格合理</q></li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>量體最小的推薦者（7 僱用），檔期彈性可能有限；無負評但樣本也少</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/597517/premade_cabinet_installtion" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard">
+      <div class="vhead"><h3>尾段 6 家（樣本太少，僅列摘要）</h3><span class="rank">#9–#14</span></div>
+      <p class="vstats">全部零負評，但評論數 ≤ 4，統計上不足以下判斷。列出供備選與追蹤。</p>
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr><th>#</th><th>專家</th><th>評/僱</th><th>2026 系統櫃</th><th>評論摘錄（原文）</th></tr></thead>
+          <tbody>
+            <tr><td class="num">9</td><td><a href="https://www.pro360.com.tw/service/656191/premade_cabinet_installtion" target="_blank" rel="noopener">系統櫃設計（吳老闆/阿鋮）</a></td><td class="num">4/3</td><td class="num">4 筆</td><td><q>由於我本身具備室內設計相關背景……不論是外觀質感還是細部處理，都讓我相當滿意</q>（2026-06）、<q>施工前來多次勘場溝通</q>——內行業主給好評是加分項，可當黑馬備選</td></tr>
+            <tr><td class="num">10</td><td><a href="https://www.pro360.com.tw/service/619509/premade_cabinet_installtion" target="_blank" rel="noopener">壹作系統傢俱設計</a></td><td class="num">3/2</td><td class="num">2 筆</td><td><q>師傅施工迅速且技術優良，價格也合理</q>（2026-07，維修小案）</td></tr>
+            <tr><td class="num">11</td><td><a href="https://www.pro360.com.tw/service/305930/premade_cabinet_installtion" target="_blank" rel="noopener">西籐系統櫃</a></td><td class="num">3/2</td><td class="num">3 筆</td><td><q>從詢問報價作圖到施作, 曾小姐專業細心耐心值得推薦, 成品很好</q>（2026-07）</td></tr>
+            <tr><td class="num">12</td><td><a href="https://www.pro360.com.tw/service/630480/premade_cabinet_installtion" target="_blank" rel="noopener">品風系統傢俱有限公司</a></td><td class="num">2/1</td><td class="num">1 筆</td><td>兩筆 5★ 皆無文字——無從佐證，略過</td></tr>
+            <tr><td class="num">13</td><td><a href="https://www.pro360.com.tw/service/613413/premade_cabinet_installtion" target="_blank" rel="noopener">櫃生活GUEI LIFE_Otis建維</a></td><td class="num">2/1</td><td class="num">2 筆</td><td>唯一文字評論錯字連篇（<q>負煑認很不鍣的公司哦</q>）疑似親友刷評，不採信</td></tr>
+            <tr><td class="num">14</td><td><a href="https://www.pro360.com.tw/service/652089/premade_cabinet_installtion" target="_blank" rel="noopener">爾普室內設計</a></td><td class="num">1/1</td><td class="num">1 筆</td><td><q>回覆速度快，也很有耐心……給出的建議實際且具體</q>（2026-01），樣本僅 1 則</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- E. 詢價清單 -->
+<section>
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">E</span><h2>詢價前檢查清單（半開放衣帽間情境）</h2></div>
+    <p class="sect-sub">帶著這張清單去問，每一項都要寫進報價單，口頭承諾不算。</p>
+    <ul class="check">
+      <li><b>拉門是誰做的？</b>系統櫃廠自做，還是外包五金/玻璃行？影響保固歸屬與售後窗口——勇志案例證明「多包分工」出事時互踢皮球最痛。</li>
+      <li><b>樑下 2.3m 的收齊方式</b>：櫃體要不要包樑？頂天做假樑收齊還是留縫？請對方畫進圖面。</li>
+      <li><b>板材與五金品牌型號白紙黑字</b>：板材（EGGER/系統板 E0/E1）、鉸鏈滑軌（Blum/Hettich/國產）、拉門軌道（上吊/下軌）全寫進報價單，含色號。</li>
+      <li><b>布簾方案的軌道預埋</b>：若先做布簾日後想改拉門，天花與側牆是否預留結構？</li>
+      <li><b>完工日期＋逾期條款</b>：合約要有明確完工日；對方若不肯談逾期處理方式，參考勇志案例，直接換人。</li>
+      <li><b>保固年限與範圍</b>：櫃體、五金、拉門分開問；輝翰評論明確提到有售後保固，可要求比照寫入。</li>
+      <li><b>插座/燈條/感應燈</b>：衣帽間內若要感應燈條或插座，簽約前講清楚由誰配電、費用含不含。</li>
+      <li><b>丈量是否免費、出圖收不收費</b>：晨昱評論明寫免費丈量；3D 圖是否要價、簽約後可折抵，先問清。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- F. 資料來源與方法 -->
+<section>
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">F</span><h2>資料來源與方法</h2></div>
+    <div class="sources">
+      <ul>
+        <li><b>資料快照</b>：2026-08-04 抓取 PRO360 達人網「系統櫃訂製」（premade_cabinet_installtion）分類。</li>
+        <li><b>清單來源</b>：PRO360 後端清單 API 全量 28 頁（2,789 家），非前端搜尋頁（前端僅顯示部分卡片且排序受廣告影響）。</li>
+        <li><b>評論來源</b>：PRO360 評論 API 以「系統櫃訂製」類別（category 146）過濾，逐家撈取全部評論——含前端頁面預設隱藏的 1–3 星低分評論；引句皆為原文擷取。</li>
+        <li><b>篩選門檻</b>：①服務區含蘆洲（247）②評論數 &gt; 僱用數 × 0.8 ③2026 年有系統櫃訂製成交評論。</li>
+        <li><b>限制</b>：僱用數/評論數為平台自報；評論真實性無法完全驗證（已標註疑似刷評者）；快照後的新評論不在本頁。</li>
+        <li><b>忠實度聲明</b>：本頁所有引句照錄評論原文（含錯字），分析判斷（如「疑似親友文」）皆標明為推定。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">home-research · 系統櫃工班口碑研究 · 資料快照 2026-08-04 · 僅供家庭決策參考</div>
+</footer>
+
+</body>
+</html>
