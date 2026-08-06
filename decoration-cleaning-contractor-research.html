@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>裝潢細清研究 — PRO360 28 家 × Google Maps 13 家口碑實查（蘆洲）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#161A1D; --muted:#68707A; --line:#E3E6E9; --bg:#F6F8F8; --paper:#FFFFFF;
+  --teal:#0E7C7B; --teal-soft:#E4F2F1; --teal-ink:#0A5352;
+  --amber:#B07D2B; --amber-soft:#FBF3E3; --amber-ink:#7A5417;
+  --green:#2E7D5B; --green-soft:#E7F3EE;
+  --red:#B3402F; --red-soft:#FBEAE7;
+  --r-lg:20px; --r-sm:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Noto Sans TC',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Noto Serif TC',serif;line-height:1.35}
+a{color:var(--teal)}
+.mono{font-family:'JetBrains Mono',monospace}
+header{background:linear-gradient(135deg,var(--teal-ink) 0%,var(--teal) 100%);color:#fff;padding:56px 0 44px}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.75;margin-bottom:14px}
+header h1{font-size:clamp(26px,4vw,40px);font-weight:900;margin-bottom:14px}
+.lede{font-size:16px;opacity:.92;max-width:760px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 14px;font-size:13px;font-weight:500}
+.backlink{display:inline-block;margin-bottom:18px;color:#fff;opacity:.8;font-size:14px;text-decoration:none}
+.backlink:hover{opacity:1}
+section{padding:44px 0}
+section+section{border-top:1px solid var(--line)}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--teal);color:#fff;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;margin-right:12px;flex:none}
+.sect-head{display:flex;align-items:center;margin-bottom:8px}
+.sect-head h2{font-size:clamp(20px,3vw,27px)}
+.sect-sub{color:var(--muted);font-size:14.5px;margin-bottom:24px;margin-left:46px}
+.hero-card{background:var(--amber-soft);border:1.5px solid #E8D5AC;border-radius:var(--r-lg);padding:26px 28px;margin-top:26px}
+.hero-card h3{color:var(--amber-ink);font-size:18px;margin-bottom:10px}
+.hero-card p{font-size:15px}
+.hero-card strong{color:var(--amber-ink)}
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
+.fstep{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:16px 18px;text-align:center;position:relative}
+.fstep .num{font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:700;color:var(--teal)}
+.fstep .lbl{font-size:13px;color:var(--muted);margin-top:2px}
+.fstep:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px;z-index:1}
+.fstep.final .num{color:var(--amber)}
+.tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
+th{background:var(--teal-soft);color:var(--teal-ink);text-align:left;padding:11px 14px;font-size:13px;white-space:nowrap}
+td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+td.num{font-family:'JetBrains Mono',monospace;font-weight:500;white-space:nowrap}
+tr.hit{background:var(--green-soft)}
+tr.warnrow{background:var(--red-soft)}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill.fit{background:var(--green-soft);color:var(--green)}
+.pill.semi{background:var(--amber-soft);color:var(--amber-ink)}
+.pill.off{background:#EEF0F2;color:var(--muted)}
+.pill.risk{background:var(--red-soft);color:var(--red)}
+.vcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px 26px;margin-bottom:18px;border-top:4px solid var(--teal)}
+.vcard.rec{border-top-color:var(--green)}
+.vcard.caution{border-top-color:var(--red)}
+.vhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px}
+.vhead h3{font-size:19px}
+.vhead .rank{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:14px}
+.vstats{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.vstats b{color:var(--ink);font-family:'JetBrains Mono',monospace}
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.plus,.minus{border-radius:var(--r-sm);padding:14px 16px;font-size:14px}
+.plus{background:var(--green-soft)}
+.minus{background:var(--red-soft)}
+.plus h4{color:var(--green);font-size:13.5px;margin-bottom:6px}
+.minus h4{color:var(--red);font-size:13.5px;margin-bottom:6px}
+.plus ul,.minus ul{padding-left:18px}
+.plus li,.minus li{margin-bottom:4px}
+q{color:#4A5560;font-style:italic}
+.vlink{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:600;text-decoration:none;border:1px solid var(--teal);border-radius:999px;padding:5px 16px;color:var(--teal)}
+.vlink:hover{background:var(--teal);color:#fff}
+.callout{border-radius:var(--r-sm);padding:18px 22px;margin-top:20px;font-size:14.5px;border-left:4px solid}
+.callout.warn{background:var(--amber-soft);border-color:var(--amber)}
+.callout.danger{background:var(--red-soft);border-color:var(--red)}
+.callout.info{background:var(--teal-soft);border-color:var(--teal)}
+.callout h4{margin-bottom:8px;font-size:15px}
+.callout ul{padding-left:20px}
+.callout li{margin-bottom:5px}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:30px;position:relative;margin-bottom:10px;font-size:14.5px}
+ul.check li::before{content:"☐";position:absolute;left:2px;top:0;font-size:17px;color:var(--teal)}
+.sources{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:20px 24px;font-size:13.5px;color:var(--muted)}
+.sources li{margin-bottom:6px}
+footer{padding:36px 0 56px;color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:860px){
+  .funnel{grid-template-columns:repeat(2,1fr)}
+  .fstep:not(:last-child)::after{display:none}
+  .pm{grid-template-columns:1fr}
+}
+@media print{
+  header{background:#fff;color:#000}
+  .backlink,.vlink{display:none}
+}
+
+/* === reading progress nav (rpn) === */
+:root{
+  --rpn-accent:#0E7C7B; --rpn-accent-deep:#0A5352; --rpn-track:#D8E8E7;
+  --rpn-line:#E3E6E9; --rpn-muted:#68707A; --rpn-soft:#E4F2F1;
+  --rpn-glass:rgba(246,248,248,.95);
+}
+.rpn-navbar{ position:sticky; top:0; z-index:60; background:var(--rpn-glass);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  margin:0 0 18px; padding:9px 10px 6px; border-radius:0 0 16px 16px;
+  border:1px solid var(--rpn-line); box-shadow:0 6px 20px rgba(14,124,123,.10); }
+.rpn-progress{ height:5px; background:var(--rpn-track); border-radius:999px; overflow:hidden; margin-bottom:9px; }
+.rpn-progress > i{ display:block; height:100%; width:0;
+  background:linear-gradient(90deg,var(--rpn-accent),var(--rpn-accent-deep));
+  border-radius:999px; transition:width .08s linear; }
+.rpn-toc{ display:flex; gap:8px; flex-wrap:nowrap; overflow-x:auto; margin:0;
+  padding:2px 2px 6px; scrollbar-width:thin; scroll-behavior:smooth; }
+.rpn-toc::-webkit-scrollbar{ height:6px; }
+.rpn-toc::-webkit-scrollbar-thumb{ background:#A9CCCB; border-radius:999px; }
+.rpn-toc a{ flex:0 0 auto; white-space:nowrap; border:1px solid var(--rpn-line);
+  background:#fff; border-radius:999px; padding:7px 12px; color:var(--rpn-muted);
+  font-weight:800; text-decoration:none; font-size:13.5px;
+  transition:background .15s,color .15s,border-color .15s; }
+.rpn-toc a:hover{ border-color:var(--rpn-accent); color:var(--rpn-accent-deep); }
+.rpn-toc a.active{ background:var(--rpn-accent-deep); color:#fff; border-color:var(--rpn-accent-deep); }
+.rpn-dock{ position:fixed; right:16px; top:50%; transform:translateY(-50%); z-index:55;
+  display:none; flex-direction:column; gap:2px; background:var(--rpn-glass);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--rpn-line); border-radius:16px; padding:12px 10px;
+  box-shadow:0 12px 30px rgba(14,124,123,.18); max-height:88vh; overflow:auto; scrollbar-width:thin; }
+.rpn-dock::-webkit-scrollbar{ width:5px; }
+.rpn-dock::-webkit-scrollbar-thumb{ background:#A9CCCB; border-radius:999px; }
+.rpn-dock .rpn-dock-head{ font-size:11px; font-weight:900; color:var(--rpn-muted);
+  letter-spacing:.08em; padding:0 8px 6px; text-transform:uppercase; }
+.rpn-dock .rpn-dock-prog{ height:4px; background:var(--rpn-track); border-radius:999px; overflow:hidden; margin:0 6px 8px; }
+.rpn-dock .rpn-dock-prog > i{ display:block; height:100%; width:0;
+  background:linear-gradient(90deg,var(--rpn-accent),var(--rpn-accent-deep));
+  border-radius:999px; transition:width .08s linear; }
+.rpn-dock a{ display:flex; align-items:center; gap:9px; padding:6px 10px; border-radius:10px;
+  font-size:13px; font-weight:700; color:var(--rpn-muted); border:0; text-decoration:none;
+  white-space:nowrap; transition:background .15s,color .15s; }
+.rpn-dock a .rpn-dot{ width:9px; height:9px; border-radius:999px; background:#A9CCCB;
+  flex:0 0 auto; transition:background .15s,box-shadow .15s; }
+.rpn-dock a:hover{ background:var(--rpn-soft); color:var(--rpn-accent-deep); }
+.rpn-dock a:hover .rpn-dot{ background:var(--rpn-accent); }
+.rpn-dock a.active{ background:var(--rpn-accent-deep); color:#fff; }
+.rpn-dock a.active .rpn-dot{ background:#fff; box-shadow:0 0 0 3px rgba(255,255,255,.28); }
+@media (min-width:1280px){ .rpn-dock{ display:flex; } .rpn-navbar{ display:none; } }
+</style>
+</head>
+<body>
+
+<div class="rpn-navbar" id="rpnNavbar">
+  <div class="rpn-progress"><i id="rpnFill"></i></div>
+  <div class="rpn-toc" id="rpnToc"><a href="#secA">A 結論</a><a href="#secB">B 篩選漏斗</a><a href="#secC">C PRO360 總表</a><a href="#secD">D 工班優缺點</a><a href="#secE">E Maps 評比</a><a href="#secF">F 店家優缺點</a><a href="#secG">G 綜合詢價名單</a><a href="#secH">H 詢價檢核</a><a href="#secI">I 資料來源</a></div>
+</div>
+<nav class="rpn-dock" id="rpnDock" aria-label="頁面導覽">
+  <div class="rpn-dock-head">本頁導覽</div>
+  <div class="rpn-dock-prog"><i id="rpnSideFill"></i></div>
+  <a href="#secA"><span class="rpn-dot"></span>A 結論</a><a href="#secB"><span class="rpn-dot"></span>B 篩選漏斗</a><a href="#secC"><span class="rpn-dot"></span>C PRO360 總表</a><a href="#secD"><span class="rpn-dot"></span>D 工班優缺點</a><a href="#secE"><span class="rpn-dot"></span>E Maps 評比</a><a href="#secF"><span class="rpn-dot"></span>F 店家優缺點</a><a href="#secG"><span class="rpn-dot"></span>G 綜合詢價名單</a><a href="#secH"><span class="rpn-dot"></span>H 詢價檢核</a><a href="#secI"><span class="rpn-dot"></span>I 資料來源</a>
+</nav>
+
+<header>
+  <div class="wrap">
+    <a class="backlink" href="./index.html">← home-research 首頁</a>
+    <p class="kicker">Contractor Research · 2026-08-06</p>
+    <h1>裝潢細清研究：PRO360 工班 28 家 × Maps 店家 13 家</h1>
+    <p class="lede">針對蘆洲新家（6F 約 28 坪，3 房 2 廳雙衛）裝潢完工後的「細清」，透過 PRO360 後端 API 抓完「裝潢清潔」全類別 1,053 家清單，篩出服務蘆洲（247）的 373 家，對僱用數前段班＋描述標榜細清者共 28 家逐一撈完全部顧客評論（含前端隱藏的 1–3 星負評），以「工項確實是裝潢清潔＋2025–26 仍有成交」把關。另以已登入 Google Maps 爬取「裝潢細清/裝潢清潔 × 蘆洲」13 家店家共 1,650+ 則評論（含全部低分），兩軌分開評比＋跨平台合併詢價名單。</p>
+    <div class="tags">
+      <span class="tag">📍 新北 247 蘆洲</span>
+      <span class="tag">🧹 裝潢後細清（新家交屋前）</span>
+      <span class="tag">🔎 PRO360 1,053 家全掃</span>
+      <span class="tag">💬 28 家評論全讀（含隱藏負評）</span>
+      <span class="tag">📅 2025–26 成交把關</span>
+      <span class="tag">🗺️ Google Maps 13 家 1,650+ 則評論</span>
+    </div>
+  </div>
+</header>
+
+<!-- A. 結論 -->
+<section id="secA">
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">A</span><h2>先講結論</h2></div>
+    <p class="sect-sub">僱用數排行前段的清潔大戶多數主業是居家清潔/收納/水塔/洗衣機——「裝潢清潔」成交評論掛零或個位數，全數降級。真正的細清專門戶要靠評論工項驗出來。</p>
+    <div class="hero-card">
+      <h3>🎯 建議詢價組合（裝潢後細清情境）</h3>
+      <p><strong>首選詢價：小陳顧家裝潢細清</strong>（51 評論全 5★ 零負評 · 50/51 則工項就是裝潢清潔＝全名單唯一細清專門戶 · 2026 已 10 筆成交，最新 2026-08-02）與 <strong>可爾臨清潔服務</strong>（61 評論全 5★ 零負評 · 細清 14 則、2026 年 5 筆 · 評論實例「當天場勘、後天進場、一天完工」）。<br>
+      <strong>Maps 軌可加：家事達清潔</strong>（三重，招牌即細清，老闆親自場勘＋驗收）或 <strong>御用清潔公司</strong>（萬華細清專門、2026 動能全場最強，但要盯行政與驗收——見 F 區負評）。<br>
+      <strong>價格錨：浣熊環保清潔</strong>（全平台量體最大：4,284 僱用 / 2,881 評論 / 4.94，細清類 288 則）——報價拿來當基準殺價，品質評價量大穩定但非零風險。<br>
+      <strong>避開：洪瑋辰（阿辰）</strong>——2026 年 6–7 月連三則 1★（「越清越髒」「答應要再來，到現在還沒來」）；<strong>昆揚工程行</strong>——兩則細清負評都是「約好當天人間蒸發」且全未回覆。</p>
+    </div>
+    <div class="callout warn">
+      <h4>⚠️ 細清合約最重要一條（來自真實負評的教訓）</h4>
+      <p>御用 3★ 負評原文：<q>拿5萬高價細清50多坪裝潢屋無派人細檢查交給屋主，還要屋主花時間檢查發現多處才清潔</q>——合約務必寫「<b>屋主驗收通過才算完工、尾款驗收後付</b>」，並列明工項清單（窗溝、軌道、櫃內、燈具、冷氣濾網、玻璃兩面）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- B. 篩選漏斗 -->
+<section id="secB">
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">B</span><h2>篩選方法</h2></div>
+    <p class="sect-sub">兩段漏斗：先按僱用數取前 15 名撈全評論，再補撈「公司描述標榜細清/裝潢後」的 13 家——因為細清專門戶多是小工作室，光看僱用數排行會漏掉真正對口的。</p>
+    <div class="funnel">
+      <div class="fstep"><div class="num">1053</div><div class="lbl">裝潢清潔全台清單<br>（後端 API 全撈）</div></div>
+      <div class="fstep"><div class="num">373</div><div class="lbl">服務區含蘆洲 247</div></div>
+      <div class="fstep"><div class="num">28</div><div class="lbl">僱用前 15 ＋ 標榜細清 13<br>逐家撈全評論</div></div>
+      <div class="fstep final"><div class="num">4</div><div class="lbl">工項對口＋近期活躍<br>＋無避雷負評 ＝ 推薦</div></div>
+    </div>
+    <div class="callout info">
+      <h4>被「工項對口」門檻降級的高僱用數大戶（供理解落差）</h4>
+      <ul>
+        <li><b>家蓁清潔收納整理師</b>（208 僱用）— 60 則評論中裝潢清潔 0 則，本業居家清潔/收納。</li>
+        <li><b>真心清潔坊</b>（203 僱用）— 細清 13 則但 2025–26 掛零，且有 1★ 細清長文控訴（<q>做前打包票，在現場卻粗糙作業</q>）。</li>
+        <li><b>小太陽環保清潔</b>（190 僱用）— 細清 61 則量不小，但 2022 年 2★「玻璃忘記清洗後封鎖我賴」+ 2024 年兩則 1★ 細清負評均未回覆。</li>
+        <li><b>鉅匠有限公司</b>（145 僱用）、<b>品蓉整潔室</b>（135 僱用，1★×14）、<b>黃玉玲</b>（133 僱用）、<b>吳秋溶</b>（131 僱用，主業收納）— 裝潢清潔評論 0–1 則，不對口。</li>
+        <li><b>周光山</b>（68 僱用，60 評全 5★）— 細清 4 則（2026 年 1 筆），2026-06 評論還寫他<q>熱心幫我修繕廚房流理台</q>、人已離開社區又折返補細節。量少但口碑極乾淨，適合當個人師傅備位。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- C. PRO360 排名總表 -->
+<section id="secC">
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">C</span><h2>PRO360 重點名單總表</h2></div>
+    <p class="sect-sub">28 家全撈評論後，列出值得認識的 12 家（其餘為工項完全不對口者，略）。「對口度」＝評論工項顯示的實際專業 vs「裝潢細清」的匹配度。點名稱可直接開 PRO360 檔案頁。星等分布來自後端 API 全量評論（前端頁面預設隱藏低分）。</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>#</th><th>專家</th><th>評論</th><th>僱用</th><th>星等分布</th><th>細清評論<br>(2025/2026)</th><th>對口度</th><th>一句話定位</th></tr></thead>
+        <tbody>
+          <tr class="hit"><td class="num">1</td><td><a href="https://www.pro360.com.tw/service/546764/clean_after_decoration" target="_blank" rel="noopener">小陳顧家裝潢細清</a></td><td class="num">51</td><td class="num">58</td><td class="num">5★×51</td><td class="num">50 (40/10)</td><td><span class="pill fit">對口 ★</span></td><td>全名單唯一細清專門戶，零負評</td></tr>
+          <tr class="hit"><td class="num">2</td><td><a href="https://www.pro360.com.tw/service/456032/clean_after_decoration" target="_blank" rel="noopener">可爾臨清潔服務</a></td><td class="num">61</td><td class="num">62</td><td class="num">5★×61</td><td class="num">14 (6/5)</td><td><span class="pill fit">對口 ★</span></td><td>空屋/搬家/細清為主業，反應快</td></tr>
+          <tr><td class="num">3</td><td><a href="https://www.pro360.com.tw/service/27578/clean_after_decoration" target="_blank" rel="noopener">浣熊環保清潔有限公司</a></td><td class="num">2881</td><td class="num">4284</td><td class="num">5★×2786 · 4★×57 · 1–3★×36</td><td class="num">288 (20/9)</td><td><span class="pill semi">量體巨大</span></td><td>全平台最大戶，當價格錨；負評率 1.2%</td></tr>
+          <tr><td class="num">4</td><td><a href="https://www.pro360.com.tw/service/493624/clean_after_decoration" target="_blank" rel="noopener">周光山</a></td><td class="num">60</td><td class="num">68</td><td class="num">5★×60</td><td class="num">4 (3/1)</td><td><span class="pill semi">半對口</span></td><td>個人師傅，零負評，會順手修繕</td></tr>
+          <tr><td class="num">5</td><td><a href="https://www.pro360.com.tw/service/294811/clean_after_decoration" target="_blank" rel="noopener">奧麗維亞皇家清潔</a></td><td class="num">243</td><td class="num">280</td><td class="num">5★×238 · 4★×3 · 2★×2</td><td class="num">11 (2/2)</td><td><span class="pill semi">半對口</span></td><td>居家清潔為主，細清偶接</td></tr>
+          <tr><td class="num">6</td><td><a href="https://www.pro360.com.tw/service/286117/clean_after_decoration" target="_blank" rel="noopener">小太陽環保清潔工作室</a></td><td class="num">206</td><td class="num">190</td><td class="num">5★×200 · 1–2★×4</td><td class="num">61 (3/1)</td><td><span class="pill risk">細清負評未回覆</span></td><td>細清量大但翻車評論無回應</td></tr>
+          <tr><td class="num">7</td><td><a href="https://www.pro360.com.tw/service/170616/clean_after_decoration" target="_blank" rel="noopener">《時和》清潔企業社</a></td><td class="num">82</td><td class="num">77</td><td class="num">5★×77 · 3–4★×4 · 1★×1</td><td class="num">11 (1/0)</td><td><span class="pill semi">半對口</span></td><td>細清 11 則但 2026 無成交</td></tr>
+          <tr><td class="num">8</td><td><a href="https://www.pro360.com.tw/service/361327/clean_after_decoration" target="_blank" rel="noopener">旭哥職人專業清潔</a></td><td class="num">39</td><td class="num">52</td><td class="num">5★×37 · 1★×2</td><td class="num">4 (0/3)</td><td><span class="pill semi">玻璃專門</span></td><td>玻璃清潔 34 則是本業；細清 2026 有 3 筆</td></tr>
+          <tr><td class="num">9</td><td><a href="https://www.pro360.com.tw/service/506459/clean_after_decoration" target="_blank" rel="noopener">御皇實業工程行</a></td><td class="num">64</td><td class="num">77</td><td class="num">5★×62 · 1★×2</td><td class="num">2 (1/0)</td><td><span class="pill off">不對口</span></td><td>兩則 1★ 都是放鳥類</td></tr>
+          <tr><td class="num">10</td><td><a href="https://www.pro360.com.tw/service/505573/clean_after_decoration" target="_blank" rel="noopener">小葉清潔-清潔細清</a></td><td class="num">51</td><td class="num">71</td><td class="num">5★×49 · 1★×2</td><td class="num">1 (1/0)</td><td><span class="pill off">名不符實</span></td><td>名字有細清但工項僅 1 則；2026-03 有放鳥 1★</td></tr>
+          <tr class="warnrow"><td class="num">11</td><td><a href="https://www.pro360.com.tw/service/644254/clean_after_decoration" target="_blank" rel="noopener">洪瑋辰（阿辰）</a></td><td class="num">179</td><td class="num">205</td><td class="num">5★×157 · 4★×7 · <b>1★×14</b></td><td class="num">2 (0/2)</td><td><span class="pill risk">避開</span></td><td>2026 年 6–7 月連三則 1★</td></tr>
+          <tr class="warnrow"><td class="num">12</td><td><a href="https://www.pro360.com.tw/service/296289/clean_after_decoration" target="_blank" rel="noopener">昆揚工程行</a></td><td class="num">99</td><td class="num">91</td><td class="num">5★×87 · <b>1★×8</b></td><td class="num">8 (1/0)</td><td><span class="pill risk">避開</span></td><td>細清負評都是「約好當天消失」</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn">
+      <h4>⚠️ 為什麼推薦只有 4 家？</h4>
+      <p>「工項確實是裝潢清潔＋2025–26 有成交＋無避雷級負評」三關全過的只有小陳、可爾臨、浣熊（量大戶標準放寬）、周光山（備位）。多數清潔大戶的僱用數來自居家清潔/收納/設備清洗——招牌寫細清不代表評論裡有細清。寧缺勿濫，如實回報。</p>
+    </div>
+  </div>
+</section>
+
+<!-- D. 各家優缺點 -->
+<section id="secD">
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">D</span><h2>PRO360 重點工班優缺點（評論原文為證）</h2></div>
+    <p class="sect-sub">所有引句皆為 PRO360 顧客評論原文擷取，未改寫、未虛構。低分（1–3 星）評論全數列出或註明數量。</p>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>小陳顧家裝潢細清</h3><span class="rank">#1 · 51 評論 / 58 僱用 / 5.0</span></div>
+      <p class="vstats">星等分布：<b>5★×51（零負評）</b> · 裝潢清潔工項 50/51 則（98%）· 2025 年 40 筆、2026 年 10 筆成交（最新 2026-08-02）</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>細清專門戶：50/51 則評論工項就是「裝潢清潔」——不是居家清潔戶兼著做</li>
+          <li>細節口碑：<q>服務細心，邊邊角角都有清潔到，效率也很好，溝通順暢</q>（2026-08）</li>
+          <li>對新建材謹慎：<q>團隊很專業也很細心，對於新裝潢的建材也非常小心</q>（2026-04）</li>
+          <li>誠實告知極限：<q>針對無法透過清理的地方提供對應方案讓屋主選擇是否操作後才執行</q>（2026-05）</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 注意</h4><ul>
+          <li>全部評論找不到實質抱怨；量體較小（58 僱用），旺季檔期要早約</li>
+          <li>51 則中部分為無文字 5★，文字樣本比帳面略少</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/546764/clean_after_decoration" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>可爾臨清潔服務</h3><span class="rank">#2 · 61 評論 / 62 僱用 / 5.0</span></div>
+      <p class="vstats">星等分布：<b>5★×61（零負評）</b> · 裝潢清潔 14 則（2025 年 6 筆、2026 年 5 筆，最新 2026-07-26）· 主業組合：搬家清潔 20＋細清 14＋空屋 13</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>應急能力：<q>臨時找了裝潢後細清，老闆人很好當天就來場勘並約好後天就能進場清潔！解決了燃眉之急 並且價格也很公道，1.2樓+門口院子等…早上進場一天完工</q>（2026-06）</li>
+          <li>老闆好溝通：<q>團隊很認真，蔡老闆很好溝通，是可以信賴的清潔公司</q>（2026-07）</li>
+          <li>超出預期：<q>會再回訪，都有超過合約內容預期標準</q>（2026-06）</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 注意</h4><ul>
+          <li>細清佔比約 1/4（14/61），純度不如小陳；空屋/搬家清潔與細清工法接近，影響有限</li>
+          <li>零負評但量體同樣偏小（62 僱用）</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/456032/clean_after_decoration" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard">
+      <div class="vhead"><h3>浣熊環保清潔有限公司</h3><span class="rank">#3 · 2,881 評論 / 4,284 僱用 / 4.94</span></div>
+      <p class="vstats">星等分布：5★×2786 · 4★×57 · 3★×13 · 2★×7 · <b>1★×16</b>（負評率 1.2%）· 裝潢清潔 288 則（2025 年 20 筆、2026 年 9 筆）· 2018 年開業的平台老店</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>量體與制度：全平台最大清潔戶，人手多、檔期彈性大，適合趕交屋</li>
+          <li>細清好評：<q>對接快速、價格划算、清潔人員細心，感受良好</q>（2026-05）</li>
+          <li>負評率 1.2% 在此量級屬正常水準</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>報價爭議（2023-10 · 1★ 細清）：<q>報價超級不實在。真的有夠離譜。不知道為什麼那麼多五星。</q>——廠商未回覆</li>
+          <li>派工品質看人：<q>擦拭過後東西完全移位，還要自己花時間重新歸位</q>（2023-06 · 3★）</li>
+          <li>2025-09 有一則 3★ 裝潢清潔無文字負評；大公司派工像抽籤，指定有細清經驗的班組</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/27578/clean_after_decoration" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>周光山（個人師傅）</h3><span class="rank">#4 · 60 評論 / 68 僱用 / 5.0</span></div>
+      <p class="vstats">星等分布：<b>5★×60（零負評）</b> · 裝潢清潔 4 則（2025 年 3 筆、2026 年 1 筆）· 玻璃清潔 12 則是強項</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>做事超出本分：<q>清理後房間煥然一新、乾淨整潔，還熱心幫我修繕廚房流理台。只要他能做到的事，都願意一併幫忙。最讓我感動的是，他人已離開社區、車已駛出收費停車（場，又折返補細節）</q>（2026-06）</li>
+          <li>玻璃清潔 12 則好評——細清最花工的正是玻璃與窗溝</li>
+          <li>態度：<q>溝通態度誠懇有耐心，清潔專業認真</q>（2025-05）</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 注意</h4><ul>
+          <li>個人師傅人力有限，28 坪全室細清可能要分天或帶班，先確認工班規模</li>
+          <li>細清實績僅 4 則，樣本少</li>
+        </ul></div>
+      </div>
+      <a class="vlink" href="https://www.pro360.com.tw/service/493624/clean_after_decoration" target="_blank" rel="noopener">PRO360 專家檔案 →</a>
+    </div>
+
+    <div class="vcard caution">
+      <div class="vhead"><h3>避雷區（PRO360 端）</h3><span class="rank">低分評論照錄</span></div>
+      <div class="pm">
+        <div class="minus" style="grid-column:1/-1"><h4>✗ 負評模式（皆為原文摘錄）</h4><ul>
+          <li><b>洪瑋辰（阿辰）（1★×14，2026 連發）</b>：<q>結果後來我去檢查時發現怎麼越清越髒，跟老闆反應，竟然回我說是因為我的東西太髒了</q>（2026-07）、<q>開放的床舖底下地板施工有一層灰都沒清潔……當天有聯絡請他再處理一下,答應要再來，6/23來清潔到現在還沒來</q>（2026-06，未回覆）</li>
+          <li><b>昆揚工程行（1★×8）</b>：<q>真的如其他評論所說,約好當天會消失</q>（2024-11 · 細清）、<q>約好清潔時間 卻沒有人在現場 也聯繫不上……導致後續入傢俱時間 入厝時間全部改期</q>（2022-12 · 細清）——兩則細清負評廠商均未回覆</li>
+          <li><b>小太陽環保清潔（細清 61 則但翻車無回應）</b>：<q>跟我說玻璃都拆下來洗了，可是就有一房間的玻璃忘記清洗，都是灰印，事後也不接我電話，不回應信息……居然封鎖我賴</q>（2022-10 · 2★）、<q>踩雷，不推，想踩雷可以試試看</q>（2024-12 · 1★ 細清，未回覆）</li>
+          <li><b>真心清潔坊</b>：<q>我之前已列清單把細節溝通清楚……而他做前打包票，在現場卻粗糙作業，還不經我同意拿我的濕紙巾做全部的（清潔）</q>（2024-11 · 1★ 細清，廠商有回覆）</li>
+          <li><b>小葉清潔-清潔細清</b>：<q>約好時間沒來也沒聯絡，打過去才說改天，敬業精神不夠</q>（2026-03 · 1★，未回覆）——名字掛細清但評論工項僅 1 則裝潢清潔</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- E. Maps 排名 -->
+<section id="secE">
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">E</span><h2>Google Maps 店家評比（13 家 · 1,650+ 則評論）</h2></div>
+    <p class="sect-sub">以已登入工作階段爬取「裝潢細清 蘆洲」「裝潢清潔 蘆洲區」兩組搜尋，剔除不對口者（窗簾店、冷氣行、地毯沙發專門）後逐家爬全量評論。Maps 星等有系統性膨脹（完工當下請客戶留評），判斷靠低分評論內容與細清實例，不靠平均分。日期由相對時間換算，誤差 ±1 個月。</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>#</th><th>店家</th><th>星等</th><th>評論數</th><th>低分(≤3★)</th><th>細清/裝潢<br>好評</th><th>對口度</th><th>一句話定位</th></tr></thead>
+        <tbody>
+          <tr class="hit"><td class="num">1</td><td>御用清潔公司（萬華萬大路）</td><td class="num">5.0</td><td class="num">225</td><td class="num">2</td><td class="num">20（近一年 18）</td><td><span class="pill fit">細清專門 ★</span></td><td>2026 動能全場最強；行政品質要盯</td></tr>
+          <tr class="hit"><td class="num">2</td><td>家事達清潔（三重大同南路）</td><td class="num">4.8</td><td class="num">125</td><td class="num">8</td><td class="num">15</td><td><span class="pill fit">細清招牌 ★</span></td><td>老闆親自場勘＋驗收；有一則細清翻車前例</td></tr>
+          <tr><td class="num">3</td><td>淨樂清潔公司（蘆洲信義路）</td><td class="num">4.7</td><td class="num">15</td><td class="num">1</td><td class="num">2（皆近一年）</td><td><span class="pill semi">在地新店</span></td><td>15 則全在近一年，正在活躍的蘆洲小店</td></tr>
+          <tr><td class="num">4</td><td>潔白清潔公司（蘆洲光華路）</td><td class="num">4.8</td><td class="num">48</td><td class="num">3</td><td class="num">11</td><td><span class="pill semi">空屋/細清專做</span></td><td>細清好評多但偏舊，近一年僅 5 則新評</td></tr>
+          <tr><td class="num">5</td><td>恆昌 台北裝潢細清</td><td class="num">5.0</td><td class="num">69</td><td class="num">0</td><td class="num">1</td><td><span class="pill semi">名對口實例少</span></td><td>62 則可讀評論全 5★，但細清實錄僅 1 則</td></tr>
+          <tr><td class="num">6</td><td>速博通居家清潔（蘆洲民權路）</td><td class="num">5.0</td><td class="num">797</td><td class="num">0</td><td class="num">11</td><td><span class="pill off">設備清洗為主</span></td><td>量最大但主業冷氣/洗衣機清洗，細清非本業</td></tr>
+          <tr><td class="num">7</td><td>小揚清潔（蘆洲民族路）</td><td class="num">4.7</td><td class="num">232</td><td class="num">20</td><td class="num">1</td><td><span class="pill risk">避開（本案）</span></td><td>1★×18：零件轉壞、已讀不回；主業設備清洗</td></tr>
+          <tr><td class="num">8</td><td>野蟎任務（新莊中央路）</td><td class="num">4.9</td><td class="num">373</td><td class="num">14</td><td class="num">20</td><td><span class="pill risk">細清有翻車</span></td><td>除蟎為主；細清 3★「細節未清理到」</td></tr>
+          <tr><td class="num">9</td><td>新增記清潔（蘆洲民生街）</td><td class="num">4.7</td><td class="num">26</td><td class="num">2</td><td class="num">1</td><td><span class="pill off">活躍度低</span></td><td>近一年僅 1 則新評</td></tr>
+          <tr><td class="num">10</td><td>其他：北大（1 評）/ 恭城（9 評）/ 名展（2 評·暫停營業）/ 美麗我家（3.4★）</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">0</td><td><span class="pill off">樣本不足</span></td><td>美麗我家兩則 1★ 都是放鳥史，避開</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- F. Maps 店家優缺點 -->
+<section id="secF">
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">F</span><h2>Maps 重點店家優缺點（評論原文為證）</h2></div>
+    <p class="sect-sub">只列與細清需求相關的前段班與必須避開者。引句照錄評論原文；相對日期換算為推定月份。</p>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>御用清潔公司</h3><span class="rank">Maps #1 · 225 評論 / 5.0 · 萬華萬大路</span></div>
+      <p class="vstats">低分 2 則（1★×1 · 3★×1）· 近 12 個月新評論約 220 則（動能全場最強）· 細清/裝潢好評 20 則</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>細清成果口碑：<q>細清完後整個地板都在發亮，那種推開門就能直接入住的清爽感，真的讓我覺得這筆錢花得非常有價值</q>（約 2026-03）</li>
+          <li>流程完整：<q>無論是從一開始到府估價，再到清潔當天遇到的每一位服務人員都非常親切又有耐心</q>（約 2026-04）</li>
+          <li>反應快：<q>老闆態度親切，有問題隨時問，都很快速回答，細清過程也是迅速又細心，CP值很高</q>（約 2026-06）</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>放鳥＋推責（約 2026-06 · 1★）：<q>預約好的服務當天直接被放鳥，完全沒有任何事前通知。聯絡客服後第一時間不是確認問題，而是先把責任往客戶身上推</q></li>
+          <li>驗收要自己盯（約 2025-12 · 3★）：<q>拿5萬高價細清50多坪裝潢屋無派人細檢查交給屋主，還要屋主花時間檢查發現多處才清潔</q>——量大後的行政品質問題</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="vcard rec">
+      <div class="vhead"><h3>家事達清潔</h3><span class="rank">Maps #2 · 125 評論 / 4.8 · 三重大同南路</span></div>
+      <p class="vstats">低分 8 則（1★×4 · 2★×2 · 3★×2）· 近 12 個月新評論約 66 則 · 細清/裝潢好評 15 則 · 招牌即「新北裝潢清潔細清」</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>細清實例具體：<q>總共有四位師傅從早上8點準時開工到下午4點，每個櫃子都很仔細的擦拭乾淨，地板也很細心的用抹布一塊一塊慢慢擦</q>（約 2026-02）</li>
+          <li>老闆親自把關：<q>老闆會親自先來場勘，並提供建議，驗收時也會親自過來</q>（約 2026-04）</li>
+          <li>願意改善：2★ 長文也承認<q>回覆訊息迅速、服務態度良好……在反映狀況後，願意調整與改善</q></li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 抱怨</h4><ul>
+          <li>細清翻車前例（約 2025-08 · 1★）：<q>開始說好會洗鐵窗，驗收時居然說只有沖鐵窗，雖然後來有補洗，細清後電器櫃還摸的到粉塵, 地板還可以用襪子擦掉污垢, 廚房抬面沙沙的</q></li>
+          <li>擅自開冷氣爭議（約 2025 · 2★）：<q>此廠商會在未經過屋主的同意下擅自開冷氣……負責人的態度也是視為理所當然</q></li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="vcard">
+      <div class="vhead"><h3>淨樂清潔公司</h3><span class="rank">Maps #3 · 15 評論 / 4.7 · 蘆洲信義路</span></div>
+      <p class="vstats">低分 1 則（1★ 無文字）· 15 則全在近 12 個月（新店活躍中）· 細清好評 2 則</p>
+      <div class="pm">
+        <div class="plus"><h4>✓ 優點</h4><ul>
+          <li>細清口碑：<q>細清人員很仔細，每一個角落也都很乾淨，摸不到一點粉塵，細清首選</q>（約 2026-01）</li>
+          <li>流程說明：<q>清潔過程細心不馬虎，角落與細節都有處理到……過程中也會主動說明清潔方式與注意事項</q>（約 2026-03）</li>
+          <li>蘆洲在地，距離近、好約場勘</li>
+        </ul></div>
+        <div class="minus"><h4>✗ 缺點 / 注意</h4><ul>
+          <li>樣本僅 15 則，且有一則 1★ 無文字（無從判斷原因）</li>
+          <li>新店無長期紀錄，建議搭配詳細合約工項</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="vcard caution">
+      <div class="vhead"><h3>避雷區（Maps 端）</h3><span class="rank">低分評論照錄</span></div>
+      <div class="pm">
+        <div class="minus" style="grid-column:1/-1"><h4>✗ 負評模式（皆為原文摘錄）</h4><ul>
+          <li><b>小揚清潔（1★×18）</b>：<q>洗衣機內部的零件馬上被轉壞一個，被告知仍可正常使用，收了三百元車馬費然後離去</q>（約 2026-07）、<q>老闆回覆訊息非常慢，常已讀不回，而且沒有14天保固</q>（約 2026-05）——主業是設備清洗，細清實例僅 1 則</li>
+          <li><b>野蟎任務（1★×11 · 3★×3）</b>：細清直接負評<q>但清潔品質尚可!(後續有發現一些細節未清理到)</q>（約 2025-09 · 3★）、<q>估價人員與現場作業人員溝通不足專業度不夠</q>（約 2025-11 · 1★）</li>
+          <li><b>美麗我家清潔公司（3.4★）</b>：<q>約好要做清潔，過了約定時間還沒到……接著就再也沒有接過電話了</q>、<q>預約了吊扇清潔，結果時間到根本沒來……不接單也不回電</q>——兩則 1★ 都是放鳥史</li>
+          <li><b>速博通/恆昌</b>非避雷但不對口：速博通 797 評中細清字眼僅 11 則（主業冷氣/洗衣機）；恆昌全 5★ 但細清實錄僅 1 則（<q>在ChatGPT的推薦下聯絡了恆昌，老闆盧先生在第一時間給了我強大的定心丸</q>，約 2026-02）——詢價可以，把樣本數攤開看</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- G. 跨平台綜合詢價名單 -->
+<section id="secG">
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">G</span><h2>跨平台綜合詢價名單</h2></div>
+    <p class="sect-sub">兩軌分開評、合併用。共同基準：對口（細清工項實例）＋口碑（低分內容而非平均分）＋2025–26 有活動。</p>
+    <div class="hero-card">
+      <h3>🎯 最終建議：兩軌各取，共 3–4 家詢價</h3>
+      <p><strong>PRO360 工班軌（成交有據）：小陳顧家裝潢細清</strong>（唯一細清專門戶、零負評）＋<strong>可爾臨</strong>（反應快、當天場勘實例）。<br>
+      <strong>Maps 店家軌：家事達</strong>（三重近、老闆親自場勘驗收）或<strong>御用</strong>（細清動能最強，合約把驗收條款寫死）。<br>
+      <strong>價格錨：浣熊</strong>（平台最大戶報價當基準，殺其他家的價）。備位：<strong>周光山</strong>（個人師傅、玻璃強項）、<strong>淨樂</strong>（蘆洲在地新店）。<br>
+      建議動線：<strong>三家以上到府場勘報價→工項逐條列進報價單→約在木作/油漆全部退場後、家具進場前執行</strong>。</p>
+    </div>
+    <div class="callout info">
+      <h4>兩軌的本質差異（決定怎麼用它們）</h4>
+      <ul>
+        <li><b>PRO360 工班</b>：僱用數＝平台成交證據，評論綁定成交案、工項可驗證，可信度高；平台會抽成，報價可能略高於私接。</li>
+        <li><b>Maps 店家</b>：評論數大但含「洽談好評」與完工當場索評的膨脹；判斷靠低分評論內容與細清實例數，不靠平均分。</li>
+        <li>兩邊都達標的共同訊號：<b>細清工項實例多＋2025–26 持續成交＋低分評論少且非品質類（或有正面回覆）</b>。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- H. 詢價檢核 -->
+<section id="secH">
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">H</span><h2>詢價前檢查清單（細清情境）</h2></div>
+    <p class="sect-sub">帶著這張清單去問，每一項都要寫進報價單，口頭承諾不算。每一條都對應本頁挖出的真實翻車評論。</p>
+    <ul class="check">
+      <li><b>驗收條款寫死</b>：「屋主驗收通過才算完工、尾款驗收後付」——御用 3★ 負評就是 5 萬細清無人細檢直接交屋主。</li>
+      <li><b>工項清單白紙黑字</b>：窗溝、窗軌、玻璃兩面、鐵窗（洗還是沖？家事達 1★ 就是「說好洗鐵窗變沖鐵窗」）、櫃內含層板、燈具、冷氣濾網、開關插座面板、地板美容與否，逐項列進報價單。</li>
+      <li><b>計價方式</b>：按坪計價（細清行情約每坪數百元起跳，依屋況浮動）還是按工班天數？含不含垃圾清運？加項怎麼算？</li>
+      <li><b>進場時機</b>：木作/油漆/五金全部退場後、家具窗簾進場前。若工序未完硬進場，粉塵會再次覆蓋——排期時跟統包對齊。</li>
+      <li><b>爽約條款</b>：交屋期程緊，約定日未到場如何處理？——昆揚、小葉、美麗我家的負評全是放鳥類，先問清楚。</li>
+      <li><b>保護措施</b>：新裝潢建材（板材、石材、玻璃貼膜）用什麼工具清？會不會刮傷？（小陳評論明寫「對於新裝潢的建材也非常小心」，可要求比照。）</li>
+      <li><b>無法清潔項目先講</b>：油漆點、矽利康殘膠、玻璃鍍膜水痕——事前告知處理方案與加價，別完工才說「這清不掉」。</li>
+      <li><b>人力與時數</b>：28 坪 3 房 2 廳雙衛，正常配置 3–4 人一整天；報 2 人半天的要質疑品質。</li>
+      <li><b>發票/收據</b>：公司戶可開發票（浣熊、可爾臨等公司體）；個人師傅通常無，價差要反映這點。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- I. 資料來源與方法 -->
+<section id="secI">
+  <div class="wrap">
+    <div class="sect-head"><span class="badge">I</span><h2>資料來源與方法</h2></div>
+    <div class="sources">
+      <ul>
+        <li><b>資料快照</b>：2026-08-06 抓取 PRO360 達人網「裝潢清潔」（clean_after_decoration）分類與 Google Maps。</li>
+        <li><b>清單來源</b>：PRO360 後端清單 API 全量 11 頁（1,053 家），非前端搜尋頁；以 service_area 含郵遞區號 247 過濾出 373 家。</li>
+        <li><b>評論來源</b>：PRO360 評論 API 逐家撈取全部評論（含前端隱藏的 1–3 星低分）——僱用數前 15 名＋公司描述標榜「細清/裝潢後」的 13 家，共 28 家全讀；引句皆為原文擷取。</li>
+        <li><b>工項驗證</b>：每則評論自帶工項欄位（居家清潔/搬家清潔/裝潢清潔…），「細清評論數」以工項＝裝潢清潔統計，不採計招牌自稱。</li>
+        <li><b>Google Maps 資料</b>：2026-08-06 以已登入工作階段爬取「裝潢細清 蘆洲」「裝潢清潔 蘆洲區」搜尋去重 13 家對口店家，逐家爬全量評論（含全部 1–3★），共 1,650+ 則；速博通 797 則中成功讀取 548 則（69%）、恆昌 69 則中讀取 62 則，其餘店家均為全量。</li>
+        <li><b>Maps 日期為推定</b>：Google 僅顯示相對時間（「3 個月前」），絕對月份為換算推定值，誤差 ±1 個月。</li>
+        <li><b>限制</b>：僱用數/評論數為平台自報；評論真實性無法完全驗證；Maps 星等有完工當場索評的機制性膨脹；快照後的新評論不在本頁。</li>
+        <li><b>忠實度聲明</b>：本頁所有引句照錄評論原文（含錯字與標點），分析判斷皆標明為推定。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">home-research · 裝潢細清口碑研究 · 資料快照 2026-08-06 · 僅供家庭決策參考</div>
+</footer>
+
+<script>
+(function(){
+  var toc=document.getElementById('rpnToc'), fill=document.getElementById('rpnFill'),
+      navbar=document.getElementById('rpnNavbar'), dock=document.getElementById('rpnDock'),
+      sideFill=document.getElementById('rpnSideFill');
+  if(!toc||!fill||!navbar) return;
+  var links=Array.prototype.slice.call(toc.querySelectorAll('a'));
+  var sideLinks=dock?Array.prototype.slice.call(dock.querySelectorAll('a')):[];
+  var sections=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var doc=document.documentElement;
+    var max=doc.scrollHeight-doc.clientHeight;
+    var pct=max>0?(doc.scrollTop/max)*100:0;
+    pct=Math.min(100,Math.max(0,pct));
+    fill.style.width=pct+'%';
+    if(sideFill) sideFill.style.width=pct+'%';
+    var nbB=navbar.getBoundingClientRect().bottom;
+    var line=(nbB>0?nbB:90)+8, idx=0;
+    for(var i=0;i<sections.length;i++){var s=sections[i];if(!s)continue;
+      if(s.getBoundingClientRect().top<=line) idx=i;}
+    if(doc.scrollTop+doc.clientHeight>=doc.scrollHeight-4) idx=links.length-1;
+    links.forEach(function(a,i){
+      if(i===idx){ if(!a.classList.contains('active')){ a.classList.add('active');
+        var ar=a.getBoundingClientRect(),tr=toc.getBoundingClientRect();
+        if(ar.left<tr.left||ar.right>tr.right){toc.scrollLeft+=ar.left-tr.left-tr.width/2+ar.width/2;} } }
+      else a.classList.remove('active');});
+    sideLinks.forEach(function(a,i){
+      if(i===idx){ if(!a.classList.contains('active')){ a.classList.add('active');
+        var ar=a.getBoundingClientRect(),sr=dock.getBoundingClientRect();
+        if(ar.top<sr.top||ar.bottom>sr.bottom){dock.scrollTop+=ar.top-sr.top-sr.height/2+ar.height/2;} } }
+      else a.classList.remove('active');});
+  }
+  function onScroll(){ if(!ticking){ticking=true;requestAnimationFrame(update);} }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  links.concat(sideLinks).forEach(function(a){a.addEventListener('click',function(){setTimeout(update,400);});});
+  update();
+})();
+</script>
+</body>
+</html>
