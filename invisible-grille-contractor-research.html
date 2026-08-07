@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隱形鐵窗工班研究（三重・蘆洲）｜PRO360 × Google Maps 雙軌</title>
+<style>
+:root{
+  --ink:#101418; --muted:#6B7280; --line:#E5E7EB; --bg:#F8F8F6; --paper:#FFFFFF;
+  --navy:#1E3A5F; --navy-soft:#E8EEF6; --navy-ink:#142A47;
+  --amber:#B45309; --amber-soft:#FEF3E2;
+  --red:#B91C1C; --red-soft:#FEE2E2;
+  --green:#15803D; --green-soft:#DCFCE7;
+  --r-lg:22px; --r-md:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Noto Sans TC',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px 80px}
+h1,h2,h3{font-family:'Noto Serif TC',serif;line-height:1.35}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.read-progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:200;background:rgba(30,58,95,.12)}
+.read-progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#1E3A5F,#3B6EA5,#B45309);box-shadow:0 0 8px rgba(30,58,95,.4);transition:width .08s linear}
+.read-pct{position:fixed;top:10px;right:12px;z-index:201;font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--navy-ink);background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-family:ui-monospace,monospace;user-select:none;backdrop-filter:blur(3px)}
+.hero{background:linear-gradient(135deg,#142A47 0%,#1E3A5F 55%,#2C517F 100%);color:#fff;border-radius:0 0 var(--r-lg) var(--r-lg);padding:52px 36px 40px;margin-bottom:14px}
+.hero .eyebrow{font-size:13px;letter-spacing:2.5px;color:#9FBEDD;font-weight:700;margin-bottom:10px}
+.hero h1{font-size:clamp(24px,4vw,36px);margin-bottom:14px}
+.hero p.lede{font-size:16.5px;color:#D6E4F2;max-width:800px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 13px;font-size:13px}
+.verdict{background:var(--amber-soft);border:1.5px solid #F0C987;border-radius:var(--r-lg);padding:26px 28px;margin:22px 0}
+.verdict h2{font-size:20px;color:var(--amber);margin-bottom:12px}
+.verdict ol{margin-left:22px}
+.verdict li{margin-bottom:10px}
+.anchornav{position:sticky;top:8px;z-index:150;display:flex;flex-wrap:wrap;gap:6px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:999px;padding:8px 12px;margin:18px 0;font-size:13px}
+.anchornav a{color:var(--muted);text-decoration:none;padding:3px 10px;border-radius:999px;font-weight:600}
+.anchornav a:hover{background:var(--navy-soft);color:var(--navy-ink)}
+.anchornav a.active{background:var(--navy);color:#fff}
+section{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 32px;margin:22px 0}
+section>h2{font-size:22px;margin-bottom:6px;display:flex;align-items:center;gap:12px}
+.badge{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;font-size:16px;font-weight:800;font-family:'Inter',sans-serif}
+.sub{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:14px 0}
+th{background:var(--navy-soft);color:var(--navy-ink);text-align:left;padding:10px 12px;font-size:13.5px;border-bottom:2px solid var(--navy)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-family:'JetBrains Mono',ui-monospace,monospace;white-space:nowrap}
+tr.hit{background:#F4F8FC}
+.pill{display:inline-block;border-radius:999px;padding:2px 11px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.pill.win{background:var(--green-soft);color:var(--green)}
+.pill.warn{background:var(--amber-soft);color:var(--amber)}
+.pill.danger{background:var(--red-soft);color:var(--red)}
+.pill.neutral{background:#EEF2F7;color:#475569}
+.callout{border-radius:var(--r-md);padding:18px 20px;margin:16px 0;font-size:14.5px}
+.callout.warn{background:var(--amber-soft);border:1px solid #F0C987}
+.callout.danger{background:var(--red-soft);border:1px solid #FCA5A5}
+.callout.ok{background:var(--green-soft);border:1px solid #86EFAC}
+.callout.info{background:var(--navy-soft);border:1px solid #B7CBE3}
+.funnel{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:16px 0}
+.fstep{flex:1;min-width:190px;background:var(--navy-soft);border:1px solid #B7CBE3;border-radius:var(--r-md);padding:14px 16px;font-size:13.5px;margin-right:34px;position:relative}
+.fstep:last-child{margin-right:0}
+.fstep::after{content:"→";position:absolute;right:-26px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--navy);font-weight:800}
+.fstep:last-child::after{content:none}
+.fstep b{display:block;color:var(--navy-ink);margin-bottom:4px;font-size:15px}
+.quote{border-left:3px solid var(--navy);background:#FAFBFD;padding:10px 14px;margin:8px 0;font-size:13.5px;color:#374151;border-radius:0 8px 8px 0}
+.src{font-size:13px;color:var(--muted)}
+.src a,td a{color:var(--navy)}
+.sources li{margin-bottom:8px;font-size:13.5px}
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:40px}
+footer a{color:var(--navy)}
+@media(max-width:720px){
+  section{padding:22px 18px}
+  .hero{padding:38px 22px 30px}
+  .fstep{margin-right:0;margin-bottom:26px;min-width:100%}
+  .fstep::after{content:"↓";right:auto;left:50%;top:auto;bottom:-24px;transform:translateX(-50%)}
+  .fstep:last-child{margin-bottom:0}
+  .anchornav{border-radius:14px}
+  table{display:block;overflow-x:auto}
+}
+@media print{.read-progress,.read-pct,.anchornav{display:none}}
+</style>
+</head>
+<body>
+<div class="read-progress"><i id="rpFill"></i></div>
+<div class="read-pct" id="rpPct">0%</div>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">HOME RESEARCH · 工班口碑研究</p>
+    <h1>隱形鐵窗工班研究（三重・蘆洲）</h1>
+    <p class="lede">PRO360 隱形鐵窗分類 120 家全掃＋防墜網分類 26 家、評論全爬 30 家（含全部低分）× Google Maps 三重/蘆洲/新莊/五股掃描 9 家在地店 × 全國品牌軌。核心發現：<b>平台上評論數高的幾乎都是外業（鷹架/採光罩/鐵皮屋），真正有隱形鐵窗成交紀錄的本業店極少</b>——這個行業的口碑主戰場在品牌官網與 Google Maps，不在接案平台。</p>
+    <div class="tags">
+      <span class="tag">1 歲幼兒防墜 · 5cm 間距</span><span class="tag">PRO360 146 家掃描</span><span class="tag">Google Maps 三蘆在地 9 家</span><span class="tag">2026/08/07 抓取</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="verdict">
+  <h2>⚖️ 詢價組合建議（3 家，兩軌互相制衡）</h2>
+  <ol>
+    <li><b>家舒適隱形鐵窗-北部服務處</b> — <u>就在蘆洲中山一路</u>（120 巷 7 弄 11 號，0931-431-914），全國品牌 4 據點 · $280/才起 · 10 年保固＋終身保修 · Google 星級 5.0。品牌保固＋在地服務處，是你條件下的第一順位。</li>
+    <li><b>金昌隱形鐵窗有限公司</b> — PRO360 上<u>唯一有本業成交實績</u>的三蘆可服務廠商：7 則評論全 5★，其中 5 則工項就是「隱形鐵窗」（2024/12–2025/10），評論原文提到「有附保固卡、有逃難剪線器」。官網牌價 $250–300/才（5cm）全場最低、保固 10 年。</li>
+    <li><b>宇奇隱形鐵窗</b>（新北樹林，自有工廠）— 材料自研自產、SGS/專利，離三蘆近；官網未公開牌價，當第三家比價拉開價格帶。</li>
+  </ol>
+  <p style="margin-top:8px;font-size:14px">⚠️ 避開：<b>利泰窗簾工廠-隱形鐵窗</b>（新莊）Google 星級僅 2.3，匿名看不到負評內文但分數本身已是紅旗。三家皆免費丈量——同規格（5cm 間距＋快拆＋立柱數）各拿一張按才計價的報價單，用「才數×單價」逐項對照。</p>
+</div>
+
+<nav class="anchornav" id="anchornav">
+  <a href="#funnel">A 篩選漏斗</a>
+  <a href="#pro360">B PRO360 軌</a>
+  <a href="#gmaps">C Google Maps 在地軌</a>
+  <a href="#brands">D 全國品牌軌</a>
+  <a href="#shortlist">E 詢價短名單</a>
+  <a href="#sources">F 資料來源與限制</a>
+</nav>
+
+<!-- ═══ A 篩選漏斗 ═══ -->
+<section id="funnel">
+  <h2><span class="badge">A</span>篩選漏斗：146 家掃描 → 3 家詢價</h2>
+  <p class="sub">兩個 PRO360 分類（隱形鐵窗 invisible_grille 120 家＋防墜網 protection_net 26 家）＋ Google Maps 四區搜尋，判準一致：服務三重/蘆洲 × 本業實績 × 口碑。</p>
+  <div class="funnel">
+    <div class="fstep"><b>146 家</b>PRO360 兩分類全量列表（API 全掃，含僱用數/評論數/服務區域）</div>
+    <div class="fstep"><b>74 家</b>服務區含三重(241)/蘆洲(247)</div>
+    <div class="fstep"><b>30 家</b>評論數達標或名稱/簡介含「隱形」——評論全爬（含所有 1–3★）</div>
+    <div class="fstep"><b>2 家</b>逐則檢查工項後，真正有「隱形鐵窗/防墜網」成交評論的只剩金昌＋鼎匠</div>
+    <div class="fstep"><b>3 家詢價</b>金昌（平台實績）＋家舒適（品牌×蘆洲在地）＋宇奇（工廠直營比價）</div>
+  </div>
+  <div class="callout warn">
+    <b>⚠️ 本次研究最重要的發現：PRO360 的「評論數排行」在這個工種幾乎全是幌子。</b>三蘆可服務廠商中評論前五名——穩事達（53 則，51 則是<b>鷹架出租</b>）、釩鈦金屬（45 則，全是窗戶安裝/氣密窗，<b>0 則隱形鐵窗</b>）、全能修繕阿緯（43 則，門片維修/木工）、開鑫金屬（38 則，鐵工/採光罩）、益鑫工業社（28 則，採光罩/鐵工）——<b>沒有任何一家有一則隱形鐵窗成交評論</b>。它們只是把「隱形鐵窗」勾進服務項目。真正的專門店（尚勇/寶安/長昕）在平台上成交數全是 0——這個行業的生意不走接案平台，走品牌官網與在地口碑。
+  </div>
+</section>
+
+<!-- ═══ B PRO360 軌 ═══ -->
+<section id="pro360">
+  <h2><span class="badge">B</span>PRO360 軌：本業實績逐家驗證</h2>
+  <p class="sub">評論逐則讀取工項（title）與年份，「本業件數」= 工項含隱形鐵窗/防墜網/防護網的評論數。連結為各家 PRO360 檔案頁（已逐一驗證存活）。</p>
+  <table>
+    <thead><tr><th>#</th><th>廠商</th><th class="num">僱用</th><th class="num">評論</th><th class="num">本業件數</th><th>星級分布</th><th>近期活躍</th><th>判定</th></tr></thead>
+    <tbody>
+      <tr class="hit"><td class="num">1</td><td><a href="https://www.pro360.com.tw/service/429147/invisible_grille" target="_blank" rel="noopener">金昌隱形鐵窗有限公司</a></td><td class="num">9</td><td class="num">7</td><td class="num"><b>5</b></td><td>7×5★ · 零負評</td><td>2024/12–2025/10</td><td><span class="pill win">本業 ★ 唯一</span></td></tr>
+      <tr><td class="num">2</td><td><a href="https://www.pro360.com.tw/service/409628/protection_net" target="_blank" rel="noopener">鼎匠高空有限公司</a>（防墜網分類）</td><td class="num">15</td><td class="num">15</td><td class="num">2</td><td>15×5★</td><td>2024–2026</td><td><span class="pill warn">防墜網×2 · 主業外牆防水</span></td></tr>
+      <tr><td class="num">3</td><td><a href="https://www.pro360.com.tw/service/411576/invisible_grille" target="_blank" rel="noopener">hong-j Yang</a>（楊師傅）</td><td class="num">12</td><td class="num">13</td><td class="num">0</td><td>13×5★（11 則紗窗裝修）</td><td>2023–2024</td><td><span class="pill neutral">紗網對口 · 鐵窗無實績</span></td></tr>
+      <tr><td class="num">—</td><td>穩事達 / 釩鈦 / 阿緯 / 開鑫 / 益鑫（評論數前五）</td><td class="num">30–65</td><td class="num">28–53</td><td class="num"><b>0</b></td><td>各 4.8–5.0</td><td>—</td><td><span class="pill danger">全數外業 · 剔除</span></td></tr>
+      <tr><td class="num">—</td><td><a href="https://www.pro360.com.tw/service/272144/invisible_grille" target="_blank" rel="noopener">尚勇</a> / <a href="https://www.pro360.com.tw/service/421300/invisible_grille" target="_blank" rel="noopener">寶安</a> / <a href="https://www.pro360.com.tw/service/372180/invisible_grille" target="_blank" rel="noopener">長昕</a>（名稱即隱形鐵窗專門店）</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>無平台成交</td><td>—</td><td><span class="pill neutral">平台零實績 · 可官網口碑軌自查</span></td></tr>
+    </tbody>
+  </table>
+  <h3 style="font-size:16px;margin:14px 0 4px">金昌的評論原文（工項＝隱形鐵窗，全文照錄）</h3>
+  <div class="quote">「老闆很專業，爬到陽台外裝置，有安全防護，老闆娘很健談，<b>有附保固卡，有逃難剪線器</b>，值得推薦！」（2024/12，5★）</div>
+  <div class="quote">「聯絡非常迅速，也會選擇更好的搭配，<b>價格也很公道透明</b>，非常推薦」（2025/01，5★）</div>
+  <div class="callout info">
+    <b>💡 hong-j Yang 楊師傅的定位：</b>13 則全 5★ 但 11 則是「紗窗裝修」——對隱形鐵窗無平台實績，<b>但對你的防霾紗網需求反而高度對口</b>（簡介明列牛筋紗網/白鐵紗網/摺疊紗窗更換，數十年經驗）。紗網那邊詢價可把他加入名單（見 <a href="./grille-screen-direct-vs-dealer.html">直發 vs 代辦決策頁</a> D 區）。
+  </div>
+</section>
+
+<!-- ═══ C Google Maps 在地軌 ═══ -->
+<section id="gmaps">
+  <h2><span class="badge">C</span>Google Maps 在地軌：三重/蘆洲/新莊/五股 9 家</h2>
+  <p class="sub">四區搜尋逐家核對地址落點（名稱吻合但實際在外縣市的已剔除，如家佺科技在澎湖）。⚠️ 匿名瀏覽 Google 已鎖評論數與評論內文——下表星級為頁面實際顯示值，<b>評論數不可見、樣本大小未知</b>，星級只能當初篩不能當定論。</p>
+  <table>
+    <thead><tr><th>#</th><th>店名</th><th>區</th><th class="num">星級</th><th>地址 / 電話</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr class="hit"><td class="num">1</td><td>家舒適隱形鐵窗-北部服務處</td><td>蘆洲</td><td class="num">5.0</td><td>中山一路120巷7弄11號 · 0931-431-914</td><td><span class="pill win">品牌×在地 ★</span> 全國 4 據點品牌的北部服務處，就在蘆洲</td></tr>
+      <tr><td class="num">2</td><td>兒童防墜紗窗/隱形鐵窗/磁性紗窗（仁興街）</td><td>三重</td><td class="num">4.9</td><td>仁興街39巷54號 · 0928-258-931</td><td>店名直打幼兒防墜，鐵窗＋紗窗雙修——可一次詢兩項</td></tr>
+      <tr><td class="num">3</td><td>谷賓精品隱形鐵窗（防墜/防鴿/防盜）</td><td>三重</td><td class="num">4.9</td><td>大榮街30號 · 0933-294-491</td><td>三重在地專門店</td></tr>
+      <tr><td class="num">4</td><td>神盾牌隱形鐵窗</td><td>三重</td><td class="num">4.7</td><td>環河北路三段464號4樓 · 0800-788-098</td><td>三重＋新莊兩處登錄，有 0800 客服線</td></tr>
+      <tr><td class="num">5</td><td>禾祥隱形窗鋁門窗</td><td>新莊</td><td class="num">5.0</td><td>福營路145巷48號2樓 · 0930-636-188</td><td>鄰區</td></tr>
+      <tr><td class="num">6</td><td>家適美隱形鐵窗</td><td>新莊</td><td class="num">5.0</td><td>民安西路93號 · 0980-890-451</td><td>鄰區</td></tr>
+      <tr><td class="num">7</td><td>皇喬隱形鐵窗</td><td>新莊</td><td class="num">4.7</td><td>福營路194號 · 02-2906-6102</td><td>鄰區，有品牌官網（h-cho.com.tw）</td></tr>
+      <tr><td class="num">8</td><td>正泰鋼鋁門窗</td><td>五股</td><td class="num">5.0</td><td>成泰路一段74-2號 · 0976-682-295</td><td>綜合鋼鋁行兼做，非專門店</td></tr>
+      <tr><td class="num">9</td><td>巨宏鋼鋁企業社</td><td>蘆洲</td><td class="num">4.8</td><td>三民路128巷10號 · 0970-487-518</td><td>以贊助廣告出現；即<a href="./aluminum-window-contractor-research.html">鋁門窗研究頁</a>已回報價那家——兼做非專門</td></tr>
+    </tbody>
+  </table>
+  <div class="callout danger">
+    <b>🚫 警示店家：利泰窗簾工廠-隱形鐵窗</b>（新莊中和街86號8樓）Google 星級僅 <b>2.3</b>——是本次四區掃描唯一低於 4 星的店。匿名模式看不到負評內文（無法列低分主題），但在幾乎人人 4.7+ 的行業裡 2.3 本身就是強烈紅旗，不建議列入詢價。
+  </div>
+</section>
+
+<!-- ═══ D 全國品牌軌 ═══ -->
+<section id="brands">
+  <h2><span class="badge">D</span>全國品牌軌：牌價與保固（官網公開資訊）</h2>
+  <p class="sub">承接<a href="./grille-screen-direct-vs-dealer.html">直發 vs 代辦決策頁</a> C 區。這軌的價值＝公開牌價當比價錨＋10 年保固慣例當談判底線。PRO360 行情：5cm 間距 $300–400/才。</p>
+  <table>
+    <thead><tr><th>品牌</th><th>據點</th><th class="num">5cm 牌價</th><th class="num">基本消費</th><th>保固</th><th>與三蘆的關係</th></tr></thead>
+    <tbody>
+      <tr class="hit"><td><a href="https://www.jhc888.com.tw/" target="_blank" rel="noopener">家舒適</a></td><td>全國 4 據點</td><td class="num">$280/才 起</td><td class="num">$7,000</td><td>10 年＋終身保修</td><td><span class="pill win">北部服務處就在蘆洲（C 區 #1）</span></td></tr>
+      <tr><td><a href="https://jinchang-window.com.tw/" target="_blank" rel="noopener">金昌</a></td><td>雙北</td><td class="num">$250–300/才</td><td class="num">窗框型一窗 $7,000–9,000</td><td>10 年</td><td><span class="pill win">PRO360 本業實績唯一（B 區 #1）</span></td></tr>
+      <tr><td><a href="https://tw-yuchi.com/" target="_blank" rel="noopener">宇奇</a></td><td>新北樹林 · 自有工廠</td><td class="num">未公開</td><td class="num">—</td><td>SGS/專利/零件刻字</td><td>工廠直營，離三蘆約 20 分鐘車程</td></tr>
+      <tr><td><a href="https://windows.taipei/" target="_blank" rel="noopener">高高順</a></td><td>北北基竹中（台北站：羅斯福路）</td><td class="num">$338/才 起</td><td class="num">$7,000/案 · 10 才/窗</td><td>10 年＋永久免費檢查</td><td>Google 4.9，可服務雙北</td></tr>
+      <tr><td><a href="https://www.linanjiujiu.com.tw/" target="_blank" rel="noopener">聯安</a></td><td>雙北</td><td class="num">$320–520/才</td><td class="num">$7,000 起</td><td>10 年＋1,000 萬責任險</td><td>可服務雙北</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══ E 詢價短名單 ═══ -->
+<section id="shortlist">
+  <h2><span class="badge">E</span>詢價短名單與自保檢核</h2>
+  <table>
+    <thead><tr><th>順位</th><th>找誰</th><th>理由</th><th>怎麼約</th></tr></thead>
+    <tbody>
+      <tr class="hit"><td class="num">1</td><td><b>家舒適（蘆洲北部服務處）</b></td><td>品牌 10 年保固＋終身保修 × 服務處就在你家隔壁 × $280/才起全場次低 × Google 5.0</td><td class="mono">0931-431-914</td></tr>
+      <tr class="hit"><td class="num">2</td><td><b>金昌隱形鐵窗</b></td><td>146 家裡唯一有 PRO360 隱形鐵窗成交評論（5 件全 5★，2024–2025 活躍）× 牌價 $250–300/才 最低 × 評論實證附保固卡/逃生剪</td><td class="mono">官網/PRO360 檔案頁發詢價</td></tr>
+      <tr class="hit"><td class="num">3</td><td><b>宇奇（樹林工廠直營）</b></td><td>材料自研自產（無中間商）× SGS/專利——沒公開牌價，正好測試前兩家的報價是否有水分</td><td class="mono">tw-yuchi.com 官網表單</td></tr>
+      <tr><td class="num">備</td><td>谷賓 / 仁興街防墜紗窗店（三重在地）</td><td>Google 4.9 但匿名看不到評論數；若前三家報價都高於行情帶（$300–400/才），用在地店殺價</td><td class="mono">0933-294-491 / 0928-258-931</td></tr>
+    </tbody>
+  </table>
+  <div class="callout ok">
+    <b>✅ 詢價時三家統一規格（才能逐項比）：</b>5cm 間距（幼兒防墜標準）· 316/316L 鋼索＋SGS 抗拉報告 · 冷氣室外機處快拆裝置 · 立柱數量與單價分列 · 保固年限與範圍白紙黑字 · 附逃生剪。報價要求「單價×才數」逐窗拆列，拒絕一式。完整檢核見<a href="./grille-screen-direct-vs-dealer.html#checklist">決策頁 G 區</a>。
+  </div>
+</section>
+
+<!-- ═══ F 資料來源 ═══ -->
+<section id="sources">
+  <h2><span class="badge">F</span>資料來源與方法限制</h2>
+  <ul class="sources" style="margin-left:22px">
+    <li><b>PRO360 全量列表：</b>隱形鐵窗分類（invisible_grille）120 家＋防墜網分類（protection_net）26 家，官方 API 全掃（含僱用數/評論數/服務區域郵遞區號），2026/08/07 快照。</li>
+    <li><b>評論語料：</b>30 家候選（評論≥4 或名稱/簡介含「隱形」）全部評論經隱藏 API 逐則抓取（含所有 1–3★ 與工項標籤），共 279 則。「本業件數」以工項欄判定。</li>
+    <li><b>Google Maps：</b>三重/蘆洲/新莊/五股四區搜尋，2026/08/07 匿名抓取——<b>星級可見、評論數與內文被登入牆鎖住</b>，故 C 區無評論數欄；星級僅供初篩。地址逐家以座標核對行政區（剔除澎湖家佺等名稱誤中者）。</li>
+    <li><b>品牌牌價：</b>各官網 2026/08/07 當日內容，簽約前以正式報價為準。</li>
+    <li><b>限制：</b>①PRO360 成交評論反映的是「平台接單」行為，專門店平台零成交≠品質差（此業口碑主戰場在官網/在地）；②Google 星級無樣本數，5.0 可能只有 3 則評論；③三蘆在地店（谷賓/神盾牌/仁興街）無法取得評論內文，未能做低分主題分析——詢價時自行點開 Maps 看最新評論補課。</li>
+  </ul>
+</section>
+
+<footer>
+  <a href="./index.html">← 回家居研究首頁</a> · 相關頁：<a href="./grille-screen-direct-vs-dealer.html">直發 vs 代辦決策</a> · <a href="./aluminum-window-contractor-research.html">鋁門窗工班研究</a><br>
+  最後更新 2026/08/07 · 本頁為個人研究筆記，簽約前以各廠商正式報價與合約為準
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var fill=document.getElementById('rpFill');
+  var pctEl=document.getElementById('rpPct');
+  if(!fill) return;
+  var tocLinks=Array.prototype.slice.call(document.querySelectorAll('#anchornav a'));
+  var sections=tocLinks.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var doc=document.documentElement;
+    var max=doc.scrollHeight-doc.clientHeight;
+    var pct=max>0?(doc.scrollTop/max)*100:0;
+    pct=Math.min(100,Math.max(0,pct));
+    fill.style.width=pct+'%';
+    if(pctEl) pctEl.textContent=Math.round(pct)+'%';
+    var line=110, idx=-1;
+    for(var i=0;i<sections.length;i++){
+      var s=sections[i]; if(!s) continue;
+      if(s.getBoundingClientRect().top<=line) idx=i;
+    }
+    if(doc.scrollTop+doc.clientHeight>=doc.scrollHeight-4) idx=tocLinks.length-1;
+    tocLinks.forEach(function(a,i){ if(i===idx) a.classList.add('active'); else a.classList.remove('active'); });
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update);} }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  tocLinks.forEach(function(a){a.addEventListener('click',function(){setTimeout(update,400);});});
+  update();
+})();
+</script>
+</body>
+</html>
