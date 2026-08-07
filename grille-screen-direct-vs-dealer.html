@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隱形鐵窗＋防霾紗網：直發專門公司 vs 鋁門窗行代辦</title>
+<style>
+:root{
+  --ink:#0E1116; --muted:#6B7280; --line:#E5E7EB; --bg:#F7FAF9; --paper:#FFFFFF;
+  --teal:#0F5C4E; --teal-soft:#E3F1EE; --teal-ink:#0A4238;
+  --amber:#B45309; --amber-soft:#FEF3E2;
+  --red:#B91C1C; --red-soft:#FEE2E2;
+  --green:#15803D; --green-soft:#DCFCE7;
+  --r-lg:22px; --r-md:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Noto Sans TC',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px 80px}
+h1,h2,h3{font-family:'Noto Serif TC',serif;line-height:1.35}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.read-progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:200;background:rgba(15,92,78,.12)}
+.read-progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#0F5C4E,#2DA88F,#E8A33D);box-shadow:0 0 8px rgba(15,92,78,.4);transition:width .08s linear}
+.read-pct{position:fixed;top:10px;right:12px;z-index:201;font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--teal-ink);background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-family:ui-monospace,monospace;user-select:none;backdrop-filter:blur(3px)}
+.hero{background:linear-gradient(135deg,#0A4238 0%,#0F5C4E 55%,#1B7A63 100%);color:#fff;border-radius:0 0 var(--r-lg) var(--r-lg);padding:52px 36px 40px;margin-bottom:14px}
+.hero .eyebrow{font-size:13px;letter-spacing:2.5px;color:#9FD8C9;font-weight:700;margin-bottom:10px}
+.hero h1{font-size:clamp(24px,4vw,36px);margin-bottom:14px}
+.hero p.lede{font-size:16.5px;color:#D9EFE8;max-width:780px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 13px;font-size:13px}
+.verdict{background:var(--amber-soft);border:1.5px solid #F0C987;border-radius:var(--r-lg);padding:26px 28px;margin:22px 0}
+.verdict h2{font-size:20px;color:var(--amber);margin-bottom:12px}
+.verdict ol{margin-left:22px}
+.verdict li{margin-bottom:10px}
+.anchornav{position:sticky;top:8px;z-index:150;display:flex;flex-wrap:wrap;gap:6px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:999px;padding:8px 12px;margin:18px 0;font-size:13px}
+.anchornav a{color:var(--muted);text-decoration:none;padding:3px 10px;border-radius:999px;font-weight:600}
+.anchornav a:hover{background:var(--teal-soft);color:var(--teal-ink)}
+.anchornav a.active{background:var(--teal);color:#fff}
+section{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 32px;margin:22px 0}
+section>h2{font-size:22px;margin-bottom:6px;display:flex;align-items:center;gap:12px}
+.badge{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;border-radius:10px;background:var(--teal);color:#fff;font-size:16px;font-weight:800;font-family:'Inter',sans-serif}
+.sub{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:14px 0}
+th{background:var(--teal-soft);color:var(--teal-ink);text-align:left;padding:10px 12px;font-size:13.5px;border-bottom:2px solid var(--teal)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-family:'JetBrains Mono',ui-monospace,monospace;white-space:nowrap}
+.pill{display:inline-block;border-radius:999px;padding:2px 11px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.pill.win{background:var(--green-soft);color:var(--green)}
+.pill.warn{background:var(--amber-soft);color:var(--amber)}
+.pill.danger{background:var(--red-soft);color:var(--red)}
+.pill.neutral{background:#EEF2F7;color:#475569}
+.callout{border-radius:var(--r-md);padding:18px 20px;margin:16px 0;font-size:14.5px}
+.callout.warn{background:var(--amber-soft);border:1px solid #F0C987}
+.callout.danger{background:var(--red-soft);border:1px solid #FCA5A5}
+.callout.ok{background:var(--green-soft);border:1px solid #86EFAC}
+.callout.info{background:var(--teal-soft);border:1px solid #A7D8CC}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.vcard{border:1.5px solid var(--line);border-radius:var(--r-md);padding:18px 20px}
+.vcard.good{border-color:#86EFAC;background:#F7FEF9}
+.vcard.bad{border-color:#FCA5A5;background:#FFFAFA}
+.vcard h3{font-size:16px;margin-bottom:10px}
+.vcard ul{margin-left:18px;font-size:14px}
+.vcard li{margin-bottom:7px}
+.pdfbar{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.pdfbtn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;text-decoration:none;border-radius:12px;padding:10px 18px;font-size:14px;font-weight:700}
+.pdfbtn:hover{background:var(--teal-ink)}
+.pdfbtn.alt{background:#64748B}
+.check{list-style:none;margin:10px 0}
+.check li{padding-left:30px;position:relative;margin-bottom:10px;font-size:14.5px}
+.check li::before{content:"☐";position:absolute;left:4px;font-size:17px;color:var(--teal)}
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:16px 0}
+.fstep{flex:1;min-width:200px;background:var(--teal-soft);border:1px solid #A7D8CC;border-radius:var(--r-md);padding:14px 16px;font-size:14px;margin-right:34px;position:relative}
+.fstep:last-child{margin-right:0}
+.fstep::after{content:"→";position:absolute;right:-26px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--teal);font-weight:800}
+.fstep:last-child::after{content:none}
+.fstep b{display:block;color:var(--teal-ink);margin-bottom:4px}
+.src{font-size:13px;color:var(--muted)}
+.src a{color:var(--teal)}
+.sources li{margin-bottom:8px;font-size:13.5px}
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:40px}
+footer a{color:var(--teal)}
+@media(max-width:720px){
+  .grid2{grid-template-columns:1fr}
+  section{padding:22px 18px}
+  .hero{padding:38px 22px 30px}
+  .fstep{margin-right:0;margin-bottom:26px;min-width:100%}
+  .fstep::after{content:"↓";right:auto;left:50%;top:auto;bottom:-24px;transform:translateX(-50%)}
+  .fstep:last-child{margin-bottom:0}
+  .anchornav{border-radius:14px}
+  table{display:block;overflow-x:auto}
+}
+@media print{.read-progress,.read-pct,.anchornav,.pdfbar{display:none}}
+</style>
+</head>
+<body>
+<div class="read-progress"><i id="rpFill"></i></div>
+<div class="read-pct" id="rpPct">0%</div>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">HOME RESEARCH · 發包策略決策</p>
+    <h1>隱形鐵窗＋防霾紗網：<br>直接找專門公司，還是讓鋁門窗行代辦？</h1>
+    <p class="lede">已明確知道只做「隱形鐵窗＋防霾紗網」兩項（暫不換窗）。手上第一份報價是大發鋼鋁門窗的防霾紗網＋固定框單（1150807）。本頁用報價單驗算 × PRO360 行情 × 產業結構證據回答：分開直發是不是更聰明的選擇。</p>
+    <div class="tags">
+      <span class="tag">蘆洲中興街</span><span class="tag">1 歲幼兒防墜需求</span><span class="tag">大發報價 含稅 $40,799</span><span class="tag">2026/08/07 實查</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="verdict">
+  <h2>⚖️ 一句話結論：是，分開直發更聰明——而且大發這張單自己就給了證據</h2>
+  <ol>
+    <li><b>隱形鐵窗 → 一定直接找專門公司。</b>它是成熟的獨立行業（專門品牌、自有工廠、10 年保固慣例）；鋁門窗行接這種單絕大多數是轉包或跟材料廠拿料代工，保固主體不明。大發單上「五金保固一年」的保固文化 vs 專門公司 10 年保固＋千萬產品責任險，差距一目了然。</li>
+    <li><b>防霾紗網 → 大發自己也是轉一手。</b>報價單白紙黑字寫「需先收回舊紗窗，送回<u>紗窗廠商</u>代編網」——你透過大發買，就是多付一層轉手。驗算後 $500–577/才，落在 PRO360 行情帶（$400–500/才）上緣。直發紗網品牌/在地紗窗行可省轉手層，但總額差距約數千元，不是災難級。</li>
+    <li><b>唯一例外：</b>若之後決定連鋁窗一起換（如單上那樘固定框），讓同一家鋁窗行順做紗網有排程便利——但隱形鐵窗無論如何都該分出去。</li>
+  </ol>
+</div>
+
+<nav class="anchornav" id="anchornav">
+  <a href="#quote">A 大發報價驗算</a>
+  <a href="#ais">B AIS 是誰</a>
+  <a href="#grille">C 隱形鐵窗直發</a>
+  <a href="#screen">D 防霾紗網直發</a>
+  <a href="#interface">E 分開發包風險</a>
+  <a href="#decision">F 決策樹</a>
+  <a href="#checklist">G 詢價檢核</a>
+  <a href="#quotes">H 實收報價追蹤</a>
+  <a href="#sources">I 資料來源</a>
+</nav>
+
+<!-- ═══ A 大發報價驗算 ═══ -->
+<section id="quote">
+  <h2><span class="badge">A</span>大發鋼鋁門窗報價單：逐項驗算</h2>
+  <p class="sub">報價單編號 23098 · 報價日 115/08/07 · 蘆洲中興街 · 有效期七日 · 才數＝寬×高(cm)÷900</p>
+  <div class="pdfbar">
+    <a class="pdfbtn" href="./assets/pdf/quote-dafa-screen-20260807.pdf" target="_blank" rel="noopener">📄 開啟大發原始報價單 PDF</a>
+    <a class="pdfbtn alt" href="./aluminum-window-contractor-research.html" target="_blank" rel="noopener">🪟 大發在鋁門窗工班研究的評比</a>
+  </div>
+  <table>
+    <thead><tr><th>項目</th><th>規格</th><th class="num">數量</th><th class="num">單價</th><th class="num">小計</th><th class="num">換算單價/才</th><th>驗算</th></tr></thead>
+    <tbody>
+      <tr><td>大發固定框（框8CM）</td><td>W80×H117 香檳框＋5mm 強化透明玻璃（10.4 才）</td><td class="num">1</td><td class="num">3,956</td><td class="num">3,956</td><td class="num">$380/才</td><td><span class="pill win">✓ 合理</span></td></tr>
+      <tr><td>乾式施工</td><td>包框工法·含拆舊內框·不含發泡劑填縫</td><td class="num">1</td><td class="num">4,800</td><td class="num">4,800</td><td class="num">—</td><td><span class="pill warn">工法要問</span></td></tr>
+      <tr><td>防霾紗網（主臥？）</td><td>W75×H120（10.00 才/片）</td><td class="num">2</td><td class="num">5,000</td><td class="num">10,000</td><td class="num">$500/才</td><td><span class="pill warn">帶上緣</span></td></tr>
+      <tr><td>防霾紗網（次臥）</td><td>W60×H130（8.67 才/片）</td><td class="num">2</td><td class="num">5,000</td><td class="num">10,000</td><td class="num">$577/才</td><td><span class="pill danger">小片吃虧</span></td></tr>
+      <tr><td>防霾紗網（次臥）</td><td>W70×H130（10.11 才/片）</td><td class="num">2</td><td class="num">5,050</td><td class="num">10,100</td><td class="num">$500/才</td><td><span class="pill warn">帶上緣</span></td></tr>
+      <tr><td><b>未稅小計</b></td><td>驗算 3,956＋4,800＋30,100＝38,856 ✓</td><td class="num">—</td><td class="num">—</td><td class="num"><b>38,856</b></td><td class="num">—</td><td><span class="pill win">✓ 加總正確</span></td></tr>
+      <tr><td><b>含稅總計</b></td><td>稅金 1,943（＝5% ✓）· 開發票</td><td class="num">—</td><td class="num">—</td><td class="num"><b>40,799</b></td><td class="num">—</td><td><span class="pill win">✓ 稅額正確</span></td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <b>⚠️ 三個要點：</b><br>
+    ① <b>紗網 6 片均價 $523/才</b>（57.6 才 / $30,100），對照 PRO360 防霾紗網行情 <b>$400–500/才</b>（2025/06 更新）——落在帶上緣偏外。尤其 60×130 兩片只有 8.67 才卻齊頭收 $5,000/片，換算 $577/才最吃虧，可要求「按實際才數計價」。<br>
+    ② <b>單上明寫「不含紗窗框，需先收回舊紗窗，送回紗窗廠商代編網」</b>——大發不自產紗網，是收你的舊框送外部紗網廠編網再裝回。這正是「多一層轉手」的白紙黑字證據。<br>
+    ③ <b>保固僅「五金一年、玻璃不保固」</b>，付款為 3 萬內全額付清後下單（無尾款保障）。對照 C 區隱形鐵窗專門公司的 10 年保固慣例，落差顯著。
+  </div>
+  <div class="callout info">
+    <b>💡 這張單沒有隱形鐵窗項目。</b>若你請大發加報隱形鐵窗，依產業結構（見 C 區）幾乎必是轉包——你會同時吃「轉手利潤＋短保固＋保固主體不明」三重折損。
+  </div>
+</section>
+
+<!-- ═══ B AIS 是誰 ═══ -->
+<section id="ais">
+  <h2><span class="badge">B</span>AIS 風光防霾網（aiscreen.com.tw）是誰？</h2>
+  <p class="sub">你提到大發用的是這個品牌。官網實查（2026/08/07）結果如下——注意有兩個「查不到」。</p>
+  <table>
+    <thead><tr><th style="width:150px">項目</th><th>官網實查內容</th></tr></thead>
+    <tbody>
+      <tr><td>身分</td><td>防霾紗網<b>品牌＋直接施工商</b>（ARTIFICER INTELLIGENCE SCREEN，「風光品牌」）。台中西屯，Tel 04-2251-9117。官網未揭露公司登記名稱與統編。</td></tr>
+      <tr><td>技術</td><td>PET 聚酯纖維「原抽撥水黑紗」·孔徑 0.35mm·物理靜電吸附。宣稱 PM2.5 阻隔率 90.5%（交大環工所測試）、防潑水 90 級（TTRI）、OEKO-TEX 無毒認證。100% MIT。</td></tr>
+      <tr><td>產品線</td><td>平紗（固定式片紗）＋捲紗（捲軸式）。平紗不足 30 才加收 $1,000 工資；捲紗每樘基本 8 才、不足 5 樘加收 $1,500。</td></tr>
+      <tr><td>公開價格</td><td><span class="pill danger">無</span> 官網無每才/每片單價，正式報價僅透過 LINE 官方帳號。</td></tr>
+      <tr><td>施工案例</td><td>官網 12 個案例<b>全在台中/南投</b>。蘆洲是否到府施工、偏遠加價多少，官網未寫。</td></tr>
+      <tr><td>與大發的關係</td><td><span class="pill warn">無法證實</span> AIS 官網沒有經銷商名單。「大發使用 AIS 網材」目前只有口頭說法——詢價時要求大發<b>書面寫明網材品牌與出貨證明</b>。</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <b>💡 對你的意義：</b>若大發真用 AIS 網材，你付 $523/才買到的是「AIS 網材＋紗窗廠代編＋大發轉手」三層結構。理論上可直接 LINE AIS 詢價繞過兩層——但 AIS 案例全在中部，北部到府意願與偏遠費未知，未必真的便宜。更實際的比價對象是<b>北部在地防霾紗窗施工商</b>（見 D 區與既有的 <a href="./window-screen-comparison.html">防霾紗窗比較頁</a>：SMOG、Poll-tex、Usii 等品牌都有北部通路）。
+  </div>
+</section>
+
+<!-- ═══ C 隱形鐵窗直發 ═══ -->
+<section id="grille">
+  <h2><span class="badge">C</span>隱形鐵窗：為什麼一定要直接找專門公司</h2>
+  <p class="sub">隱形鐵窗（不鏽鋼纜繩防墜網）是獨立成熟行業——有專門品牌、自有工廠、材料批發與 OEM 體系。以下全部來自各公司官網實查。</p>
+  <h3 style="font-size:16px;margin:14px 0 4px">產業結構三個證據：鋁門窗行接單 ≈ 轉包/經銷</h3>
+  <ul style="margin-left:22px;font-size:14.5px">
+    <li><b>宇奇</b>（新北樹林，自有工廠）官網明寫「跟宇奇買材料…免費教您施工技術」——鋁窗行就是它的下游客戶。</li>
+    <li><b>唐盛科技</b>（2008 年成立）主業就是隱形鐵窗<b>材料批發＋OEM 代工</b>，供貨給同業。</li>
+    <li><b>高高順</b>官網自述「從一開始加盟他人隱形鐵窗，到現在自行研發」——加盟/經銷是業界常態；FB 也有「鋁門窗工程接案發包中心」社團把隱形鐵窗列為發包比價項目。</li>
+  </ul>
+  <table>
+    <thead><tr><th>專門公司</th><th>據點</th><th class="num">5cm 間距單價</th><th class="num">基本消費</th><th>保固</th><th>官網</th></tr></thead>
+    <tbody>
+      <tr><td>家舒適</td><td>全國 4 據點·經營 19 年</td><td class="num">$280/才 起</td><td class="num">$7,000</td><td>10 年＋終身保修</td><td class="src"><a href="https://www.jhc888.com.tw/" target="_blank" rel="noopener">jhc888.com.tw</a></td></tr>
+      <tr><td>高高順</td><td>北北基竹中</td><td class="num">$338/才 起</td><td class="num">$7,000/案·10 才/窗</td><td>10 年＋永久免費檢查</td><td class="src"><a href="https://windows.taipei/" target="_blank" rel="noopener">windows.taipei</a></td></tr>
+      <tr><td>聯安</td><td>雙北</td><td class="num">$320–520/才</td><td class="num">$7,000 起</td><td>10 年＋1,000 萬產品責任險</td><td class="src"><a href="https://www.linanjiujiu.com.tw/" target="_blank" rel="noopener">linanjiujiu.com.tw</a></td></tr>
+      <tr><td>金昌</td><td>雙北</td><td class="num">$250–300/才</td><td class="num">窗框型一窗 $7,000–9,000</td><td>10 年</td><td class="src"><a href="https://www.jinchang-window.com.tw/" target="_blank" rel="noopener">jinchang-window.com.tw</a></td></tr>
+      <tr><td>宇奇 <span class="pill win">離蘆洲近</span></td><td>新北樹林·自有工廠</td><td class="num">官網未列（需詢價）</td><td class="num">—</td><td>SBIR/專利/SGS·零件刻字防仿冒</td><td class="src"><a href="https://tw-yuchi.com/" target="_blank" rel="noopener">tw-yuchi.com</a></td></tr>
+    </tbody>
+  </table>
+  <p class="src">PRO360 行情對照：隱形鐵窗 5cm 間距 <b>$300–400/才</b>、2.5cm（寵物/防鳥）$400–500/才；鋁合金立柱 $500–1,000/支、快拆裝置 $400–600/條、無電梯搬運 $150/層（統計 2024–2026 平台報價，頁面更新 2024/05）。上表各家牌價與行情帶互相吻合。</p>
+  <div class="callout ok">
+    <b>✅ 家有 1 歲幼兒的規格提醒：</b>選 <b>5cm 間距</b>標準款即可（$280–400/才 級距）。《公寓大廈管理條例》第 8 條保障家有 12 歲以下兒童的住戶，可設置不突出外牆、不妨礙逃生的防墜設施——管委會不得無理由禁止。冷氣室外機位置記得加<b>快拆裝置</b>（$400–600/條），日後維修冷氣不用剪鋼索。
+  </div>
+  <div class="callout danger">
+    <b>🚫 透過鋁門窗行做隱形鐵窗的三重折損：</b>① 轉手利潤（同樣材料多付一層）；② 保固主體不明——出問題找鋁窗行還是實際施工的下包？專門公司保固卡直接對原廠；③ 材料無履歷——專門公司給鋼索產地證明＋SGS 抗拉報告（家舒適實測 264kgf），轉包件常拿不到，中國製低價品日後無法局部維修、只能整面換。
+  </div>
+</section>
+
+<!-- ═══ D 防霾紗網直發 ═══ -->
+<section id="screen">
+  <h2><span class="badge">D</span>防霾紗網：直發省多少？（誠實答案：有省但有限）</h2>
+  <p class="sub">跟隱形鐵窗不同，紗網的轉手層較薄、金額較小，直發的效益要老實算。</p>
+  <table>
+    <thead><tr><th>路徑</th><th>結構</th><th class="num">估計單價</th><th>優點</th><th>風險</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>大發代辦</b>（現況報價）</td><td>AIS 網材（口頭）→ 紗窗廠代編 → 大發轉手</td><td class="num">$500–577/才<br>6 片 $30,100</td><td>單一窗口；若同時換窗可一次排程</td><td>多一層轉手；網材品牌無書面保證；保固僅一年</td>
+      </tr>
+      <tr>
+        <td><b>直發防霾紗窗品牌</b></td><td>品牌原廠到府丈量施工（SMOG/Poll-tex/Usii 等，見<a href="./window-screen-comparison.html">防霾紗窗比較頁</a>）</td><td class="num">依品牌，行情帶 $400–500/才</td><td>原廠保固與網材保證；技術路線可挑（靜電式/濾膜式）</td><td>需自行約丈量；部分品牌有基本消費門檻</td>
+      </tr>
+      <tr>
+        <td><b>在地紗窗行換網</b></td><td>在地紗窗師傅收框代編</td><td class="num">PRO360：防霾換網 $400–500/才</td><td>最便宜；蘆洲在地快</td><td>網材來源要問清楚（「防霾」名義下材質參差）</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <b>⚠️ 帳要算全：</b>假設直發壓到 $450/才，6 片 57.6 才 ≈ $25,900，比大發的 $30,100 省約 <b>$4,200</b>（未稅）。有省、但量級是數千元——值不值得多跑一個窗口，取決於 E 區的介面風險你怎麼看。真正該堅持的是：<b>不論誰做，網材品牌＋孔徑＋認證要寫進單據</b>（大發單上只寫「防霾紗網」四個字，什麼網都能交貨）。
+  </div>
+</section>
+
+<!-- ═══ E 分開發包風險 ═══ -->
+<section id="interface">
+  <h2><span class="badge">E</span>分開發包的代價：你要自己管的三件事</h2>
+  <p class="sub">「分開直發比較便宜」的另一面是你變成總協調人。誠實列出來，這些都可管理、但要有心理準備。</p>
+  <div class="grid2">
+    <div class="vcard good">
+      <h3>✅ 分開直發拿到的</h3>
+      <ul>
+        <li>隱形鐵窗 10 年保固＋產品責任險＋材料履歷（vs 鋁窗行一年慣例）</li>
+        <li>每項都是「每才」透明計價，可跨 2–3 家比單價</li>
+        <li>去掉轉手層：鐵窗省最多、紗網省數千元</li>
+        <li>各找該領域評價最好的公司，不受單一窗口綁架</li>
+      </ul>
+    </div>
+    <div class="vcard bad">
+      <h3>❌ 你要自己扛的</h3>
+      <ul>
+        <li><b>工序協調</b>：若之後要換窗，鋁窗必須先做，隱形鐵窗最後裝（先裝會擋施工）</li>
+        <li><b>兩個約期兩次到府</b>：丈量×2＋施工×2，時間成本</li>
+        <li><b>介面責任</b>：鐵窗鎖點若打在鋁窗框上，日後框變形兩家互推——優先鎖牆面可避開</li>
+        <li>各家基本消費門檻（鐵窗 $7,000/案）：單量太小時單價優勢被吃掉</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout ok">
+    <b>✅ 你的情境剛好是「介面最少」的一種：</b>只做鐵窗＋紗網、暫不換窗——兩個工程<b>互不相碰</b>（紗網是收舊框代編、鐵窗鎖外側牆面），連工序協調都幾乎不存在。這是「分開直發」最划算的場景。若未來連窗一起換，才需要考慮把「窗＋紗網」給同一家、鐵窗仍然分出去。
+  </div>
+</section>
+
+<!-- ═══ F 決策樹 ═══ -->
+<section id="decision">
+  <h2><span class="badge">F</span>決策樹：三種情境的發包法</h2>
+  <div class="flow">
+    <div class="fstep"><b>情境 1：只做鐵窗＋紗網（你現在）</b>隱形鐵窗→專門公司 2–3 家比價（宇奇/家舒適/高高順/聯安）；紗網→直發品牌或在地紗窗行，拿大發 $523/才當比價錨往下談。</div>
+    <div class="fstep"><b>情境 2：之後決定連窗一起換</b>窗＋紗網給同一家鋁窗行（排程便利，紗網轉手費當協調費）；隱形鐵窗仍分出去直發，最後進場。</div>
+    <div class="fstep"><b>情境 3：預算極度優先</b>紗網找在地紗窗行換網（$400–500/才）＋鐵窗挑基本消費最低的專門公司，總價最省，自己多跑兩個窗口。</div>
+  </div>
+</section>
+
+<!-- ═══ G 詢價檢核 ═══ -->
+<section id="checklist">
+  <h2><span class="badge">G</span>詢價前自保檢核（兩個工種各自要問）</h2>
+  <h3 style="font-size:16px;margin:10px 0 4px">🔩 隱形鐵窗（找專門公司時）</h3>
+  <ul class="check">
+    <li>鋼索材質與產地證明：316 / 316L 不鏽鋼？附 SGS 抗拉測試報告？</li>
+    <li>保固年限白紙黑字：10 年是慣例，低於 5 年直接換一家；有無產品責任險</li>
+    <li>報價按「才」拆：單價×才數＋立柱×支＋快拆×條，拒絕「一式」</li>
+    <li>間距 5cm（幼兒防墜標準）；冷氣室外機處加快拆裝置</li>
+    <li>鎖點位置：優先鎖牆面/樑柱，避免鎖在舊鋁窗框上（框強度不足＋日後換窗要重做）</li>
+    <li>附逃生剪與使用說明（消防逃生需求，正規公司標配）</li>
+  </ul>
+  <h3 style="font-size:16px;margin:16px 0 4px">🕸️ 防霾紗網（不論給誰做）</h3>
+  <ul class="check">
+    <li>網材品牌＋型號＋孔徑寫進報價單（口頭說 AIS 不算數，要出貨證明）</li>
+    <li>技術路線問清楚：靜電吸附式（通風佳、效果隨時間遞減）vs 高密度濾膜式（防塵好、通風差）——參考<a href="./window-screen-comparison.html">防霾紗窗比較頁</a>的透視度分析</li>
+    <li>按實際才數計價：8.67 才的小片不接受齊頭 $5,000/片</li>
+    <li>清洗保養方式與網材壽命（幾年後效果衰退、能否單獨換網不換框）</li>
+    <li>付款保留尾款：全額付清後才下單（如大發付款條件）= 零議價籌碼，爭取完工驗收後付尾款</li>
+  </ul>
+</section>
+
+<!-- ═══ H 實收報價追蹤 ═══ -->
+<section id="quotes">
+  <h2><span class="badge">H</span>實收報價追蹤</h2>
+  <p class="sub">已收報價逐份登錄、逐列驗算。後續收到更多家（你說待會會給），往這區追加並列比較。</p>
+  <table>
+    <thead><tr><th>#</th><th>廠商</th><th>日期</th><th>範圍</th><th class="num">未稅</th><th class="num">含稅</th><th class="num">紗網均價/才</th><th>驗算</th><th>原始檔</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>大發鋼鋁門窗（蘆洲三民路）</td><td class="mono">115/08/07</td><td>固定框×1＋乾式施工＋防霾紗網×6 片</td><td class="num">38,856</td><td class="num">40,799</td><td class="num">$523</td><td><span class="pill win">✓ 加總/稅額正確</span></td><td><a href="./assets/pdf/quote-dafa-screen-20260807.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+    </tbody>
+  </table>
+  <div class="callout info"><b>💡 怎麼用這份報價比價：</b>拿同規格（同尺寸 6 片、註明網材品牌）去問下一家——貴要說得出貴在哪（網材等級？含框？），便宜要檢查規格是否被降（普通紗網冒充防霾）。</div>
+</section>
+
+<!-- ═══ I 資料來源 ═══ -->
+<section id="sources">
+  <h2><span class="badge">I</span>資料來源與方法限制</h2>
+  <ul class="sources" style="margin-left:22px">
+    <li>大發鋼鋁門窗報價單 23098（115/08/07，使用者提供，<a href="./assets/pdf/quote-dafa-screen-20260807.pdf">原始 PDF</a>）——所有驗算基於此。</li>
+    <li>PRO360 行情頁：<a href="https://www.pro360.com.tw/price/invisible_grille" target="_blank" rel="noopener">隱形鐵窗</a>（更新 2024/05/08）、<a href="https://www.pro360.com.tw/price/screen_window" target="_blank" rel="noopener">紗窗/防霾紗網</a>（更新 2025/06/13）——2024–2026 平台報價統計。</li>
+    <li>隱形鐵窗各公司官網（2026/08/07 抓取）：家舒適、高高順、聯安、金昌、宇奇、唐盛科技——牌價以各官網當日內容為準，簽約前以正式報價為準。</li>
+    <li>AIS 風光防霾網官網 aiscreen.com.tw（2026/08/07 抓取）——無公開單價、案例集中中部、無經銷商名單為當日官網狀態。</li>
+    <li><b>限制：</b>行情帶主要依賴 PRO360 單一平台（多分頁互相印證）；「大發使用 AIS 網材」為使用者轉述，未獲書面證實；「橙果/家立安/風潮」等名稱查無隱形鐵窗專門公司官網，未列入。</li>
+  </ul>
+</section>
+
+<footer>
+  <a href="./index.html">← 回家居研究首頁</a> · 相關頁：<a href="./aluminum-window-contractor-research.html">鋁門窗工班研究</a> · <a href="./window-screen-comparison.html">防霾紗窗比較</a><br>
+  最後更新 2026/08/07 · 本頁為個人研究筆記，簽約前以各廠商正式報價與合約為準
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var fill=document.getElementById('rpFill');
+  var pctEl=document.getElementById('rpPct');
+  if(!fill) return;
+  var tocLinks=Array.prototype.slice.call(document.querySelectorAll('#anchornav a'));
+  var sections=tocLinks.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var doc=document.documentElement;
+    var max=doc.scrollHeight-doc.clientHeight;
+    var pct=max>0?(doc.scrollTop/max)*100:0;
+    pct=Math.min(100,Math.max(0,pct));
+    fill.style.width=pct+'%';
+    if(pctEl) pctEl.textContent=Math.round(pct)+'%';
+    var line=110, idx=-1;
+    for(var i=0;i<sections.length;i++){
+      var s=sections[i]; if(!s) continue;
+      if(s.getBoundingClientRect().top<=line) idx=i;
+    }
+    if(doc.scrollTop+doc.clientHeight>=doc.scrollHeight-4) idx=tocLinks.length-1;
+    tocLinks.forEach(function(a,i){ if(i===idx) a.classList.add('active'); else a.classList.remove('active'); });
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update);} }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  tocLinks.forEach(function(a){a.addEventListener('click',function(){setTimeout(update,400);});});
+  update();
+})();
+</script>
+</body>
+</html>
