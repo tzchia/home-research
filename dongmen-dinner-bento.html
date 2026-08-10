@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>東門站晚餐餐盒實查 — $200–300 高級餐盒排名（Google Maps 全量評論 7,599 則）</title>
+<style>
+  :root{
+    --ink:#3D2B1F; --paper:#FFFBF5; --card:#FFFFFF;
+    --accent:#D97706; --accent-deep:#B45309; --accent-soft:#FEF3C7;
+    --line:#F0E4D2; --muted:#8B7355;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --rpn-accent:#F59E0B; --rpn-accent-deep:#B45309; --rpn-track:#F5E9D5;
+    --rpn-line:#F0E4D2; --rpn-muted:#8B7355; --rpn-soft:#FEF3C7;
+    --rpn-glass:rgba(255,251,245,.95);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:"Noto Sans TC",-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.75; padding:16px;}
+  .wrap{max-width:1080px; margin:0 auto;}
+  header.hero{background:linear-gradient(135deg,#B45309,#D97706 55%,#F59E0B);
+    color:#fff; border-radius:20px; padding:34px 28px; margin-bottom:20px;}
+  header.hero h1{font-size:clamp(21px,3.4vw,30px); font-weight:900; line-height:1.35;}
+  header.hero p{opacity:.93; margin-top:10px; font-size:14.5px;}
+  .hero-badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .hero-badges span{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35);
+    border-radius:999px; padding:4px 12px; font-size:12.5px; font-weight:700;}
+  section{background:var(--card); border:1px solid var(--line); border-radius:18px;
+    padding:26px 24px; margin-bottom:20px; scroll-margin-top:86px;}
+  h2{font-size:20px; font-weight:900; color:var(--accent-deep); margin-bottom:14px;
+    padding-bottom:8px; border-bottom:3px solid var(--accent-soft);}
+  h3{font-size:16.5px; font-weight:800; margin:18px 0 8px;}
+  p.note{color:var(--muted); font-size:13.5px;}
+  .callout{border-left:4px solid var(--accent); background:var(--accent-soft);
+    border-radius:0 12px 12px 0; padding:12px 16px; margin:12px 0; font-size:14.5px;}
+  .callout.red{border-color:var(--bad); background:#FEF2F2;}
+  .callout.green{border-color:var(--good); background:#F0FDF4;}
+  table{width:100%; border-collapse:collapse; font-size:13.5px; margin:12px 0;}
+  th{background:var(--accent-soft); color:var(--accent-deep); font-weight:800;
+    padding:9px 10px; text-align:left; white-space:nowrap;}
+  td{padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:hover td{background:#FFFAF0;}
+  .tbl-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  .tag{display:inline-block; border-radius:999px; padding:2px 10px; font-size:12px; font-weight:800; white-space:nowrap;}
+  .tag.ok{background:#DCFCE7; color:#15803D;}
+  .tag.no{background:#FEE2E2; color:#B91C1C;}
+  .tag.unk{background:#F1F5F9; color:#64748B;}
+  .tag.warn{background:#FEF3C7; color:#B45309;}
+  .rank-card{border:1px solid var(--line); border-radius:16px; padding:20px; margin:14px 0; position:relative;}
+  .rank-card.gold{border:2px solid #F59E0B; background:linear-gradient(180deg,#FFFBEB,#fff);}
+  .rank-card.silver{border:2px solid #94A3B8; background:linear-gradient(180deg,#F8FAFC,#fff);}
+  .rank-card.bronze{border:2px solid #D97706aa; background:linear-gradient(180deg,#FFF7ED,#fff);}
+  .rank-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
+  .rank-medal{font-size:26px;}
+  .rank-name{font-size:18px; font-weight:900;}
+  .rank-score{font-weight:800; color:var(--accent-deep); font-size:14px;}
+  .kv{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin:12px 0;}
+  .kv div{background:#FDF8F0; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:13px;}
+  .kv b{display:block; font-size:11.5px; color:var(--muted); font-weight:700;}
+  .quote{border-left:3px solid #E3D5BE; background:#FDF9F3; border-radius:0 10px 10px 0;
+    padding:8px 12px; margin:8px 0; font-size:13px; color:#5A4632;}
+  .quote i{color:var(--muted); font-style:normal; font-size:11.5px; display:block; margin-top:2px;}
+  .star{color:#F59E0B; font-weight:900;}
+  footer{color:var(--muted); font-size:12.5px; text-align:center; padding:18px 0 32px;}
+  @media (max-width:640px){ section{padding:20px 14px;} }
+
+  .rpn-navbar{ position:sticky; top:0; z-index:60; background:var(--rpn-glass);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    margin:0 0 18px; padding:9px 10px 6px; border-radius:16px;
+    border:1px solid var(--rpn-line); box-shadow:0 6px 20px rgba(180,83,9,.10); }
+  .rpn-progress{ height:5px; background:var(--rpn-track); border-radius:999px; overflow:hidden; margin-bottom:9px; }
+  .rpn-progress > i{ display:block; height:100%; width:0;
+    background:linear-gradient(90deg,var(--rpn-accent),var(--rpn-accent-deep));
+    border-radius:999px; transition:width .08s linear; }
+  .rpn-toc{ display:flex; gap:8px; flex-wrap:nowrap; overflow-x:auto; margin:0;
+    padding:2px 2px 6px; scrollbar-width:thin; scroll-behavior:smooth; }
+  .rpn-toc::-webkit-scrollbar{ height:6px; }
+  .rpn-toc::-webkit-scrollbar-thumb{ background:#E3CDA4; border-radius:999px; }
+  .rpn-toc a{ flex:0 0 auto; white-space:nowrap; border:1px solid var(--rpn-line);
+    background:#fff; border-radius:999px; padding:7px 12px; color:var(--rpn-muted);
+    font-weight:800; text-decoration:none; font-size:13.5px;
+    transition:background .15s,color .15s,border-color .15s; }
+  .rpn-toc a:hover{ border-color:var(--rpn-accent); color:var(--rpn-accent-deep); }
+  .rpn-toc a.active{ background:var(--rpn-accent-deep); color:#fff; border-color:var(--rpn-accent-deep); }
+  .rpn-dock{ position:fixed; right:16px; top:50%; transform:translateY(-50%); z-index:55;
+    display:none; flex-direction:column; gap:2px; background:var(--rpn-glass);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border:1px solid var(--rpn-line); border-radius:16px; padding:12px 10px;
+    box-shadow:0 12px 30px rgba(180,83,9,.18); max-height:88vh; overflow:auto; scrollbar-width:thin; }
+  .rpn-dock::-webkit-scrollbar{ width:5px; }
+  .rpn-dock::-webkit-scrollbar-thumb{ background:#E3CDA4; border-radius:999px; }
+  .rpn-dock .rpn-dock-head{ font-size:11px; font-weight:900; color:var(--rpn-muted);
+    letter-spacing:.08em; padding:0 8px 6px; text-transform:uppercase; }
+  .rpn-dock .rpn-dock-prog{ height:4px; background:var(--rpn-track); border-radius:999px; overflow:hidden; margin:0 6px 8px; }
+  .rpn-dock .rpn-dock-prog > i{ display:block; height:100%; width:0;
+    background:linear-gradient(90deg,var(--rpn-accent),var(--rpn-accent-deep));
+    border-radius:999px; transition:width .08s linear; }
+  .rpn-dock a{ display:flex; align-items:center; gap:9px; padding:6px 10px; border-radius:10px;
+    font-size:13px; font-weight:700; color:var(--rpn-muted); border:0; text-decoration:none;
+    white-space:nowrap; transition:background .15s,color .15s; }
+  .rpn-dock a .rpn-dot{ width:9px; height:9px; border-radius:999px; background:#E0CBA8;
+    flex:0 0 auto; transition:background .15s,box-shadow .15s; }
+  .rpn-dock a:hover{ background:var(--rpn-soft); color:var(--rpn-accent-deep); }
+  .rpn-dock a:hover .rpn-dot{ background:var(--rpn-accent); }
+  .rpn-dock a.active{ background:var(--rpn-accent-deep); color:#fff; }
+  .rpn-dock a.active .rpn-dot{ background:#fff; box-shadow:0 0 0 3px rgba(255,255,255,.28); }
+  @media (min-width:1280px){ .rpn-dock{ display:flex; } .rpn-navbar{ display:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="rpn-navbar" id="rpnNavbar">
+  <div class="rpn-progress"><i id="rpnFill"></i></div>
+  <div class="rpn-toc" id="rpnToc">
+    <a href="#method">🎯 任務與方法</a>
+    <a href="#podium">🏆 總排名</a>
+    <a href="#deep">🍱 主力深評</a>
+    <a href="#invoice">🧾 發票實查</a>
+    <a href="#alltable">📊 全 22 家總表</a>
+    <a href="#backup">🥈 參考組</a>
+    <a href="#out">🚫 出局紅旗</a>
+    <a href="#action">✅ 行動建議</a>
+  </div>
+</div>
+
+<nav class="rpn-dock" id="rpnDock" aria-label="頁面導覽">
+  <div class="rpn-dock-head">本頁導覽</div>
+  <div class="rpn-dock-prog"><i id="rpnSideFill"></i></div>
+  <a href="#method"><span class="rpn-dot"></span>🎯 任務與方法</a>
+  <a href="#podium"><span class="rpn-dot"></span>🏆 總排名</a>
+  <a href="#deep"><span class="rpn-dot"></span>🍱 主力深評</a>
+  <a href="#invoice"><span class="rpn-dot"></span>🧾 發票實查</a>
+  <a href="#alltable"><span class="rpn-dot"></span>📊 全 22 家總表</a>
+  <a href="#backup"><span class="rpn-dot"></span>🥈 參考組</a>
+  <a href="#out"><span class="rpn-dot"></span>🚫 出局紅旗</a>
+  <a href="#action"><span class="rpn-dot"></span>✅ 行動建議</a>
+</nav>
+
+<header class="hero">
+  <h1>🍱 東門站晚餐餐盒實查<br>$200–300 高級餐盒排名</h1>
+  <p>搜尋中心：台北市中正區信義路二段 211 號（捷運東門站生活圈）· 需求：晚餐時段、外帶餐盒、$200–300 精緻定位、會開統一發票</p>
+  <div class="hero-badges">
+    <span>📍 東門站步行 12 分內</span>
+    <span>🔎 22 家 × 7,599 則 Maps 全量評論</span>
+    <span>🧾 發票證據逐店實查</span>
+    <span>🗓️ 2026-08-10 登入帳號爬取</span>
+  </div>
+</header>
+
+<section id="method">
+  <h2>🎯 任務設定與方法</h2>
+  <h3>篩選條件</h3>
+  <table>
+    <tr><th>條件</th><th>內容</th></tr>
+    <tr><td>定位</td><td><b>$200–300 高級餐盒</b>（使用者明確定調：不是 $90 排骨便當，是一個 $200–300 等級的精緻餐盒）</td></tr>
+    <tr><td>時段</td><td>晚餐有營業（17:00 後可取餐）——只做午餐的直接出局</td></tr>
+    <tr><td>發票</td><td>會開統一發票（硬條件）——從評論原文找「發票／載具／統編」白紙黑字證據</td></tr>
+    <tr><td>排序</td><td>評價品質（主）→ 價位貼近 $200–300 級距（次）</td></tr>
+  </table>
+  <h3>資料方法</h3>
+  <p>以 4+4 組關鍵字（便當／自助餐／餐盒／健康餐盒／舒肥餐盒／日式便當等）掃出 53 個地點，篩出 22 家候選後，
+  用<b>登入帳號逐店爬取 Google Maps 全量評論</b>（共 7,599 則），從評論原文萃取：實報價格、發票／載具提及、近 12 個月低星內文。
+  「近12月均分」比總均分更能反映現況——有店家總分漂亮但近一年崩盤（見出局區）。</p>
+  <div class="callout">
+    <b>誠實聲明：</b>① 大型店家（560 則者）受 Maps 捲動上限影響為近似全量，但近期評論與低星均已完整涵蓋。
+    ② 發票欄「待確認」＝ 全量評論中零提及，非「不開」；點餐時問一句即可驗證。
+    ③ 距離為步行估計值。④ 價格為評論實報價，可能已再漲。
+  </div>
+</section>
+
+<section id="podium">
+  <h2>🏆 總排名 — $200–300 主力組</h2>
+  <p class="note">先講結論：這個級距在東門商圈選擇其實不多——多數「健康餐盒」落在 $89–195，真正 $200–300 的精緻餐盒就是下面這三家＋一個午餐限定遺珠。</p>
+
+  <div class="rank-card gold">
+    <div class="rank-head"><span class="rank-medal">🥇</span><span class="rank-name">Aum Aum Dosirak 韓定食（大安店）</span>
+    <span class="rank-score">全量均分 <span class="star">4.63</span>／242 則 · 近12月低星僅 2 則</span></div>
+    <div class="kv">
+      <div><b>實報價</b>炭烤牛肉 $298 · 其他 $238–275</div>
+      <div><b>地址</b>麗水街 1 號（步行約 5 分）</div>
+      <div><b>晚餐</b>16:00–19:00（二〜六）</div>
+      <div><b>公休</b>週日、週一</div>
+    </div>
+    <p>正中 $200–300 紅心的唯一韓式高級餐盒：韓定食式多格便當、小菜陣容完整、附海帶湯。評論裡「公司出錢時才買的便當」這句酸話反過來讀就是它的定位——商務級、拿得出手。低星極少且集中在 CP 值主觀認知與線上訂餐平台難用，不是食安或品質事故。</p>
+    <div class="quote">「韓式高級餐盒 炭烤牛肉$298」<i>— 1 年前 ★5</i></div>
+    <div class="quote">「一個便當275 cp值不高 適合辦公室開會公司出錢時才買的便當」<i>— 11 個月前 ★3（反向證實定位）</i></div>
+    <p class="note">⚠️ 兩個坑：晚餐只到 19:00 且需線上預訂取餐時段（有評論抱怨時段少）；發票在 242 則評論中零提及，首購時問一句。</p>
+  </div>
+
+  <div class="rank-card silver">
+    <div class="rank-head"><span class="rank-medal">🥈</span><span class="rank-name">Papa Rice 好食燉飯（永康店）</span>
+    <span class="rank-score">全量均分 <span class="star">4.47</span>／560 則 · 發票✓載具✓</span></div>
+    <div class="kv">
+      <div><b>實報價</b>燉飯外帶 $260–390</div>
+      <div><b>地址</b>麗水街 4 號（步行約 5 分）</div>
+      <div><b>晚餐</b>營業到 21:00</div>
+      <div><b>發票</b>✅「發票可存載具」評論明載</div>
+    </div>
+    <p>不是傳統餐盒，是義式燉飯外帶盒——但它是本區 $250–350 帶最穩的「高級一餐」，晚餐彈性最大（到 21:00），發票有白紙黑字證據。近一年低星集中在內用服務與甜點（提拉米蘇連環雷），外帶燉飯本體很少中招。加班到 20:00 之後，它是主力組唯一還開著的。</p>
+    <div class="quote">「只收現金與信用卡，發票可存載具。內用收一成服務費。」<i>— 3 年前 ★5</i></div>
+  </div>
+
+  <div class="rank-card bronze">
+    <div class="rank-head"><span class="rank-medal">🥉</span><span class="rank-name">PRO健康餐桌（台北總店）</span>
+    <span class="rank-score">全量均分 <span class="star">4.74</span>／348 則 · 發票✓（紙本電子發票）</span></div>
+    <div class="kv">
+      <div><b>實報價</b>鮭魚餐盒 $178 · 溫沙拉組 $168–200+</div>
+      <div><b>地址</b>杭州南路一段 5 號（步行約 10 分）</div>
+      <div><b>晚餐</b>16:30–19:30</div>
+      <div><b>發票</b>✅ 開電子發票（有評論抱怨「未提供載具選項」）</div>
+    </div>
+    <p>均分其實是主力組最高（4.74），盒膳美學路線、鮭魚餐 $178 加購湯品飲料剛好貼 $200–250。為什麼只排第三：近 12 個月 19 則低星裡出現<b>桌面油膩有頭髮、送錯餐、出餐等 50 分鐘</b>等營運品質下滑訊號，開幕蜜月期後的一致性要打問號。外帶避開內用亂流，仍是水準之上。</p>
+    <div class="quote">「桌子油油的有頭髮還有食物的殘渣…餐點、飲料、發票都送錯」<i>— 5 個月前 ★2</i></div>
+    <div class="quote">「不到200元可以享用如此健康而且份量剛剛好」<i>— 3 個月前 ★5</i></div>
+  </div>
+
+  <div class="callout green">
+    <b>🏅 遺珠（午餐限定）：九宮格廚房</b> — 全場最高分 <b>4.84／243 則</b>，九宮格商務便當 $250–390 完美命中定位，還有評論明寫「會開發票」。
+    可惜<b>只營業 11:30–14:00</b>，晚餐吃不到。公司訂會議便當、或想吃高級午餐時，這家是本區天花板。
+  </div>
+</section>
+<section id="deep">
+  <h2>🍱 主力組深評 — $130–200 高分健康餐盒帶</h2>
+  <p class="note">嚴格說 $200–300 只有上面三家；但這一帶「高分健康餐盒」多數落在 $130–195，加購配湯／飲料／蛋白質加量就能組到 $200–250。以下四家是評論品質站得住的升級組合候選。</p>
+
+  <div class="rank-card">
+    <div class="rank-head"><span class="rank-medal">4️⃣</span><span class="rank-name">七飯 SEVEN RICE（東門店）</span>
+    <span class="rank-score">均分 <span class="star">4.72</span>／283 則</span></div>
+    <div class="kv">
+      <div><b>實報價</b>現場 $140 起（外送 $219）</div>
+      <div><b>地址</b>金山南路一段 155 號（步行約 6 分）</div>
+      <div><b>晚餐</b>17:00–19:30</div>
+      <div><b>發票</b>❓ 283 則零提及，待確認</div>
+    </div>
+    <p>東門在地人氣王，開幕以來分數守在 4.7+。流沙雞胸等創意口味是招牌。近期紅旗：生意太好導致<b>線上點餐照樣等半小時、動線混亂</b>，且有「高麗菜發黑」「明太子烤焦」品管波動。雙主菜＋加購組到 $220 左右可入級距。</p>
+    <div class="quote">「透過 Uber Eats 訂購的價格是 $219，現場價格則是 $140，外送價差大」<i>— 2 個月前 ★4</i></div>
+  </div>
+
+  <div class="rank-card">
+    <div class="rank-head"><span class="rank-medal">5️⃣</span><span class="rank-name">萃茶風健康餐（台北杭州店）</span>
+    <span class="rank-score">均分 <span class="star">4.57</span>／354 則 · 近12月 4.65 逆勢向上</span></div>
+    <div class="kv">
+      <div><b>實報價</b>餐盒 $89–141 · 加飲料湯品 +$60–140</div>
+      <div><b>地址</b>杭州南路一段 9-1 號（步行約 10 分）</div>
+      <div><b>晚餐</b>營業到 19:45</div>
+      <div><b>發票</b>❓ 354 則零提及，待確認</div>
+    </div>
+    <p>本區唯一「近 12 個月分數比歷史均分更高」的店——品質在上升軌道。水煮低 GI 餐盒＋自家茶飲，餐盒＋香菇雞鍋（$140）＋鮮奶茶（$60）恰好組成 $330 內的完整晚餐。低星少且無食安事故。</p>
+    <div class="quote">「舒肥大肌雞胸餐盒+水煮蛋+飯換地瓜 $141，雞胸調味選翡翠檸檬椒鹽」<i>— 5 個月前 ★5</i></div>
+  </div>
+
+  <div class="rank-card">
+    <div class="rank-head"><span class="rank-medal">6️⃣</span><span class="rank-name">Benefit健康餐盒（台北杭州南店）</span>
+    <span class="rank-score">均分 <span class="star">4.71</span>／80 則（樣本較小）</span></div>
+    <div class="kv">
+      <div><b>實報價</b>雞胸 $125–160 · 松阪豬 $170 · 牛肉 $195</div>
+      <div><b>地址</b>杭州南路一段 35-1 號（步行約 10 分）</div>
+      <div><b>晚餐</b>營業到 19:30</div>
+      <div><b>發票</b>❓ 80 則零提及，待確認</div>
+    </div>
+    <p>連鎖舒肥餐盒，牛肉餐 $195 貼近級距下緣，加湯品即入 $200+。80 則樣本是四家裡最小的，分數參考價值稍弱，但逐品項實測評論（雞胸／棒棒腿／打拋豬／鱸魚／牛肉全有人寫）完整度罕見，點餐前先讀有加分。</p>
+    <div class="quote">「牛肉餐（195元）— 主菜中油花相對較多，香氣明顯」<i>— 4 個月前（逐品項長評）</i></div>
+  </div>
+
+  <div class="rank-card">
+    <div class="rank-head"><span class="rank-medal">7️⃣</span><span class="rank-name">武田雞肉（信義路二段 203 號）</span>
+    <span class="rank-score">均分 <span class="star">4.17</span>／403 則 · 近12月 4.45 上升 · 發票✓載具✓</span></div>
+    <div class="kv">
+      <div><b>實報價</b>獅子頭雞肉飯 $165 · 雙倍雞肉飯 $200</div>
+      <div><b>距離</b>離公司約 50 公尺（本表最近）</div>
+      <div><b>晚餐</b>營業到 21:00</div>
+      <div><b>發票</b>✅「現金支付 可載具」（3 個月前評論）</div>
+    </div>
+    <p>地利無敵：出公司門走一分鐘，開到 21:00，發票載具有近期白紙黑字。雙倍雞肉飯 $200 剛好踩級距下緣。近一年分數上升（4.45），健康餐定位配菜乾淨。當 Aum Aum 公休（日、一）或加班晚了，它是預設安全牌。</p>
+    <div class="quote">「雙倍雞肉飯200 …現金支付 可載具 好吃 😋」<i>— 3 個月前 ★5</i></div>
+  </div>
+</section>
+
+<section id="invoice">
+  <h2>🧾 發票實查 — 評論原文證據表</h2>
+  <p class="note">從 7,599 則評論全文檢索「發票／載具／統編／雲端發票」。<b>✅／❌ 都有原文為證；「待確認」＝零提及，不代表不開。</b></p>
+  <div class="tbl-scroll">
+  <table>
+    <tr><th>店家</th><th>發票判定</th><th>評論原文證據（節錄）</th><th>時間</th></tr>
+    <tr><td>武田雞肉</td><td><span class="tag ok">✅ 有發票+載具</span></td><td>「現金支付 可載具」「僅現金 有發票載具」（3 年前舊評稱無發票 → 近期已改開）</td><td>2–3 個月前</td></tr>
+    <tr><td>Papa Rice</td><td><span class="tag ok">✅ 有發票+載具</span></td><td>「發票可存載具。內用收一成服務費」</td><td>3 年前</td></tr>
+    <tr><td>PRO健康餐桌</td><td><span class="tag ok">✅ 電子發票</span></td><td>「拿到『紙本』的電子發票，線上系統未提供載具選項」（有發票、載具體驗差）</td><td>4 個月前</td></tr>
+    <tr><td>九宮格廚房</td><td><span class="tag ok">✅ 會開發票</span></td><td>「cp值很高，還會開發票喔，很適合辦活動訂餐」</td><td>11 個月前</td></tr>
+    <tr><td>五燈獎（永康店）</td><td><span class="tag ok">✅ 有載具</span></td><td>「機器點餐 有載具、linepay」「可刷卡有載具」</td><td>2 週–11 個月前</td></tr>
+    <tr><td>常常好食</td><td><span class="tag ok">✅ 有（爭議）</span></td><td>「有詢問電子發票載具」；但近期有「消費沒給發票也沒入點數」「把我的結帳單作廢」爭議評論</td><td>1 個月–1 年前</td></tr>
+    <tr><td>東門鴨莊</td><td><span class="tag ok">✅ 可存載具</span></td><td>「現金支付，可存載具」「量也不少 又有發票」</td><td>3–5 年前</td></tr>
+    <tr><td>君悅排骨</td><td><span class="tag ok">✅ 可刷載具</span></td><td>「可以現金或者信用卡付款。有載具」「（V）可刷載具」</td><td>9 個月–2 年前</td></tr>
+    <tr><td>MR ENERGY 東門</td><td><span class="tag no">❌ 不開發票</span></td><td>「重點還不開發票，其他間都有！」「沒開發票是逃漏稅嗎？」「僅現金支付 不提供發票」（多則、跨年度一致）</td><td>3–5 年前</td></tr>
+    <tr><td>琉嵐香自助餐</td><td><span class="tag no">❌ 免用統一發票</span></td><td>「賣這麼貴的高檔自助餐國稅局應該要好好查查為什麼免用統一發票」「好吃，但沒開發票」（可開收據含統編）</td><td>1–7 年前</td></tr>
+    <tr><td>lulu lin 原型飯包</td><td><span class="tag no">❌ 沒開發票</span></td><td>「只是沒有開發票，感覺怪怪的！」</td><td>4 年前</td></tr>
+    <tr><td>Aum Aum／七飯／萃茶風／Benefit／十方蘭／隨意小吃／全國素食 等</td><td><span class="tag unk">❓ 待確認</span></td><td>全量評論零提及——首購時問一句「有開發票嗎」即可驗證</td><td>—</td></tr>
+  </table>
+  </div>
+  <div class="callout red"><b>報帳注意：</b>MR ENERGY、lulu lin、琉嵐香三家有「不開發票」的多則明確證據，需要憑證報帳的話直接跳過，別到現場才發現。</div>
+</section>
+<section id="alltable">
+  <h2>📊 全 22 家總表 — 7,599 則評論統計</h2>
+  <p class="note">「近12月」欄是關鍵：總均分含多年舊評，近 12 個月均分才是你現在會吃到的品質。粗體＝主力推薦組。</p>
+  <div class="tbl-scroll">
+  <table>
+    <tr><th>#</th><th>店家</th><th>總均分</th><th>樣本</th><th>近12月</th><th>近12月低星</th><th>實報價位</th><th>晚餐</th><th>發票</th></tr>
+    <tr><td>1</td><td><b>九宮格廚房</b>（午餐限定）</td><td>4.84</td><td>243</td><td>4.75／103</td><td>3</td><td>$190–390</td><td>❌ 只到 14:00</td><td>✅</td></tr>
+    <tr><td>2</td><td><b>PRO健康餐桌</b></td><td>4.74</td><td>348</td><td>4.74／348</td><td>19</td><td>$168–200+</td><td>–19:30</td><td>✅</td></tr>
+    <tr><td>3</td><td><b>七飯 SEVEN RICE 東門</b></td><td>4.72</td><td>283</td><td>4.72／283</td><td>16</td><td>$140–219</td><td>17:00–19:30</td><td>❓</td></tr>
+    <tr><td>4</td><td><b>Benefit健康餐盒 杭州南</b></td><td>4.71</td><td>80</td><td>4.39／31</td><td>4</td><td>$105–195</td><td>–19:30</td><td>❓</td></tr>
+    <tr><td>5</td><td><b>Aum Aum Dosirak 韓定食</b></td><td>4.63</td><td>242</td><td>4.07／14</td><td>2</td><td>$238–298</td><td>16:00–19:00（日一休）</td><td>❓</td></tr>
+    <tr><td>6</td><td><b>萃茶風健康餐 杭州店</b></td><td>4.57</td><td>354</td><td>4.65／81 ↗</td><td>6</td><td>$89–141</td><td>–19:45</td><td>❓</td></tr>
+    <tr><td>7</td><td>隨意小吃（永康街）</td><td>4.54</td><td>105</td><td>4.20／10</td><td>1</td><td>$90–140</td><td>–20:00 左右</td><td>❓</td></tr>
+    <tr><td>8</td><td><b>Papa Rice 好食燉飯</b></td><td>4.47</td><td>560</td><td>4.25／126</td><td>15</td><td>$260–390</td><td>–21:00</td><td>✅</td></tr>
+    <tr><td>9</td><td>十方蘭 中式簡餐</td><td>4.37</td><td>189</td><td>3.89／57 ↘</td><td>12</td><td>$130–160</td><td>16:30 開</td><td>❓</td></tr>
+    <tr><td>10</td><td><b>武田雞肉</b></td><td>4.17</td><td>403</td><td>4.45／93 ↗</td><td>9</td><td>$140–200</td><td>–21:00</td><td>✅</td></tr>
+    <tr><td>11</td><td>全國健康素食自助餐</td><td>4.14</td><td>430</td><td>4.23／26</td><td>3</td><td>秤重 ~$100–175</td><td>16:30 開</td><td>❓</td></tr>
+    <tr><td>12</td><td>lulu lin 原型飯包</td><td>3.99</td><td>193</td><td>3.64／25</td><td>6</td><td>$110–170</td><td>–19:00</td><td>❌</td></tr>
+    <tr><td>13</td><td>小李便當店</td><td>3.94</td><td>275</td><td>3.91／33</td><td>8</td><td>$90–120</td><td>週日休</td><td>❓</td></tr>
+    <tr><td>14</td><td>十方盒餐</td><td>3.84</td><td>165</td><td>3.00／1</td><td>0</td><td>$100–140</td><td>16:30 開</td><td>❓</td></tr>
+    <tr><td>15</td><td>常常好食 地中海機能餐</td><td>3.81</td><td>560</td><td>3.34／47 ↘</td><td>18</td><td>$129–200</td><td>–20:00</td><td>✅（有爭議）</td></tr>
+    <tr><td>16</td><td>五燈獎 台北永康店</td><td>3.73</td><td>490</td><td>3.48／128 ↘</td><td>39</td><td>$140–260</td><td>–20:00</td><td>✅</td></tr>
+    <tr><td>17</td><td>MR ENERGY 東門</td><td>3.66</td><td>160</td><td>3.06／18 ↘</td><td>7</td><td>$100–150</td><td>–20:00</td><td>❌</td></tr>
+    <tr><td>18</td><td>家味陳媽媽便當</td><td>3.61</td><td>338</td><td>3.91／32 ↗</td><td>4</td><td>$130–140</td><td>17:00 開</td><td>❓</td></tr>
+    <tr><td>19</td><td>君悅排骨 信義直營</td><td>3.52</td><td>501</td><td>3.31／61 ↘</td><td>18</td><td>$145–200</td><td>–20:00</td><td>✅</td></tr>
+    <tr><td>20</td><td>琉嵐香自助餐</td><td>3.27</td><td>560</td><td>2.68／73 ↘↘</td><td>38</td><td>秤重浮動</td><td>16:30 開</td><td>❌</td></tr>
+    <tr><td>21</td><td>東門鴨莊 中正總店</td><td>3.06</td><td>560</td><td>2.46／87 ↘↘</td><td>46</td><td>$110–175</td><td>–20:00</td><td>✅</td></tr>
+    <tr><td>22</td><td>大安森林食堂</td><td>2.97</td><td>560</td><td>2.53／45 ↘↘</td><td>23</td><td>$120–330</td><td>–21:00</td><td>❓</td></tr>
+  </table>
+  </div>
+</section>
+
+<section id="backup">
+  <h2>🥈 參考組 — $90–170 傳統便當帶（降級備援）</h2>
+  <p class="note">不符 $200–300 定位，但評價站得住、偶爾想省錢時的備援名單。</p>
+  <table>
+    <tr><th>店家</th><th>亮點</th><th>注意</th></tr>
+    <tr><td>隨意小吃（永康街 73 號）4.54★</td><td>「90 元在貴貴的東門更顯珍貴」，爌肉飯被評台北最強，低星僅 3 則</td><td>樣本 105 則偏小；發票待確認</td></tr>
+    <tr><td>全國健康素食自助餐 4.14★</td><td>秤重計價、菜色不油，1,227 總評論的老店；素食日首選</td><td>有店員態度負評；發票待確認</td></tr>
+    <tr><td>十方蘭（臨沂街）4.37★</td><td>烤雞腿健康餐 $160、現成餐盒出餐快</td><td>近 12 月降到 3.89，「烤雞腿變肉乾」抱怨增加</td></tr>
+    <tr><td>家味陳媽媽（麗水街）3.61★</td><td>近 12 月回升到 3.91，鹹蛋蒸肉便當 $140 常完售</td><td>控肉份量負評多；17:00 才開</td></tr>
+  </table>
+</section>
+
+<section id="out">
+  <h2>🚫 出局紅旗區 — 為什麼這些名店不推</h2>
+  <div class="callout red"><b>東門鴨莊（總均分 3.06，近12月 2.46，46 則低星）</b>——排隊名店光環已崩：近一年「燒肉不脆」「鴨腿肉質偏硬」「$175 只有兩種菜」密集出現，近 12 個月每 2 則就有 1 則低星。有發票也救不了。</div>
+  <div class="callout red"><b>大安森林食堂（2.97，近12月 2.53）</b>——「$300 定食全是冷的要自己微波」「對外國觀光客收低消」等系統性負評；$300 花在這裡是本研究的反面教材。</div>
+  <div class="callout red"><b>琉嵐香自助餐（3.27，近12月 2.68）</b>——「同樣菜色排列不同價錢不同」的計價黑箱評論跨年度重複出現＋明寫免用統一發票，雙重出局。</div>
+  <div class="callout red"><b>君悅排骨（3.52，近12月 3.31）</b>——老牌但近一年 CP 值崩壞負評連發：「$195 連一顆滷蛋都沒有」「$200 雞腿只有拳頭大」。懷舊價值 &gt; 食物價值。</div>
+  <div class="callout red"><b>五燈獎永康店（3.73，近12月 3.48，39 則低星）</b>——腿庫套餐 $240 有踩進級距，但近一年「滷肉有毛」「時蔬有蝸牛殼」「內用貴 60 元」品管與定價爭議太密集，樣本 128 則夠大，不是偶發。</div>
+  <div class="callout red"><b>常常好食（3.81，近12月 3.34）</b>——兩則「餐點裡有蟲」＋結帳單作廢爭議＋「漲價質量下降」；地中海概念好，執行掉漆。</div>
+  <div class="callout red"><b>MR ENERGY 東門店（3.66，近12月 3.06）</b>——跨年度多則「不開發票」鐵證＋本店品質明顯低於同體系其他分店（大安 3.9、世貿 4.2）。</div>
+</section>
+
+<section id="action">
+  <h2>✅ 行動建議 — 一週晚餐輪替方案</h2>
+  <table>
+    <tr><th>情境</th><th>首選</th><th>理由</th></tr>
+    <tr><td>週二〜週六・正常下班（19:00 前可取）</td><td>🥇 Aum Aum 韓定食 $238–298</td><td>唯一正中 $200–300 的高級餐盒；先線上訂避免撲空</td></tr>
+    <tr><td>週日／週一（Aum Aum 公休）</td><td>🥈 Papa Rice 燉飯 $260–390</td><td>開到 21:00、發票載具確認、外帶避開內用雷區</td></tr>
+    <tr><td>想吃健康系・預算壓 $200 左右</td><td>🥉 PRO健康餐桌 鮭魚餐 $178+湯</td><td>均分 4.74；外帶為主，避開內用營運亂流</td></tr>
+    <tr><td>加班到 20:00 以後</td><td>武田雞肉 雙倍雞肉飯 $200</td><td>50 公尺、開到 21:00、載具近期實證</td></tr>
+    <tr><td>公司會議訂餐／高級午餐</td><td>🏅 九宮格廚房 $250–390</td><td>全場最高 4.84、會開發票；只有午餐</td></tr>
+  </table>
+  <h3>首購驗證清單（發票❓的店）</h3>
+  <p>Aum Aum、七飯、萃茶風、Benefit 四家發票狀態評論零提及——第一次買時問「有開發票嗎？可以存載具嗎？」，答案不對就換下一家；本頁排名已保證每個情境都有 ✅ 發票的替代選項。</p>
+  <div class="callout"><b>省錢技巧（評論實證）：</b>七飯外送價 $219 vs 現場 $140，價差 56%——這一帶所有健康餐盒都一樣，走路去買，別用外送平台。</div>
+</section>
+
+<footer>
+  資料來源：Google Maps 全量評論爬取（登入帳號，2026-08-10）· 22 家 7,599 則 · 價格為評論實報價，實際以現場為準<br>
+  搜尋中心：台北市中正區信義路二段 211 號 · tzchia/home-research
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var toc      = document.getElementById('rpnToc');
+  var fill     = document.getElementById('rpnFill');
+  var navbar   = document.getElementById('rpnNavbar');
+  var dock     = document.getElementById('rpnDock');
+  var sideFill = document.getElementById('rpnSideFill');
+  if(!toc || !fill || !navbar) return;
+
+  var links     = Array.prototype.slice.call(toc.querySelectorAll('a'));
+  var sideLinks = dock ? Array.prototype.slice.call(dock.querySelectorAll('a')) : [];
+  var sections  = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  var ticking   = false;
+
+  function update(){
+    ticking = false;
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+    pct = Math.min(100, Math.max(0, pct));
+    fill.style.width = pct + '%';
+    if(sideFill) sideFill.style.width = pct + '%';
+
+    var nbB  = navbar.getBoundingClientRect().bottom;
+    var line = (nbB > 0 ? nbB : 90) + 8;
+    var idx  = 0;
+    for(var i=0;i<sections.length;i++){
+      var s = sections[i]; if(!s) continue;
+      if(s.getBoundingClientRect().top <= line) idx = i;
+    }
+    if(doc.scrollTop + doc.clientHeight >= doc.scrollHeight - 4) idx = links.length - 1;
+
+    links.forEach(function(a,i){
+      if(i===idx){
+        if(!a.classList.contains('active')){
+          a.classList.add('active');
+          var ar=a.getBoundingClientRect(), tr=toc.getBoundingClientRect();
+          if(ar.left<tr.left || ar.right>tr.right){ toc.scrollLeft += ar.left-tr.left-tr.width/2+ar.width/2; }
+        }
+      } else a.classList.remove('active');
+    });
+    sideLinks.forEach(function(a,i){
+      if(i===idx){
+        if(!a.classList.contains('active')){
+          a.classList.add('active');
+          var ar=a.getBoundingClientRect(), sr=dock.getBoundingClientRect();
+          if(ar.top<sr.top || ar.bottom>sr.bottom){ dock.scrollTop += ar.top-sr.top-sr.height/2+ar.height/2; }
+        }
+      } else a.classList.remove('active');
+    });
+  }
+
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  links.concat(sideLinks).forEach(function(a){ a.addEventListener('click', function(){ setTimeout(update,400); }); });
+  update();
+})();
+</script>
+</body>
+</html>
