@@ -18,6 +18,8 @@
   --goose:#16A34A; --goose-soft:#DCFCE7;
   --tta:#D97706;  --tta-soft:#FEF3C7;
   --cha:#9333EA;  --cha-soft:#F3E8FF;
+  --kyu:#0F766E;  --kyu-soft:#CCFBF1;
+  --dk:#BE185D;   --dk-soft:#FCE7F3;
   --ok:#16A34A; --warn:#D97706; --danger:#DC2626;
   --rpn-accent:#818CF8; --rpn-accent-deep:#3A46A8; --rpn-track:#E3E6F8;
   --rpn-line:#E5E7EB; --rpn-muted:#6B7280; --rpn-soft:#EEF0FF; --rpn-glass:rgba(247,248,251,.95);
@@ -66,11 +68,14 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
 .pcard.alma::before{background:var(--alma)}.pcard.almv::before{background:var(--almv)}
 .pcard.sy::before{background:var(--sy)}.pcard.ykk::before{background:var(--ykk)}
 .pcard.goose::before{background:var(--goose)}.pcard.tta::before{background:var(--tta)}.pcard.cha::before{background:var(--cha)}
+.pcard.kyu::before{background:var(--kyu)}.pcard.dk::before{background:var(--dk)}
 .brand-tag{display:inline-block;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:800;margin-bottom:8px}
 .alma .brand-tag{background:var(--alma-soft);color:#0369A1}.almv .brand-tag{background:var(--almv-soft);color:#1E40AF}
 .sy .brand-tag{background:var(--sy-soft);color:#115E59}.ykk .brand-tag{background:var(--ykk-soft);color:#9A3412}
 .goose .brand-tag{background:var(--goose-soft);color:#166534}.tta .brand-tag{background:var(--tta-soft);color:#92400E}
 .cha .brand-tag{background:var(--cha-soft);color:#6B21A8}
+.kyu .brand-tag{background:var(--kyu-soft);color:#115E59}
+.dk .brand-tag{background:var(--dk-soft);color:#9D174D}
 .pcard h3{font-size:19px;margin-bottom:4px}
 .pcard .pos{color:var(--muted);font-size:13px;margin-bottom:12px}
 .spec-line{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px dashed var(--line);font-size:13.5px}
@@ -117,7 +122,7 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
 <div class="rpn-navbar" id="rpnNavbar">
   <div class="rpn-progress"><i id="rpnFill"></i></div>
   <div class="rpn-toc" id="rpnToc">
-    <a href="#quote">估價單解讀</a><a href="#tech">技術原理</a><a href="#brands">品牌卡</a><a href="#specs">規格對照</a><a href="#price">行情與報價</a><a href="#decide">決策樹</a><a href="#check">議價檢核</a><a href="#sources">資料來源</a>
+    <a href="#quote">估價單解讀</a><a href="#tech">技術原理</a><a href="#brands">品牌卡</a><a href="#specs">規格對照</a><a href="#price">行情與報價</a><a href="#reviews">三品牌深查</a><a href="#masters">師傅評比</a><a href="#decide">決策樹</a><a href="#check">議價檢核</a><a href="#sources">資料來源</a>
   </div>
 </div>
 <nav class="rpn-dock" id="rpnDock" aria-label="頁面導覽">
@@ -128,6 +133,8 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
   <a href="#brands"><span class="rpn-dot"></span>品牌卡</a>
   <a href="#specs"><span class="rpn-dot"></span>規格對照</a>
   <a href="#price"><span class="rpn-dot"></span>行情與報價</a>
+  <a href="#reviews"><span class="rpn-dot"></span>三品牌深查</a>
+  <a href="#masters"><span class="rpn-dot"></span>師傅評比</a>
   <a href="#decide"><span class="rpn-dot"></span>決策樹</a>
   <a href="#check"><span class="rpn-dot"></span>議價檢核</a>
   <a href="#sources"><span class="rpn-dot"></span>資料來源</a>
@@ -135,21 +142,22 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
 
 <div class="hero">
   <div class="eyebrow">HOME RESEARCH · 隔音窗 / 氣密窗</div>
-  <h1>氣密窗・隔音窗全面評比<br>亞樂美 A / V 系列 × 欣揚 × YKK AP × 鵝牌 × 大同 × 正新</h1>
+  <h1>氣密窗・隔音窗全面評比<br>亞樂美 A / V × 欣揚 × YKK AP × 鵝牌 × 大同 × 正新 × 九州 × DK</h1>
   <p>起點是一張 2026/08/10 的嵐首工事估價單：亞樂美 V8/V10 隔音窗 4 樘 <span class="mono">NT$93,450</span>（未稅）。這頁把估價單上的 V 系列、你原本查的 A 系列、對手欣揚 S/SR 系列，以及市面主流品牌的公開規格與行情帶攤開來比。</p>
   <div class="tagrow">
-    <span class="tag">7 個系列橫評</span><span class="tag">官網規格實查 2026/08</span><span class="tag">PRO360 行情帶</span><span class="tag">估價單對照</span><span class="tag">5+5 膠合玻璃</span>
+    <span class="tag">9 系列橫評</span><span class="tag">官網規格實查 2026/08</span><span class="tag">PRO360 行情帶</span><span class="tag">估價單對照</span><span class="tag">3 位師傅評論全爬</span>
   </div>
 </div>
 
 <div class="conclusion">
   <h3>⚡ 60 秒結論</h3>
   <ul>
-    <li><b>頂級橫拉隔音窗其實是「35–37dB 俱樂部」</b>：亞樂美 V8/V10（STC 36）、欣揚 SR8/SR10（Rw 37）、YKK AP YRB-A（35 等級）、鵝牌 1366S（STC 36）、大同（35dB）——帳面差距 1–2dB，人耳幾乎無感。<b>品牌間的差距，小於玻璃配置的差距。</b></li>
+    <li><b>頂級橫拉隔音窗其實是「35–37dB 俱樂部」</b>：亞樂美 V8/V10（STC 36）、欣揚 SR8/SR10（Rw 37）、YKK AP YRB-A（35 等級）、鵝牌 1366S（STC 36）、大同（35dB）、九州 870/1070（35 等級以上）、DK 天平 8716（STC 37）——帳面差距 1–2dB，人耳幾乎無感。<b>品牌間的差距，小於玻璃配置的差距。</b>億來師傅推薦的正新/九州/DK 也都在這個俱樂部裡，沒有代差（<a href="#reviews">三品牌深查</a>）。</li>
     <li><b>估價單上的 V8/V10 是亞樂美頂級系列</b>（STC 36dB 以 5+5 膠合實測），不是官網熱銷入門的 A8/A10（32dB 以 5mm 單玻測試）——你貼的連結是後者，兩者差一個級距。</li>
     <li><b>氣密性全員滿分</b>：本頁所有系列都達 CNS 最高「2 等級」（≤2 m³/hr·m²），氣密不是比較點；要比的是<b>隔音值、水密、結構與保固</b>。</li>
     <li><b>估價單最大的洞是「沒有尺寸」</b>：無法換算每才單價（PRO360 隔音窗行情 $600–1,200/才），簽約前務必要到各窗尺寸——見<a href="#check">議價檢核</a>。</li>
     <li><b>保固差異大</b>：欣揚窗體 5 年 vs 亞樂美原廠 1 年（經銷商可能自行加碼）——長住十年以上，這比 1dB 更值得計較。</li>
+    <li><b>師傅怎麼選</b>：PRO360 評論全爬結果——嵐首隔音窗實績最厚（9 則隔音窗成交、4 年縱深）、億來服務口碑最猛（64 則全 5★）、佳昇樣本太少無法評比（隔音窗 0 則）。詳見<a href="#masters">師傅評比</a>。</li>
   </ul>
 </div>
 
@@ -297,6 +305,28 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
       <div class="spec-line"><b>特點</b><span>三點連動把手、可搭 Low-E 複層</span></div>
       <div class="spec-line"><b>保固</b><span>未公開（依經銷）</span></div>
     </div>
+    <div class="pcard kyu">
+      <span class="brand-tag">九州鋁業</span>
+      <h3>870 / 1070 氣密隔音窗</h3>
+      <div class="pos">億來推薦 · 橫拉 · 新竹擠型大廠</div>
+      <div class="spec-line"><b>隔音</b><span>35 等級以上（測試玻璃未公開）</span></div>
+      <div class="spec-line"><b>氣密</b><span>2 等級（最高）</span></div>
+      <div class="spec-line"><b>水密</b><span><b>1500Pa</b>（且測 3 小時，超規）</span></div>
+      <div class="spec-line"><b>抗風壓</b><span>3600Pa</span></div>
+      <div class="spec-line"><b>特點</b><span>SGS 耐候 5000hr、自有擠型廠</span></div>
+      <div class="spec-line"><b>保固</b><span>未公開（依經銷）</span></div>
+    </div>
+    <div class="pcard dk">
+      <span class="brand-tag">DK 德鎧五金</span>
+      <h3>8716 / 1716 天平風尚窗</h3>
+      <div class="pos">億來推薦 · 橫拉 · 1979 老廠 ISO+正字標記</div>
+      <div class="spec-line"><b>隔音</b><span><b>STC 37dB</b>（<b>5+5 膠合</b>——與估價單同配置）</span></div>
+      <div class="spec-line"><b>氣密</b><span>2 等級（最高）</span></div>
+      <div class="spec-line"><b>水密</b><span>750–1000Pa</span></div>
+      <div class="spec-line"><b>抗風壓</b><span>3600–4500Pa</span></div>
+      <div class="spec-line"><b>特點</b><span>產品階梯透明：岩戶 32 → 禪藝 35 → 天平 37 → 推開窗 40</span></div>
+      <div class="spec-line"><b>保固</b><span>未公開（依經銷）</span></div>
+    </div>
   </div>
   <div class="callout info">
     <h4>沒進榜的說明</h4>
@@ -307,31 +337,36 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
 <section id="specs">
   <div class="sec-head"><div class="sec-badge">D</div><div><h2>完整規格對照表</h2><div class="sec-sub">★ = 該項目最佳；隔音值附測試玻璃配置，不同配置不可直比</div></div></div>
   <div class="tablewrap"><table>
-    <thead><tr><th>項目</th><th>亞樂美 V8/V10</th><th>亞樂美 A8/A10</th><th>欣揚 SR8/SR10</th><th>欣揚 S8</th><th>YKK AP YRB-A</th><th>鵝牌 1366S</th><th>大同 896/1096</th></tr></thead>
+    <thead><tr><th>項目</th><th>亞樂美 V8/V10</th><th>亞樂美 A8/A10</th><th>欣揚 SR8/SR10</th><th>欣揚 S8</th><th>YKK AP YRB-A</th><th>鵝牌 1366S</th><th>大同 896/1096</th><th>九州 870/1070</th><th>DK 8716/1716</th></tr></thead>
     <tbody>
       <tr><td><b>隔音值</b></td>
         <td>STC 36（5+5膠合）</td><td>STC 32（5mm單玻）</td>
-        <td><span class="star">★ Rw 37</span></td><td>Rw 32</td>
-        <td>35 等級（6+6膠合）</td><td>STC 36（複層防盜）</td><td>35dB（5+5膠合）</td></tr>
+        <td>Rw 37</td><td>Rw 32</td>
+        <td>35 等級（6+6膠合）</td><td>STC 36（複層防盜）</td><td>35dB（5+5膠合）</td>
+        <td>35 等級以上（玻璃未公開）</td><td><span class="star">★ STC 37（5+5膠合）</span></td></tr>
       <tr><td><b>氣密性</b></td>
-        <td colspan="7" style="text-align:center">全部 CNS 最高 2 等級（≤2 m³/hr·m²）— 無差異</td></tr>
+        <td colspan="9" style="text-align:center">全部 CNS 最高 2 等級（≤2 m³/hr·m²）— 無差異</td></tr>
       <tr><td><b>水密性</b></td>
         <td>1000Pa</td><td>1000Pa</td><td>1000Pa</td><td>500Pa</td>
-        <td><span class="star">★ 1500Pa</span></td><td>1000Pa</td><td>1000Pa</td></tr>
+        <td><span class="star">★ 1500Pa</span></td><td>1000Pa</td><td>1000Pa</td>
+        <td><span class="star">★ 1500Pa（測 3hr）</span></td><td>750–1000Pa</td></tr>
       <tr><td><b>抗風壓</b></td>
         <td>3600Pa</td><td>3600Pa</td><td>3600Pa</td><td>3600Pa</td><td>3600Pa</td>
-        <td><span class="star">★ 6000Pa</span></td><td>2800–3600Pa</td></tr>
+        <td><span class="star">★ 6000Pa</span></td><td>2800–3600Pa</td>
+        <td>3600Pa</td><td>3600–4500Pa</td></tr>
       <tr><td><b>玻璃溝槽</b></td>
         <td>13/16mm</td><td>13/16mm</td><td>未公開</td><td>未公開</td>
-        <td><span class="star">★ 18–42mm</span></td><td>複層專用</td><td>16/22/28mm</td></tr>
+        <td><span class="star">★ 18–42mm</span></td><td>複層專用</td><td>16/22/28mm</td>
+        <td>未公開</td><td>16mm 級距</td></tr>
       <tr><td><b>保固</b></td>
         <td>原廠 1 年</td><td>原廠 1 年</td>
         <td><span class="star">★ 窗體 5 年</span></td><td><span class="star">★ 窗體 5 年</span></td>
-        <td>未公開</td><td>未公開</td><td>未公開</td></tr>
+        <td>未公開</td><td>未公開</td><td>未公開</td><td>未公開</td><td>未公開</td></tr>
       <tr><td><b>差異化賣點</b></td>
         <td>V-Flow 導水、隱藏鎖</td><td>入門 CP、LIXIL 膠條</td>
         <td>等壓艙防颱設計</td><td>同 SR 外觀降階</td>
-        <td>日系品管、綠建材標章</td><td>防盜複層二合一</td><td>老牌通路廣</td></tr>
+        <td>日系品管、綠建材標章</td><td>防盜複層二合一</td><td>老牌通路廣</td>
+        <td>加嚴測試條件、耐候 5000hr</td><td>四級產品階梯透明</td></tr>
     </tbody>
   </table></div>
   <div class="callout warn">
@@ -354,8 +389,92 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
   </div>
 </section>
 
+<section id="reviews">
+  <div class="sec-head"><div class="sec-badge">F</div><div><h2>三品牌深查 — 正新・九州・DK（億來師傅推薦的「一線品牌」）</h2><div class="sec-sub">官網規格 + Mobile01/PTT/小院評價原文 · 2026/08/10 實查 · 引文皆附來源</div></div></div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>面向</th><th>正新（大和器）</th><th>九州（870/1070）</th><th>DK 德鎧（天平 8716）</th><th>亞樂美 V8/V10</th><th>欣揚 SR8/SR10</th></tr></thead>
+    <tbody>
+      <tr><td><b>隔音帳面</b></td><td>30–35dB</td><td>35 等級以上（玻璃未公開）</td><td>STC 37（5+5膠合）</td><td>STC 36（5+5膠合）</td><td>Rw 37</td></tr>
+      <tr><td><b>每才行情</b></td><td class="mono">$600–1,000<br><span style="font-size:12px">⚠️ 叫料組裝品僅 ~$350</span></td><td class="mono">$450–700+<br><span style="font-size:12px">原廠隔音款未公開</span></td><td class="mono">$800–1,500<br><span style="font-size:12px">實例：8213 入門 $643–893/才</span></td><td class="mono">未公開<br><span style="font-size:12px">你的估價推算 ~$850–1,100</span></td><td class="mono">未公開<br><span style="font-size:12px">自我定位中間價位</span></td></tr>
+      <tr><td><b>網路口碑</b></td><td>兩極（見下）</td><td>正評但樣本少</td><td>正評、無災情文</td><td>官網體系經銷</td><td>樣本少</td></tr>
+      <tr><td><b>最大風險</b></td><td><b>真假貨</b>：原廠窗 vs 鋁窗行組裝窗</td><td>售後靠經銷、原廠/協力品混流</td><td>價位偏高、經銷制</td><td>原廠保固僅 1 年</td><td>知名度低、經銷少</td></tr>
+      <tr><td><b>售後底氣</b></td><td><span class="pill win">經銷倒了原廠工務接手</span></td><td><span class="pill warn">依經銷</span></td><td><span class="pill neutral">1979 老廠、依經銷</span></td><td><span class="pill neutral">原廠認證體系</span></td><td><span class="pill win">窗體 5 年保固</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="grid3" style="margin-top:18px">
+    <div class="pcard cha">
+      <span class="brand-tag">正新鋁業</span>
+      <h3>評價實錄</h3>
+      <p style="font-size:13.5px;margin:8px 0"><b>正評</b>：「正新5+5 超級靜音 車聲街道聲完全消失」（PTT 2025）；「中高級窗與入門窗價差僅3成，以20年來說非常值得投資」（Mobile01 全室大和器完工心得）；老手推「就算經銷商倒，正新公司還有工務會繼續服務，用正新最安心」。</p>
+      <p style="font-size:13.5px;margin:8px 0"><b>負評</b>：「我家裡用正新的 覺得隔音效果不好」（同串 PTT）；一屋主 PL192WAT 5+5 臨大馬路實測僅降 10–15dB——網友歸因於「落地推拉門本身效果就差」。</p>
+      <p style="font-size:13.5px"><b>⚠️ 關鍵坑</b>：小院實查——「鋁窗行向正新叫料自己組裝的一才 350；正新原廠出品一才 600 以上」，2013 年還有台南屋主「經正新鋁業證實裝到仿冒品」。<b>買正新一定要確認原廠出貨</b>。</p>
+    </div>
+    <div class="pcard kyu">
+      <span class="brand-tag">九州鋁業</span>
+      <h3>評價實錄</h3>
+      <p style="font-size:13.5px;margin:8px 0"><b>正評</b>：「九州算比較新一點的設計，評價不錯」（Mobile01 2022）；自地自建討論被列入「不想用高價可考慮九州、DK、正新」名單。規格面是加嚴測試（水密 1500Pa 測 3 小時、SGS 耐候 5000 小時），帳面誠意足。</p>
+      <p style="font-size:13.5px;margin:8px 0"><b>保留意見</b>：Mobile01 老手比較九州 870 vs 正新 192：「九州不是不好，各有特色，但我不會用在我客戶上」——理由是售後體系比正新弱。</p>
+      <p style="font-size:13.5px"><b>⚠️ 注意</b>：官網設有「九州原廠產品分辨」專頁——市面同樣有協力廠組裝品流通，下單要認原廠出品。隔音測試的玻璃配置未公開，詢價時要問清楚 35 等級是搭什麼玻璃測的。</p>
+    </div>
+    <div class="pcard dk">
+      <span class="brand-tag">DK 德鎧五金</span>
+      <h3>評價實錄</h3>
+      <p style="font-size:13.5px;margin:8px 0"><b>正評</b>：「我家是用DK隔音氣密窗非常好用」（Mobile01）；「其實框都大同小異，價位也相當…這兩間（DK/大和賞）都不錯」。搜尋範圍內查無品質災情文。產品階梯全公開透明（岩戶 STC32 → 禪藝 35 → 天平 37 → 推開窗 40），官方 FAQ 直接教你吵的立面配 5+8 膠合。</p>
+      <p style="font-size:13.5px;margin:8px 0"><b>負評性質</b>：僅「嫌貴」——PTT 2022 實際報價 8213 入門款乾式「大扇一才 643、小扇一才 893」，發文者抱怨兩年前同規格 400–500。第三方比較表把 DK 歸「中高價位 $800–1,500/才」。</p>
+      <p style="font-size:13.5px"><b>定位</b>：規格透明度全場最佳，天平 8716 的 STC 37（5+5 膠合實測）帳面贏過亞樂美 V 系列 1dB，同測試配置可直比。</p>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <h4>「一線品牌」說法的查核結論</h4>
+    <p style="font-size:14.5px">億來師傅講的正新／九州／DK 確實都是台灣鋁窗討論串的常客品牌，不是雜牌——但<b>三家都是「規格同在 35–37dB 俱樂部」的成員</b>，和亞樂美 V、欣揚 SR 沒有代差。真正的差異：正新售後底氣最強但要防組裝品、DK 規格透明價位偏高、九州規格猛但售後靠經銷。<b>換品牌不會讓主臥更安靜，玻璃與安裝才會</b>——這三家的價值是拿來當亞樂美報價的比價槓桿。</p>
+  </div>
+</section>
+
+<section id="masters">
+  <div class="sec-head"><div class="sec-badge">G</div><div><h2>三位 PRO360 師傅手藝評比</h2><div class="sec-sub">嵐首工事 vs 億來（詹益來）vs 佳昇（許立權）· 完整評論庫實爬（含隱藏負評）· 2026/08/10</div></div></div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th></th><th>嵐首工事實業社</th><th>億來鋁門窗（詹益來）</th><th>佳昇鋁門窗（許立權）</th></tr></thead>
+    <tbody>
+      <tr><td><b>PRO360 僱用數</b></td><td>55</td><td>42</td><td>6</td></tr>
+      <tr><td><b>評論數（實爬）</b></td><td>62 則</td><td>64 則</td><td>4 則</td></tr>
+      <tr><td><b>星等分布</b></td><td>60×5★ / 1×4★ / <b>1×1★</b></td><td><span class="pill win">64 則全 5★</span></td><td>4×5★</td></tr>
+      <tr><td><b>評論年份</b></td><td>2022–2026（4 年縱深）</td><td>2025–2026（新店，動能強）</td><td>2025–2026</td></tr>
+      <tr><td><b>窗類工項占比</b></td><td>氣密窗20＋鋁門窗13＋窗戶安裝13＋<b>隔音窗9</b></td><td>鋁門窗35＋氣密窗14＋窗戶安裝7＋<b>隔音窗3</b></td><td><b>冷氣封板3</b>＋窗戶安裝1（<b>隔音窗 0</b>）</td></tr>
+      <tr><td><b>提及隔音/氣密</b></td><td>29 則</td><td>17 則</td><td>0 則</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="grid3" style="margin-top:18px">
+    <div class="card">
+      <h3 style="font-size:17px">🥇 嵐首工事（你的估價方）</h3>
+      <p style="font-size:13.5px;margin:8px 0"><b>隔音窗實績最厚</b>：9 則隔音窗＋20 則氣密窗成交，時間跨 4 年，是三人中唯一有大量「隔音窗」工項驗證的。評論實錄：「施工過程還是把我們家維持很乾淨」「打到水管的情況…商家不馬虎，另請師傅處理好了」——出包會負責，這比零負評更有參考價值。</p>
+      <p style="font-size:13.5px"><b>唯一 1★</b>（2023）：「尺寸丈量後不聞不問」，商家有回覆道歉——屬回訊怠慢，非施工品質問題。你們已丈量已報價，此風險已過。</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:17px">🥈 億來（詹益來）</h3>
+      <p style="font-size:13.5px;margin:8px 0"><b>口碑密度全場最高</b>：64 則全 5★、全部集中在 2025–2026，等於近一年半平均每週一則好評。評論實錄：「看到業主再幫清垃圾，主動放下自己的工作來幫忙」「價格方面是我問過4間最公道的」「會給滿中肯的建議，避免施工後後悔」。</p>
+      <p style="font-size:13.5px"><b>保留</b>：隔音窗工項僅 3 則（多數是一般鋁門窗/氣密窗），縱深比嵐首短。但他主動告知「主臥外面就是室外機、建議裝隔音窗」並誠實給出他牌選項——這種利益迴避的態度是好訊號。</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:17px">⚠️ 佳昇（許立權）</h3>
+      <p style="font-size:13.5px;margin:8px 0"><b>樣本太少無法評比</b>：僅 4 則評論（3 則冷氣封板、1 則窗戶安裝），<b>隔音窗成交 0 則</b>。評價本身都是正面（「處理得又快又好，讓我週六一覺睡到11點」），但那是封板工項。</p>
+      <p style="font-size:13.5px"><b>亮點</b>：他是唯一主動提出「10cm 固定框配 8cm 隔音窗」這種具體配置建議的——有想法，但平台上查不到他做隔音窗的驗證紀錄。若選他，要求提供 2–3 個隔音窗完工案例（照片＋屋主可聯繫更佳）。</p>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <h4>誰做的隔音效果可能最好？——誠實的答案分兩層</h4>
+    <p style="font-size:14.5px"><b>平台證據層面：嵐首 > 億來 > 佳昇</b>。隔音窗的成敗一半在安裝（框與牆的密合、發泡與矽利康的施打），嵐首是唯一有 9 則隔音窗＋29 則隔音/氣密相關好評縱深的；億來服務口碑極強但隔音窗實績薄；佳昇在這個工項上是空白。</p>
+    <p style="font-size:14.5px;margin-top:8px"><b>但要說破</b>：PRO360 評論幾乎沒人回頭寫「裝完實測降了幾 dB」——星等量的是服務體驗，不是隔音成效。真正拉開差距的做法：跟入選師傅要<b>近期隔音窗完工案例</b>、問<b>塞水路（發泡劑＋防水收邊）的工法細節</b>、約定<b>完工驗收標準</b>（關窗 A4 紙測試、實測分貝對比）。三人中誰願意把這些寫進合約，誰就是答案。</p>
+  </div>
+</section>
+
 <section id="decide">
-  <div class="sec-head"><div class="sec-badge">F</div><div><h2>決策樹 — 你家該選哪一路</h2><div class="sec-sub">以「臨路噪音程度 × 預算 × 持有年限」分流</div></div></div>
+  <div class="sec-head"><div class="sec-badge">H</div><div><h2>決策樹 — 你家該選哪一路</h2><div class="sec-sub">以「臨路噪音程度 × 預算 × 持有年限」分流</div></div></div>
   <div class="card">
     <div class="dtree">
       <h4>🔊 窗外很吵（臨大馬路、公車站、宮廟）→ 頂級隔音系列 + 加厚膠合玻璃</h4>
@@ -381,7 +500,7 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
 </section>
 
 <section id="check">
-  <div class="sec-head"><div class="sec-badge">G</div><div><h2>簽約前議價檢核清單</h2><div class="sec-sub">帶著這張去跟嵐首（或任何第二家）談</div></div></div>
+  <div class="sec-head"><div class="sec-badge">I</div><div><h2>簽約前議價檢核清單</h2><div class="sec-sub">帶著這張去跟嵐首（或任何第二家）談</div></div></div>
   <div class="card">
     <ul class="checklist">
       <li><b>要尺寸</b>：各窗寬×高（cm）與才數，寫進估價單。拿到後：總價 ÷ 總才數 = 實質單價，對照 $600–1,200/才 行情帶。</li>
@@ -398,7 +517,7 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
 </section>
 
 <section id="sources">
-  <div class="sec-head"><div class="sec-badge">H</div><div><h2>資料來源</h2><div class="sec-sub">全部為 2026/08/10 官網實查；未公開項目誠實標註，無推測數字</div></div></div>
+  <div class="sec-head"><div class="sec-badge">J</div><div><h2>資料來源</h2><div class="sec-sub">全部為 2026/08/10 官網實查；未公開項目誠實標註，無推測數字</div></div></div>
   <div class="card">
     <ul class="sources">
       <li>亞樂美 V8/V10 頂級窗（橫拉）產品性能：<span class="mono">almrebar.com/product_d.php?lang=tw&tb=1&id=292</span></li>
@@ -411,6 +530,10 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
       <li>大同鋁業橫拉窗系列：<span class="mono">ttaltd.tw/zh/products/window/sliding-windows</span></li>
       <li>正新鋁業 大和器系列：<span class="mono">cha.com.tw/product/featured/view/17</span></li>
       <li>PRO360 行情：隔音窗 <span class="mono">pro360.com.tw/price/soundproof_windows</span>、氣密窗 <span class="mono">/price/acoustic_window</span>、鋁門窗 <span class="mono">/price/aluminum_windows</span>（頁面更新日早於統計聲明期間，數字當級距參考）</li>
+      <li>九州鋁業官網：<span class="mono">windowking.com.tw/a2prodcts0101.htm</span>（870/1070 規格、TAF 報告 W100039/W100040）、測試報告頁 <span class="mono">/03mark.htm</span></li>
+      <li>DK 德鎧五金官網產品頁：岩戶/禪藝/天平/推開窗 <span class="mono">dkwindow.com/product-details/no/...</span>、FAQ <span class="mono">dkwindow.com/faq</span></li>
+      <li>品牌評價原文：Mobile01 <span class="mono">topicdetail.php?f=360&t=6519875</span>（DK）、<span class="mono">f=360&t=5527098</span>（正新全室心得）、<span class="mono">f=360&t=7224246</span>（正新 5+5 實測降幅）、<span class="mono">f=335&t=2590385</span>（九州 vs 正新）、<span class="mono">f=400&t=3465268</span>（正新仿冒品案）；PTT <span class="mono">home-sale M.1657462613</span>（DK 報價）、<span class="mono">M.1752058451</span>（正新比價）；小院 <span class="mono">courcasa.com/p/aKVq</span>（原廠 vs 組裝價差）；達瑞克品牌比較 <span class="mono">da-rank.com/blog/Top-10-airtight-window</span></li>
+      <li>PRO360 師傅評論庫（quote_feedbacks API 全量實爬 2026/08/10）：嵐首工事實業社 62 則（service 315650）、詹益來 64 則（614892）、佳昇鋁門窗 4 則（557408），星等/工項/年份統計與引文皆出自 API 原文</li>
       <li>估價單：嵐首工事實業社 2026/08/10（V8/V10 × 4 樘，$93,450 未稅）</li>
     </ul>
     <p style="font-size:13px;color:var(--muted);margin-top:12px">聲明：STC 與 Rw 為不同測試標準、各家測試玻璃配置不同，本頁對照僅供同量級參考；每才單價受尺寸、樓層、施工難度影響，請以實際丈量報價為準。本頁無任何廠商贊助。</p>
