@@ -88,6 +88,21 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
 .dtree{border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:14px 0}
 .dtree h4{font-size:16px}
 .dtree p{font-size:14.5px;color:#374151}
+/* glass bar chart */
+.gchart{margin-top:14px}
+.gbar-row{display:grid;grid-template-columns:minmax(150px,220px) 1fr 52px;align-items:center;gap:10px;padding:5px 0}
+.gbar-row .glabel{font-size:13px;font-weight:700;text-align:right;line-height:1.35}
+.gbar-row .glabel small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+.gbar-track{background:#EEF0F7;border-radius:8px;height:26px;position:relative;overflow:hidden}
+.gbar{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-size:12px;font-weight:800;font-family:'JetBrains Mono',monospace;min-width:36px}
+.gbar.mono1{background:linear-gradient(90deg,#94A3B8,#64748B)}
+.gbar.igu{background:linear-gradient(90deg,#FBBF24,#D97706)}
+.gbar.lami{background:linear-gradient(90deg,#60A5FA,#1D4ED8)}
+.gbar.scf{background:linear-gradient(90deg,#818CF8,#4338CA)}
+.gval{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px}
+.glegend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 4px;font-size:12.5px;color:var(--muted)}
+.glegend i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:5px;vertical-align:-2px}
+@media(max-width:560px){.gbar-row{grid-template-columns:minmax(110px,130px) 1fr 44px}.gbar-row .glabel{font-size:11.5px}}
 .backlink{display:inline-block;margin-bottom:16px;font-size:14px;font-weight:700;text-decoration:none}
 /* rpn */
 .rpn-navbar{position:sticky;top:0;z-index:60;background:var(--rpn-glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);margin:0 0 18px;padding:9px 10px 6px;border-radius:16px;border:1px solid var(--rpn-line);box-shadow:0 6px 20px rgba(58,70,168,.10)}
@@ -122,7 +137,7 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
 <div class="rpn-navbar" id="rpnNavbar">
   <div class="rpn-progress"><i id="rpnFill"></i></div>
   <div class="rpn-toc" id="rpnToc">
-    <a href="#quote">估價單解讀</a><a href="#tech">技術原理</a><a href="#brands">品牌卡</a><a href="#specs">規格對照</a><a href="#price">行情與報價</a><a href="#reviews">三品牌深查</a><a href="#masters">師傅評比</a><a href="#decide">決策樹</a><a href="#check">議價檢核</a><a href="#sources">資料來源</a>
+    <a href="#quote">估價單解讀</a><a href="#tech">技術原理</a><a href="#glass">玻璃隔音數據</a><a href="#brands">品牌卡</a><a href="#specs">規格對照</a><a href="#price">行情與報價</a><a href="#reviews">三品牌深查</a><a href="#masters">師傅評比</a><a href="#decide">決策樹</a><a href="#check">議價檢核</a><a href="#sources">資料來源</a>
   </div>
 </div>
 <nav class="rpn-dock" id="rpnDock" aria-label="頁面導覽">
@@ -130,6 +145,7 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
   <div class="rpn-dock-prog"><i id="rpnSideFill"></i></div>
   <a href="#quote"><span class="rpn-dot"></span>估價單解讀</a>
   <a href="#tech"><span class="rpn-dot"></span>技術原理</a>
+  <a href="#glass"><span class="rpn-dot"></span>玻璃隔音數據</a>
   <a href="#brands"><span class="rpn-dot"></span>品牌卡</a>
   <a href="#specs"><span class="rpn-dot"></span>規格對照</a>
   <a href="#price"><span class="rpn-dot"></span>行情與報價</a>
@@ -159,6 +175,7 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
     <li><b>保固差異大</b>：欣揚窗體 5 年 vs 亞樂美原廠 1 年（經銷商可能自行加碼）——長住十年以上，這比 1dB 更值得計較。</li>
     <li><b>師傅怎麼選</b>：PRO360 評論全爬結果——嵐首隔音窗實績最厚（9 則隔音窗成交、4 年縱深）、億來服務口碑最猛（64 則全 5★）、佳昇樣本太少無法評比（隔音窗 0 則）。詳見<a href="#masters">師傅評比</a>。</li>
     <li><b>入門款（亞樂美 A8/A10、欣揚 S8，皆 32dB 級）已依決策移出本頁</b>——臥室要擋冷氣低頻噪音，不在考慮範圍。</li>
+    <li><b>玻璃官方數據已入頁</b>：台玻實測 5+5 膠合 STC 40 vs 8mm 單片 33；隔音膜再 +2~3dB；對稱複層低頻共振是各大廠白紙黑字的弱點——見<a href="#glass">玻璃隔音數據</a>。</li>
   </ul>
 </div>
 
@@ -212,6 +229,80 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
   <div class="callout warn">
     <h4>🔧 乾式包框的先天限制（你的估價單就是這種工法）</h4>
     <p style="font-size:14.5px">乾式＝不打牆、新框包在舊框外，1–2 天完工、無泥作粉塵，適合已入住或裝潢後補做。代價：<b>窗口內縮損失採光約 3–5cm/邊、整體隔音上限受舊框與牆體密合度拖累、外側靠矽利康防水（壽命約 5–10 年需重打）</b>。若正在全屋裝潢、泥作還在場，濕式立框的長期表現更好——值得跟工班確認為什麼選乾式。</p>
+  </div>
+</section>
+
+<section id="glass">
+  <div class="sec-head"><div class="sec-badge">B+</div><div><h2>玻璃厚度 × 膠合配置的隔音數據（官方引用）</h2><div class="sec-sub">台玻 STC 實測 + 歐規 EN 12758 標準值；兩套為不同實驗室/標準，分表呈現不混比 · 橫軸起點 20dB</div></div></div>
+
+  <div class="card">
+    <h3 style="font-size:18px">📊 圖一：台灣玻璃（台玻）官方隔音性能比較表 — STC 實測</h3>
+    <p style="font-size:13px;color:var(--muted);margin:4px 0 8px">來源：台玻官網技術文件《Sound Control》PDF（taiwanglass.com/userfiles/Sound Control 20091026.pdf）；SCF = 台玻隔音中間膜（acoustic PVB）</p>
+    <div class="glegend"><span><i style="background:linear-gradient(90deg,#94A3B8,#64748B)"></i>單片玻璃</span><span><i style="background:linear-gradient(90deg,#FBBF24,#D97706)"></i>複層（中空）</span><span><i style="background:linear-gradient(90deg,#60A5FA,#1D4ED8)"></i>一般 PVB 膠合</span><span><i style="background:linear-gradient(90deg,#818CF8,#4338CA)"></i>SCF 隔音膠合</span></div>
+    <div class="gchart">
+      <div class="gbar-row"><div class="glabel">3mm 單片</div><div class="gbar-track"><div class="gbar mono1" style="width:28%">27</div></div><div class="gval">STC 27</div></div>
+      <div class="gbar-row"><div class="glabel">6mm 單片</div><div class="gbar-track"><div class="gbar mono1" style="width:44%">31</div></div><div class="gval">STC 31</div></div>
+      <div class="gbar-row"><div class="glabel">8mm 單片</div><div class="gbar-track"><div class="gbar mono1" style="width:52%">33</div></div><div class="gval">STC 33</div></div>
+      <div class="gbar-row"><div class="glabel">3+空氣6+3 複層<small>對稱＝共振弱點</small></div><div class="gbar-track"><div class="gbar igu" style="width:28%">27</div></div><div class="gval">STC 27</div></div>
+      <div class="gbar-row"><div class="glabel">4+空氣6+6 複層<small>不對稱較佳</small></div><div class="gbar-track"><div class="gbar igu" style="width:52%">33</div></div><div class="gval">STC 33</div></div>
+      <div class="gbar-row"><div class="glabel">5+5 一般膠合<small>0.76 PVB · 估價單配置</small></div><div class="gbar-track"><div class="gbar lami" style="width:80%">40</div></div><div class="gval">STC 40</div></div>
+      <div class="gbar-row"><div class="glabel">6+6 一般膠合</div><div class="gbar-track"><div class="gbar lami" style="width:80%">40</div></div><div class="gval">STC 40</div></div>
+      <div class="gbar-row"><div class="glabel">5+5 隔音膠合<small>SCF 隔音膜</small></div><div class="gbar-track"><div class="gbar scf" style="width:84%">41</div></div><div class="gval">STC 41</div></div>
+      <div class="gbar-row"><div class="glabel">6+6 隔音膠合</div><div class="gbar-track"><div class="gbar scf" style="width:92%">43</div></div><div class="gval">STC 43</div></div>
+      <div class="gbar-row"><div class="glabel">8+8 隔音膠合</div><div class="gbar-track"><div class="gbar scf" style="width:92%">43</div></div><div class="gval">STC 43</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px">台玻表查無：5/10/12mm 單片、8+8 一般膠合、5+空氣+5 複層。經銷通路另引成大建築音響實驗室：12mm 單片＝STC 33、6+6 膠合＝STC 40（非台玻官網原文，僅供旁證）。</p>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h3 style="font-size:18px">📊 圖二：歐規 EN 12758 標準化隔音值 — Rw（保守值，全配置最齊）</h3>
+    <p style="font-size:13px;color:var(--muted);margin:4px 0 8px">來源：德國平板玻璃公會 BF Bulletin 023 引 DIN EN 12758 表 1（bundesverband-flachglas.de）。標準化保守值，通常低於單一實驗室最佳實測——所以數字比台玻低是正常的，看趨勢不比絕對值</p>
+    <div class="glegend"><span><i style="background:linear-gradient(90deg,#94A3B8,#64748B)"></i>單片玻璃</span><span><i style="background:linear-gradient(90deg,#FBBF24,#D97706)"></i>複層（中空）</span><span><i style="background:linear-gradient(90deg,#60A5FA,#1D4ED8)"></i>一般 PVB 膠合</span></div>
+    <div class="gchart">
+      <div class="gbar-row"><div class="glabel">5mm 單片</div><div class="gbar-track"><div class="gbar mono1" style="width:40%">30</div></div><div class="gval">Rw 30</div></div>
+      <div class="gbar-row"><div class="glabel">8mm 單片</div><div class="gbar-track"><div class="gbar mono1" style="width:48%">32</div></div><div class="gval">Rw 32</div></div>
+      <div class="gbar-row"><div class="glabel">10mm 單片</div><div class="gbar-track"><div class="gbar mono1" style="width:52%">33</div></div><div class="gval">Rw 33</div></div>
+      <div class="gbar-row"><div class="glabel">12mm 單片</div><div class="gbar-track"><div class="gbar mono1" style="width:56%">34</div></div><div class="gval">Rw 34</div></div>
+      <div class="gbar-row"><div class="glabel">6+空氣+6 複層</div><div class="gbar-track"><div class="gbar igu" style="width:44%">31</div></div><div class="gval">Rw 31</div></div>
+      <div class="gbar-row"><div class="glabel">8+空氣+8 複層<small>對稱＝共振弱點</small></div><div class="gbar-track"><div class="gbar igu" style="width:48%">32</div></div><div class="gval">Rw 32</div></div>
+      <div class="gbar-row"><div class="glabel">8+空氣+6 複層<small>不對稱較佳</small></div><div class="gbar-track"><div class="gbar igu" style="width:60%">35</div></div><div class="gval">Rw 35</div></div>
+      <div class="gbar-row"><div class="glabel">5+5 一般膠合<small>估價單配置</small></div><div class="gbar-track"><div class="gbar lami" style="width:56%">34</div></div><div class="gval">Rw 34</div></div>
+      <div class="gbar-row"><div class="glabel">6+6 一般膠合</div><div class="gbar-track"><div class="gbar lami" style="width:64%">36</div></div><div class="gval">Rw 36</div></div>
+      <div class="gbar-row"><div class="glabel">8+8 一般膠合</div><div class="gbar-track"><div class="gbar lami" style="width:64%">36</div></div><div class="gval">Rw 36</div></div>
+      <div class="gbar-row"><div class="glabel">10+10 一般膠合</div><div class="gbar-track"><div class="gbar lami" style="width:68%">37</div></div><div class="gval">Rw 37</div></div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:18px">
+    <div class="card">
+      <h3 style="font-size:17px">🎧 隔音膜（acoustic PVB）值多少 dB？</h3>
+      <p style="font-size:13.5px;margin:8px 0">國際玻璃大廠官方實測（EN ISO 10140/717-1）：</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>配置</th><th>一般 PVB</th><th>隔音 PVB</th><th>來源</th></tr></thead>
+        <tbody>
+          <tr><td>4+4 膠合</td><td>Rw 35</td><td><b>Rw 37</b></td><td>AGC Stratobel/Stratophone</td></tr>
+          <tr><td>5+5 膠合</td><td>Rw 36</td><td><b>Rw 39</b></td><td>Saint-Gobain / AGC</td></tr>
+          <tr><td>6+6 膠合</td><td>Rw 36–37</td><td><b>Rw 40</b></td><td>AGC / Saint-Gobain</td></tr>
+          <tr><td>6+4 不對稱隔音膠合</td><td>—</td><td><b>Rw 38</b></td><td>Saint-Gobain 64.2Si</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:13.5px;margin-top:8px">Saint-Gobain 官方原文：隔音膜比同構成一般膠合 <b>+2dB</b>、比同厚單片 <b>+3dB</b>；「44.1Si（總厚 8.38mm）的 Rw 37 等同 15mm 單片玻璃」。Pilkington：6.8mm 隔音膠合（Rw 36）勝過 12mm 單片（Rw 34）——<b>膜比厚度值錢</b>。</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:17px">📉 低頻警告：Rw 要打折</h3>
+      <p style="font-size:13.5px;margin:8px 0">Pilkington Optiphon 官方文件把噪音分兩類：C 修正值適用「說話、音樂、電視」等中高頻；<b>Ctr 修正值適用「市區道路交通、低速鐵路、螺旋槳飛機…低中頻噪音」——冷氣壓縮機正是這類</b>。</p>
+      <p style="font-size:13.5px;margin:8px 0">Saint-Gobain 範例：Rw(C;Ctr) = 40(−2;<b>−8</b>)——帳面隔 40dB 的玻璃，對低頻音源實際只有 <b>32dB</b>。挑玻璃時向玻璃商要完整的 Rw(C;Ctr) 三個數字，看 Ctr 修正後的值。</p>
+      <p style="font-size:13.5px"><b>單片玻璃的先天缺陷</b>：Pilkington《Glass and Noise Control》指出單片有「符合共振」隔音凹陷（fc ≈ 12000÷厚度 Hz），膠合的 PVB 膜正是抑制這個共振的官方解法。德國平板玻璃公會 BF 017 也明講：對稱複層「兩片玻璃被氣墊耦合產生共振，降低低頻隔音」「不比同重量單片好多少」；Pilkington 建議複層兩片厚度至少差 30%（如 10+6）錯開共振。</p>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <h4>對你的估價單，這些數據說了三件事</h4>
+    <ul style="margin-left:20px;font-size:14.5px">
+      <li><b>5+5 膠合是正確的起點</b>：台玻實測 STC 40，比 8mm 單片（33）高 7dB——嵐首的配置方向對，前提是「真膠合」（有 PVB 膜）。</li>
+      <li><b>主臥要更安靜，優先加「隔音膜」而非盲目加厚</b>：5+5 隔音膠合（台玻 STC 41 / AGC Rw 39）與 6+6 隔音膠合（STC 43 / Rw 40）都有官方數據支撐；8+8 一般膠合（Rw 36）反而不如 6+6 隔音膠合。問嵐首「台玻 SCF 隔音膠合」的加價。</li>
+      <li><b>別被「複層玻璃更高級」話術帶走</b>：對稱複層（5+A+5 一類）低頻共振是各大廠官方文件白紙黑字的弱點，擋冷氣壓縮機聲選膠合、不選對稱複層。</li>
+    </ul>
   </div>
 </section>
 
@@ -509,6 +600,7 @@ td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
       <li>DK 德鎧五金官網產品頁：岩戶/禪藝/天平/推開窗 <span class="mono">dkwindow.com/product-details/no/...</span>、FAQ <span class="mono">dkwindow.com/faq</span></li>
       <li>品牌評價原文：Mobile01 <span class="mono">topicdetail.php?f=360&t=6519875</span>（DK）、<span class="mono">f=360&t=5527098</span>（正新全室心得）、<span class="mono">f=360&t=7224246</span>（正新 5+5 實測降幅）、<span class="mono">f=335&t=2590385</span>（九州 vs 正新）、<span class="mono">f=400&t=3465268</span>（正新仿冒品案）；PTT <span class="mono">home-sale M.1657462613</span>（DK 報價）、<span class="mono">M.1752058451</span>（正新比價）；小院 <span class="mono">courcasa.com/p/aKVq</span>（原廠 vs 組裝價差）；達瑞克品牌比較 <span class="mono">da-rank.com/blog/Top-10-airtight-window</span></li>
       <li>PRO360 師傅評論庫（quote_feedbacks API 全量實爬 2026/08/10）：嵐首工事實業社 62 則（service 315650）、詹益來 64 則（614892）、佳昇鋁門窗 4 則（557408），星等/工項/年份統計與引文皆出自 API 原文</li>
+      <li>玻璃隔音官方數據：台玻《Sound Control》<span class="mono">taiwanglass.com/userfiles/Sound Control 20091026.pdf</span>；德國平板玻璃公會 BF Bulletin 023（EN 12758 表1）與 BF 017（複層共振）<span class="mono">bundesverband-flachglas.de</span>；Pilkington Optiphon 型錄與《Glass and Noise Control》；AGC《Glass Acoustic Performances》pocket values；Saint-Gobain STADIP SILENCE 型錄（皆 EN ISO 10140/717-1 測試）</li>
       <li>估價單：嵐首工事實業社 2026/08/10（V8/V10 × 4 樘，$93,450 未稅）</li>
     </ul>
     <p style="font-size:13px;color:var(--muted);margin-top:12px">聲明：STC 與 Rw 為不同測試標準、各家測試玻璃配置不同，本頁對照僅供同量級參考；每才單價受尺寸、樓層、施工難度影響，請以實際丈量報價為準。本頁無任何廠商贊助。</p>
