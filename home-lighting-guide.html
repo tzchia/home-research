@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>居家吸頂燈配置與採購指南 · 市面選擇 × 通路評比 × 宏華/三奇調查</title>
+<title>居家吸頂燈配置與採購指南 · 全屋流明配置 × 市面選擇 × 通路評比 × 宏華/三奇調查</title>
 <style>
 :root{
   --bg:#f6f7f9;
@@ -186,6 +186,42 @@ a.backlink{color:#2563eb;text-decoration:none}
   padding:6px 12px;
 }
 .anchornav a:hover{border-color:var(--amber);color:var(--amber)}
+.roomgrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:12px;
+}
+.room{
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+}
+.room .eyebrow{font-size:11.5px;color:var(--amber);font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.room h3{margin:4px 0 4px;font-size:19px}
+.room .lumen{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:6px 0}
+.room p{margin:6px 0;font-size:14.5px;color:#374151}
+.room .meta{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;margin-top:10px;
+}
+.room .meta div{background:var(--soft);border-radius:10px;padding:8px 10px}
+.room .meta b{display:block;font-size:12px;color:var(--muted);margin-bottom:1px}
+.room .meta span{font-size:13.5px}
+.steps{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;margin-top:12px;
+}
+.step{padding:14px;border-radius:14px;background:var(--soft);border:1px solid var(--line)}
+.step .num{
+  width:26px;height:26px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--accent);color:#fff;
+  font-size:13px;font-weight:800;margin-bottom:8px;
+}
+.step b{font-size:14px}
+.step small{color:var(--muted)}
 #rpn-bar{
   position:fixed;top:0;left:0;height:4px;width:0%;
   background:linear-gradient(90deg,#f59e0b,#d97706);
@@ -202,7 +238,8 @@ a.backlink{color:#2563eb;text-decoration:none}
 @media(max-width:720px){
   .container{padding:20px 12px 40px}
   .hero,.card{padding:18px;border-radius:16px}
-  .grid,.vgrid{grid-template-columns:1fr}
+  .grid,.vgrid,.roomgrid{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media print{
   body{background:white}
@@ -220,18 +257,22 @@ a.backlink{color:#2563eb;text-decoration:none}
 <section class="hero">
   <div class="kicker">Home Lighting Plan &amp; Buying Guide</div>
   <h1>居家吸頂燈配置與採購指南</h1>
-  <p class="subtitle">依需求整理：2.7 m 天花板、客餐廳偏亮、臥室適中、客廳需調光調色溫、外觀極簡薄型、每盞預算 3,000 元以下，並以亮度與維修性為優先。後半部為市面選擇全景、momo / PChome 實查價、通路評比，與「宏華燈飾 / 三奇商城」兩家中和通路的誠實調查。</p>
+  <p class="subtitle">2.7 m 天花板、客餐廳偏亮、臥室適中、長輩房提高照度、外觀極簡薄型，「亮度」與「維修性」列最高優先。前半部是全屋逐空間流明配置（含主臥已購 48W 燈的雙燈方案）與採購清單；後半部為市面選擇全景、momo / PChome 實查價、通路評比，與「宏華燈飾 / 三奇商城」兩家中和通路的誠實調查。</p>
   <div class="badges">
     <span class="badge">維修性優先</span>
     <span class="badge">E27 可換燈泡</span>
     <span class="badge">客廳調光調色溫</span>
     <span class="badge">CRI / Ra ≥ 90 優先</span>
-    <span class="badge">長輩房提高照度</span>
+    <span class="badge">主臥雙燈配置</span>
+    <span class="badge">單盞 NT$3,000 內</span>
     <span class="badge">2026/08 實查價</span>
   </div>
   <nav class="anchornav">
-    <a href="#plan">A 配置原則</a>
-    <a href="#specs">B 逐空間規格</a>
+    <a href="#plan">A 核心原則</a>
+    <a href="#rooms">B 逐空間流明</a>
+    <a href="#master">B2 主臥雙燈</a>
+    <a href="#color">B3 調色情境</a>
+    <a href="#buy">B4 採購清單</a>
     <a href="#market">C 市面燈型全景</a>
     <a href="#models">D 品牌與實查價</a>
     <a href="#channels">E 通路評比</a>
@@ -243,109 +284,107 @@ a.backlink{color:#2563eb;text-decoration:none}
 </section>
 
 <section class="card" id="plan">
-  <div class="secbadge">A · 配置原則</div>
-  <h2>整體配置原則</h2>
-  <div class="grid">
+  <div class="secbadge">A · 核心原則</div>
+  <h2>不是追求「全屋最亮」，而是亮得剛好、看得舒服、未來容易維修</h2>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><b>先看流明 lm</b><br><small>決定實際光輸出</small></div>
+    <div class="step"><div class="num">2</div><b>再看 CRI / Ra</b><br><small>Ra ≥ 90 優先</small></div>
+    <div class="step"><div class="num">3</div><b>選色溫</b><br><small>3000–4000K 為主力</small></div>
+    <div class="step"><div class="num">4</div><b>確認維修方式</b><br><small>E27 / 可換 Driver</small></div>
+    <div class="step"><div class="num">5</div><b>最後才看瓦數</b><br><small>W 是耗電，不等於亮度</small></div>
+  </div>
+  <div class="grid" style="margin-top:14px">
     <div class="item"><b>客廳</b>接受品牌型一體式 LED，換取較好的調光、調色溫與整體亮度。</div>
     <div class="item"><b>其他空間</b>優先採 E27 可換燈泡式吸頂燈，燈泡故障時可自行更換。</div>
-    <div class="item"><b>亮度判斷</b>優先看「流明 lm」，不要只看瓦數 W。</div>
     <div class="item"><b>舒適度</b>優先選霧面擴散罩，避免裸燈珠與過度眩光。</div>
+    <div class="item"><b>一體式必問</b>Driver 能不能單獨換？LED 模組有沒有備品？答不出來就降低優先度。</div>
   </div>
 </section>
 
-<section class="card" id="specs">
-  <div class="secbadge">B · 逐空間規格</div>
-  <h2>燈光建議表</h2>
+<section class="card" id="rooms">
+  <div class="secbadge">B · 逐空間流明配置 · 2026/08 定稿</div>
+  <h2>各空間實際流明配置</h2>
+  <p>目前最適合直接拿去燈具行採購的版本（含廚房、浴室與主臥雙燈拆分）：</p>
+  <div class="roomgrid">
+    <article class="room"><div class="eyebrow">Living Room</div><h3>客廳</h3><div class="lumen">5,000–5,500 lm</div><p>偏亮設定，可調光調色溫的一體式 LED 主燈。平常開 60–80% 即可。</p><div class="meta"><div><b>色溫</b><span>3000–6500K 可調</span></div><div><b>日常</b><span>3500–4000K</span></div><div><b>燈具</b><span>品牌型 LED</span></div><div><b>維修</b><span>Driver 可換佳</span></div></div></article>
+    <article class="room"><div class="eyebrow">Dining Room</div><h3>餐廳</h3><div class="lumen">約 3,500 lm</div><p>E27 × 4，每顆約 800–900 lm。食物顯色自然比調色更重要。</p><div class="meta"><div><b>色溫</b><span>3500–4000K</span></div><div><b>演色性</b><span>Ra ≥ 90</span></div><div><b>燈具</b><span>E27 × 4</span></div><div><b>燈罩</b><span>霧面擴散罩</span></div></div></article>
+    <article class="room"><div class="eyebrow">Master Bedroom</div><h3>主臥（約 5.1 坪）</h3><div class="lumen">4,800 + 1,000–1,500 lm</div><p>已購 48W／約 4,800 lm 可調光調色燈移至房間中央；窗邊只補低流明輔燈。</p><div class="meta"><div><b>中央主燈</b><span>既有 4,800 lm</span></div><div><b>窗邊輔燈</b><span>1,000–1,500 lm</span></div><div><b>平常亮度</b><span>主燈約 50–70%</span></div><div><b>色溫</b><span>3000–4000K</span></div></div></article>
+    <article class="room"><div class="eyebrow">Elder Bedroom</div><h3>長輩次臥</h3><div class="lumen">3,200–3,500 lm</div><p>比一般次臥亮，重點是均勻、低眩光，不是單純用超白光。</p><div class="meta"><div><b>色溫</b><span>約 4000K</span></div><div><b>演色性</b><span>Ra ≥ 90</span></div><div><b>燈具</b><span>E27 × 4</span></div><div><b>單顆</b><span>約 800–900 lm</span></div></div></article>
+    <article class="room"><div class="eyebrow">Second Bedroom</div><h3>一般次臥</h3><div class="lumen">2,500–2,800 lm</div><p>臥室適中亮度，簡單、好維修即可。未來兼書房可用桌燈補工作照明。</p><div class="meta"><div><b>色溫</b><span>3000–4000K</span></div><div><b>燈具</b><span>E27 × 3</span></div><div><b>單顆</b><span>約 800–900 lm</span></div><div><b>調色</b><span>非必要</span></div></div></article>
+    <article class="room"><div class="eyebrow">Hallway</div><h3>走道／玄關</h3><div class="lumen">約 1,200 lm</div><p>一顆燈抓約 1,200 lm；若兩顆分佈，單顆約 600–800 lm。</p><div class="meta"><div><b>色溫</b><span>3000–4000K</span></div><div><b>燈具</b><span>E27 × 1–2</span></div><div><b>調光</b><span>不需要</span></div><div><b>調色</b><span>不需要</span></div></div></article>
+    <article class="room"><div class="eyebrow">Kitchen</div><h3>廚房</h3><div class="lumen">中央約 2,400 lm</div><p>中央燈不必追求過亮；流理台／吊櫃下工作燈更重要。</p><div class="meta"><div><b>色溫</b><span>4000–5000K</span></div><div><b>中央燈</b><span>約 2,400 lm</span></div><div><b>工作燈</b><span>建議另加</span></div><div><b>維修</b><span>分開維修佳</span></div></div></article>
+    <article class="room"><div class="eyebrow">Bathroom</div><h3>兩間浴室</h3><div class="lumen">各約 1,400 lm</div><p>若鏡前另有照明，主燈可降至約 1,000–1,200 lm；選浴室適用、防潮燈具。</p><div class="meta"><div><b>色溫</b><span>4000K</span></div><div><b>單間主燈</b><span>約 1,400 lm</span></div><div><b>鏡前燈</b><span>有則可降低主燈</span></div><div><b>安全</b><span>防潮規格</span></div></div></article>
+  </div>
+
+  <h3>最推薦的燈具結構</h3>
+  <p><strong>E27 多燈泡＋霧面擴散罩</strong>最符合維修性需求。燈泡壞掉時，只需旋下舊燈泡並更換，不必拆整盞燈，也不依賴特定 LED 燈板或驅動器規格。</p>
+  <div class="note">
+    燈具店可以直接問：<br>
+    「我要燈泡可以自己更換、霧面擴散罩、極簡薄型；如果是一體式 LED，請問驅動器能不能單獨更換？」
+  </div>
+</section>
+
+<section class="card" id="master">
+  <div class="secbadge">B2 · 主臥雙燈 · 2026/08 定稿</div>
+  <h2>主臥雙燈：目前最合理的配置</h2>
+  <p>主臥約 5.1 坪，不需要兩顆大瓦數主燈。改成「中央主燈 + 窗邊輔燈」更均勻，也更好用。</p>
+  <div class="vgrid">
+    <div class="vcard pro">
+      <b>✅ 中央主燈 <span class="pill win">既有 48W / 約 4,800 lm</span></b>
+      已購的可調光調色燈移到主要活動區中央。平常開 50–70%，打掃時再全開。
+    </div>
+    <div class="vcard pro">
+      <b>✅ 窗邊輔燈 <span class="pill win">約 1,000–1,500 lm</span></b>
+      建議 E27 × 1–2，補外推窗邊、收納與整理用途。
+    </div>
+  </div>
+  <div class="callout warn"><strong>不建議：</strong>4,800 lm 再加一顆 4,000–5,000 lm。對約 5.1 坪臥室而言過亮，也會失去分區照明的意義。</div>
+</section>
+
+<section class="card" id="color">
+  <div class="secbadge">B3 · 調色溫情境 · 2026/08 定稿</div>
+  <h2>調色溫，真正適合的使用情境</h2>
+  <p>調色不是為了「每天換顏色」，而是讓同一空間在不同時間與活動下更舒服。</p>
   <div class="table-wrap">
     <table>
-      <thead>
-        <tr>
-          <th>空間</th>
-          <th>建議類型</th>
-          <th>建議光通量</th>
-          <th>色溫</th>
-          <th>調光</th>
-          <th>維修性</th>
-          <th>預算建議</th>
-        </tr>
-      </thead>
+      <thead><tr><th>色溫</th><th>感受</th><th>適合情境</th><th>家中建議</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>客廳</strong></td>
-          <td>品牌型 LED 吸頂燈／可換驅動模組型</td>
-          <td>約 4,500～6,000 lm</td>
-          <td>3000～6500K 可調</td>
-          <td>需要</td>
-          <td>★★★☆</td>
-          <td>2,000～3,000 元</td>
-        </tr>
-        <tr>
-          <td><strong>餐廳</strong></td>
-          <td>E27 × 3～4，可換燈泡、霧面罩</td>
-          <td>約 3,000～4,000 lm</td>
-          <td>3000～4000K</td>
-          <td>不必要</td>
-          <td>★★★★★</td>
-          <td>1,000～2,000 元</td>
-        </tr>
-        <tr>
-          <td><strong>走道</strong></td>
-          <td>E27 × 1～2，薄型燈具</td>
-          <td>約 800～1,500 lm</td>
-          <td>3000～4000K</td>
-          <td>不需要</td>
-          <td>★★★★★</td>
-          <td>300～800 元</td>
-        </tr>
-        <tr>
-          <td><strong>主臥</strong></td>
-          <td>E27 × 3，霧面薄型吸頂燈</td>
-          <td>約 2,500～3,500 lm</td>
-          <td>3000～4000K</td>
-          <td>可不需要</td>
-          <td>★★★★★</td>
-          <td>1,000～2,000 元</td>
-        </tr>
-        <tr>
-          <td><strong>一般次臥</strong></td>
-          <td>E27 × 2～3，可換燈泡</td>
-          <td>約 2,000～3,000 lm</td>
-          <td>3000～4000K</td>
-          <td>不需要</td>
-          <td>★★★★★</td>
-          <td>800～1,500 元</td>
-        </tr>
-        <tr>
-          <td><strong>長輩次臥</strong></td>
-          <td>E27 × 3～4，大面積霧面罩</td>
-          <td>約 3,000～4,000 lm</td>
-          <td>約 4000K</td>
-          <td>可不需要</td>
-          <td>★★★★★</td>
-          <td>1,000～2,000 元</td>
-        </tr>
+        <tr><td><strong>2700–3000K</strong></td><td>溫暖、放鬆</td><td>睡前、看電視、聊天</td><td>客廳晚間、主臥睡前</td></tr>
+        <tr><td><strong>3500–4000K</strong></td><td>自然、中性</td><td>日常生活、吃飯、更衣</td><td><span class="pill win">全屋最實用</span></td></tr>
+        <tr><td><strong>5000K</strong></td><td>清楚、精神</td><td>打掃、閱讀、整理</td><td>客廳／主臥短時間使用</td></tr>
+        <tr><td><strong>6000–6500K</strong></td><td>很白、偏冷</td><td>精細作業</td><td>住宅不需長時間使用</td></tr>
       </tbody>
     </table>
   </div>
+  <div class="callout good"><strong>實用排序：</strong>居家通常「可調光」比「可調色」更重要。一盞 3500–4000K、可以從 100% 調到 20% 的燈，往往比只能切三種色溫但不能調亮暗更好用。（這也讓 D 區的 Ra≥95 固定色溫方案更有競爭力 — 見下方取捨說明。）</div>
+</section>
 
-  <h3>採購時直接照這些規格找</h3>
-  <div class="note"><strong>客廳</strong>：4,500～6,000 lm、Ra ≥ 90、3000～6500K 可調色溫、多段或無段調光、遙控器即可、不需 App。優先確認 <strong>LED Driver 是否可單獨更換</strong>，若燈板或驅動器完全不可維修，優先度降低。</div>
-  <div class="note"><strong>餐廳</strong>：E27 × 3～4、霧面擴散罩、總流明約 3,000～4,000 lm。推薦 3000K～4000K，若希望食物看起來自然，選 Ra ≥ 90。</div>
-  <div class="note"><strong>主臥</strong>：E27 × 3、總流明約 2,500～3,500 lm、3000K～4000K。睡前以偏暖色溫較舒服。</div>
-  <div class="note"><strong>一般次臥</strong>：E27 × 2～3、總流明約 2,000～3,000 lm，功能維持簡單即可，避免為不常用的調光／智慧功能多花錢。</div>
-  <div class="note"><strong>長輩房</strong>：E27 × 3～4、約 3,000～4,000 lm、4000K 左右、Ra ≥ 90。重點是「提高總亮度＋降低眩光」，不是單純換成很白的 6500K。</div>
-  <div class="note"><strong>走道</strong>：約 800～1,500 lm 即可，使用 E27 × 1～2 的薄型燈具最容易維修。</div>
-
-  <h3>最推薦的燈具結構</h3>
-  <p><strong>E27 多燈泡＋霧面擴散罩</strong>最符合你們重視維修性的需求。燈泡壞掉時，只需旋下舊燈泡並更換，不必拆整盞燈，也不依賴特定 LED 燈板或驅動器規格。</p>
-  <div class="note">
-    建議燈具店用語：<br>
-    「我要 E27 燈座、燈泡可以自己單獨更換、霧面擴散罩、極簡薄型吸頂燈，不要全封閉不可維修的一體式 LED。」
+<section class="card" id="buy">
+  <div class="secbadge">B4 · 採購清單 · 2026/08 定稿</div>
+  <h2>採購清單｜直接照這張找</h2>
+  <p>方便在燈具行快速比對規格，不被瓦數或深色展示牆的視覺效果影響。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>空間</th><th>目標流明</th><th>建議燈具</th><th>色溫</th><th>重點</th></tr></thead>
+      <tbody>
+        <tr><td>客廳</td><td><strong>5,000–5,500 lm</strong></td><td>可調光調色 LED</td><td>3000–6500K</td><td>Driver 可換佳</td></tr>
+        <tr><td>餐廳</td><td><strong>約 3,500 lm</strong></td><td>E27 × 4</td><td>3500–4000K</td><td>Ra ≥ 90</td></tr>
+        <tr><td>主臥中央</td><td><strong>既有 4,800 lm</strong></td><td>已購燈移中央</td><td>可調</td><td>日常 50–70%</td></tr>
+        <tr><td>主臥窗邊</td><td><strong>1,000–1,500 lm</strong></td><td>E27 × 1–2</td><td>3000–4000K</td><td>輔燈用途</td></tr>
+        <tr><td>長輩房</td><td><strong>3,200–3,500 lm</strong></td><td>E27 × 4</td><td>4000K</td><td>低眩光、Ra ≥ 90</td></tr>
+        <tr><td>一般次臥</td><td><strong>2,500–2,800 lm</strong></td><td>E27 × 3</td><td>3000–4000K</td><td>簡單耐用</td></tr>
+        <tr><td>走道／玄關</td><td><strong>約 1,200 lm</strong></td><td>E27 × 1–2</td><td>3000–4000K</td><td>不需調光調色</td></tr>
+        <tr><td>廚房</td><td><strong>中央約 2,400 lm</strong></td><td>主燈 + 工作燈</td><td>4000–5000K</td><td>檯面補光</td></tr>
+        <tr><td>浴室 × 2</td><td><strong>各約 1,400 lm</strong></td><td>防潮吸頂燈</td><td>4000K</td><td>鏡前有燈可降低主燈</td></tr>
+      </tbody>
+    </table>
   </div>
-
-  <h3>選燈優先順序</h3>
-  <p><strong>流明 lm → 演色性 CRI / Ra → 色溫 → 燈具結構與維修方式 → 瓦數 W</strong></p>
-  <p>瓦數代表耗電量，不等於實際亮度。相同瓦數的不同 LED，流明可能差很多，因此購買時要以流明為主。</p>
+  <div class="grid" style="margin-top:14px">
+    <div class="item"><b>全屋演色性</b>Ra ≥ 90 優先</div>
+    <div class="item"><b>主要日常色溫</b>3500–4000K</div>
+    <div class="item"><b>偏好燈罩 / 外觀</b>霧面擴散罩 · 極簡薄型</div>
+    <div class="item"><b>單盞預算</b>NT$3,000 以下 · 維修 E27 優先</div>
+  </div>
 </section>
 
 <section class="card" id="market">
@@ -424,7 +463,7 @@ a.backlink{color:#2563eb;text-decoration:none}
     <div class="item"><b>E27 燈泡成本參考</b>億光 13W E27 球泡 10 入 $529 ≈ <strong>$53/顆</strong>。E27 燈體 20 年只需換燈泡，總持有成本壓倒一體式。要 Ra90+ 可另配飛利浦/歐司朗高演色球泡。</div>
   </div>
 
-  <h3>客廳候選：調光調色、4,500–6,000 lm、$3,000 以下</h3>
+  <h3>客廳候選：調光調色、目標 5,000–5,500 lm、$3,000 以下</h3>
   <div class="table-wrap">
     <table>
       <thead>
@@ -448,7 +487,7 @@ a.backlink{color:#2563eb;text-decoration:none}
     ① <strong>舞光 雪晴 45W 全光譜 Ra≥95、$2,200</strong> — 但只能壁切調亮度，色溫固定（6500K 或 4000K 二選一），4,000 lm；<br>
     ② <strong>小米 D40 Ra97、$2,119</strong> — 可調色溫，但官方標稱 3,000 lm@4000K，當客廳主燈偏暗（適合臥室/書房）；<br>
     ③ Panasonic 日本製系列（$4,590 起）才能「Ra90 ＋ 調色溫 ＋ 5,000 lm」三者兼得 — 超出預算，需取捨。<br>
-    <strong>建議取捨：客廳若重調色溫 → 接受 Ra&gt;80（雲朵/星晴）；若重演色性 → 雪晴 4000K 版＋放棄調色溫。</strong>
+    <strong>建議取捨：客廳若重調色溫 → 接受 Ra&gt;80（雲朵/星晴）；若重演色性 → 雪晴 4000K 版＋放棄調色溫。搭配 B3 區「可調光 ＞ 可調色」的結論，雪晴（可調光、固定 4000K、Ra≥95）其實是非常務實的解。</strong>
   </div>
 
   <h3>E27 可換燈泡式（餐廳 / 臥室 / 走道）</h3>
@@ -613,8 +652,8 @@ a.backlink{color:#2563eb;text-decoration:none}
 
   <h3>整戶採購建議動線</h3>
   <div class="note">
-    <strong>① 客廳主燈</strong>（調光調色一體式）：momo 買舞光雲朵 50W $1,760 或億光星晴 $999；重演色性則舞光雪晴 Ra≥95 $2,200（4000K 版）。<br>
-    <strong>② 餐廳/臥室/走道</strong>（E27 路線）：三奇商城一站買齊燈體＋球泡（批發價），或 PChome 買大巨光台製系列。<br>
+    <strong>① 客廳主燈</strong>（目標 5,000–5,500 lm）：momo 買舞光雲朵 50W 5,500lm $1,760（最貼合目標）或億光星晴 $999（4,900lm，預算緊）；重演色性則舞光雪晴 Ra≥95 $2,200（4000K 版、可調光）。主臥不用買 — 已購 48W 燈移中央即可。<br>
+    <strong>② 餐廳/次臥/長輩房/主臥窗邊輔燈/走道</strong>（E27 路線）：三奇商城一站買齊燈體＋球泡（批發價），或 PChome 買大巨光台製系列；浴室選防潮款、廚房另加檯面工作燈。<br>
     <strong>③ 想現場看光色</strong>：蘆洲在地一流照明/景弘照明，或平日跑三奇門市。<br>
     <strong>④ 安裝</strong>：裝潢期直接請配合水電順手裝（最省）；入住後加裝則特力屋購買＋加購安裝（$750 內）。
   </div>
@@ -636,7 +675,7 @@ a.backlink{color:#2563eb;text-decoration:none}
   </div>
 </section>
 
-<p class="footer">初版：吸頂燈配置建議（依 2.7m 天花、維修性優先需求整理）。2026/08/11 增補：市面燈型全景、品牌實查價、通路評比、宏華燈飾/三奇商城調查。價格、規格、保固以原廠與通路最新公告為準。<br><a class="backlink" href="./index.html">← 回家居研究首頁</a></p>
+<p class="footer">初版：吸頂燈配置建議（依 2.7m 天花、維修性優先需求整理）。2026/08/11 增補市場調查後，同日融合定稿：逐空間流明配置（含廚房/浴室）、主臥雙燈方案、調色溫情境表、採購清單。實際視覺亮度仍會受牆面顏色、燈罩透光率、家具與燈具標示誤差影響；價格、規格、保固以原廠與通路最新公告為準。<br><a class="backlink" href="./index.html">← 回家居研究首頁</a></p>
 
 </div>
 <script>
