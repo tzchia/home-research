@@ -78,6 +78,50 @@
     background: var(--accent-soft);
   }
 
+
+  /* ── 全站總覽 sitemap ─────────────────────── */
+  .overview {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 14px; margin-bottom: 40px;
+  }
+  .ov-cat {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 16px; padding: 16px 18px 14px;
+  }
+  .ov-head {
+    display: flex; align-items: center; gap: 9px;
+    text-decoration: none; color: inherit;
+    padding-bottom: 10px; margin-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .ov-head:hover .ov-title { color: var(--accent); }
+  .ov-icon { font-size: 19px; line-height: 1; }
+  .ov-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 800; font-size: 15.5px; flex: 1;
+    transition: color .15s ease;
+  }
+  .ov-count {
+    font-size: 12px; font-weight: 700; color: var(--muted);
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 999px; padding: 1px 9px;
+    font-variant-numeric: tabular-nums;
+  }
+  .ov-list { list-style: none; margin: 0; padding: 0; }
+  .ov-list li { margin: 0 0 6px; }
+  .ov-list li:last-child { margin-bottom: 0; }
+  .ov-list a {
+    display: block; font-size: 13.5px; color: #374151;
+    text-decoration: none; padding: 2px 0 2px 14px;
+    position: relative; line-height: 1.5;
+  }
+  .ov-list a::before {
+    content: "·"; position: absolute; left: 2px;
+    color: var(--accent); font-weight: 900;
+  }
+  .ov-list a:hover { color: var(--accent); }
+  @media (max-width: 640px) { .overview { grid-template-columns: 1fr; } }
+
   /* ── 分類（可收合）─────────────────────────── */
   .cat {
     background: transparent;
@@ -205,7 +249,7 @@
 <div class="container">
   <div class="eyebrow">Personal Home Research · 2026</div>
   <h1>家居研究筆記</h1>
-  <p class="lede">買房 / 裝修 / 家電採購的決策資料庫。每份文件都是對市場主流選項的完整對照，附第三方認證數據、5 年總持有成本與使用情境決策樹。</p>
+  <p class="lede">買房 / 裝修 / 家電採購的決策資料庫。下方總覽可一眼看完全部類別與文件；每份文件都是對市場主流選項的完整對照，附第三方認證數據、5 年總持有成本與使用情境決策樹。</p>
 
   <div class="toolbar">
     <div class="search-wrap">
@@ -218,38 +262,86 @@
     </div>
   </div>
 
-  <!-- ═══ 分類 1：新家專案 ═══ -->
-  <details class="cat" open>
+  <!-- ═══ 全站總覽：類別 × 頁面 一目了然 ═══ -->
+  <section class="overview" id="overview">
+    <div class="ov-cat">
+      <a class="ov-head" href="#cat-buy"><span class="ov-icon">🏠</span><span class="ov-title">買房・驗屋・稅務</span><span class="ov-count">2</span></a>
+      <ul class="ov-list">
+        <li><a href="./house-inspection-luzhou.html">驗屋作戰計畫（八區排雷）</a></li>
+        <li><a href="./decoration-invoice-tax.html">裝潢發票與節稅查核</a></li>
+      </ul>
+    </div>
+    <div class="ov-cat">
+      <a class="ov-head" href="#cat-plan"><span class="ov-icon">📐</span><span class="ov-title">裝潢規劃・水電配置</span><span class="ov-count">3</span></a>
+      <ul class="ov-list">
+        <li><a href="./home-renovation-plan.html">新家裝潢規劃</a></li>
+        <li><a href="./socket-layout-map.html">插座/開關/弱電 完整規劃</a></li>
+        <li><a href="./socket-layout-map.html#rooms">↳ 逐房間走查清單</a></li>
+      </ul>
+    </div>
+    <div class="ov-cat">
+      <a class="ov-head" href="#cat-quote"><span class="ov-icon">🧮</span><span class="ov-title">估價單・議價</span><span class="ov-count">2</span></a>
+      <ul class="ov-list">
+        <li><a href="./royal-renovation-estimate-review.html">估價單 A–F 比較 + 議價作戰</a></li>
+        <li><a href="./yin-vs-c0709-comparison.html">尹公館 vs C0709 跨案場對照</a></li>
+      </ul>
+    </div>
+    <div class="ov-cat">
+      <a class="ov-head" href="#cat-crew"><span class="ov-icon">🔨</span><span class="ov-title">工班口碑實查</span><span class="ov-count">4</span></a>
+      <ul class="ov-list">
+        <li><a href="./cabinet-contractor-research.html">系統櫃工班</a></li>
+        <li><a href="./decoration-cleaning-contractor-research.html">裝潢細清</a></li>
+        <li><a href="./aluminum-window-contractor-research.html">鋁門窗工班</a></li>
+        <li><a href="./invisible-grille-contractor-research.html">隱形鐵窗工班</a></li>
+      </ul>
+    </div>
+    <div class="ov-cat">
+      <a class="ov-head" href="#cat-window"><span class="ov-icon">🪟</span><span class="ov-title">門窗・防護・門鎖</span><span class="ov-count">4</span></a>
+      <ul class="ov-list">
+        <li><a href="./soundproof-windows.html">隔音窗頂級系列評比</a></li>
+        <li><a href="./window-screen-comparison.html">防霾紗窗比較</a></li>
+        <li><a href="./grille-screen-direct-vs-dealer.html">鐵窗+紗網：直發 vs 代辦</a></li>
+        <li><a href="./smart-lock-comparison.html">智慧電子門鎖</a></li>
+      </ul>
+    </div>
+    <div class="ov-cat">
+      <a class="ov-head" href="#cat-airwater"><span class="ov-icon">🌬️</span><span class="ov-title">空氣・水</span><span class="ov-count">3</span></a>
+      <ul class="ov-list">
+        <li><a href="./air-purifier-luzhou.html">蘆洲新家空清決策</a></li>
+        <li><a href="./air-purifier-comparison.html">空氣清淨機比較</a></li>
+        <li><a href="./water-purifier-comparison.html">櫥下淨水器比較</a></li>
+      </ul>
+    </div>
+    <div class="ov-cat">
+      <a class="ov-head" href="#cat-appliance"><span class="ov-icon">📺</span><span class="ov-title">家電・照明</span><span class="ov-count">5</span></a>
+      <ul class="ov-list">
+        <li><a href="./projector-comparison.html">投影機 × 布幕</a></li>
+        <li><a href="./laundry-comparison.html">後陽台洗烘設備</a></li>
+        <li><a href="./vacuum-cleaner-comparison.html">無線吸塵器</a></li>
+        <li><a href="./robot-vacuum-comparison.html">掃拖機器人</a></li>
+        <li><a href="./home-lighting-guide.html">吸頂燈配置與採購指南</a></li>
+      </ul>
+    </div>
+    <div class="ov-cat">
+      <a class="ov-head" href="#cat-life"><span class="ov-icon">🍱</span><span class="ov-title">生活・飲食</span><span class="ov-count">1</span></a>
+      <ul class="ov-list">
+        <li><a href="./dongmen-dinner-bento.html">東門站晚餐餐盒實查</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ 買房・驗屋・稅務 ═══ -->
+  <details class="cat" id="cat-buy" open>
     <summary>
       <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-      <span class="cat-icon">🏡</span>
+      <span class="cat-icon">🏠</span>
       <span class="cat-text">
-        <p class="cat-title">新家專案 — 蘆洲皇家名門</p>
-        <p class="cat-sub">買房到裝修的一次性決策</p>
+        <p class="cat-title">買房・驗屋・稅務</p>
+        <p class="cat-sub">交屋前的排雷與憑證決策</p>
       </span>
-      <span class="cat-count">11</span>
+      <span class="cat-count">2</span>
     </summary>
     <div class="cat-body">
-
-      <a class="doc-card" href="./projector-comparison.html">
-        <div class="doc-icon">📽️</div>
-        <div class="doc-body">
-          <h2 class="doc-title">家用投影機 × 布幕比較</h2>
-          <p class="doc-desc">4K 雷射為主（C 級）中階為輔（B 級）· 驗證「中國品牌台灣通路壓 5 萬內」· 公司貨 vs 光華陸版 · 布幕四形式</p>
-          <div class="doc-meta">10 機型實查價 · 抗光幕選型 · 1 歲寶寶安全檢核 · 5 年總成本</div>
-        </div>
-        <div class="arrow">→</div>
-      </a>
-
-      <a class="doc-card" href="./home-renovation-plan.html">
-        <div class="doc-icon">📐</div>
-        <div class="doc-body">
-          <h2 class="doc-title">新家裝潢規劃</h2>
-          <p class="doc-desc">7 樓華廈第 6 樓 · 不打牆 3 房 2 廳雙衛 · 對應「夫妻 + 兩寶（未來可能 + 岳父）」人口結構</p>
-          <div class="doc-meta">室內 28 坪 · 天花 2.7m / 樑下 2.3m · 房間分配 + 保高化樑 + 坪數計價防灌水</div>
-        </div>
-        <div class="arrow">→</div>
-      </a>
 
       <a class="doc-card" href="./house-inspection-luzhou.html">
         <div class="doc-icon">🔍</div>
@@ -261,32 +353,38 @@
         <div class="arrow">→</div>
       </a>
 
-      <a class="doc-card" href="./yin-vs-c0709-comparison.html">
-        <div class="doc-icon">⚖️</div>
-        <div class="doc-body">
-          <h2 class="doc-title">尹公館 vs C0709 跨案場對照</h2>
-          <p class="doc-desc">拿台北設計公司 17 頁細列報價對照我們的 C0709 · 16 項重複工項單價逐比 · 5 項偏高可談 + 2 項偏低追加風險</p>
-          <div class="doc-meta">每坪正規化 68.6k vs 45.1k · 議價空間 8–12 萬 · 給 Frank 的拆細話術</div>
-        </div>
-        <div class="arrow">→</div>
-      </a>
-
-      <a class="doc-card" href="./royal-renovation-estimate-review.html">
-        <div class="doc-icon">🧮</div>
-        <div class="doc-body">
-          <h2 class="doc-title">裝修估價單 A/B/C/D/E/F 比較</h2>
-          <p class="doc-desc">八份估價單逐項拆解 + 現況/設計平面圖 · 附原始 PDF 一鍵開啟 · 231 萬全做 vs 117 萬先住 vs 20~43 萬應急局部</p>
-          <div class="doc-meta">總價/分項差異表 · 合理性判斷 · 12 問補充清單 · 10 份原始 PDF 連結</div>
-        </div>
-        <div class="arrow">→</div>
-      </a>
-
       <a class="doc-card" href="./decoration-invoice-tax.html">
         <div class="doc-icon">🧾</div>
         <div class="doc-body">
           <h2 class="doc-title">裝潢發票 & 設計費索取憑證決策</h2>
           <p class="doc-desc">設計師說「沒要賣或抵稅很少開發票」對嗎？2,090 萬皇家名門社區 32 年中古屋逐條法源查核</p>
           <div class="doc-meta">所得稅法 §17/§14-4/§4-5 + 營業稅法 §32 · 房地合一 vs 綜所稅 vs 保固三層拆解 · 5 年期望節稅試算</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+    </div>
+  </details>
+
+  <!-- ═══ 裝潢規劃・水電配置 ═══ -->
+  <details class="cat" id="cat-plan" open>
+    <summary>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <span class="cat-icon">📐</span>
+      <span class="cat-text">
+        <p class="cat-title">裝潢規劃・水電配置</p>
+        <p class="cat-sub">格局、房間分配與插座弱電圖面</p>
+      </span>
+      <span class="cat-count">3</span>
+    </summary>
+    <div class="cat-body">
+
+      <a class="doc-card" href="./home-renovation-plan.html">
+        <div class="doc-icon">📐</div>
+        <div class="doc-body">
+          <h2 class="doc-title">新家裝潢規劃</h2>
+          <p class="doc-desc">7 樓華廈第 6 樓 · 不打牆 3 房 2 廳雙衛 · 對應「夫妻 + 兩寶（未來可能 + 岳父）」人口結構</p>
+          <div class="doc-meta">室內 28 坪 · 天花 2.7m / 樑下 2.3m · 房間分配 + 保高化樑 + 坪數計價防灌水</div>
         </div>
         <div class="arrow">→</div>
       </a>
@@ -311,6 +409,58 @@
         <div class="arrow">→</div>
       </a>
 
+    </div>
+  </details>
+
+  <!-- ═══ 估價單・議價 ═══ -->
+  <details class="cat" id="cat-quote" open>
+    <summary>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <span class="cat-icon">🧮</span>
+      <span class="cat-text">
+        <p class="cat-title">估價單・議價</p>
+        <p class="cat-sub">報價拆解、行情對照與談判工具</p>
+      </span>
+      <span class="cat-count">2</span>
+    </summary>
+    <div class="cat-body">
+
+      <a class="doc-card" href="./royal-renovation-estimate-review.html">
+        <div class="doc-icon">🧮</div>
+        <div class="doc-body">
+          <h2 class="doc-title">裝修估價單 A/B/C/D/E/F 比較</h2>
+          <p class="doc-desc">八份估價單逐項拆解 + 現況/設計平面圖 · 附原始 PDF 一鍵開啟 · 231 萬全做 vs 117 萬先住 vs 20~43 萬應急局部</p>
+          <div class="doc-meta">總價/分項差異表 · 合理性判斷 · 12 問補充清單 · 10 份原始 PDF 連結</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./yin-vs-c0709-comparison.html">
+        <div class="doc-icon">⚖️</div>
+        <div class="doc-body">
+          <h2 class="doc-title">尹公館 vs C0709 跨案場對照</h2>
+          <p class="doc-desc">拿台北設計公司 17 頁細列報價對照我們的 C0709 · 16 項重複工項單價逐比 · 5 項偏高可談 + 2 項偏低追加風險</p>
+          <div class="doc-meta">每坪正規化 68.6k vs 45.1k · 議價空間 8–12 萬 · 給 Frank 的拆細話術</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+    </div>
+  </details>
+
+  <!-- ═══ 工班口碑實查 ═══ -->
+  <details class="cat" id="cat-crew" open>
+    <summary>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <span class="cat-icon">🔨</span>
+      <span class="cat-text">
+        <p class="cat-title">工班口碑實查</p>
+        <p class="cat-sub">PRO360 × Google Maps 雙軌評比</p>
+      </span>
+      <span class="cat-count">4</span>
+    </summary>
+    <div class="cat-body">
+
       <a class="doc-card" href="./cabinet-contractor-research.html">
         <div class="doc-icon">🚪</div>
         <div class="doc-body">
@@ -331,6 +481,72 @@
         <div class="arrow">→</div>
       </a>
 
+      <a class="doc-card" href="./aluminum-window-contractor-research.html">
+        <div class="doc-icon">🪟</div>
+        <div class="doc-body">
+          <h2 class="doc-title">鋁門窗工班研究（PRO360 × Google Maps 雙軌）</h2>
+          <p class="doc-desc">蘆洲拆舊換新 2–5 扇 · PRO360 152 位專家全掃 13 家入選（1,571 則評論）＋ Google Maps 三蘆 204 家掃描 9 家在地店（216 則評論）· 兩軌分開排名合併詢價短名單</p>
+          <div class="doc-meta">排名總表 + 各家優缺點（評論原文為證）· 首選詢價組合 · 詢價前 7 條自保檢核</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./invisible-grille-contractor-research.html">
+        <div class="doc-icon">🛡️</div>
+        <div class="doc-body">
+          <h2 class="doc-title">隱形鐵窗工班研究（三重・蘆洲）</h2>
+          <p class="doc-desc">PRO360 兩分類 146 家全掃、30 家評論全爬（279 則含工項驗證）× Google Maps 四區 9 家在地店 × 全國品牌牌價軌 · 揭露「評論數前五名全是外業」的平台陷阱</p>
+          <div class="doc-meta">詢價組合：家舒適（蘆洲在地）＋金昌（唯一本業實績）＋宇奇（工廠直營）· 警示店 1 家</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+    </div>
+  </details>
+
+  <!-- ═══ 門窗・防護・門鎖 ═══ -->
+  <details class="cat" id="cat-window" open>
+    <summary>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <span class="cat-icon">🪟</span>
+      <span class="cat-text">
+        <p class="cat-title">門窗・防護・門鎖</p>
+        <p class="cat-sub">隔音、防霾、防墜與居家安全</p>
+      </span>
+      <span class="cat-count">4</span>
+    </summary>
+    <div class="cat-body">
+
+      <a class="doc-card" href="./soundproof-windows.html">
+        <div class="doc-icon">🔇</div>
+        <div class="doc-body">
+          <h2 class="doc-title">隔音窗頂級系列評比（估價單對照）</h2>
+          <p class="doc-desc">嵐首估價單 $93,450（亞樂美 V8/V10 × 4 樘）拆解 · 亞樂美 V × 欣揚 SR × YKK AP × 鵝牌 × 大同 × 正新 × 九州 × DK 官網規格實查 · PRO360 行情帶 · 3 位師傅評論全爬評比</p>
+          <div class="doc-meta">8 系列頂級款橫評 · 正新/九州/DK 評價深查 · 決策樹 · 簽約前 9 條議價檢核</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./window-screen-comparison.html">
+        <div class="doc-icon">🪟</div>
+        <div class="doc-body">
+          <h2 class="doc-title">防霾紗窗比較</h2>
+          <p class="doc-desc">SMOG · Poll-tex 普特絲 · Usii · 綠綠好日 · HOSOI 禾工宅 · NEHER 麗禾 · AiScreen AIS · 含透視度分析與大發實收報價</p>
+          <div class="doc-meta">7 品牌 · 4 種技術路線 · 整戶 30 坪費用對照</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="doc-card" href="./grille-screen-direct-vs-dealer.html">
+        <div class="doc-icon">🔩</div>
+        <div class="doc-body">
+          <h2 class="doc-title">隱形鐵窗＋防霾紗網：直發 vs 鋁門窗行代辦</h2>
+          <p class="doc-desc">大發報價單逐項驗算（$523/才 vs PRO360 行情 $400–500）· AIS 風光防霾網身分調查 · 隱形鐵窗 5 家專門公司牌價與 10 年保固慣例 · 分開發包的介面風險誠實列</p>
+          <div class="doc-meta">結論：分開直發更聰明 · 決策樹 3 情境 · 詢價前 11 條自保檢核 · 實收報價追蹤區</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
       <a class="doc-card" href="./smart-lock-comparison.html">
         <div class="doc-icon">🔐</div>
         <div class="doc-body">
@@ -344,16 +560,16 @@
     </div>
   </details>
 
-  <!-- ═══ 分類 2：空氣・水・防護 ═══ -->
-  <details class="cat" open>
+  <!-- ═══ 空氣・水 ═══ -->
+  <details class="cat" id="cat-airwater" open>
     <summary>
       <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
       <span class="cat-icon">🌬️</span>
       <span class="cat-text">
-        <p class="cat-title">空氣・水・防護</p>
-        <p class="cat-sub">空品 / 水質 / 防霾 的需求判斷與機種橫評</p>
+        <p class="cat-title">空氣・水</p>
+        <p class="cat-sub">空品水質的需求判斷與機種橫評</p>
       </span>
-      <span class="cat-count">7</span>
+      <span class="cat-count">3</span>
     </summary>
     <div class="cat-body">
 
@@ -387,71 +603,31 @@
         <div class="arrow">→</div>
       </a>
 
-      <a class="doc-card" href="./soundproof-windows.html">
-        <div class="doc-icon">🔇</div>
-        <div class="doc-body">
-          <h2 class="doc-title">隔音窗頂級系列評比（估價單對照）</h2>
-          <p class="doc-desc">嵐首估價單 $93,450（亞樂美 V8/V10 × 4 樘）拆解 · 亞樂美 V × 欣揚 SR × YKK AP × 鵝牌 × 大同 × 正新 × 九州 × DK 官網規格實查 · PRO360 行情帶 · 3 位師傅評論全爬評比</p>
-          <div class="doc-meta">8 系列頂級款橫評 · 正新/九州/DK 評價深查 · 決策樹 · 簽約前 9 條議價檢核</div>
-        </div>
-        <div class="arrow">→</div>
-      </a>
-
-      <a class="doc-card" href="./aluminum-window-contractor-research.html">
-        <div class="doc-icon">🪟</div>
-        <div class="doc-body">
-          <h2 class="doc-title">鋁門窗工班研究（PRO360 × Google Maps 雙軌）</h2>
-          <p class="doc-desc">蘆洲拆舊換新 2–5 扇 · PRO360 152 位專家全掃 13 家入選（1,571 則評論）＋ Google Maps 三蘆 204 家掃描 9 家在地店（216 則評論）· 兩軌分開排名合併詢價短名單</p>
-          <div class="doc-meta">排名總表 + 各家優缺點（評論原文為證）· 首選詢價組合 · 詢價前 7 條自保檢核</div>
-        </div>
-        <div class="arrow">→</div>
-      </a>
-
-      <a class="doc-card" href="./invisible-grille-contractor-research.html">
-        <div class="doc-icon">🛡️</div>
-        <div class="doc-body">
-          <h2 class="doc-title">隱形鐵窗工班研究（三重・蘆洲）</h2>
-          <p class="doc-desc">PRO360 兩分類 146 家全掃、30 家評論全爬（279 則含工項驗證）× Google Maps 四區 9 家在地店 × 全國品牌牌價軌 · 揭露「評論數前五名全是外業」的平台陷阱</p>
-          <div class="doc-meta">詢價組合：家舒適（蘆洲在地）＋金昌（唯一本業實績）＋宇奇（工廠直營）· 警示店 1 家</div>
-        </div>
-        <div class="arrow">→</div>
-      </a>
-
-      <a class="doc-card" href="./grille-screen-direct-vs-dealer.html">
-        <div class="doc-icon">🔩</div>
-        <div class="doc-body">
-          <h2 class="doc-title">隱形鐵窗＋防霾紗網：直發 vs 鋁門窗行代辦</h2>
-          <p class="doc-desc">大發報價單逐項驗算（$523/才 vs PRO360 行情 $400–500）· AIS 風光防霾網身分調查 · 隱形鐵窗 5 家專門公司牌價與 10 年保固慣例 · 分開發包的介面風險誠實列</p>
-          <div class="doc-meta">結論：分開直發更聰明 · 決策樹 3 情境 · 詢價前 11 條自保檢核 · 實收報價追蹤區</div>
-        </div>
-        <div class="arrow">→</div>
-      </a>
-
-      <a class="doc-card" href="./window-screen-comparison.html">
-        <div class="doc-icon">🪟</div>
-        <div class="doc-body">
-          <h2 class="doc-title">防霾紗窗比較</h2>
-          <p class="doc-desc">SMOG · Poll-tex 普特絲 · Usii · 綠綠好日 · HOSOI 禾工宅 · NEHER 麗禾 · AiScreen AIS · 含透視度分析與大發實收報價</p>
-          <div class="doc-meta">7 品牌 · 4 種技術路線 · 整戶 30 坪費用對照</div>
-        </div>
-        <div class="arrow">→</div>
-      </a>
-
     </div>
   </details>
 
-  <!-- ═══ 分類 3：清潔・洗衣家電 ═══ -->
-  <details class="cat" open>
+  <!-- ═══ 家電・照明 ═══ -->
+  <details class="cat" id="cat-appliance" open>
     <summary>
       <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-      <span class="cat-icon">🧹</span>
+      <span class="cat-icon">📺</span>
       <span class="cat-text">
-        <p class="cat-title">清潔・洗衣家電</p>
-        <p class="cat-sub">掃地 / 吸塵 / 洗烘 的機種對戰</p>
+        <p class="cat-title">家電・照明</p>
+        <p class="cat-sub">影音、洗烘、清潔與燈具採購</p>
       </span>
-      <span class="cat-count">3</span>
+      <span class="cat-count">5</span>
     </summary>
     <div class="cat-body">
+
+      <a class="doc-card" href="./projector-comparison.html">
+        <div class="doc-icon">📽️</div>
+        <div class="doc-body">
+          <h2 class="doc-title">家用投影機 × 布幕比較</h2>
+          <p class="doc-desc">4K 雷射為主（C 級）中階為輔（B 級）· 驗證「中國品牌台灣通路壓 5 萬內」· 公司貨 vs 光華陸版 · 布幕四形式</p>
+          <div class="doc-meta">10 機型實查價 · 抗光幕選型 · 1 歲寶寶安全檢核 · 5 年總成本</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
 
       <a class="doc-card" href="./laundry-comparison.html">
         <div class="doc-icon">🧺</div>
@@ -483,16 +659,26 @@
         <div class="arrow">→</div>
       </a>
 
+      <a class="doc-card" href="./home-lighting-guide.html">
+        <div class="doc-icon">💡</div>
+        <div class="doc-body">
+          <h2 class="doc-title">居家吸頂燈配置與採購指南</h2>
+          <p class="doc-desc">逐空間流明/色溫/E27 維修性配置 · 五種燈型全景 + 12 款 momo/PChome 實查價 · 宏華燈飾（大陸貨爭議）vs 三奇商城（正規經銷）誠實調查</p>
+          <div class="doc-meta">2.7m 天花 · 客廳調光調色 $3,000 內 · Ra≥90 取捨 · 6 通路評比 · 蘆洲在地店</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
     </div>
   </details>
 
-  <!-- ═══ 分類 4：生活・飲食研究 ═══ -->
-  <details class="cat" open>
+  <!-- ═══ 生活・飲食 ═══ -->
+  <details class="cat" id="cat-life" open>
     <summary>
       <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
       <span class="cat-icon">🍱</span>
       <span class="cat-text">
-        <p class="cat-title">生活・飲食研究</p>
+        <p class="cat-title">生活・飲食</p>
         <p class="cat-sub">日常消費決策的評論實查</p>
       </span>
       <span class="cat-count">1</span>
@@ -595,6 +781,12 @@
     }
   }
 
+  var overview = document.getElementById('overview');
+  var _origFilter = filter;
+  filter = function () {
+    _origFilter();
+    if (overview) overview.style.display = search.value.trim() ? 'none' : '';
+  };
   search.addEventListener('input', filter);
 })();
 </script>

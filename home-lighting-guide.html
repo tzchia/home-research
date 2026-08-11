@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>居家吸頂燈配置與採購指南 · 市面選擇 × 通路評比 × 宏華/三奇調查</title>
+<style>
+:root{
+  --bg:#f6f7f9;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --accent:#111827;
+  --soft:#f3f4f6;
+  --amber:#d97706;
+  --amber-soft:#fef3c7;
+  --green:#047857;
+  --green-soft:#ecfdf5;
+  --red:#b91c1c;
+  --red-soft:#fef2f2;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 20px 64px;
+}
+.hero{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 8px 28px rgba(0,0,0,.04);
+}
+h1{
+  margin:0 0 8px;
+  font-size:clamp(28px,4vw,42px);
+  letter-spacing:-.02em;
+}
+.subtitle{color:var(--muted);margin:0}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.badge{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:999px;
+  background:var(--soft);
+  font-size:14px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:24px;
+  margin-top:18px;
+}
+h2{font-size:22px;margin:0 0 14px}
+h3{font-size:18px;margin:18px 0 8px}
+.table-wrap{overflow-x:auto}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:850px;
+}
+th,td{
+  padding:14px 12px;
+  text-align:left;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+th{
+  font-size:14px;
+  color:#4b5563;
+  background:#fafafa;
+  position:sticky;
+  top:0;
+}
+tr:last-child td{border-bottom:none}
+strong{font-weight:700}
+.note{
+  padding:16px 18px;
+  border-radius:14px;
+  background:#fafafa;
+  border:1px solid var(--line);
+  margin-top:12px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+.item{
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+}
+.item b{display:block;margin-bottom:4px}
+.kicker{
+  font-size:13px;
+  font-weight:700;
+  color:#6b7280;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.footer{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:18px;
+}
+.secbadge{
+  display:inline-block;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  color:var(--amber);
+  background:var(--amber-soft);
+  border-radius:999px;
+  padding:4px 12px;
+  margin-bottom:8px;
+}
+.pill{
+  display:inline-block;
+  font-size:12.5px;
+  font-weight:700;
+  border-radius:999px;
+  padding:3px 10px;
+  white-space:nowrap;
+}
+.pill.win{background:var(--green-soft);color:var(--green)}
+.pill.warn{background:var(--amber-soft);color:var(--amber)}
+.pill.danger{background:var(--red-soft);color:var(--red)}
+.pill.neutral{background:var(--soft);color:var(--muted)}
+.callout{
+  padding:16px 18px;
+  border-radius:14px;
+  margin-top:12px;
+  border:1px solid var(--line);
+}
+.callout.warn{background:var(--amber-soft);border-color:#fcd34d}
+.callout.good{background:var(--green-soft);border-color:#a7f3d0}
+.callout.danger{background:var(--red-soft);border-color:#fecaca}
+.vgrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:12px;
+}
+.vcard{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px;
+  background:#fff;
+}
+.vcard.pro{border-left:4px solid var(--green)}
+.vcard.con{border-left:4px solid var(--red)}
+.vcard b{display:block;margin-bottom:6px}
+.vcard .q{
+  font-size:14px;
+  color:#374151;
+  background:var(--soft);
+  border-radius:10px;
+  padding:10px 12px;
+  margin-top:8px;
+}
+.src{font-size:13.5px;color:var(--muted)}
+.src li{margin-bottom:6px}
+.src a{color:#2563eb;word-break:break-all}
+a.backlink{color:#2563eb;text-decoration:none}
+.anchornav{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin:14px 0 0;
+}
+.anchornav a{
+  font-size:13px;font-weight:600;text-decoration:none;
+  color:#374151;background:var(--card);
+  border:1px solid var(--line);border-radius:999px;
+  padding:6px 12px;
+}
+.anchornav a:hover{border-color:var(--amber);color:var(--amber)}
+#rpn-bar{
+  position:fixed;top:0;left:0;height:4px;width:0%;
+  background:linear-gradient(90deg,#f59e0b,#d97706);
+  z-index:9999;transition:width .1s linear;
+}
+#rpn-pct{
+  position:fixed;top:10px;right:12px;
+  font-size:11.5px;font-weight:700;color:var(--amber);
+  background:rgba(255,255,255,.92);
+  border:1px solid #fcd34d;border-radius:999px;
+  padding:2px 9px;z-index:9999;
+  font-variant-numeric:tabular-nums;
+}
+@media(max-width:720px){
+  .container{padding:20px 12px 40px}
+  .hero,.card{padding:18px;border-radius:16px}
+  .grid,.vgrid{grid-template-columns:1fr}
+}
+@media print{
+  body{background:white}
+  .container{max-width:none;padding:0}
+  .hero,.card{box-shadow:none;break-inside:avoid}
+  #rpn-bar,#rpn-pct,.anchornav{display:none}
+}
+</style>
+</head>
+<body>
+<div id="rpn-bar"></div>
+<div id="rpn-pct">0%</div>
+<div class="container">
+
+<section class="hero">
+  <div class="kicker">Home Lighting Plan &amp; Buying Guide</div>
+  <h1>居家吸頂燈配置與採購指南</h1>
+  <p class="subtitle">依需求整理：2.7 m 天花板、客餐廳偏亮、臥室適中、客廳需調光調色溫、外觀極簡薄型、每盞預算 3,000 元以下，並以亮度與維修性為優先。後半部為市面選擇全景、momo / PChome 實查價、通路評比，與「宏華燈飾 / 三奇商城」兩家中和通路的誠實調查。</p>
+  <div class="badges">
+    <span class="badge">維修性優先</span>
+    <span class="badge">E27 可換燈泡</span>
+    <span class="badge">客廳調光調色溫</span>
+    <span class="badge">CRI / Ra ≥ 90 優先</span>
+    <span class="badge">長輩房提高照度</span>
+    <span class="badge">2026/08 實查價</span>
+  </div>
+  <nav class="anchornav">
+    <a href="#plan">A 配置原則</a>
+    <a href="#specs">B 逐空間規格</a>
+    <a href="#market">C 市面燈型全景</a>
+    <a href="#models">D 品牌與實查價</a>
+    <a href="#channels">E 通路評比</a>
+    <a href="#honghua">F 宏華燈飾調查</a>
+    <a href="#sanchi">G 三奇商城調查</a>
+    <a href="#verdict">H 結論建議</a>
+    <a href="#sources">I 資料來源</a>
+  </nav>
+</section>
+
+<section class="card" id="plan">
+  <div class="secbadge">A · 配置原則</div>
+  <h2>整體配置原則</h2>
+  <div class="grid">
+    <div class="item"><b>客廳</b>接受品牌型一體式 LED，換取較好的調光、調色溫與整體亮度。</div>
+    <div class="item"><b>其他空間</b>優先採 E27 可換燈泡式吸頂燈，燈泡故障時可自行更換。</div>
+    <div class="item"><b>亮度判斷</b>優先看「流明 lm」，不要只看瓦數 W。</div>
+    <div class="item"><b>舒適度</b>優先選霧面擴散罩，避免裸燈珠與過度眩光。</div>
+  </div>
+</section>
+
+<section class="card" id="specs">
+  <div class="secbadge">B · 逐空間規格</div>
+  <h2>燈光建議表</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>空間</th>
+          <th>建議類型</th>
+          <th>建議光通量</th>
+          <th>色溫</th>
+          <th>調光</th>
+          <th>維修性</th>
+          <th>預算建議</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>客廳</strong></td>
+          <td>品牌型 LED 吸頂燈／可換驅動模組型</td>
+          <td>約 4,500～6,000 lm</td>
+          <td>3000～6500K 可調</td>
+          <td>需要</td>
+          <td>★★★☆</td>
+          <td>2,000～3,000 元</td>
+        </tr>
+        <tr>
+          <td><strong>餐廳</strong></td>
+          <td>E27 × 3～4，可換燈泡、霧面罩</td>
+          <td>約 3,000～4,000 lm</td>
+          <td>3000～4000K</td>
+          <td>不必要</td>
+          <td>★★★★★</td>
+          <td>1,000～2,000 元</td>
+        </tr>
+        <tr>
+          <td><strong>走道</strong></td>
+          <td>E27 × 1～2，薄型燈具</td>
+          <td>約 800～1,500 lm</td>
+          <td>3000～4000K</td>
+          <td>不需要</td>
+          <td>★★★★★</td>
+          <td>300～800 元</td>
+        </tr>
+        <tr>
+          <td><strong>主臥</strong></td>
+          <td>E27 × 3，霧面薄型吸頂燈</td>
+          <td>約 2,500～3,500 lm</td>
+          <td>3000～4000K</td>
+          <td>可不需要</td>
+          <td>★★★★★</td>
+          <td>1,000～2,000 元</td>
+        </tr>
+        <tr>
+          <td><strong>一般次臥</strong></td>
+          <td>E27 × 2～3，可換燈泡</td>
+          <td>約 2,000～3,000 lm</td>
+          <td>3000～4000K</td>
+          <td>不需要</td>
+          <td>★★★★★</td>
+          <td>800～1,500 元</td>
+        </tr>
+        <tr>
+          <td><strong>長輩次臥</strong></td>
+          <td>E27 × 3～4，大面積霧面罩</td>
+          <td>約 3,000～4,000 lm</td>
+          <td>約 4000K</td>
+          <td>可不需要</td>
+          <td>★★★★★</td>
+          <td>1,000～2,000 元</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>採購時直接照這些規格找</h3>
+  <div class="note"><strong>客廳</strong>：4,500～6,000 lm、Ra ≥ 90、3000～6500K 可調色溫、多段或無段調光、遙控器即可、不需 App。優先確認 <strong>LED Driver 是否可單獨更換</strong>，若燈板或驅動器完全不可維修，優先度降低。</div>
+  <div class="note"><strong>餐廳</strong>：E27 × 3～4、霧面擴散罩、總流明約 3,000～4,000 lm。推薦 3000K～4000K，若希望食物看起來自然，選 Ra ≥ 90。</div>
+  <div class="note"><strong>主臥</strong>：E27 × 3、總流明約 2,500～3,500 lm、3000K～4000K。睡前以偏暖色溫較舒服。</div>
+  <div class="note"><strong>一般次臥</strong>：E27 × 2～3、總流明約 2,000～3,000 lm，功能維持簡單即可，避免為不常用的調光／智慧功能多花錢。</div>
+  <div class="note"><strong>長輩房</strong>：E27 × 3～4、約 3,000～4,000 lm、4000K 左右、Ra ≥ 90。重點是「提高總亮度＋降低眩光」，不是單純換成很白的 6500K。</div>
+  <div class="note"><strong>走道</strong>：約 800～1,500 lm 即可，使用 E27 × 1～2 的薄型燈具最容易維修。</div>
+
+  <h3>最推薦的燈具結構</h3>
+  <p><strong>E27 多燈泡＋霧面擴散罩</strong>最符合你們重視維修性的需求。燈泡壞掉時，只需旋下舊燈泡並更換，不必拆整盞燈，也不依賴特定 LED 燈板或驅動器規格。</p>
+  <div class="note">
+    建議燈具店用語：<br>
+    「我要 E27 燈座、燈泡可以自己單獨更換、霧面擴散罩、極簡薄型吸頂燈，不要全封閉不可維修的一體式 LED。」
+  </div>
+
+  <h3>選燈優先順序</h3>
+  <p><strong>流明 lm → 演色性 CRI / Ra → 色溫 → 燈具結構與維修方式 → 瓦數 W</strong></p>
+  <p>瓦數代表耗電量，不等於實際亮度。相同瓦數的不同 LED，流明可能差很多，因此購買時要以流明為主。</p>
+</section>
+
+<section class="card" id="market">
+  <div class="secbadge">C · 市面燈型全景 · 2026/08 增補</div>
+  <h2>市面上的燈有哪些選擇</h2>
+  <p>吸頂類主燈在台灣市場實際只有五條路線，各有明確的取捨（價帶為 momo / PChome 2026/08 實查）：</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>類型</th>
+          <th>優點</th>
+          <th>缺點</th>
+          <th>維修性</th>
+          <th>實查價帶</th>
+          <th>適合我們的空間</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>一體式 LED 吸頂燈</strong><br><span class="pill neutral">市場主流</span></td>
+          <td>薄（5–6cm）、光均勻、多數附遙控調光調色、光效高（88–110 lm/W）</td>
+          <td>光源或驅動器壞了通常整燈換；驅動器是壽命瓶頸</td>
+          <td>★★（億光/舞光保固 2 年、Panasonic 5 年）</td>
+          <td>台系 $500–3,000<br>日系 $4,000–14,000</td>
+          <td><strong>客廳</strong>（換取調光調色）</td>
+        </tr>
+        <tr>
+          <td><strong>E27 可換燈泡式</strong><br><span class="pill win">維修性最強</span></td>
+          <td>燈泡壞了自己換（一顆 LED 球泡 $50–100）；燈體幾乎不會壞</td>
+          <td>亮度受限於燈泡數；無法無段調光調色（除非配智慧燈泡）；造型較傳統</td>
+          <td>★★★★★</td>
+          <td>燈體 $285–1,900<br>（不含燈泡）</td>
+          <td><strong>餐廳 / 主臥 / 次臥 / 走道</strong></td>
+        </tr>
+        <tr>
+          <td><strong>半吸頂 / 吊燈</strong></td>
+          <td>造型佳、餐桌聚焦照明；多為 E27 可換泡</td>
+          <td>2.7m 天花吊燈略有壓迫感；積灰難清</td>
+          <td>★★★★（E27 款）</td>
+          <td>$700–8,000</td>
+          <td>餐廳可考慮（若想要造型）</td>
+        </tr>
+        <tr>
+          <td><strong>嵌燈（崁燈）</strong></td>
+          <td>天花最乾淨、可分區配置</td>
+          <td>需木作天花包管線（2.7m 淨高被吃掉 8–10cm）；換裝要爬高拆</td>
+          <td>★★★（快接頭款換裝容易）</td>
+          <td>$100–400/顆<br>不含木作</td>
+          <td>不建議 — 我們不做天花木作</td>
+        </tr>
+        <tr>
+          <td><strong>智慧吸頂燈</strong>（Wi-Fi/App）</td>
+          <td>App/語音控制、排程；小米 D 系列 Ra97 演色性突出</td>
+          <td>依賴 App 生態；陸規要挑 110V 版；雲端服務有停用風險</td>
+          <td>★★（同一體式）</td>
+          <td>小米 $1,039–2,299<br>Yeelight 水貨 $1,850</td>
+          <td>臥室/書房可考慮（Ra97 加分）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn"><strong>⚠️ 無牌淘寶系（$330–1,435 長方形客廳燈、風扇燈）不建議。</strong>momo「店+」第三方賣場與蝦皮充斥這類商品，規格標示混亂、常無 BSMI 商品檢驗標識、流明灌水，壞了無處送修 — 與我們「維修性優先」的原則直接牴觸。</div>
+</section>
+
+<section class="card" id="models">
+  <div class="secbadge">D · 品牌分層與實查價 · 2026/08 增補</div>
+  <h2>品牌怎麼分層？實查了哪些型號？</h2>
+  <p>以下售價全部為 2026/08/11 瀏覽器實查 momo / PChome 24h 標價（來源連結見文末），非廠商建議售價：</p>
+
+  <h3>三個品牌層</h3>
+  <div class="grid">
+    <div class="item"><b>國際牌層（日/歐系）</b>Panasonic（日本製、5 年保固，$4,590 起）、Philips（悅歆 $3,990 / 平價線若欣 $2,590）、OSRAM（$3,590）、TOSHIBA（$3,588–4,888）。貴但保固長、品質穩。</div>
+    <div class="item"><b>台灣牌層（CP 值主力）</b>億光（星晴 50W <strong>$999</strong>）、舞光（雲朵 50W $1,760 / 雪晴 Ra≥95 $2,200）、旭光（60W $1,990）、大同（50W $1,099–1,499）。保固 1–2 年，是預算內主戰場。</div>
+    <div class="item"><b>中國/平價層</b>小米（D40 Ra97 $2,119、D30 $1,499、D20 $1,039，台灣公司貨）、Yeelight（$1,850，非公司貨體系）、無牌淘寶系（$330 起，不建議）。</div>
+    <div class="item"><b>E27 燈泡成本參考</b>億光 13W E27 球泡 10 入 $529 ≈ <strong>$53/顆</strong>。E27 燈體 20 年只需換燈泡，總持有成本壓倒一體式。要 Ra90+ 可另配飛利浦/歐司朗高演色球泡。</div>
+  </div>
+
+  <h3>客廳候選：調光調色、4,500–6,000 lm、$3,000 以下</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>品牌 / 型號</th><th>瓦數 / 流明</th><th>色溫</th><th>調光調色</th><th>實查價</th><th>備註</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>億光 星晴 50W</strong></td><td>4,900 lm (max)</td><td>2800–6000K</td><td>✅ 遙控無段</td><td><strong>$999</strong>（momo）</td><td>價格破壞者；Ra&gt;80；2 年保</td></tr>
+        <tr><td>2</td><td><strong>舞光 雲朵 D-CEN50DM</strong></td><td>50W / 5,500 lm</td><td>3000–6500K</td><td>✅ 遙控＋四段壁切</td><td>$1,760（momo）</td><td>雙控最實用；110lm/W；2 年保</td></tr>
+        <tr><td>3</td><td>SHARP 明悅 55W</td><td>7,150 lm (max)</td><td>可調</td><td>✅ 遙控</td><td>$2,880（momo）</td><td>大坪數客廳</td></tr>
+        <tr><td>4</td><td>Philips 若欣星鑽 50W</td><td>5,500 lm</td><td>可調</td><td>✅ 遙控＋壁切</td><td>$2,590（momo）</td><td>飛利浦平價線</td></tr>
+        <tr><td>5</td><td>億光 星炫 60W</td><td>60W（6–7 坪）</td><td>可調</td><td>✅ 遙控</td><td>$2,990（momo）</td><td>客廳偏大再選</td></tr>
+        <tr><td>6</td><td>大同 50W 星鑽遙控版</td><td>50W</td><td>可調</td><td>✅ 遙控</td><td>$1,499（PChome）</td><td>壁切版只要 $1,099</td></tr>
+        <tr><td>7</td><td>IRIS CL14DL 45W</td><td>45W（6–8 坪）</td><td>11 段調色</td><td>✅ 遙控 10 段調光</td><td>$2,199（momo）</td><td>日系平價</td></tr>
+        <tr><td>8</td><td>舞光 雲海 70W</td><td>70W</td><td>可調＋夜燈</td><td>✅ 遙控</td><td>$3,080（momo）</td><td>略超預算</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>⚠️ CRI ≥ 90 的殘酷現實：</strong>$3,000 以下的「調光調色」款演色性幾乎都只有 Ra&gt;80（億光星晴、舞光雲朵、Philips 若欣皆是）。要 Ra≥90 只有三條路：<br>
+    ① <strong>舞光 雪晴 45W 全光譜 Ra≥95、$2,200</strong> — 但只能壁切調亮度，色溫固定（6500K 或 4000K 二選一），4,000 lm；<br>
+    ② <strong>小米 D40 Ra97、$2,119</strong> — 可調色溫，但官方標稱 3,000 lm@4000K，當客廳主燈偏暗（適合臥室/書房）；<br>
+    ③ Panasonic 日本製系列（$4,590 起）才能「Ra90 ＋ 調色溫 ＋ 5,000 lm」三者兼得 — 超出預算，需取捨。<br>
+    <strong>建議取捨：客廳若重調色溫 → 接受 Ra&gt;80（雲朵/星晴）；若重演色性 → 雪晴 4000K 版＋放棄調色溫。</strong>
+  </div>
+
+  <h3>E27 可換燈泡式（餐廳 / 臥室 / 走道）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>品牌 / 型號</th><th>形式</th><th>實查價（不含燈泡）</th><th>備註</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>9</td><td>舞光 E27 蛋糕吸頂燈</td><td>E27 × 1（雙燈另有）</td><td><strong>$285</strong>（單燈）/ $430（雙燈）</td><td>走道 / 陽台首選</td></tr>
+        <tr><td>10</td><td>Honey Comb L01-2002A</td><td>E27 × 2</td><td>$297（momo）</td><td>次臥入門</td></tr>
+        <tr><td>11</td><td>大巨光 典雅風 E27×5</td><td>E27 × 5（附小夜燈）</td><td>$2,980（PChome）</td><td>台灣製；E27×2 小款 $695</td></tr>
+        <tr><td>12</td><td>IKEA KRANBALK</td><td>E27 × 3</td><td>$1,499（IKEA）</td><td>SOLKLINT $849 / NÖSUND $2,399</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout good"><strong>✅ E27 路線總成本試算：</strong>餐廳＋主臥＋兩次臥＋走道全走 E27（燈體 $500–3,000/盞 ＋ 億光球泡 $53/顆），整戶非客廳空間可壓在 $5,000–8,000，之後 20 年只需換燈泡 — 這正是「維修性優先」的最大紅利。</div>
+</section>
+
+<section class="card" id="channels">
+  <div class="secbadge">E · 通路評比 · 2026/08 增補</div>
+  <h2>哪些平台或賣場適合我們</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>通路</th><th>價格</th><th>保固 / 退貨</th><th>安裝</th><th>風險</th><th>總評</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>momo 自營</strong></td>
+          <td>台系品牌常最低價（億光 50W $999）</td>
+          <td>7 天鑑賞；原廠保固走品牌</td>
+          <td>❌ 自己找水電</td>
+          <td>低；注意「店+」（TP 開頭網址）是第三方賣場</td>
+          <td><span class="pill win">買台系一體燈首選</span></td>
+        </tr>
+        <tr>
+          <td><strong>PChome 24h</strong></td>
+          <td>與 momo 互有高低（大同 50W $1,099 實查最低）</td>
+          <td>7 天鑑賞</td>
+          <td>❌</td>
+          <td>低</td>
+          <td><span class="pill win">E27 傳統燈具 / 大巨光最齊（642 款）</span></td>
+        </tr>
+        <tr>
+          <td><strong>蝦皮</strong></td>
+          <td>常有最低價；小米 / 舞光有官方旗艦店</td>
+          <td>7 天鑑賞；非官方店保固憑店家</td>
+          <td>❌</td>
+          <td><span class="pill danger">非旗艦店假貨/水貨風險最高</span>（Panasonic 日規 100V 水貨常見）</td>
+          <td>只建議買「官方旗艦店」</td>
+        </tr>
+        <tr>
+          <td><strong>特力屋</strong></td>
+          <td>標價偏高（Panasonic 和卷 $5,990）</td>
+          <td>門市可退換</td>
+          <td>✅ <strong>強項</strong>：到府安裝，基本出工 $750、吸頂燈單項 $300–750，常有加購折抵活動；限高 3.2m（2.7m OK）</td>
+          <td>極低</td>
+          <td>怕爬梯 / 要一站購足＋安裝最省心</td>
+        </tr>
+        <tr>
+          <td><strong>IKEA</strong></td>
+          <td>E27 燈體便宜（$249–2,399）</td>
+          <td>會員 365 天退貨</td>
+          <td>❌</td>
+          <td>無</td>
+          <td>E27 造型燈好選擇；一體式調光調色主流款少</td>
+        </tr>
+        <tr>
+          <td><strong>蘆洲 / 三重在地燈飾行</strong></td>
+          <td>批發價可議，常低於網路</td>
+          <td>店保為主，換修拿回店裡快</td>
+          <td>✅ 多可代安裝或介紹師傅</td>
+          <td>低（實體看得到貨）</td>
+          <td><span class="pill win">在地優勢大</span>：現場看光色、售後就近</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><strong>蘆洲在地實體店（就近選項）：</strong>一流照明（蘆洲環堤大道 288 號，百坪展示）、景弘照明（蘆洲，兼安裝施工）、光成照明（服務三重蘆洲，有安裝服務）。適合「現場看光色 + 買燈含裝一條龍」的空間（例如客廳主燈想親眼確認亮度）。</div>
+</section>
+
+<section class="card" id="honghua">
+  <div class="secbadge">F · 通路調查 ① · 2026/08 增補</div>
+  <h2>宏華燈飾：究竟是不是淘寶貨批來賣？</h2>
+  <p>宏華燈飾（官網 cheaplight.com.tw）＝ <strong>宏華專業燈飾有限公司</strong>，統編 42710643，2016/02 設立、資本額 100 萬、負責人巫榮賓、開立統一發票，登記營業項目「家用照明器材批發」。門市在<strong>新北市中和區安樂路 217 巷 20 弄 8 號</strong>（巷弄內、預約制、一次只服務一組客人）。</p>
+
+  <h3>核心問題的誠實答案</h3>
+  <div class="callout warn">
+    <strong>「淘寶批貨轉賣」不精確，但「商品是中國供應鏈的無品牌造型燈」有多重證據支持：</strong><br>
+    ① 宏華自己在 104 徵才頁列出的員工技能就包含「<strong>大陸燈具工廠製造管理</strong>」— 白紙黑字自承商品來自大陸工廠產線（比較像「自家對大陸工廠下單/管理產線」，而非逛淘寶零售轉賣）；<br>
+    ② Mobile01 有消費者直接指控「燈具大都是大陸來的次貨」「一次買 8 組有 6 組是瑕疵的」；<br>
+    ③ 商品結構全是<strong>無品牌造型燈</strong>（水晶燈、北歐風實木、工業風、E27 半吸頂），完全沒有 Panasonic / 舞光 / 億光等台灣正規品牌 — 這是典型陸製燈具賣場的品項配置，跟品牌經銷商完全不同；<br>
+    ④ 官網自稱「中和工廠直營」「均通過 CNS 國家檢驗合格」— 此宣稱與「大陸製造」並不矛盾（陸製燈具進口後送驗取得檢驗標識是合法常態），但「工廠直營」四個字容易讓人誤以為是台灣工廠。
+  </div>
+
+  <h3>評價兩面並陳</h3>
+  <div class="vgrid">
+    <div class="vcard pro">
+      <b>✅ 正面（好評方）</b>
+      <span class="pill win">價格確實便宜</span>
+      <div class="q">「直徑 80 公分水晶燈連同 36 顆 LED 燈管加安裝只要一萬八左右，別處 60 公分打完折還要 4 萬 6」— Mobile01 消費者</div>
+      <div class="q">104 頁自述：Google 地圖好評 2,914 個、同類商品售價控制在市價 4–7 折。官網有大量安裝實例好評（但屬自家網站自選內容，參考價值打折）。</div>
+    </div>
+    <div class="vcard con">
+      <b>❌ 負面（爭議方）</b>
+      <span class="pill danger">缺件爭議 + 退換貨風險</span>
+      <div class="q">「其中一頂吸頂燈零件缺少葉片與方柱⋯宏華堅持不是他們的問題⋯業務居然說下次再預約也不賣你」— Mobile01 詳細負評（含錄音爭議）</div>
+      <div class="q">「表面上價格比市價便宜一點，但燈具大都是大陸來的次貨⋯而且該店是貨物既出概不退換（外觀明顯瑕疵也不給換）」— Mobile01 消費者</div>
+      <div class="q">「一直要我們買⋯強迫推銷很感冒⋯現場展示的也不多」— Mobile01 消費者</div>
+    </div>
+  </div>
+
+  <div class="callout danger">
+    <strong>交易模式紅旗（跟我們的需求對照）：</strong>採「低消價」制（達低消才有廣告上的低價）、需自行組裝、<strong>現場清點配件後銀貨兩訖</strong> — 事後缺件各說各話（上方負評即實例）。無品牌燈具壞了之後<strong>找不到原廠料件</strong>，跟我們「維修性優先」的核心原則直接牴觸。
+  </div>
+</section>
+
+<section class="card" id="sanchi">
+  <div class="secbadge">G · 通路調查 ② · 2026/08 增補</div>
+  <h2>三奇商城：中和在地 45 年批發商，正規品牌經銷</h2>
+  <p>三奇商城（sanchishop.com）＝ 1980 年「三奇燈飾行」起家的<strong>中和在地燈具電料大盤批發商</strong>，主要服務水電、設計師、營造業，兼做零售。實體門市在<strong>新北市中和區復興路 14 號 1 樓</strong>（捷運南勢角站 1 號出口步行 3 分鐘），背後兩家登記公司（三奇商業有限公司 統編 46016700 / 三中實業有限公司 統編 54299837）皆核准設立、開立統一發票、無裁罰紀錄。</p>
+
+  <h3>賣什麼、多少錢</h3>
+  <div class="grid">
+    <div class="item"><b>品牌全是台灣正規貨</b>飛利浦、舞光、亮博士、Panasonic（含日本原裝系列）專區，另有台達電、TOTO/HCG、櫻花/林內等 — 典型台灣盤商配置，<strong>與淘寶轉賣商的「無牌造型燈」結構完全不同</strong>。</div>
+    <div class="item"><b>價位（官網實查）</b>舞光雲朵 24/30W $750、飛利浦若欣 $340–470 起、Panasonic 日本原裝 $4,590–9,990。多數商品約市價 55–70 折。</div>
+    <div class="item"><b>E27 可換燈泡式有貨</b>E27 空台 $120–470、微波感應吸頂燈空台 $860、舞光 E27 蛋糕燈 $265 起 — 我們的 E27 路線在這裡一站買齊。</div>
+    <div class="item"><b>保固退換寫得具體</b>瑕疵品 7 日內免運到府換新；LED 商品 30 日內故障免運換新；30 日後依原廠保固（未標示者 LED 以 1 年為基準）。</div>
+  </div>
+
+  <h3>可信度佐證</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>面向</th><th>實查結果</th><th>判讀</th></tr></thead>
+      <tbody>
+        <tr><td>Google Maps</td><td>評分 4.7，商家貼文持續更新（2026/05 仍活躍）</td><td><span class="pill win">良好</span></td></tr>
+        <tr><td>露天市集</td><td>帳號 mr_light1984：<strong>11.1K 正面評價</strong>（2023/02 起店休、統一改官網接單）</td><td><span class="pill win">長期網售紀錄</span></td></tr>
+        <tr><td>momo 商店</td><td>有官方商店，約 195 件商品，問問回應率 100%</td><td><span class="pill neutral">近期才進駐</span></td></tr>
+        <tr><td>PTT / Dcard / Mobile01</td><td>查無討論（也查無負評）</td><td><span class="pill neutral">聲量低但乾淨</span></td></tr>
+        <tr><td>貨源</td><td>抽驗商品圖為台灣正規代理商版型；E27 感應燈反查為台灣「伍星」產品（具台灣專利）；未發現任何淘寶同款或簡體文案</td><td><span class="pill win">台灣品牌經銷，非淘寶轉賣</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn"><strong>注意事項：</strong>① 部分商品標「來電優惠」「$1~」需先電話/LINE 詢價（傳統批發流程）；② 主打「30 天換貨」但未白紙黑字寫明網購 7 天鑑賞退款流程（法律上仍適用消保法，刷卡前先問清）；③ 只賣燈不含安裝；④ 門市週六日公休，自取限平日且要前一日下單。</div>
+</section>
+
+<section class="card" id="verdict">
+  <div class="secbadge">H · 結論</div>
+  <h2>推薦三奇商城或宏華燈飾嗎？</h2>
+  <div class="vgrid">
+    <div class="vcard pro">
+      <b>三奇商城 → 推薦 <span class="pill win">低風險</span></b>
+      45 年批發背景＋實體店＋開發票＋正規品牌（舞光/飛利浦/國際牌）＋批發折扣，賣的正是我們要的「品牌一體式客廳燈 + E27 可換燈泡式」。可先官網選型號 → 加 LINE（@cqa3428q）或電 02-2945-7878 議價確認現貨與保固 → 平日跑一趟南勢角自取（距蘆洲車程約 30–40 分）。裝潢期一次買整戶多盞，正是批發商甜蜜點。
+    </div>
+    <div class="vcard con">
+      <b>宏華燈飾 → 此案不推薦 <span class="pill danger">需求不對盤</span></b>
+      它的主場是「便宜的無品牌造型燈」（水晶燈/工業風/北歐風），與我們「極簡薄型、品牌、維修性優先」三個條件全部不合；加上大陸供應鏈無品牌貨（壞了無料件）、現場清點銀貨兩訖的缺件爭議前例、「概不退換」指控。<strong>例外</strong>：若哪天想買造型燈/水晶燈且能接受「現場逐件驗貨、自行組裝、不退換」的遊戲規則，它的價格確實有競爭力。
+    </div>
+  </div>
+
+  <h3>整戶採購建議動線</h3>
+  <div class="note">
+    <strong>① 客廳主燈</strong>（調光調色一體式）：momo 買舞光雲朵 50W $1,760 或億光星晴 $999；重演色性則舞光雪晴 Ra≥95 $2,200（4000K 版）。<br>
+    <strong>② 餐廳/臥室/走道</strong>（E27 路線）：三奇商城一站買齊燈體＋球泡（批發價），或 PChome 買大巨光台製系列。<br>
+    <strong>③ 想現場看光色</strong>：蘆洲在地一流照明/景弘照明，或平日跑三奇門市。<br>
+    <strong>④ 安裝</strong>：裝潢期直接請配合水電順手裝（最省）；入住後加裝則特力屋購買＋加購安裝（$750 內）。
+  </div>
+</section>
+
+<section class="card" id="sources">
+  <div class="secbadge">I · 資料來源與方法限制</div>
+  <h2>資料來源</h2>
+  <ul class="src">
+    <li>實查價格：momo 購物網、PChome 24h 商品頁（2026/08/11 瀏覽器實查，商品連結略 — 以品牌＋型號搜尋即得，價格會浮動）；IKEA 官網（ikea.com.tw）。</li>
+    <li>特力屋安裝費率：<a href="https://www.trplus.com.tw/_ui/pages/constructionCost/index.html">trplus.com.tw 官方安裝說明</a>。</li>
+    <li>舞光雪晴規格：<a href="https://www.dancelight.com.tw/tw/product/ceiling-integrated-0026/detail">舞光官網</a>；小米 D40 光通量：<a href="https://www.mi.com/tw/support/faq/details/KA-535497/">mi.com 官方 FAQ</a>。</li>
+    <li>宏華燈飾：官網 <a href="http://www.cheaplight.com.tw/">cheaplight.com.tw</a>、<a href="https://www.mobile01.com/topicdetail.php?f=335&amp;t=4212410">Mobile01 評價討論串</a>、<a href="https://opengovtw.com/ban/42710643">公司登記（統編 42710643）</a>、<a href="https://www.104.com.tw/company/1a2x6bjl8l">104 公司頁（自述大陸工廠製造管理）</a>。</li>
+    <li>三奇商城：官網 <a href="https://www.sanchishop.com/">sanchishop.com</a>（關於/購物指南/品牌分類/商品頁）、<a href="https://opengovtw.com/ban/46016700">三奇商業登記</a>、<a href="https://opengovtw.com/ban/54299837">三中實業登記</a>、<a href="https://www.ruten.com.tw/store/mr_light1984/">露天賣場紀錄</a>、Google Maps 商家頁。</li>
+  </ul>
+  <h3>方法限制（誠實申報）</h3>
+  <div class="note">
+    ① 蝦皮個別商品價格未實查（站點反爬），僅確認小米/舞光有官方旗艦店；② Google Maps 評論明細受登入牆限制，三奇僅取得 4.7 總評分、宏華好評數採其 104 頁自述（2,914 個）未能獨立驗證；③ momo 商品頁規格多為圖片，流明/CRI 以品牌官網交叉驗證；④ 宏華 Mobile01 討論串正反評論皆為網友自述，無法驗證個案真偽 — 但「缺件銀貨兩訖爭議」與其交易模式（現場清點、自行組裝）結構上一致，故列為紅旗；⑤ 宏華調查的其中一支自動查證作業逾時，該段改由人工搜尋補齊，未取得宏華蝦皮賣場評價明細。所有價格以下單當日各通路即時標價為準。
+  </div>
+</section>
+
+<p class="footer">初版：吸頂燈配置建議（依 2.7m 天花、維修性優先需求整理）。2026/08/11 增補：市面燈型全景、品牌實查價、通路評比、宏華燈飾/三奇商城調查。價格、規格、保固以原廠與通路最新公告為準。<br><a class="backlink" href="./index.html">← 回家居研究首頁</a></p>
+
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('rpn-bar'),pct=document.getElementById('rpn-pct');
+  function upd(){
+    var h=document.documentElement,
+        max=h.scrollHeight-h.clientHeight,
+        p=max>0?Math.min(100,Math.round(h.scrollTop/max*100)):0;
+    bar.style.width=p+'%';pct.textContent=p+'%';
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);
+  upd();
+})();
+</script>
+</body>
+</html>
