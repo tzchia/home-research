@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>電鈴選購比較｜110V 有線電鈴 vs 視訊門鈴 vs 無線門鈴</title>
+<style>
+:root{
+  --ink:#1C1410; --muted:#6B5E52; --line:#E8DFD3; --bg:#FBF8F3; --paper:#FFFFFF;
+  --brass:#B45309; --brass-soft:#FEF3E2; --brass-deep:#7C3A02;
+  --teal:#0E7490; --teal-soft:#E0F2F7;
+  --gray:#6B7280; --gray-soft:#F3F4F6;
+  --win:#166534; --win-soft:#EAF7EE; --warn:#92400E; --warn-soft:#FEF6E7; --danger:#B91C1C; --danger-soft:#FDECEC;
+  --r:18px;
+  --rpn-accent:#F59E0B; --rpn-accent-deep:#B45309; --rpn-track:#F3E8D8;
+  --rpn-line:#E8DFD3; --rpn-muted:#6B5E52; --rpn-soft:#FEF3E2; --rpn-glass:rgba(251,248,243,.95);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter','Noto Sans TC',system-ui,sans-serif;line-height:1.65;font-size:16px}
+.wrap{max-width:1060px;margin:0 auto;padding:20px 18px 60px}
+h1,h2,h3{font-family:'Noto Serif TC',serif;line-height:1.3}
+h1{font-size:clamp(26px,4.5vw,40px);margin:8px 0 10px}
+h2{font-size:clamp(20px,3vw,27px);margin:0 0 14px}
+h3{font-size:18px;margin:18px 0 8px}
+a{color:var(--brass-deep)}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.kicker{display:inline-block;background:var(--brass);color:#fff;font-weight:800;font-size:12.5px;letter-spacing:.12em;padding:5px 12px;border-radius:999px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.tag{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:13.5px;font-weight:700;color:var(--muted)}
+section{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;margin:22px 0}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--brass);color:#fff;font-weight:900;font-size:15px;margin-right:10px;vertical-align:-6px}
+.callout{border-radius:14px;padding:14px 18px;margin:16px 0;border:1px solid}
+.callout.win{background:var(--win-soft);border-color:#BFE3C9}
+.callout.warn{background:var(--warn-soft);border-color:#F0DCB4}
+.callout.danger{background:var(--danger-soft);border-color:#F2C4C4}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:800;white-space:nowrap}
+.pill.win{background:var(--win-soft);color:var(--win)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.danger{background:var(--danger-soft);color:var(--danger)}
+.pill.neutral{background:var(--gray-soft);color:var(--gray)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0}
+th{background:var(--brass-soft);color:var(--brass-deep);text-align:left;padding:9px 10px;border-bottom:2px solid var(--line);font-size:13.5px}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.star td{background:#FFFBF2}
+.tblwrap{overflow-x:auto}
+.price{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:800;white-space:nowrap}
+.route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+@media(max-width:860px){.route-grid{grid-template-columns:1fr}}
+.route{border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;background:#FFFDF9}
+.route h3{margin:2px 0 8px}
+.route.main{border-top:4px solid var(--brass)}
+.route.alt{border-top:4px solid var(--teal)}
+.route.ref{border-top:4px solid var(--gray)}
+.route ul{margin:8px 0 0;padding-left:20px}
+.route li{margin:4px 0;font-size:14.5px}
+.cost-card{background:#241A10;color:#F5EBDD;border-radius:var(--r);padding:24px}
+.cost-card h2{color:#FCD9A4}
+.cost-card table{color:#F5EBDD}
+.cost-card th{background:#3A2B1A;color:#FCD9A4;border-bottom:2px solid #55402A}
+.cost-card td{border-bottom:1px solid #4A3826}
+.cost-card tr.star td{background:#33261636}
+.tree{border-left:3px solid var(--brass);padding-left:16px;margin:14px 0}
+.tree .q{font-weight:800;margin:12px 0 4px}
+.tree .a{margin:2px 0 2px 8px;font-size:15px}
+ul.check{list-style:none;padding-left:4px}
+ul.check li{margin:9px 0;padding-left:30px;position:relative}
+ul.check li::before{content:"☐";position:absolute;left:2px;top:-1px;font-size:18px;color:var(--brass)}
+.sources ol{padding-left:22px}
+.sources li{margin:6px 0;font-size:14px;color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:13.5px;margin-top:26px}
+.backlink{display:inline-block;margin-top:8px;font-weight:700}
+@media print{.rpn-navbar,.rpn-dock,.backlink{display:none!important}}
+
+/* rpn 進度條 + 導覽 */
+.rpn-navbar{position:sticky;top:0;z-index:60;background:var(--rpn-glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);margin:0 0 18px;padding:9px 10px 6px;border-radius:16px;border:1px solid var(--rpn-line);box-shadow:0 6px 20px rgba(180,83,9,.10)}
+.rpn-progress{height:5px;background:var(--rpn-track);border-radius:999px;overflow:hidden;margin-bottom:9px}
+.rpn-progress > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rpn-accent),var(--rpn-accent-deep));border-radius:999px;transition:width .08s linear}
+.rpn-toc{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;margin:0;padding:2px 2px 6px;scrollbar-width:thin;scroll-behavior:smooth}
+.rpn-toc::-webkit-scrollbar{height:6px}
+.rpn-toc::-webkit-scrollbar-thumb{background:#E3CFA9;border-radius:999px}
+.rpn-toc a{flex:0 0 auto;white-space:nowrap;border:1px solid var(--rpn-line);background:#fff;border-radius:999px;padding:7px 12px;color:var(--rpn-muted);font-weight:800;text-decoration:none;font-size:13.5px;transition:background .15s,color .15s,border-color .15s}
+.rpn-toc a:hover{border-color:var(--rpn-accent);color:var(--rpn-accent-deep)}
+.rpn-toc a.active{background:var(--rpn-accent-deep);color:#fff;border-color:var(--rpn-accent-deep)}
+.rpn-dock{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:55;display:none;flex-direction:column;gap:2px;background:var(--rpn-glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--rpn-line);border-radius:16px;padding:12px 10px;box-shadow:0 12px 30px rgba(180,83,9,.16);max-height:88vh;overflow:auto;scrollbar-width:thin}
+.rpn-dock::-webkit-scrollbar{width:5px}
+.rpn-dock::-webkit-scrollbar-thumb{background:#E3CFA9;border-radius:999px}
+.rpn-dock .rpn-dock-head{font-size:11px;font-weight:900;color:var(--rpn-muted);letter-spacing:.08em;padding:0 8px 6px;text-transform:uppercase}
+.rpn-dock .rpn-dock-prog{height:4px;background:var(--rpn-track);border-radius:999px;overflow:hidden;margin:0 6px 8px}
+.rpn-dock .rpn-dock-prog > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rpn-accent),var(--rpn-accent-deep));border-radius:999px;transition:width .08s linear}
+.rpn-dock a{display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:10px;font-size:13px;font-weight:700;color:var(--rpn-muted);border:0;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
+.rpn-dock a .rpn-dot{width:9px;height:9px;border-radius:999px;background:#E0CDA8;flex:0 0 auto;transition:background .15s,box-shadow .15s}
+.rpn-dock a:hover{background:var(--rpn-soft);color:var(--rpn-accent-deep)}
+.rpn-dock a:hover .rpn-dot{background:var(--rpn-accent)}
+.rpn-dock a.active{background:var(--rpn-accent-deep);color:#fff}
+.rpn-dock a.active .rpn-dot{background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+@media (min-width:1280px){.rpn-dock{display:flex}.rpn-navbar{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="rpn-navbar" id="rpnNavbar">
+  <div class="rpn-progress"><i id="rpnFill"></i></div>
+  <div class="rpn-toc" id="rpnToc">
+    <a href="#tldr">60秒結論</a><a href="#routes">三種路線</a><a href="#products">實查清單</a><a href="#tco">5年成本</a><a href="#decision">決策樹</a><a href="#checklist">自我檢核</a><a href="#sources">來源聲明</a>
+  </div>
+</div>
+<nav class="rpn-dock" id="rpnDock" aria-label="頁面導覽">
+  <div class="rpn-dock-head">本頁導覽</div>
+  <div class="rpn-dock-prog"><i id="rpnSideFill"></i></div>
+  <a href="#tldr"><span class="rpn-dot"></span>60秒結論</a>
+  <a href="#routes"><span class="rpn-dot"></span>三種路線</a>
+  <a href="#products"><span class="rpn-dot"></span>實查清單</a>
+  <a href="#tco"><span class="rpn-dot"></span>5年成本</a>
+  <a href="#decision"><span class="rpn-dot"></span>決策樹</a>
+  <a href="#checklist"><span class="rpn-dot"></span>自我檢核</a>
+  <a href="#sources"><span class="rpn-dot"></span>來源聲明</a>
+</nav>
+
+<header>
+  <span class="kicker">HOME RESEARCH · 新家裝潢</span>
+  <h1>電鈴選購比較</h1>
+  <p style="color:var(--muted);max-width:760px">水電師傅已在門口預留電源與線路 — 這個前提直接決定了答案的方向：<strong>最便宜、最耐用、零耗材的 110V 有線電鈴（NT$95–169）就是正解</strong>。視訊門鈴是「要不要多花 20–30 倍價錢買監看功能」的另一個問題，本頁把兩者攤開來比。</p>
+  <div class="tags">
+    <span class="tag">前提：門口已預留 110V 電源</span>
+    <span class="tag">momo / PChome 實查價</span>
+    <span class="tag">2026/08/18 查價</span>
+    <span class="tag">5 年總持有成本</span>
+  </div>
+</header>
+
+<section id="tldr">
+  <h2><span class="badge">A</span>60 秒結論</h2>
+  <div class="callout win">
+    <strong>✅ 首選：太星電工 DM6125 小叮噹門鈴（AC110V 接線式，PChome NT$160）或 DM6116 鳥音門鈴（PChome NT$101）。</strong><br>
+    既然水電已經拉好線，正統 110V 接線電鈴是唯一「裝了就忘記它存在」的方案：不用電池、不用 App、不用韌體更新、沒有 Wi-Fi 斷線問題，台灣製、一年保固，5 年總成本就是購入價本身。
+  </div>
+  <ul>
+    <li><strong>要更省</strong>：五金行系統的台製鳥聲/叮噹電鈴（CD116/CD117/FW-125）NT$95–120，功能完全一樣，差在通路與保固服務。</li>
+    <li><strong>想看到訪客</strong>：TP-Link Tapo D235（momo NT$2,999）是實查中唯一明確標示「電池／電線兩用」供電的視訊門鈴，可吃你預留的電源。但這是加購「監看攝影機」，不是換一顆更好的電鈴。</li>
+    <li><strong>不建議</strong>：家裡線都拉好了還買無線電鈴（KINYO NT$299 等）— 等於付錢放棄已施工的優勢，還要定期換門口按鈕的電池。</li>
+  </ul>
+  <div class="callout warn">
+    <strong>⚠️ 先確認一件事再下單：</strong>請跟水電確認預留的是 <strong>AC110V</strong>（不是 220V，也不是對講機的低壓訊號線）。太星 DM6116/6125 皆明載「勿接 220V」。另外確認線路是「電源＋門口押扣（按鈕）迴路」還是只有電源 — 有線電鈴需要一顆門口按鈕串在迴路上，部分商品不附押扣需加購（約 NT$30–80）。
+  </div>
+</section>
+
+<section id="routes">
+  <h2><span class="badge">B</span>三種技術路線：本質上是三種不同的東西</h2>
+  <div class="route-grid">
+    <div class="route main">
+      <h3>① 110V 有線電鈴 <span class="pill win">你的情境首選</span></h3>
+      <p style="font-size:14.5px;margin:6px 0">門口按鈕 → 實體線 → 室內鈴。純電機/簡單 IC 電路，一顆用十年以上很常見。</p>
+      <ul>
+        <li>價格帶：NT$95–169</li>
+        <li>零耗材、零維護、零連線問題</li>
+        <li>需要的線路你已經有了</li>
+        <li>缺點：只有「叮咚」，沒有影像、沒有手機通知</li>
+      </ul>
+    </div>
+    <div class="route alt">
+      <h3>② 有線/兩用視訊門鈴 <span class="pill warn">功能升級題</span></h3>
+      <p style="font-size:14.5px;margin:6px 0">攝影機＋門鈴＋App 通知。接電線款可免充電，是「監視器」預算，不是「電鈴」預算。</p>
+      <ul>
+        <li>價格帶：NT$1,999–4,039</li>
+        <li>能遠端看訪客、留存影像</li>
+        <li>依賴 Wi-Fi 與 App，有壽命與韌體停更風險</li>
+        <li>6F 單層、門口在梯廳：社區通常已有大門對講與監視，邊際效益要打折</li>
+      </ul>
+    </div>
+    <div class="route ref">
+      <h3>③ 無線電鈴 <span class="pill neutral">對照組</span></h3>
+      <p style="font-size:14.5px;margin:6px 0">門口按鈕無線發射（電池或按壓自發電），室內接收器插插座。是「沒拉線的人」的補救方案。</p>
+      <ul>
+        <li>價格帶：NT$299–709</li>
+        <li>免施工，租屋/舊屋救星</li>
+        <li>對你而言是負優化：比有線貴、多電池維護、還可能受干擾</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <h2><span class="badge">C</span>實查商品清單（momo / PChome，2026-08-18 頁面標價）</h2>
+  <h3>① 110V 有線電鈴（主戰場）</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>品牌 / 型號</th><th>通路 / 實查價</th><th>供電</th><th>重點</th><th>連結</th></tr>
+    <tr class="star"><td><strong>太星電工 DM6125 小叮噹門鈴</strong> ★</td><td class="price">PChome $160<br>momo $169</td><td>AC110V 接線</td><td>叮咚聲、ABS 耐熱、智慧 IC、台灣製、1 年保固；附新舊線路兩種接法說明</td><td><a href="https://24h.pchome.com.tw/prod/DEAC4V-A63257603" target="_blank" rel="noopener">PChome</a> · <a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=15470142" target="_blank" rel="noopener">momo</a></td></tr>
+    <tr class="star"><td><strong>太星電工 DM6116 鳥音門鈴</strong> ★</td><td class="price">PChome $101<br>momo $119</td><td>AC110V 接線</td><td>鳥叫聲、低耗電、台灣製、1 年保固；momo 頁標庫存低</td><td><a href="https://24h.pchome.com.tw/prod/DEAC4V-A64808361" target="_blank" rel="noopener">PChome</a> · <a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=15470141" target="_blank" rel="noopener">momo</a></td></tr>
+    <tr><td>鳥聲門鈴 CD116（明式壁掛）</td><td class="price">momo $95</td><td>AC110V 接線</td><td>台灣製、明線壁掛；⚠️ 預購 9/1 出貨</td><td><a href="https://www.momoshop.com.tw/TP/TP0002723/goodsDetail/TP00027230036089" target="_blank" rel="noopener">momo</a></td></tr>
+    <tr><td>崁入式鳥聲門鈴 CD117（暗式）</td><td class="price">momo $95</td><td>AC110V 接線</td><td>埋入型，適合有預埋暗盒者 — 問水電有沒有留暗盒</td><td><a href="https://www.momoshop.com.tw/TP/TP0002723/goodsDetail/TP00027230036088" target="_blank" rel="noopener">momo</a></td></tr>
+    <tr><td>叮噹電鈴 FW-125（外露式）</td><td class="price">momo $105–120</td><td>AC110V/220V 可選</td><td>機械叮噹鈴、120×108×35mm，下單選 110V</td><td><a href="https://www.momoshop.com.tw/TP/TP0009864/goodsDetail/TP00098640000017" target="_blank" rel="noopener">momo</a></td></tr>
+  </table>
+  </div>
+
+  <h3>② 視訊 / 智慧門鈴（升級選項）</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>品牌 / 型號</th><th>通路 / 實查價</th><th>供電</th><th>重點</th><th>連結</th></tr>
+    <tr class="star"><td><strong>TP-Link Tapo D235</strong> ★</td><td class="price">momo $2,999<br>PChome $3,299</td><td>電池 / 電線兩用</td><td>2K 5MP、全彩夜視＋補光燈、180° 廣角、IP66、512GB 卡；實查中唯一明標可接電線</td><td><a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=13604170" target="_blank" rel="noopener">momo</a> · <a href="https://24h.pchome.com.tw/prod/DSBC1T-A900IDS85" target="_blank" rel="noopener">PChome</a></td></tr>
+    <tr><td>TP-Link Tapo D210</td><td class="price">PChome $1,999</td><td>電池（6400mAh，約 180 天）</td><td>2K 3MP、IP64；momo 缺貨中。純電池款 = 沒用到你的預留電源</td><td><a href="https://24h.pchome.com.tw/prod/DSBC0Z-A900I95TT" target="_blank" rel="noopener">PChome</a></td></tr>
+    <tr><td>SpotCam Ring 3</td><td class="price">momo $3,990</td><td>電池（全無線）</td><td>台灣製、IP65、台灣雲端；同樣沒用到預留電源</td><td><a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=15357460" target="_blank" rel="noopener">momo</a></td></tr>
+    <tr><td>SwitchBot 視訊門鈴 2K</td><td class="price">momo $4,039</td><td>頁面未載明</td><td>2K；供電方式頁面查不到，下單前需向客服確認</td><td><a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=14927761" target="_blank" rel="noopener">momo</a></td></tr>
+  </table>
+  </div>
+
+  <h3>③ 無線電鈴（對照組）與其他</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>品牌 / 型號</th><th>通路 / 實查價</th><th>供電</th><th>重點</th><th>連結</th></tr>
+    <tr><td>KINYO DBA-375 插電式無線門鈴</td><td class="price">momo $299</td><td>接收器插電＋按鈕無線</td><td>momo 總銷 1,000+；免牽線 — 但你有線</td><td><a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=6023242" target="_blank" rel="noopener">momo</a></td></tr>
+    <tr><td>linptech 自發電無線門鈴（小米有品）</td><td class="price">momo $709</td><td>按壓自發電＋接收器插電</td><td>按鈕免電池是無線款中的最佳解，但仍是無線</td><td><a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=13331106" target="_blank" rel="noopener">momo</a></td></tr>
+    <tr><td>太星電工 SKANDIA 音樂門鈴</td><td class="price">PChome $369</td><td>接收器插 110V＋按鈕無線（A23 電池）</td><td>名為插電式、實為無線發射按鈕，48 首和弦、NCC 認證</td><td><a href="https://24h.pchome.com.tw/prod/DMAL8E-A900AO7UK" target="_blank" rel="noopener">PChome</a></td></tr>
+    <tr><td>無敵王 WK-D903 無線音樂門鈴</td><td class="price">PChome $359</td><td>電池式無線</td><td>36 首音樂、70–100M、NCC 認證</td><td><a href="https://24h.pchome.com.tw/prod/QFAP1L-A900AEVYS" target="_blank" rel="noopener">PChome</a></td></tr>
+  </table>
+  </div>
+
+  <div class="callout danger">
+    <strong>🛑 蝦皮部分：未取得，誠實聲明。</strong>本次查價蝦皮全站被反爬蟲／登入牆擋下（搜尋頁、SEO list 頁、Google 站內搜尋反查、比價網 BigGo 全數失敗），依「不編造價格」原則不列蝦皮價。從搜尋摘要可見蝦皮上同樣流通 <span class="mono">伍星 WS-5016</span>、<span class="mono">朝日電工 CD-116A / CD-128A</span>、<span class="mono">雙日 CD-555A</span> 等台製 110V 電鈴（多在 $95–150 帶），與 momo/PChome 同級同價位 — 這個品類蝦皮不會有明顯價差，且 momo/PChome 出貨與退貨保障較單純。想比蝦皮價可直接在 App 內搜上述型號。
+  </div>
+</section>
+
+<section id="tco" class="cost-card">
+  <h2><span class="badge" style="background:#B45309">D</span>5 年總持有成本</h2>
+  <p style="color:#E8D9C4;font-size:14.5px">電鈴是入門票極低、耗材差異極大的品類：有線電鈴 5 年成本＝購入價；電池款要算電池；視訊門鈴要算「雲端訂閱（可不訂）＋記憶卡＋產品壽命風險」。</p>
+  <div class="tblwrap">
+  <table>
+    <tr><th>方案</th><th>購入</th><th>5 年耗材/維護</th><th>5 年總計</th><th>備註</th></tr>
+    <tr class="star"><td>★ 太星 DM6125（有線）</td><td class="price">$160</td><td class="price">$0</td><td class="price">$160</td><td>零耗材；壞了再買一顆也才 $160</td></tr>
+    <tr><td>台製五金行電鈴 CD116/117</td><td class="price">$95</td><td class="price">$0</td><td class="price">$95</td><td>同上，全場最低</td></tr>
+    <tr><td>KINYO DBA-375（無線）</td><td class="price">$299</td><td class="price">約 $150–300（按鈕電池）</td><td class="price">約 $450–600</td><td>電池壽命依使用頻率</td></tr>
+    <tr><td>Tapo D235（視訊，接線）</td><td class="price">$2,999</td><td class="price">$300–600（512GB 卡，可免雲訂閱）</td><td class="price">約 $3,300–3,600</td><td>接線免充電；App/韌體壽命風險自負</td></tr>
+    <tr><td>SpotCam Ring 3（視訊，電池）</td><td class="price">$3,990</td><td class="price">$0–3,000+（雲端方案依選購）</td><td class="price">$3,990 起</td><td>台灣雲端；訂閱費是最大變數</td></tr>
+  </table>
+  </div>
+  <p style="color:#E8D9C4;font-size:14px;margin-top:10px">結論很殘酷：<strong>有線電鈴 vs 視訊門鈴的 5 年成本差 20–40 倍</strong>。多出來的錢買的是「影像與遠端通知」，不是「更好的鈴聲」。</p>
+</section>
+
+<section id="decision">
+  <h2><span class="badge">E</span>情境決策樹</h2>
+  <div class="tree">
+    <p class="q">Q1. 你只需要「有人按鈴，屋內聽得到」？</p>
+    <p class="a">→ 是：<strong>太星 DM6125（$160）</strong>結案。要最省就 CD116/117（$95）。</p>
+    <p class="q">Q2. 想在手機上看是誰、不在家也收到通知？</p>
+    <p class="a">→ 先想：6F 梯廳門口，社區已有大門對講機＋公共監視器嗎？有的話這功能重疊度高，建議先住三個月再決定要不要加購。</p>
+    <p class="a">→ 仍要：<strong>Tapo D235（$2,999）</strong>，唯一明標可吃預留電源的款；記憶卡本地儲存可免月費。</p>
+    <p class="q">Q3. 兩個都要（實體叮咚＋影像）？</p>
+    <p class="a">→ 可並存：110V 電鈴照裝（$160），視訊門鈴另外貼在門邊當攝影機用。總價 $3,159 仍比單買高階視訊門鈴便宜。</p>
+    <p class="q">Q4. 預留線路到場確認後發現不是 110V 電源？</p>
+    <p class="a">→ 若是對講機訊號線：走社區配套的門口對講機系統，別自己接電鈴。若什麼都不是：退回無線款，首選 linptech 自發電（$709，按鈕免電池）。</p>
+  </div>
+</section>
+
+<section id="checklist">
+  <h2><span class="badge">F</span>下單前自我檢核</h2>
+  <ul class="check">
+    <li><strong>向水電確認電壓與迴路</strong>：預留的是 AC110V 電源？線路是否含「門口押扣」迴路？（有線電鈴＝電源＋按鈕串聯，缺按鈕要加購押扣，約 $30–80）</li>
+    <li><strong>明式 vs 暗式</strong>：門口/室內有預埋暗盒選崁入式（CD117），沒有就選壁掛明式 — 裝錯型式會多一筆修飾工。</li>
+    <li><strong>110V 專用機種勿接 220V</strong>：太星頁面明載，接錯直接燒毀不在保固內。</li>
+    <li><strong>視訊門鈴問三件事再買</strong>：① 不訂雲端月費能不能完整使用（本地卡錄影）？② 接線供電的電壓範圍是否涵蓋你的預留電源？③ 門口 Wi-Fi 訊號夠不夠（大門常是收訊死角）。</li>
+    <li><strong>社區規約</strong>：梯廳屬公共空間，門外裝攝影鏡頭（視訊門鈴）部分社區管委會有規範，先問。</li>
+    <li><strong>momo/PChome 價格波動快</strong>：本頁為 2026/08/18 促銷價快照，下單前再刷一次。</li>
+  </ul>
+</section>
+
+<section id="sources" class="sources">
+  <h2><span class="badge">G</span>資料來源與方法限制</h2>
+  <ol>
+    <li>momo 購物網搜尋「110V 門鈴」「電鈴」「視訊門鈴」實查（2026-08-18，瀏覽器親見頁面標價，含 i_code 直連）。</li>
+    <li>PChome 24h 搜尋 API＋商品頁實查（2026-08-18；「有線電鈴」關鍵字雜訊多為耳機，實際以「110V 門鈴」「插電式門鈴」撈取）。</li>
+    <li>蝦皮：搜尋頁/list 頁/站內反查全數被反爬蟲擋下，<strong>未取得任何實查價格，本頁不列</strong>；僅在 C 區誠實聲明流通型號供自行查價。</li>
+    <li>所有價格為頁面即時促銷價快照，非歷史均價；供電規格以商品頁標示為準，頁面未載明者已標「查不到」。</li>
+    <li>5 年成本中的電池/記憶卡/雲端費用為區間估算（依商品頁配件價與官方方案），非精算。</li>
+  </ol>
+  <a class="backlink" href="./index.html">← 回 Home Research 首頁</a>
+</section>
+
+<footer>
+  Home Research · 電鈴選購比較 · 查價日 2026-08-18 · 僅供家庭採購決策參考
+</footer>
+</div>
+
+<script>
+(function(){
+  var toc=document.getElementById('rpnToc'),fill=document.getElementById('rpnFill'),navbar=document.getElementById('rpnNavbar'),dock=document.getElementById('rpnDock'),sideFill=document.getElementById('rpnSideFill');
+  if(!toc||!fill||!navbar)return;
+  var links=Array.prototype.slice.call(toc.querySelectorAll('a'));
+  var sideLinks=dock?Array.prototype.slice.call(dock.querySelectorAll('a')):[];
+  var sections=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var doc=document.documentElement;
+    var max=doc.scrollHeight-doc.clientHeight;
+    var pct=max>0?(doc.scrollTop/max)*100:0;
+    pct=Math.min(100,Math.max(0,pct));
+    fill.style.width=pct+'%';
+    if(sideFill)sideFill.style.width=pct+'%';
+    var nbB=navbar.getBoundingClientRect().bottom;
+    var line=(nbB>0?nbB:90)+8;
+    var idx=0;
+    for(var i=0;i<sections.length;i++){var s=sections[i];if(!s)continue;if(s.getBoundingClientRect().top<=line)idx=i;}
+    if(doc.scrollTop+doc.clientHeight>=doc.scrollHeight-4)idx=links.length-1;
+    links.forEach(function(a,i){
+      if(i===idx){if(!a.classList.contains('active')){a.classList.add('active');var ar=a.getBoundingClientRect(),tr=toc.getBoundingClientRect();if(ar.left<tr.left||ar.right>tr.right){toc.scrollLeft+=ar.left-tr.left-tr.width/2+ar.width/2;}}}
+      else a.classList.remove('active');
+    });
+    sideLinks.forEach(function(a,i){
+      if(i===idx){if(!a.classList.contains('active')){a.classList.add('active');var ar=a.getBoundingClientRect(),sr=dock.getBoundingClientRect();if(ar.top<sr.top||ar.bottom>sr.bottom){dock.scrollTop+=ar.top-sr.top-sr.height/2+ar.height/2;}}}
+      else a.classList.remove('active');
+    });
+  }
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  links.concat(sideLinks).forEach(function(a){a.addEventListener('click',function(){setTimeout(update,400);});});
+  update();
+})();
+</script>
+</body>
+</html>
