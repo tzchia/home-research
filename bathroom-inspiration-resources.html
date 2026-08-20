@@ -82,6 +82,17 @@ ul.tight{margin:8px 0;padding-left:22px}
 ul.tight li{margin:5px 0;font-size:14.5px}
 .small{font-size:12.5px;color:var(--muted)}
 .duo{display:grid;grid-template-columns:minmax(200px,260px) 1fr;gap:18px;align-items:start}
+/* 全頁最實用 highlight */
+section.hot{border:2px solid #F59E0B;box-shadow:0 6px 24px rgba(245,158,11,.18);position:relative}
+.hot-ribbon{position:absolute;top:-13px;left:20px;background:linear-gradient(90deg,#F59E0B,#D97706);
+  color:#fff;font-weight:900;font-size:13px;letter-spacing:.06em;border-radius:999px;
+  padding:4px 16px;box-shadow:0 3px 10px rgba(217,119,6,.4)}
+.pick-hero{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #F59E0B;
+  border-radius:14px;padding:16px 18px;margin:14px 0}
+.pick-hero .ph-title{font-weight:900;font-size:16.5px;color:#92400E;margin:0 0 4px}
+.pick-hero .ph-price{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:800;color:var(--clay);font-size:15px}
+.rpn-toc a.hotlink,.rpn-dock a.hotlink{color:#B45309;font-weight:900}
+.pill.hot{background:#FEF3C7;color:#B45309}
 @media (max-width:680px){.duo{grid-template-columns:1fr}.duo figure{max-width:300px;margin:0 auto}}
 footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:30px}
 footer a{color:var(--muted)}
@@ -137,7 +148,7 @@ footer a{color:var(--muted)}
 <div class="rpn-navbar" id="rpnNavbar">
   <div class="rpn-progress"><i id="rpnFill"></i></div>
   <div class="rpn-toc" id="rpnToc">
-    <a href="#howto">用法</a><a href="#pins">靈感圖庫</a><a href="#local">台灣案例</a><a href="#intl">國際媒體</a><a href="#catalog">品牌型錄</a><a href="#physical">實體資源</a><a href="#apply">套用你家</a><a href="#tension-rod">伸縮桿固定座</a><a href="#sources">來源聲明</a>
+    <a href="#howto">用法</a><a href="#pins">靈感圖庫</a><a href="#local">台灣案例</a><a href="#intl">國際媒體</a><a href="#catalog">品牌型錄</a><a href="#physical">實體資源</a><a href="#apply">套用你家</a><a href="#tension-rod" class="hotlink">★ 伸縮桿固定座</a><a href="#sources">來源聲明</a>
   </div>
 </div>
 <nav class="rpn-dock" id="rpnDock" aria-label="頁面導覽">
@@ -150,7 +161,7 @@ footer a{color:var(--muted)}
   <a href="#catalog"><span class="rpn-dot"></span>品牌型錄事例</a>
   <a href="#physical"><span class="rpn-dot"></span>實體資源</a>
   <a href="#apply"><span class="rpn-dot"></span>套用到你家</a>
-  <a href="#tension-rod"><span class="rpn-dot"></span>伸縮桿固定座</a>
+  <a href="#tension-rod" class="hotlink"><span class="rpn-dot"></span>★ 伸縮桿固定座</a>
   <a href="#sources"><span class="rpn-dot"></span>來源與聲明</a>
 </nav>
 
@@ -161,7 +172,7 @@ footer a{color:var(--muted)}
   <div class="tags">
     <span class="tag">🚻 雙衛格局</span><span class="tag">💰 預算 100–150 萬（全屋）</span>
     <span class="tag">📐 樑下 2.3m</span><span class="tag">🧱 系統櫃為主・不打牆</span>
-    <span class="tag">🔗 連結全數驗證</span>
+    <span class="tag">🔗 連結全數驗證</span><a class="tag" href="#tension-rod" style="text-decoration:none;color:#fff;background:rgba(245,158,11,.45);border-color:#FCD34D">★ 最實用：伸縮桿固定座 →</a>
   </div>
 </div>
 <!-- A 用法 -->
@@ -357,7 +368,8 @@ footer a{color:var(--muted)}
 </section>
 
 <!-- G+ 伸縮桿固定座 -->
-<section id="tension-rod">
+<section id="tension-rod" class="hot">
+  <div class="hot-ribbon">★ 全頁最實用</div>
   <h2><span class="badge" style="background:var(--clay)">G+</span>單品追查：伸縮桿固定座（つっぱり棒サポート）</h2>
   <p class="lede">延伸問答 · 2026-08-20 — 日本廁所收納影片裡把伸縮桿卡進「貼牆托架」的那個小零件，台灣買得到嗎？答案：買得到，而且很便宜。</p>
 
@@ -389,6 +401,31 @@ footer a{color:var(--muted)}
     </ul>
   </div>
   <div class="callout tip"><b>陳設應用：</b>「伸縮桿＋固定座」正是 B 區日文圖庫「トイレ収納」最經典的招式——馬桶上方橫一根桿子就是一層置物架，兩根加塊木板就是開放層架，全程免鑽孔、退租／改風格零痕跡。你家客衛（實驗場）可以直接抄。</div>
+
+  <h3 style="margin:22px 0 4px;font-size:16.5px">G+2 · 牆角斜撐款大搜特搜（2026-08-20 五通路實查）</h3>
+  <p class="lede" style="margin-bottom:10px">進階需求：讓伸縮桿以 45° 斜角<b>水平撐在 90° 牆角</b>（日文：コーナーつっぱり棒）。關鍵在托座的固定環要能 360° 旋轉，桿子才吃得到斜角。實查 PChome／momo／Yahoo／樂天台灣／蝦皮（登入爬取）＋日本跨境管道。</p>
+
+  <div class="pick-hero">
+    <p class="ph-title">🏆 實查冠軍：360度桿架托環【H041】（蝦皮）</p>
+    <p style="margin:0 0 6px;font-size:14.5px"><span class="ph-price">$22–39</span>（原價 $99 · 2.2 折）· <b>816 已售出</b> · ★4.9（174 評價）· <b>附發票</b> · 商品名直接寫「<b>牆角用</b>」· 賣家「超划算居家生活館」12.9 萬評價 6 年老店、<b>蘆洲出貨</b>隔日到 · 另有配好 30–50／40–70cm 伸縮桿的套餐選項</p>
+    <p style="margin:0;font-size:13.5px"><a href="https://shopee.tw/product/343399247/12838851952" target="_blank" rel="noopener">→ 蝦皮商品頁</a></p>
+  </div>
+
+  <table>
+    <tr><th>商品</th><th style="width:88px">價格</th><th style="width:130px">通路</th><th>備註</th></tr>
+    <tr style="background:#FFFBEB"><td><b>360度桿架托環 H041</b> <span class="pill hot">冠軍</span></td><td class="mono">$22–39</td><td><a href="https://shopee.tw/product/343399247/12838851952" target="_blank" rel="noopener">蝦皮</a></td><td>牆角用 · 816 售出 · 附發票 · 蘆洲出貨</td></tr>
+    <tr><td>月陽 RTH452 360°旋轉轉角掛桿架</td><td class="mono">2入$46<br>4入$87</td><td><a href="https://shopee.tw/product/1732141/28935807612" target="_blank" rel="noopener">蝦皮</a></td><td>耐重 5–8kg · 內徑 2.5cm · 可貼磁磚 · 蝦皮比 momo 便宜 6 成</td></tr>
+    <tr><td>月陽 RTH452X4（4入）</td><td class="mono">$212</td><td><a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=14008755" target="_blank" rel="noopener">momo</a> · <a href="https://24h.pchome.com.tw/prod/DQAU92-A900ITA3N" target="_blank" rel="noopener">PChome</a></td><td>同款 · 大平台通路價</td></tr>
+    <tr><td>iRoom 優倍適 360°旋轉圓形掛環（4入）</td><td class="mono">$358</td><td><a href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=12569082" target="_blank" rel="noopener">momo</a></td><td>官方明載「水平／轉角／貼頂」三種裝法</td></tr>
+    <tr><td>WE CHAMP 可旋轉掛桿固定器（2入）</td><td class="mono">$129</td><td><a href="https://24h.pchome.com.tw/prod/DQAU3V-A900G9WQD" target="_blank" rel="noopener">PChome</a></td><td>無痕貼</td></tr>
+    <tr><td>萬向旋轉伸縮桿（整支，兩端 360°/180° 旋轉頭）</td><td class="mono">$487</td><td><a href="https://shopee.tw/product/43419077/26633899718" target="_blank" rel="noopener">蝦皮</a></td><td>另一種解法：桿子自帶轉角 · 斜面牆/異形角可用 · 銷量少當備案</td></tr>
+    <tr><td>若井産業 TPB0100 斜めホルダー（日本原版）</td><td class="mono">≈$521 到府</td><td><a href="https://www.amazon.co.jp/dp/B076J78DDM" target="_blank" rel="noopener">Amazon JP 直送台灣</a></td><td>石膏板牆專用 · 附固定針 · 桿徑 20–30mm</td></tr>
+    <tr><td>小久保 KM-374 つっぱり補助板コーナー用</td><td class="mono">¥150–398<br>＋轉運</td><td>樂天JP／Yahoo!JP</td><td>釘書機固定 · 耐重 4kg · <b>Amazon 鎖區不送台</b> · 只適用石膏板牆</td></tr>
+  </table>
+
+  <div class="callout warn"><b>為什麼不建議追日本原版：</b>KM-374／TPB0100 都是「釘書針／固定針＋石膏板牆」設計——台灣廁所主流是磁磚牆，根本釘不進去。台製無痕貼款直接對應磁磚面，$22 就解決；耐重還更高（月陽標 5–8kg vs KM-374 的 4kg）。日本平安伸銅台灣代理（鈴木太太）商品線也查無牆角斜撐類——此品項無官方引進。</div>
+
+  <p class="small" style="margin:8px 0 0">查證方法：PChome 搜尋 API＋momo/Yahoo/樂天瀏覽器實查＋蝦皮以登入 session 爬取（8 組關鍵字、152 筆去重、12 筆相關、重點商品逐頁開啟驗證變體價與銷量）。蝦皮價格為賣場即時標價，下單前以商品頁為準。日圓參考匯率 1 JPY ≈ 0.2 TWD。</p>
 </section>
 
 <!-- H 來源聲明 -->
@@ -398,13 +435,13 @@ footer a{color:var(--muted)}
     <li>所有外部連結於 <b>2026-08-20</b> 以 curl 逐一驗證 HTTP 200 存活；Mobile01 與 Dezeen 對自動工具回 403（Cloudflare／反爬），一般瀏覽器可正常開啟，已於卡片標註。</li>
     <li>TOTO 台北旗艦店休館與重開資訊取自 <a href="https://www.twtoto.com.tw/about-store.aspx" target="_blank" rel="noopener">TOTO 台灣官網</a>（休館 2026/5/1–8/31、預計 9 月開幕，正式日期以官方公告為準）。</li>
     <li>Build for NextGen 展期取自<a href="https://twtc.com.tw/exhibition_more.aspx?id=28849&amp;p=home" target="_blank" rel="noopener">台北世貿中心官網</a>（2026/9/1–9/4，世貿一館）。</li>
-    <li>G+ 區伸縮桿固定座價格為 2026-08-20 以 PChome 24h 搜尋 API 實查（sort=銷量），下單前以商品頁即時價為準；蝦皮未查（反爬蟲擋自動工具）。</li>
+    <li>G+ 區價格為 2026-08-20 實查：PChome 搜尋 API、momo／Yahoo／樂天台灣瀏覽器實查、蝦皮以使用者授權之登入 session 爬取（匿名工具被反爬擋下，故改此法）、日本管道 Amazon JP／樂天 JP／Yahoo!JP 逐頁驗證。下單前以商品頁即時價為準。</li>
     <li>本頁為靈感資源索引，原則上不含產品比較；G+ 為單品追查特例。設備選購與 5 年總持有成本另開比較頁處理。</li>
   </ul>
 </section>
 
 <footer>
-  home-research · 建立於 2026-08-20 · 增補 G+ 伸縮桿固定座 2026-08-20 · <a href="./index.html">← 回首頁</a>
+  home-research · 建立於 2026-08-20 · 增補 G+ 伸縮桿固定座＋牆角斜撐大搜特搜 2026-08-20 · <a href="./index.html">← 回首頁</a>
 </footer>
 </div>
 
