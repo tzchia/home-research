@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>創意廁所陳設 — 靈感資源總覽（線上 × 實體）</title>
+<style>
+:root{
+  --ink:#12302E; --muted:#5F7472; --line:#DDE8E6; --bg:#F6FAF9; --paper:#FFFFFF;
+  --teal:#0F766E; --teal-deep:#115E59; --teal-soft:#E6F4F2;
+  --clay:#C2410C; --clay-soft:#FDF1EA;
+  --gold:#B45309; --r:18px;
+  --rpn-accent:#2DD4BF; --rpn-accent-deep:#0F766E; --rpn-track:#D8ECE9;
+  --rpn-line:#DDE8E6; --rpn-muted:#5F7472; --rpn-soft:#E6F4F2; --rpn-glass:rgba(246,250,249,.95);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.75}
+.wrap{max-width:980px;margin:0 auto;padding:20px 18px 70px}
+a{color:var(--teal-deep)}
+h1,h2,h3{font-family:"Noto Serif TC","Noto Sans TC",serif;line-height:1.35}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#0F766E 0%,#115E59 55%,#134E4A 100%);
+  color:#fff;border-radius:24px;padding:34px 30px 28px;margin-bottom:26px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;opacity:.12;pointer-events:none;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 38px,#fff 38px,#fff 40px),
+                   repeating-linear-gradient(90deg,transparent,transparent 38px,#fff 38px,#fff 40px)}
+.hero .kicker{font-size:12.5px;letter-spacing:.22em;font-weight:900;opacity:.85;text-transform:uppercase}
+.hero h1{margin:8px 0 10px;font-size:clamp(24px,4.2vw,34px)}
+.hero p{margin:0 0 14px;opacity:.94;max-width:640px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:700}
+
+/* section */
+section{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  padding:24px 24px 20px;margin-bottom:22px}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+  border-radius:9px;background:var(--teal);color:#fff;font-weight:900;font-size:15px;margin-right:10px;flex:0 0 auto}
+section>h2{display:flex;align-items:center;margin:0 0 6px;font-size:21px}
+.lede{color:var(--muted);margin:0 0 16px;font-size:14.5px}
+
+/* resource cards */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.rc{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;
+  display:flex;flex-direction:column;gap:6px}
+.rc .rt{font-weight:900;font-size:15.5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rc .rd{color:var(--muted);font-size:13.5px;margin:0}
+.rc .rl{margin-top:auto;padding-top:6px;font-size:13.5px;font-weight:800;word-break:break-all}
+.pill{display:inline-block;border-radius:999px;padding:1px 9px;font-size:11px;font-weight:800;letter-spacing:.02em}
+.pill.jp{background:#FDE8E8;color:#B91C1C}
+.pill.tw{background:var(--teal-soft);color:var(--teal-deep)}
+.pill.intl{background:#EDE9FE;color:#6D28D9}
+.pill.free{background:#ECFDF5;color:#047857}
+.pill.note{background:#FEF3C7;color:#92400E}
+
+/* callout */
+.callout{border-radius:14px;padding:14px 18px;margin:14px 0;font-size:14.5px}
+.callout.tip{background:var(--teal-soft);border:1px solid #B9DEDA}
+.callout.warn{background:#FFF7ED;border:1px solid #FDBA74}
+.callout.clay{background:var(--clay-soft);border:1px solid #F5C7A8}
+.callout b{color:var(--teal-deep)}
+.callout.warn b,.callout.clay b{color:var(--clay)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+th{background:var(--teal-soft);color:var(--teal-deep);text-align:left;padding:9px 12px;border-bottom:2px solid #B9DEDA}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.mono,.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px}
+
+/* steps */
+.steps{counter-reset:st;display:grid;gap:10px;margin:12px 0}
+.step{display:flex;gap:14px;border:1px solid var(--line);border-radius:14px;padding:13px 16px;background:#fff}
+.step::before{counter-increment:st;content:counter(st);flex:0 0 32px;height:32px;border-radius:999px;
+  background:var(--clay);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center}
+.step b{display:block;margin-bottom:2px}
+.step p{margin:0;color:var(--muted);font-size:13.5px}
+
+ul.tight{margin:8px 0;padding-left:22px}
+ul.tight li{margin:5px 0;font-size:14.5px}
+.small{font-size:12.5px;color:var(--muted)}
+footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:30px}
+footer a{color:var(--muted)}
+@media print{.rpn-navbar,.rpn-dock{display:none!important}}
+
+/* rpn (reading progress nav) */
+.rpn-navbar{position:sticky;top:0;z-index:60;background:var(--rpn-glass);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  margin:0 0 18px;padding:9px 10px 6px;border-radius:16px;
+  border:1px solid var(--rpn-line);box-shadow:0 6px 20px rgba(15,118,110,.10)}
+.rpn-progress{height:5px;background:var(--rpn-track);border-radius:999px;overflow:hidden;margin-bottom:9px}
+.rpn-progress > i{display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--rpn-accent),var(--rpn-accent-deep));
+  border-radius:999px;transition:width .08s linear}
+.rpn-toc{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;margin:0;
+  padding:2px 2px 6px;scrollbar-width:thin;scroll-behavior:smooth}
+.rpn-toc::-webkit-scrollbar{height:6px}
+.rpn-toc::-webkit-scrollbar-thumb{background:#AFD6D0;border-radius:999px}
+.rpn-toc a{flex:0 0 auto;white-space:nowrap;border:1px solid var(--rpn-line);
+  background:#fff;border-radius:999px;padding:7px 12px;color:var(--rpn-muted);
+  font-weight:800;text-decoration:none;font-size:13.5px;
+  transition:background .15s,color .15s,border-color .15s}
+.rpn-toc a:hover{border-color:var(--rpn-accent);color:var(--rpn-accent-deep)}
+.rpn-toc a.active{background:var(--rpn-accent-deep);color:#fff;border-color:var(--rpn-accent-deep)}
+.rpn-dock{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:55;
+  display:none;flex-direction:column;gap:2px;background:var(--rpn-glass);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--rpn-line);border-radius:16px;padding:12px 10px;
+  box-shadow:0 12px 30px rgba(15,118,110,.18);max-height:88vh;overflow:auto;scrollbar-width:thin}
+.rpn-dock::-webkit-scrollbar{width:5px}
+.rpn-dock::-webkit-scrollbar-thumb{background:#AFD6D0;border-radius:999px}
+.rpn-dock .rpn-dock-head{font-size:11px;font-weight:900;color:var(--rpn-muted);
+  letter-spacing:.08em;padding:0 8px 6px;text-transform:uppercase}
+.rpn-dock .rpn-dock-prog{height:4px;background:var(--rpn-track);border-radius:999px;overflow:hidden;margin:0 6px 8px}
+.rpn-dock .rpn-dock-prog > i{display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--rpn-accent),var(--rpn-accent-deep));
+  border-radius:999px;transition:width .08s linear}
+.rpn-dock a{display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:10px;
+  font-size:13px;font-weight:700;color:var(--rpn-muted);border:0;text-decoration:none;
+  white-space:nowrap;transition:background .15s,color .15s}
+.rpn-dock a .rpn-dot{width:9px;height:9px;border-radius:999px;background:#BFDDD8;
+  flex:0 0 auto;transition:background .15s,box-shadow .15s}
+.rpn-dock a:hover{background:var(--rpn-soft);color:var(--rpn-accent-deep)}
+.rpn-dock a:hover .rpn-dot{background:var(--rpn-accent)}
+.rpn-dock a.active{background:var(--rpn-accent-deep);color:#fff}
+.rpn-dock a.active .rpn-dot{background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+@media (min-width:1280px){.rpn-dock{display:flex}.rpn-navbar{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="rpn-navbar" id="rpnNavbar">
+  <div class="rpn-progress"><i id="rpnFill"></i></div>
+  <div class="rpn-toc" id="rpnToc">
+    <a href="#howto">用法</a><a href="#pins">靈感圖庫</a><a href="#local">台灣案例</a><a href="#intl">國際媒體</a><a href="#catalog">品牌型錄</a><a href="#physical">實體資源</a><a href="#apply">套用你家</a><a href="#sources">來源聲明</a>
+  </div>
+</div>
+<nav class="rpn-dock" id="rpnDock" aria-label="頁面導覽">
+  <div class="rpn-dock-head">本頁導覽</div>
+  <div class="rpn-dock-prog"><i id="rpnSideFill"></i></div>
+  <a href="#howto"><span class="rpn-dot"></span>怎麼用這份清單</a>
+  <a href="#pins"><span class="rpn-dot"></span>線上靈感圖庫</a>
+  <a href="#local"><span class="rpn-dot"></span>台灣在地案例</a>
+  <a href="#intl"><span class="rpn-dot"></span>國際設計媒體</a>
+  <a href="#catalog"><span class="rpn-dot"></span>品牌型錄事例</a>
+  <a href="#physical"><span class="rpn-dot"></span>實體資源</a>
+  <a href="#apply"><span class="rpn-dot"></span>套用到你家</a>
+  <a href="#sources"><span class="rpn-dot"></span>來源與聲明</a>
+</nav>
+
+<div class="hero">
+  <div class="kicker">HOME RESEARCH · BATHROOM INSPIRATION</div>
+  <h1>創意廁所陳設 — 靈感資源總覽</h1>
+  <p>為 2026 新家（6F・約 28 坪・3 房 2 廳雙衛）蒐集廁所／衛浴陳設靈感的完整資源地圖：線上圖庫、台灣在地案例、品牌施工事例、實體展示間與展覽。所有連結於 2026-08-20 逐一驗證存活。</p>
+  <div class="tags">
+    <span class="tag">🚻 雙衛格局</span><span class="tag">💰 預算 100–150 萬（全屋）</span>
+    <span class="tag">📐 樑下 2.3m</span><span class="tag">🧱 系統櫃為主・不打牆</span>
+    <span class="tag">🔗 連結全數驗證</span>
+  </div>
+</div>
+<!-- A 用法 -->
+<section id="howto">
+  <h2><span class="badge">A</span>怎麼用這份清單（三步驟工作流）</h2>
+  <p class="lede">資源很多，但別漫遊。建議照「先收圖 → 再對照台灣工法 → 最後摸實品」的順序走，一週內就能收斂出風格方向。</p>
+  <div class="steps">
+    <div class="step"><div><b>收圖建版面（B・D 區）</b><p>在 Pinterest 開一個「新家廁所」版面，B 區關鍵字各搜一輪，存 30–50 張。存到後面會自然浮現你重複被吸引的元素（某種磁磚、某種燈光、某種收納）。</p></div></div>
+    <div class="step"><div><b>對照台灣可行性（C・E 區）</b><p>拿收好的圖去台灣案例庫找「長得像的本地實作」，確認工法、預算感與建材在台灣買不買得到。日本案例特別要過這關（尺寸與濕區習慣不同）。</p></div></div>
+    <div class="step"><div><b>摸實品定案（F 區）</b><p>帶著 5–10 張定案圖去展示間與 9 月初的建材展，看實際材質、坐上去試。陳設看照片、設備摸實品——順序別反過來。</p></div></div>
+  </div>
+  <div class="callout tip"><b>一個心法：</b>廁所是全屋坪數最小、翻新成本最低的空間，也是最能「放膽玩」的地方——大膽壁紙、彩色磁磚、特殊燈光在 1 坪空間失敗了也只是幾萬元的事，不像客廳押錯風格要背十年。</div>
+</section>
+
+<!-- B 線上靈感圖庫 -->
+<section id="pins">
+  <h2><span class="badge">B</span>線上靈感圖庫（量大・可存版面）</h2>
+  <p class="lede">目的：大量瀏覽、快速存圖、建立自己的風格版面。這一層不管「台灣做不做得到」，先讓眼睛吃飽。</p>
+  <div class="rgrid">
+    <div class="rc">
+      <div class="rt">Pinterest — 小廁所設計 <span class="pill intl">國際</span><span class="pill free">免費</span></div>
+      <p class="rd">最強靈感引擎。搜尋 small bathroom design / powder room ideas，存圖後演算法會自動餵更多同風格。建議開專屬版面分「磁磚」「燈光」「收納」三個小節。</p>
+      <div class="rl"><a href="https://www.pinterest.com/search/pins/?q=small%20bathroom%20design" target="_blank" rel="noopener">pinterest.com → small bathroom design</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">Pinterest — 日文「トイレ インテリア」 <span class="pill jp">日本</span><span class="pill free">免費</span></div>
+      <p class="rd">日本 1 坪內廁所的陳設密度是世界第一：腰壁紙、間接照明、迷你手洗檯、壁龕收納。尺度跟台灣公寓最接近，直接可抄。</p>
+      <div class="rl"><a href="https://www.pinterest.com/search/pins/?q=%E3%83%88%E3%82%A4%E3%83%AC%20%E3%82%A4%E3%83%B3%E3%83%86%E3%83%AA%E3%82%A2" target="_blank" rel="noopener">pinterest.com → トイレ インテリア</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">Houzz — Bathroom Ideas <span class="pill intl">國際</span><span class="pill free">免費</span></div>
+      <p class="rd">可依風格、配色、預算篩選的專業案例庫，每張圖連到設計師頁面，留言區常有屋主問「這磁磚哪買的」的實用回答。</p>
+      <div class="rl"><a href="https://www.houzz.com/photos/bathroom-ideas-phbr0-bp~t_709" target="_blank" rel="noopener">houzz.com → Bathroom Ideas</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">Instagram — #トイレインテリア <span class="pill jp">日本</span><span class="pill note">需登入</span></div>
+      <p class="rd">日本主婦與收納帳號的實住分享（非樣品屋），能看到「住了三年之後」的真實陳設。另可搜 #廁所設計、#bathroomdesign。</p>
+      <div class="rl"><a href="https://www.instagram.com/explore/tags/%E3%83%88%E3%82%A4%E3%83%AC%E3%82%A4%E3%83%B3%E3%83%86%E3%83%AA%E3%82%A2/" target="_blank" rel="noopener">instagram.com → #トイレインテリア</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- C 台灣在地 -->
+<section id="local">
+  <h2><span class="badge">C</span>台灣在地案例庫（有本地工法與預算感）</h2>
+  <p class="lede">目的：把國際靈感圖「翻譯」成台灣做得到的版本——本地格局、本地建材、本地價格。</p>
+  <div class="rgrid">
+    <div class="rc">
+      <div class="rt">100 室內設計 <span class="pill tw">台灣</span><span class="pill free">免費</span></div>
+      <p class="rd">台灣設計師案例平台，可用「衛浴」空間分類篩選，案例都是台灣實際格局（含老屋翻新），照片會標設計公司可直接洽詢。</p>
+      <div class="rl"><a href="https://www.100.com.tw/" target="_blank" rel="noopener">100.com.tw</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">設計家 Searchome <span class="pill tw">台灣</span><span class="pill free">免費</span></div>
+      <p class="rd">漂亮家居出版體系的案例庫，文章型內容多（「小衛浴放大術」這類專題），適合看完整改造前後對比。</p>
+      <div class="rl"><a href="https://www.searchome.net/" target="_blank" rel="noopener">searchome.net</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">幸福空間 <span class="pill tw">台灣</span><span class="pill free">免費</span></div>
+      <p class="rd">案例量大、有影音導覽，衛浴專題常附大概工程費區間，對建立台灣預算感有幫助。</p>
+      <div class="rl"><a href="https://hhh.com.tw/" target="_blank" rel="noopener">hhh.com.tw</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">PTT Interior 板 <span class="pill tw">台灣</span><span class="pill free">免費</span></div>
+      <p class="rd">網友完工分享文有真實花費明細與踩雷紀錄，是「廠商不會告訴你的事」最集中的地方。搜「衛浴 完工」「浴室 翻新」。</p>
+      <div class="rl"><a href="https://www.ptt.cc/bbs/Interior/index.html" target="_blank" rel="noopener">ptt.cc/bbs/Interior</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">Mobile01 居家房事版 <span class="pill tw">台灣</span><span class="pill note">瀏覽器開啟</span></div>
+      <p class="rd">開箱文化最盛的論壇，衛浴設備（免治、暖風機、淋浴柱）長期使用心得特別多。註：該站擋自動抓取（curl 403），一般瀏覽器開啟正常。</p>
+      <div class="rl"><a href="https://www.mobile01.com/" target="_blank" rel="noopener">mobile01.com → 居家房事</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- D 國際媒體 -->
+<section id="intl">
+  <h2><span class="badge">D</span>國際設計媒體（前衛路線）</h2>
+  <p class="lede">目的：看趨勢與大膽用材——微水泥、彩色格柵磚、鹽膚色調、發光鏡面。不一定照做，但能拉高你的想像上限。</p>
+  <div class="rgrid">
+    <div class="rc">
+      <div class="rt">ArchDaily — Bathroom <span class="pill intl">國際</span><span class="pill free">免費</span></div>
+      <p class="rd">建築專業媒體的衛浴標籤頁，案例附平面圖與材料說明，適合研究「廁所在格局裡怎麼擺」而不只是表面裝飾。</p>
+      <div class="rl"><a href="https://www.archdaily.com/tag/bathroom" target="_blank" rel="noopener">archdaily.com/tag/bathroom</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">Dezeen — Bathrooms <span class="pill intl">國際</span><span class="pill note">需真人瀏覽器</span></div>
+      <p class="rd">最前衛的室內設計媒體，衛浴標籤常出現實驗性用色與材質。註：站方有 Cloudflare 防護，自動工具會被擋，一般瀏覽器開啟正常。</p>
+      <div class="rl"><a href="https://www.dezeen.com/tag/bathrooms/" target="_blank" rel="noopener">dezeen.com/tag/bathrooms</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- E 品牌型錄 -->
+<section id="catalog">
+  <h2><span class="badge">E</span>品牌型錄與施工事例（陳設完成度最高）</h2>
+  <p class="lede">目的：看廠商砸資源拍的「完成態」——日本官網的施工事例集完成度遠高於台灣經銷商照片，而且是用現售產品組出來的（看到喜歡的可以直接指名型號）。</p>
+  <div class="rgrid">
+    <div class="rc">
+      <div class="rt">TOTO 日本 — リフォーム（改裝事例） <span class="pill jp">日本</span></div>
+      <p class="rd">TOTO 日本官網的改裝專區，含トイレ（廁所）分類事例與空間提案，配色與收納細節可直接當陳設範本。</p>
+      <div class="rl"><a href="https://jp.toto.com/reform/" target="_blank" rel="noopener">jp.toto.com/reform</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">TOTO 日本 — トイレ產品線 <span class="pill jp">日本</span></div>
+      <p class="rd">全系列馬桶＋週邊（手洗器、收納、壁材）的搭配提案頁，日本「一坪廁所完整方案」的原廠版本。</p>
+      <div class="rl"><a href="https://jp.toto.com/products/toilet/" target="_blank" rel="noopener">jp.toto.com/products/toilet</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">LIXIL — トイレルーム空間提案 <span class="pill jp">日本</span></div>
+      <p class="rd">LIXIL（INAX 母公司）的廁所空間提案頁，強項是「廁所當一個房間設計」的整體風格包（壁材＋地材＋收納＋照明成套）。</p>
+      <div class="rl"><a href="https://www.lixil.co.jp/lineup/toiletroom/" target="_blank" rel="noopener">lixil.co.jp/lineup/toiletroom</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">LIXIL — リフォーム事例 <span class="pill jp">日本</span></div>
+      <p class="rd">LIXIL 實際改裝案例庫，可看改造前後對比與費用帶（日圓，換算時記得台灣工資結構不同僅供比例參考）。</p>
+      <div class="rl"><a href="https://www.lixil.co.jp/reform/case/" target="_blank" rel="noopener">lixil.co.jp/reform/case</a></div>
+    </div>
+    <div class="rc">
+      <div class="rt">TOTO 台灣官網 <span class="pill tw">台灣</span></div>
+      <p class="rd">台灣在售型號與展示據點總覽。看中日本官網的陳設後，來這裡確認台灣有沒有引進、找最近的經銷展示中心。</p>
+      <div class="rl"><a href="https://www.twtoto.com.tw/" target="_blank" rel="noopener">twtoto.com.tw</a></div>
+    </div>
+  </div>
+  <div class="callout warn"><b>提醒：</b>日本官網事例是「日規產品」組的，部分型號台灣未引進或規格不同（電壓、排水芯距）。指名型號前先到 TOTO 台灣官網或經銷據點確認在售與否，避免看得到買不到。</div>
+</section>
+<!-- F 實體資源 -->
+<section id="physical">
+  <h2><span class="badge">F</span>實體資源（展示間・展覽・偷師點）</h2>
+  <p class="lede">目的：材質觸感、坐感、燈光氛圍只有現場才知道。分三類：品牌展示間（摸設備）、展覽（一次看全）、生活賣場與公共空間（偷陳設）。</p>
+
+  <h3 style="margin:16px 0 4px;font-size:16.5px">F1 · 品牌展示間</h3>
+  <table>
+    <tr><th style="width:26%">據點</th><th>狀態與看點</th><th style="width:24%">連結／電話</th></tr>
+    <tr>
+      <td><b>TOTO 台北展示旗艦店</b><br><span class="small">台北市信義區松仁路 99 號 1F</span></td>
+      <td>全面改裝中（2026/5/1–8/31 休館），<b>預計 2026 年 9 月重新開幕</b>——時間點對你剛好，開幕後去看的是全新陳設。休館期間提供線上視訊導覽（週一至六、每日 5 時段）。</td>
+      <td class="mono"><a href="https://www.twtoto.com.tw/about-store.aspx" target="_blank" rel="noopener">官網頁面</a><br>02-7735-6780</td>
+    </tr>
+    <tr>
+      <td><b>TOTO 全台經銷展示中心</b><br><span class="small">大台北 10+ 據點</span></td>
+      <td>旗艦店休館期間的替代選擇，多數據點有「Washlet 體驗廁所」可實際試坐。離你較近的如：莊貿（南港忠孝東路六段15號，有停車）、辰珈（信義路六段38號）。</td>
+      <td class="mono"><a href="https://www.twtoto.com.tw/dealer.aspx" target="_blank" rel="noopener">全台據點表</a></td>
+    </tr>
+    <tr>
+      <td><b>凱撒衛浴 CAESAR</b></td>
+      <td>本土一線品牌，價格帶比 TOTO 低一到兩階，適合做 5 年總持有成本的對照組。官網有展示中心查詢。</td>
+      <td class="mono"><a href="https://www.caesar.com.tw/" target="_blank" rel="noopener">caesar.com.tw</a></td>
+    </tr>
+    <tr>
+      <td><b>和成 HCG</b></td>
+      <td>台灣老牌，全台據點最密。看「台製基本盤」的品質水位在哪，回頭才知道日系溢價買到了什麼。</td>
+      <td class="mono"><a href="https://www.hcg.com.tw/" target="_blank" rel="noopener">hcg.com.tw</a></td>
+    </tr>
+  </table>
+
+  <h3 style="margin:20px 0 4px;font-size:16.5px">F2 · 展覽</h3>
+  <table>
+    <tr><th style="width:34%">展覽</th><th>資訊</th></tr>
+    <tr>
+      <td><b>Build for NextGen 國際永續智慧建築暨智慧建材展</b></td>
+      <td><b>2026/9/1–9/4</b>・台北世貿一館・10:00–18:00——就在兩週後，衛浴與建材廠商可一次看全。主辦：台灣智慧建築協會。<br><a href="https://twtc.com.tw/exhibition_more.aspx?id=28849&amp;p=home" target="_blank" rel="noopener">世貿官網展覽頁</a></td>
+    </tr>
+    <tr>
+      <td><b>台灣國際建築・建材・廚具空間設計展</b></td>
+      <td>每年五一連假檔期（2026 場已於 5/1–5/4 結束）。若 9 月場來不及消化，明年五月場是下一個大檔。<br><a href="https://house-fair.top-link.com.tw/" target="_blank" rel="noopener">建材展官網</a></td>
+    </tr>
+  </table>
+
+  <h3 style="margin:20px 0 4px;font-size:16.5px">F3 · 生活賣場與「偷師點」</h3>
+  <ul class="tight">
+    <li><b>IKEA</b>（<a href="https://www.ikea.com.tw/zh" target="_blank" rel="noopener">ikea.com.tw</a>）— 展間有完整衛浴情境房，看「小空間收納＋鏡櫃＋燈光」的平價組合。</li>
+    <li><b>HOLA</b>（<a href="https://www.hola.com.tw/" target="_blank" rel="noopener">hola.com.tw</a>）— 毛巾、浴簾、收納籃等軟裝陳設，廁所氛圍的最後 20% 靠這層。</li>
+    <li><b>特力屋</b>（<a href="https://www.trplus.com.tw/" target="_blank" rel="noopener">trplus.com.tw</a>）— 五金、層架、燈具實品，DIY 改造材料的第一站。</li>
+    <li><b>無印良品</b>（<a href="https://www.muji.tw/" target="_blank" rel="noopener">muji.tw</a>）— 日式極簡收納盒與備品陳設的標準答案。</li>
+    <li><b>免費展示間：設計旅店與新開百貨的廁所</b> — 誠品、新光三越 Diamond Towers、各設計旅店的公廁就是砸錢做的實景樣品屋。看到喜歡的直接拍照記材質，零成本。</li>
+  </ul>
+  <div class="callout clay"><b>帶小孩逛法：</b>1 歲寶寶同行的話，展示間比展覽友善（人少、有冷氣、隨時能撤退）。世貿建材展人多推車難行，建議夫妻輪流看或趁平日首兩日人少時去。</div>
+</section>
+
+<!-- G 套用你家 -->
+<section id="apply">
+  <h2><span class="badge">G</span>套用到你家雙衛（起手式建議）</h2>
+  <p class="lede">你家是 3 房 2 廳<b>雙衛</b>：兩間廁所可以走不同策略——這是雙衛格局最大的紅利。</p>
+  <table>
+    <tr><th style="width:18%"></th><th>主衛（主臥內）</th><th>客衛（公共）</th></tr>
+    <tr><td><b>定位</b></td><td>機能優先：夫妻日常使用，重點在乾濕分離、收納量、免治與暖風設備</td><td>表現優先：客人唯一會看到的「作品」，可以放膽玩風格</td></tr>
+    <tr><td><b>陳設策略</b></td><td>日系整體浴室思路——LIXIL／TOTO 事例集直接套，白＋木色安全耐看</td><td>大膽壁紙或彩色磁磚一面牆、造型鏡、間接照明——Pinterest 日文圖庫最有梗</td></tr>
+    <tr><td><b>失敗成本</b></td><td>高（天天用，選錯每天煩）→ 保守選</td><td>低（使用頻率低、面積小）→ 實驗場</td></tr>
+    <tr><td><b>資源對應</b></td><td>E 區品牌事例 ＋ F1 展示間試坐</td><td>B 區靈感圖庫 ＋ C 區台灣工法確認</td></tr>
+  </table>
+  <div class="callout tip"><b>下一步建議：</b>收圖收斂出方向後，回頭開一份「衛浴設備比較頁」（馬桶／免治／暖風機的 5 年總持有成本），跟這份靈感頁雙向連結——陳設定風格、設備定預算，兩條線分開跑不打架。</div>
+</section>
+
+<!-- H 來源聲明 -->
+<section id="sources">
+  <h2><span class="badge">H</span>資料來源與聲明</h2>
+  <ul class="tight">
+    <li>所有外部連結於 <b>2026-08-20</b> 以 curl 逐一驗證 HTTP 200 存活；Mobile01 與 Dezeen 對自動工具回 403（Cloudflare／反爬），一般瀏覽器可正常開啟，已於卡片標註。</li>
+    <li>TOTO 台北旗艦店休館與重開資訊取自 <a href="https://www.twtoto.com.tw/about-store.aspx" target="_blank" rel="noopener">TOTO 台灣官網</a>（休館 2026/5/1–8/31、預計 9 月開幕，正式日期以官方公告為準）。</li>
+    <li>Build for NextGen 展期取自<a href="https://twtc.com.tw/exhibition_more.aspx?id=28849&amp;p=home" target="_blank" rel="noopener">台北世貿中心官網</a>（2026/9/1–9/4，世貿一館）。</li>
+    <li>本頁為靈感資源索引，不含產品比較與價格；設備選購與 5 年總持有成本另開比較頁處理。</li>
+  </ul>
+</section>
+
+<footer>
+  home-research · 建立於 2026-08-20 · <a href="./index.html">← 回首頁</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var toc      = document.getElementById('rpnToc');
+  var fill     = document.getElementById('rpnFill');
+  var navbar   = document.getElementById('rpnNavbar');
+  var dock     = document.getElementById('rpnDock');
+  var sideFill = document.getElementById('rpnSideFill');
+  if(!toc || !fill || !navbar) return;
+
+  var links     = Array.prototype.slice.call(toc.querySelectorAll('a'));
+  var sideLinks = dock ? Array.prototype.slice.call(dock.querySelectorAll('a')) : [];
+  var secEls  = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  var ticking   = false;
+
+  function update(){
+    ticking = false;
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+    pct = Math.min(100, Math.max(0, pct));
+    fill.style.width = pct + '%';
+    if(sideFill) sideFill.style.width = pct + '%';
+
+    var nbB  = navbar.getBoundingClientRect().bottom;
+    var line = (nbB > 0 ? nbB : 90) + 8;
+    var idx  = 0;
+    for(var i=0;i<secEls.length;i++){
+      var s = secEls[i]; if(!s) continue;
+      if(s.getBoundingClientRect().top <= line) idx = i;
+    }
+    if(doc.scrollTop + doc.clientHeight >= doc.scrollHeight - 4) idx = links.length - 1;
+
+    links.forEach(function(a,i){
+      if(i===idx){
+        if(!a.classList.contains('active')){
+          a.classList.add('active');
+          var ar=a.getBoundingClientRect(), tr=toc.getBoundingClientRect();
+          if(ar.left<tr.left || ar.right>tr.right){ toc.scrollLeft += ar.left-tr.left-tr.width/2+ar.width/2; }
+        }
+      } else a.classList.remove('active');
+    });
+    sideLinks.forEach(function(a,i){
+      if(i===idx){
+        if(!a.classList.contains('active')){
+          a.classList.add('active');
+          var ar=a.getBoundingClientRect(), sr=dock.getBoundingClientRect();
+          if(ar.top<sr.top || ar.bottom>sr.bottom){ dock.scrollTop += ar.top-sr.top-sr.height/2+ar.height/2; }
+        }
+      } else a.classList.remove('active');
+    });
+  }
+
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  links.concat(sideLinks).forEach(function(a){ a.addEventListener('click', function(){ setTimeout(update,400); }); });
+  update();
+})();
+</script>
+</body>
+</html>
