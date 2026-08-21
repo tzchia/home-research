@@ -42,6 +42,13 @@ h3{font-size:1.05rem;margin:1.4em 0 .5em}
 .rc .rc-name{font-weight:700;font-size:1rem}
 .rc .rc-why{color:var(--muted);font-size:.9rem;flex:1}
 .rc .rc-link{font-size:.88rem;word-break:break-all}
+.rc-thumb{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#fff}
+.rc-thumb.wide{aspect-ratio:auto;object-fit:contain;max-height:200px}
+.td-thumb{width:86px;height:86px;object-fit:cover;border-radius:8px;border:1px solid var(--line);display:block}
+.hero-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 4px;max-width:520px}
+.hero-duo img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.25)}
+.hero-duo figcaption{font-size:.75rem;color:#D6D3D1;text-align:center;margin-top:4px}
+.hero-duo figure{margin:0}
 .pills{display:flex;flex-wrap:wrap;gap:6px}
 .pill{border-radius:999px;padding:2px 10px;font-size:.74rem;font-weight:700;border:1px solid transparent}
 .pill.brand{background:var(--accent-soft);color:var(--accent-deep)}
@@ -114,6 +121,10 @@ footer a{color:var(--muted)}
   <p class="kicker">RESOURCE INDEX · 青翎分享</p>
   <h1>角鋼收納系統採購資源</h1>
   <p>以「空間特工」角鋼為主軸的採購資源地圖：估價系統、蝦皮活動日折價策略、他牌相容配件（碰世代／撥撥的架子／寵傢好）、活動輪孔位規則、洞洞板 A/B 兩類掛法，以及樹德 MB/OA、無印 PP 抽屜櫃與角鋼呎數的尺寸對照。</p>
+  <div class="hero-duo">
+    <figure><img src="./assets/angle-steel/ciazhan-shelf-black.webp" alt="空間特工 黑色免螺絲角鋼層架" loading="lazy"><figcaption>黑色角鋼層架（客製）</figcaption></figure>
+    <figure><img src="./assets/angle-steel/ciazhan-shelf-white.webp" alt="空間特工 白色免螺絲角鋼層架" loading="lazy"><figcaption>白色角鋼層架（客製）</figcaption></figure>
+  </div>
   <div class="tags">
     <span>🏗️ 空間特工</span><span>🛒 蝦皮活動日 N/18/25</span><span>🔩 他廠相容配件</span><span>🗄️ 樹德 · 無印對照</span><span>✅ 連結驗證 2026/08/21</span>
   </div>
@@ -148,6 +159,7 @@ footer a{color:var(--muted)}
   <p>下單前可自行搜尋「角鋼」比較其他品牌。青翎點名的替代類型：</p>
   <div class="rc-grid">
     <div class="rc">
+      <img class="rc-thumb" src="./assets/angle-steel/pchome-fl264.webp" alt="FL 生活+ 岩熔碳鋼四層耐重置物架 FL-264" loading="lazy">
       <div class="pills"><span class="pill other">他牌</span><span class="pill ok">PChome 實查 $2,080</span></div>
       <div class="rc-name">岩熔碳鋼角鋼（FL 生活+ FL-264）</div>
       <div class="rc-why">快裝式免螺絲設計，立柱自帶裝飾板、中間層板是鋼板，質感較好；但尺寸多為固定規格（此款 30×60×118 cm 四層），彈性不如空間特工可客製。</div>
@@ -171,6 +183,7 @@ footer a{color:var(--muted)}
       <div class="rc-link"><a href="https://shopee.tw/ciazhan?page=0&amp;shopCollection=118230318" target="_blank" rel="noopener">賣場配件 collection</a></div>
     </div>
     <div class="rc">
+      <img class="rc-thumb" src="./assets/angle-steel/parts-bumpgen.webp" alt="碰世代 3D 列印角鋼相容配件（掛勾/杯架）" loading="lazy">
       <div class="pills"><span class="pill other">他廠相容</span><span class="pill warn">商品頁需真人瀏覽器</span></div>
       <div class="rc-name">碰世代 相容配件</div>
       <div class="rc-why">他廠出的角鋼相容配件，價格常比原廠便宜，孔位相容空間特工。</div>
@@ -186,13 +199,13 @@ footer a{color:var(--muted)}
     <tr><th style="width:110px">來源</th><th>規格</th><th>孔位影響</th><th>連結</th></tr>
     <tr>
       <td><span class="pill brand">原廠</span></td>
-      <td>三吋</td>
+      <td><img class="td-thumb" src="./assets/angle-steel/wheel-ciazhan-3in.webp" alt="空間特工三角座輪組" loading="lazy">三吋</td>
       <td>佔用底部<b>第一孔</b></td>
       <td><a href="https://shopee.tw/product/12244/55602754411" target="_blank" rel="noopener">蝦皮商品頁</a></td>
     </tr>
     <tr>
       <td><span class="pill other">他廠</span></td>
-      <td>四吋</td>
+      <td><img class="td-thumb" src="./assets/angle-steel/wheel-hongsheng-4in.webp" alt="宏升角鋼 免螺絲角鋼架專用四吋輪" loading="lazy">四吋</td>
       <td>鎖孔在<b>第三孔</b>。搭 8–9 mm 木板時，橫桿可裝第一、二孔；若用 18 mm 木板，橫桿只能從<b>第四、五孔</b>開始裝</td>
       <td><a href="https://shopee.tw/product/337656000/7962426561" target="_blank" rel="noopener">蝦皮商品頁</a></td>
     </tr>
@@ -210,12 +223,14 @@ footer a{color:var(--muted)}
   <h3>A 類：可直接掛角鋼孔位</h3>
   <div class="rc-grid">
     <div class="rc">
+      <img class="rc-thumb" src="./assets/angle-steel/pegboard-ciazhan.webp" alt="空間特工 角鋼專用金屬洞洞板 45x30cm" loading="lazy">
       <div class="pills"><span class="pill brand">原廠</span><span class="pill warn">商品頁需真人瀏覽器</span></div>
       <div class="rc-name">空間特工 金屬洞洞板</div>
       <div class="rc-why">原廠金屬洞洞板，直接掛角鋼孔位。</div>
       <div class="rc-link"><a href="https://shopee.tw/product/12244/26328720278" target="_blank" rel="noopener">蝦皮商品頁</a></div>
     </div>
     <div class="rc">
+      <img class="rc-thumb" src="./assets/angle-steel/pegboard-bobo.webp" alt="撥撥的架子 角鋼專用洞洞板" loading="lazy">
       <div class="pills"><span class="pill other">他廠</span><span class="pill warn">商品頁需真人瀏覽器</span></div>
       <div class="rc-name">撥撥的架子 金屬洞洞板</div>
       <div class="rc-why">他廠金屬洞洞板，可掛角鋼孔位。</div>
@@ -224,7 +239,11 @@ footer a{color:var(--muted)}
     <div class="rc">
       <div class="pills"><span class="pill other">他廠</span><span class="pill warn">商品頁需真人瀏覽器</span></div>
       <div class="rc-name">碰世代 木質洞洞板</div>
-      <div class="rc-why">木質質感版本，可掛角鋼孔位。兩款規格：</div>
+      <div class="rc-why">木質質感版本，可掛角鋼孔位。兩款規格（款式二為客製化賣場，圖右）：</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <a href="https://shopee.tw/product/556800/26301082908" target="_blank" rel="noopener"><img class="rc-thumb" src="./assets/angle-steel/pegboard-bumpgen-1.webp" alt="碰世代 洞洞板 款式一" loading="lazy"></a>
+        <a href="https://shopee.tw/product/556800/24486156679" target="_blank" rel="noopener"><img class="rc-thumb" src="./assets/angle-steel/pegboard-bumpgen-2.webp" alt="碰世代 洞洞板客製化賣場 款式二" loading="lazy"></a>
+      </div>
       <div class="rc-link">
         <a href="https://shopee.tw/product/556800/26301082908" target="_blank" rel="noopener">款式一</a> ·
         <a href="https://shopee.tw/product/556800/24486156679" target="_blank" rel="noopener">款式二</a>
@@ -235,8 +254,10 @@ footer a{color:var(--muted)}
   <h3>B 類：需用束線帶固定</h3>
   <div class="rc-grid">
     <div class="rc">
+      <img class="rc-thumb" src="./assets/angle-steel/pegboard-brown-hook.webp" alt="寵傢好 洞洞板專用掛勾配件（示意，賣場另有洞洞板本體）" loading="lazy">
       <div class="pills"><span class="pill other">他廠</span><span class="pill other">蝦皮</span></div>
       <div class="rc-name">寵傢好 木質洞洞板</div>
+      <div class="rc-why" style="font-size:.8rem;color:var(--warn)">↑ 圖為該賣場的洞洞板專用勾（collection 內商品多為寵物用途頁面，板材本體請入賣場選購）</div>
       <div class="rc-why">須用束線帶固定於角鋼。<b>90 cm</b> 可單買木板搭 <b>3 呎角鋼</b>；<b>60 cm</b> 可配 <b>2 呎角鋼</b>，但 60 能不能單買木板要先問賣家。</div>
       <div class="rc-link"><a href="https://shopee.tw/browntseng?page=0&amp;shopCollection=257378671" target="_blank" rel="noopener">賣場 collection</a></div>
     </div>
@@ -255,7 +276,7 @@ footer a{color:var(--muted)}
   <div class="tblwrap"><table>
     <tr><th>系列</th><th>寬度組合</th><th>適用角鋼</th><th>連結</th></tr>
     <tr>
-      <td rowspan="2"><b>樹德 MB 抽屜櫃</b></td>
+      <td rowspan="2"><img class="td-thumb" src="./assets/angle-steel/shuter-mb.webp" alt="樹德 MB 抽屜櫃" loading="lazy"><b>樹德 MB 抽屜櫃</b></td>
       <td class="mono">55 + 27</td>
       <td><b>3 呎</b></td>
       <td rowspan="2"><a href="https://www.shuter.com.tw/tw/product/mb" target="_blank" rel="noopener">shuter.com.tw / MB</a></td>
@@ -265,13 +286,13 @@ footer a{color:var(--muted)}
       <td><b>4 呎</b></td>
     </tr>
     <tr>
-      <td><b>樹德 OA 鋅鐵合金櫃</b></td>
+      <td><img class="td-thumb" src="./assets/angle-steel/shuter-oa.webp" alt="樹德 OA 鋅鐵合金櫃" loading="lazy"><b>樹德 OA 鋅鐵合金櫃</b></td>
       <td>桌上型 A4</td>
       <td><b>2 呎</b></td>
       <td><a href="https://www.shuter.com.tw/tw/product/oa" target="_blank" rel="noopener">shuter.com.tw / OA</a></td>
     </tr>
     <tr>
-      <td rowspan="3"><b>無印良品 聚丙烯收納</b></td>
+      <td rowspan="3"><img class="td-thumb" src="./assets/angle-steel/muji-pp-drawer.webp" alt="無印良品 PP 衣裝盒" loading="lazy"><b>無印良品 聚丙烯收納</b></td>
       <td class="mono">55</td>
       <td><b>2 呎</b></td>
       <td rowspan="3"><a href="https://shop.muji.tw/v2/official/SalePageCategory/483101" target="_blank" rel="noopener">shop.muji.tw PP 收納</a></td>
@@ -300,6 +321,7 @@ footer a{color:var(--muted)}
     <li><b>蝦皮商品深連結（7 條）curl 回 403</b> — 蝦皮反爬蟲擋自動抓取，<b>真人瀏覽器可正常開啟</b>，連結照樣保留。</li>
     <li>PChome 岩熔碳鋼架經 PChome 搜尋 API 實查：FL 生活+ FL-264（30×60×118 cm 四層），售價 <b>NT$2,080</b>（2026/08/21 快照，購買前以商品頁即時價為準）。</li>
     <li>「每月活動日 N 日」指蝦皮每月與月份同數的大促日（如 8/8、9/9），為對原文「N」的合理解讀；實際檔期以蝦皮公告為準。</li>
+    <li>商品主圖（14 張）於 <b>2026/08/21</b> 以登入版瀏覽器自各商品頁抓取後轉存本站（webp 縮圖），非即時同步——商品改版後圖可能過時，點連結以商品頁現況為準。宏升四吋輪、寵傢好掛勾等他廠圖為該賣場官方商品圖。</li>
   </ul>
 </section>
 
