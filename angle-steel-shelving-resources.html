@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>角鋼收納系統採購資源 — 空間特工 + 相容配件生態系</title>
+<style>
+:root{
+  --ink:#1C1917; --muted:#78716C; --line:#E7E2DB; --bg:#FAF8F4; --paper:#FFFFFF;
+  --accent:#D9480F; --accent-deep:#A8380B; --accent-soft:#FDEEE4;
+  --steel:#475569; --steel-soft:#EEF2F6;
+  --ok:#2F7D4F; --ok-soft:#E7F3EC; --warn:#B45309; --warn-soft:#FEF5E7;
+  --r:14px;
+  --rpn-accent:#E8590C; --rpn-accent-deep:#A8380B; --rpn-track:#F0E7DD;
+  --rpn-line:#E7E2DB; --rpn-muted:#78716C; --rpn-soft:rgba(217,72,15,.10);
+  --rpn-glass:rgba(255,255,255,.92);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter','Noto Sans TC',system-ui,sans-serif;line-height:1.7}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px 80px}
+h1,h2,h3{font-family:'Noto Serif TC',serif}
+a{color:var(--accent-deep)}
+code,.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.92em}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#292524 0%,#44403C 60%,#57534E 100%);color:#FAFAF9;border-radius:0 0 26px 26px;padding:46px 26px 34px;margin:0 -20px 30px}
+.hero .kicker{color:#FDBA74;letter-spacing:.14em;font-size:.8rem;font-weight:700}
+.hero h1{margin:.35em 0 .4em;font-size:clamp(1.5rem,3.6vw,2.2rem);line-height:1.3}
+.hero p{color:#D6D3D1;max-width:46em;margin:.2em 0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tags span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 12px;font-size:.8rem}
+
+/* sections */
+section{margin:44px 0}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--accent);color:#fff;font-weight:800;font-size:.95rem;margin-right:10px;font-family:'JetBrains Mono',monospace}
+h2{display:flex;align-items:center;font-size:1.3rem;border-bottom:2px solid var(--line);padding-bottom:10px}
+h3{font-size:1.05rem;margin:1.4em 0 .5em}
+
+/* resource cards */
+.rc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.rc{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.rc .rc-name{font-weight:700;font-size:1rem}
+.rc .rc-why{color:var(--muted);font-size:.9rem;flex:1}
+.rc .rc-link{font-size:.88rem;word-break:break-all}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{border-radius:999px;padding:2px 10px;font-size:.74rem;font-weight:700;border:1px solid transparent}
+.pill.brand{background:var(--accent-soft);color:var(--accent-deep)}
+.pill.other{background:var(--steel-soft);color:var(--steel)}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:.92rem}
+th{background:#F5F1EA;text-align:left;padding:10px 12px;border-bottom:2px solid var(--line);font-size:.85rem}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.tblwrap{overflow-x:auto;border-radius:var(--r)}
+
+/* callouts */
+.callout{border-radius:var(--r);padding:14px 18px;margin:16px 0;border:1px solid;font-size:.93rem}
+.callout.info{background:var(--steel-soft);border-color:#CBD5E1}
+.callout.warn{background:var(--warn-soft);border-color:#FCD9A8}
+.callout.tip{background:var(--ok-soft);border-color:#BBDECA}
+.callout b:first-child{display:block;margin-bottom:4px}
+
+footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+
+/* ===== rpn: reading progress + nav ===== */
+.rpn-navbar{position:sticky;top:0;z-index:60;background:var(--rpn-glass);backdrop-filter:blur(8px);border-bottom:1px solid var(--rpn-line);margin:0 -20px;padding:0 12px}
+.rpn-progress{height:4px;background:var(--rpn-track);border-radius:2px;overflow:hidden;margin:8px 4px 6px}
+.rpn-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rpn-accent),var(--rpn-accent-deep));transition:width .15s}
+.rpn-toc{display:flex;gap:6px;overflow-x:auto;padding:0 2px 8px;scrollbar-width:none}
+.rpn-toc::-webkit-scrollbar{display:none}
+.rpn-toc a{flex:0 0 auto;font-size:.8rem;color:var(--rpn-muted);text-decoration:none;border:1px solid var(--rpn-line);border-radius:999px;padding:3px 11px;white-space:nowrap}
+.rpn-toc a.active{background:var(--rpn-soft);color:var(--rpn-accent-deep);border-color:var(--rpn-accent);font-weight:700}
+.rpn-dock{display:none}
+@media (min-width:1280px){
+  .rpn-navbar{display:none}
+  .rpn-dock{display:block;position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:60;background:var(--rpn-glass);backdrop-filter:blur(8px);border:1px solid var(--rpn-line);border-radius:16px;padding:14px 14px 12px;box-shadow:0 12px 30px rgba(28,25,23,.10);width:190px}
+  .rpn-dock-head{font-size:.72rem;letter-spacing:.12em;color:var(--rpn-muted);font-weight:700;margin-bottom:8px}
+  .rpn-dock-prog{position:absolute;left:0;top:14px;bottom:12px;width:3px;background:var(--rpn-track);border-radius:2px;overflow:hidden}
+  .rpn-dock-prog i{display:block;width:100%;height:0;background:linear-gradient(180deg,var(--rpn-accent),var(--rpn-accent-deep));transition:height .15s}
+  .rpn-dock a{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--rpn-muted);text-decoration:none;padding:5px 4px;border-radius:8px}
+  .rpn-dock a .rpn-dot{width:7px;height:7px;border-radius:50%;background:var(--rpn-track);flex:0 0 auto}
+  .rpn-dock a.active{color:var(--rpn-accent-deep);background:var(--rpn-soft);font-weight:700}
+  .rpn-dock a.active .rpn-dot{background:var(--rpn-accent)}
+}
+@media print{.rpn-navbar,.rpn-dock{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="rpn-navbar" id="rpnNavbar">
+  <div class="rpn-progress"><i id="rpnFill"></i></div>
+  <div class="rpn-toc" id="rpnToc">
+    <a href="#s-brand">主力品牌</a><a href="#s-alt">他牌比較</a><a href="#s-parts">配件</a><a href="#s-wheels">活動輪</a><a href="#s-peg">洞洞板</a><a href="#s-drawer">抽屜櫃</a><a href="#s-src">來源</a>
+  </div>
+</div>
+<nav class="rpn-dock" id="rpnDock" aria-label="頁面導覽">
+  <div class="rpn-dock-head">本頁導覽</div>
+  <div class="rpn-dock-prog"><i id="rpnSideFill"></i></div>
+  <a href="#s-brand"><span class="rpn-dot"></span>主力品牌：空間特工</a>
+  <a href="#s-alt"><span class="rpn-dot"></span>他牌角鋼比較</a>
+  <a href="#s-parts"><span class="rpn-dot"></span>角鋼配件</a>
+  <a href="#s-wheels"><span class="rpn-dot"></span>活動輪</a>
+  <a href="#s-peg"><span class="rpn-dot"></span>洞洞板</a>
+  <a href="#s-drawer"><span class="rpn-dot"></span>抽屜櫃搭配</a>
+  <a href="#s-src"><span class="rpn-dot"></span>來源聲明</a>
+</nav>
+
+<div class="hero">
+  <p class="kicker">RESOURCE INDEX · 青翎分享</p>
+  <h1>角鋼收納系統採購資源</h1>
+  <p>以「空間特工」角鋼為主軸的採購資源地圖：估價系統、蝦皮活動日折價策略、他牌相容配件（碰世代／撥撥的架子／寵傢好）、活動輪孔位規則、洞洞板 A/B 兩類掛法，以及樹德 MB/OA、無印 PP 抽屜櫃與角鋼呎數的尺寸對照。</p>
+  <div class="tags">
+    <span>🏗️ 空間特工</span><span>🛒 蝦皮活動日 N/18/25</span><span>🔩 他廠相容配件</span><span>🗄️ 樹德 · 無印對照</span><span>✅ 連結驗證 2026/08/21</span>
+  </div>
+</div>
+
+<!-- ═══ A 主力品牌 ═══ -->
+<section id="s-brand">
+  <h2><span class="badge">A</span>主力品牌：空間特工</h2>
+  <div class="rc-grid">
+    <div class="rc">
+      <div class="pills"><span class="pill brand">原廠</span><span class="pill ok">免費工具</span></div>
+      <div class="rc-name">24h 估價系統</div>
+      <div class="rc-why">輸入尺寸與配置即時估價，先在這裡把想要的架子規格算出來，再挑活動日下單。</div>
+      <div class="rc-link"><a href="https://24h.ciazhan.com.tw/" target="_blank" rel="noopener">24h.ciazhan.com.tw</a></div>
+    </div>
+    <div class="rc">
+      <div class="pills"><span class="pill brand">原廠</span><span class="pill other">蝦皮</span></div>
+      <div class="rc-name">蝦皮官方賣場</div>
+      <div class="rc-why">實際下單通路。搭配活動日雙重折價（賣場折價券＋蝦皮折價券）最划算。</div>
+      <div class="rc-link"><a href="https://shopee.tw/ciazhan" target="_blank" rel="noopener">shopee.tw/ciazhan</a></div>
+    </div>
+  </div>
+  <div class="callout tip">
+    <b>💰 下單時機：每月活動日</b>
+    每月 <b>N 日（與月份同數日，如 8/8、9/9）、18 日、25 日</b>是蝦皮活動日，可同時領<b>賣場折價券＋蝦皮平台折價券</b>疊加使用。估好價先加購物車，等活動日再結帳。
+  </div>
+</section>
+
+<!-- ═══ B 他牌比較 ═══ -->
+<section id="s-alt">
+  <h2><span class="badge">B</span>他牌角鋼比較</h2>
+  <p>下單前可自行搜尋「角鋼」比較其他品牌。青翎點名的替代類型：</p>
+  <div class="rc-grid">
+    <div class="rc">
+      <div class="pills"><span class="pill other">他牌</span><span class="pill ok">PChome 實查 $2,080</span></div>
+      <div class="rc-name">岩熔碳鋼角鋼（FL 生活+ FL-264）</div>
+      <div class="rc-why">快裝式免螺絲設計，立柱自帶裝飾板、中間層板是鋼板，質感較好；但尺寸多為固定規格（此款 30×60×118 cm 四層），彈性不如空間特工可客製。</div>
+      <div class="rc-link"><a href="https://24h.pchome.com.tw/prod/DEBA6G-A900BFO8S" target="_blank" rel="noopener">PChome 商品頁</a></div>
+    </div>
+  </div>
+  <div class="callout info">
+    <b>比較重點</b>
+    空間特工走「客製尺寸＋配件生態系」路線；岩熔碳鋼這類固定規格品勝在外觀與快裝，但後續擴充（洞洞板、活動輪、抽屜櫃）的相容彈性較差。要長期擴充的收納牆，先確認孔位系統再選邊。
+  </div>
+</section>
+
+<!-- ═══ C 配件 ═══ -->
+<section id="s-parts">
+  <h2><span class="badge">C</span>角鋼配件</h2>
+  <div class="rc-grid">
+    <div class="rc">
+      <div class="pills"><span class="pill brand">原廠</span><span class="pill other">蝦皮</span></div>
+      <div class="rc-name">空間特工原廠配件專區</div>
+      <div class="rc-why">原廠配件收藏頁，孔位保證相容。</div>
+      <div class="rc-link"><a href="https://shopee.tw/ciazhan?page=0&amp;shopCollection=118230318" target="_blank" rel="noopener">賣場配件 collection</a></div>
+    </div>
+    <div class="rc">
+      <div class="pills"><span class="pill other">他廠相容</span><span class="pill warn">商品頁需真人瀏覽器</span></div>
+      <div class="rc-name">碰世代 相容配件</div>
+      <div class="rc-why">他廠出的角鋼相容配件，價格常比原廠便宜，孔位相容空間特工。</div>
+      <div class="rc-link"><a href="https://shopee.tw/product/556800/25930833981" target="_blank" rel="noopener">蝦皮商品頁</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ D 活動輪 ═══ -->
+<section id="s-wheels">
+  <h2><span class="badge">D</span>活動輪</h2>
+  <div class="tblwrap"><table>
+    <tr><th style="width:110px">來源</th><th>規格</th><th>孔位影響</th><th>連結</th></tr>
+    <tr>
+      <td><span class="pill brand">原廠</span></td>
+      <td>三吋</td>
+      <td>佔用底部<b>第一孔</b></td>
+      <td><a href="https://shopee.tw/product/12244/55602754411" target="_blank" rel="noopener">蝦皮商品頁</a></td>
+    </tr>
+    <tr>
+      <td><span class="pill other">他廠</span></td>
+      <td>四吋</td>
+      <td>鎖孔在<b>第三孔</b>。搭 8–9 mm 木板時，橫桿可裝第一、二孔；若用 18 mm 木板，橫桿只能從<b>第四、五孔</b>開始裝</td>
+      <td><a href="https://shopee.tw/product/337656000/7962426561" target="_blank" rel="noopener">蝦皮商品頁</a></td>
+    </tr>
+  </table></div>
+  <div class="callout warn">
+    <b>⚠️ 先想好底層配置再選輪</b>
+    輪子吃掉的底部孔位會直接限制最底層層板／橫桿的安裝高度，尤其搭配厚木板（18 mm）時，四吋輪方案的底層會被墊高。估價前先確定「要不要輪子＋層板厚度」。
+  </div>
+</section>
+
+<!-- ═══ E 洞洞板 ═══ -->
+<section id="s-peg">
+  <h2><span class="badge">E</span>洞洞板</h2>
+
+  <h3>A 類：可直接掛角鋼孔位</h3>
+  <div class="rc-grid">
+    <div class="rc">
+      <div class="pills"><span class="pill brand">原廠</span><span class="pill warn">商品頁需真人瀏覽器</span></div>
+      <div class="rc-name">空間特工 金屬洞洞板</div>
+      <div class="rc-why">原廠金屬洞洞板，直接掛角鋼孔位。</div>
+      <div class="rc-link"><a href="https://shopee.tw/product/12244/26328720278" target="_blank" rel="noopener">蝦皮商品頁</a></div>
+    </div>
+    <div class="rc">
+      <div class="pills"><span class="pill other">他廠</span><span class="pill warn">商品頁需真人瀏覽器</span></div>
+      <div class="rc-name">撥撥的架子 金屬洞洞板</div>
+      <div class="rc-why">他廠金屬洞洞板，可掛角鋼孔位。</div>
+      <div class="rc-link"><a href="https://shopee.tw/product/26590801/28766005049" target="_blank" rel="noopener">蝦皮商品頁</a></div>
+    </div>
+    <div class="rc">
+      <div class="pills"><span class="pill other">他廠</span><span class="pill warn">商品頁需真人瀏覽器</span></div>
+      <div class="rc-name">碰世代 木質洞洞板</div>
+      <div class="rc-why">木質質感版本，可掛角鋼孔位。兩款規格：</div>
+      <div class="rc-link">
+        <a href="https://shopee.tw/product/556800/26301082908" target="_blank" rel="noopener">款式一</a> ·
+        <a href="https://shopee.tw/product/556800/24486156679" target="_blank" rel="noopener">款式二</a>
+      </div>
+    </div>
+  </div>
+
+  <h3>B 類：需用束線帶固定</h3>
+  <div class="rc-grid">
+    <div class="rc">
+      <div class="pills"><span class="pill other">他廠</span><span class="pill other">蝦皮</span></div>
+      <div class="rc-name">寵傢好 木質洞洞板</div>
+      <div class="rc-why">須用束線帶固定於角鋼。<b>90 cm</b> 可單買木板搭 <b>3 呎角鋼</b>；<b>60 cm</b> 可配 <b>2 呎角鋼</b>，但 60 能不能單買木板要先問賣家。</div>
+      <div class="rc-link"><a href="https://shopee.tw/browntseng?page=0&amp;shopCollection=257378671" target="_blank" rel="noopener">賣場 collection</a></div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <b>📌 相容性註記（青翎）</b>
+    碰世代與寵傢好的洞洞板<b>孔位相容</b>；碰世代預設板材厚度薄一點，但兩家配件大致相容。<b>其他品牌</b>的洞洞板配件則不一定相容，混搭前先確認孔徑與孔距。
+  </div>
+</section>
+
+<!-- ═══ F 抽屜櫃 ═══ -->
+<section id="s-drawer">
+  <h2><span class="badge">F</span>抽屜櫃 × 角鋼呎數對照</h2>
+  <p>把市售抽屜櫃塞進角鋼層架的尺寸公式（櫃寬組合 → 適用角鋼呎數）：</p>
+  <div class="tblwrap"><table>
+    <tr><th>系列</th><th>寬度組合</th><th>適用角鋼</th><th>連結</th></tr>
+    <tr>
+      <td rowspan="2"><b>樹德 MB 抽屜櫃</b></td>
+      <td class="mono">55 + 27</td>
+      <td><b>3 呎</b></td>
+      <td rowspan="2"><a href="https://www.shuter.com.tw/tw/product/mb" target="_blank" rel="noopener">shuter.com.tw / MB</a></td>
+    </tr>
+    <tr>
+      <td class="mono">55 + 55</td>
+      <td><b>4 呎</b></td>
+    </tr>
+    <tr>
+      <td><b>樹德 OA 鋅鐵合金櫃</b></td>
+      <td>桌上型 A4</td>
+      <td><b>2 呎</b></td>
+      <td><a href="https://www.shuter.com.tw/tw/product/oa" target="_blank" rel="noopener">shuter.com.tw / OA</a></td>
+    </tr>
+    <tr>
+      <td rowspan="3"><b>無印良品 聚丙烯收納</b></td>
+      <td class="mono">55</td>
+      <td><b>2 呎</b></td>
+      <td rowspan="3"><a href="https://shop.muji.tw/v2/official/SalePageCategory/483101" target="_blank" rel="noopener">shop.muji.tw PP 收納</a></td>
+    </tr>
+    <tr>
+      <td class="mono">55 + 55</td>
+      <td><b>4 呎</b></td>
+    </tr>
+    <tr>
+      <td class="mono">55 + 34 + 34</td>
+      <td><b>4.5 呎</b></td>
+    </tr>
+  </table></div>
+  <div class="callout tip">
+    <b>🧮 寬度換算備忘</b>
+    <span class="mono">55 = 27 + 27 = 18 + 18 + 18</span> — 樹德 MB 系列的寬度模組可互換拼組，同一格 55 cm 的空間可以放一個 55、兩個 27 或三個 18 寬的櫃子。
+  </div>
+</section>
+
+<!-- ═══ G 來源 ═══ -->
+<section id="s-src">
+  <h2><span class="badge">G</span>來源與驗證聲明</h2>
+  <ul>
+    <li>本頁內容為<b>青翎分享的採購筆記</b>之忠實整理（2026/08/21），孔位規則、尺寸對照與相容性註記皆照原文保留，未另行實測。</li>
+    <li>全部連結於 <b>2026/08/21</b> 逐一 curl 驗證：估價系統、蝦皮賣場／collection 頁、寵傢好、樹德 MB/OA、無印良品皆回 200 存活。</li>
+    <li><b>蝦皮商品深連結（7 條）curl 回 403</b> — 蝦皮反爬蟲擋自動抓取，<b>真人瀏覽器可正常開啟</b>，連結照樣保留。</li>
+    <li>PChome 岩熔碳鋼架經 PChome 搜尋 API 實查：FL 生活+ FL-264（30×60×118 cm 四層），售價 <b>NT$2,080</b>（2026/08/21 快照，購買前以商品頁即時價為準）。</li>
+    <li>「每月活動日 N 日」指蝦皮每月與月份同數的大促日（如 8/8、9/9），為對原文「N」的合理解讀；實際檔期以蝦皮公告為準。</li>
+  </ul>
+</section>
+
+<footer>
+  <a href="./index.html">← 回 home-research 首頁</a> · 建立 2026/08/21 · 資料來源：青翎採購筆記 + PChome API 實查
+</footer>
+
+</div>
+<script>
+(function(){
+  var fill=document.getElementById('rpnFill'),
+      sideFill=document.getElementById('rpnSideFill'),
+      navbar=document.getElementById('rpnNavbar'),
+      tocLinks=[].slice.call(document.querySelectorAll('#rpnToc a')),
+      dockLinks=[].slice.call(document.querySelectorAll('#rpnDock a')),
+      secs=tocLinks.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function update(){
+    var d=document.documentElement,
+        max=d.scrollHeight-d.clientHeight,
+        pct=max>0?(d.scrollTop||document.body.scrollTop)/max*100:0;
+    if(fill)fill.style.width=pct+'%';
+    if(sideFill)sideFill.style.height=pct+'%';
+    var line=(navbar&&navbar.offsetParent?navbar.getBoundingClientRect().bottom:0)+8,
+        idx=0;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i]&&secs[i].getBoundingClientRect().top<=line)idx=i;
+    }
+    if(pct>99.2)idx=secs.length-1;
+    tocLinks.forEach(function(a,i){a.classList.toggle('active',i===idx);});
+    dockLinks.forEach(function(a,i){a.classList.toggle('active',i===idx);});
+    var act=tocLinks[idx];
+    if(act&&act.scrollIntoView&&navbar&&navbar.offsetParent){
+      act.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+    }
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  tocLinks.concat(dockLinks).forEach(function(a){
+    a.addEventListener('click',function(){setTimeout(update,400);});
+  });
+  update();
+})();
+</script>
+</body>
+</html>
